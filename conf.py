@@ -26,7 +26,7 @@ project = 'Technical Reference Manual'
 copyright = ', INTERMAGNET'
 author = 'Technical Manual Team'
 release = re.sub('^v', '', os.popen('git describe').read().strip())
-release ='draft'
+release ='0.0.1'
 version = release
 
 
