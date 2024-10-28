@@ -1,0 +1,413 @@
+.. _app_iaga_2002:
+
+IAGA2002 INTERMAGNET Exchange Format (Spreadsheet compatible)
+-------------------------------------------------------------
+
+This ASCII Exchange Format, adopted in August 2001 and revised in
+December 2001, July 2003 and in August 2011, is intended as a data
+exchange format for geomagnetic data (samples and means) from
+observatories and variometer stations at time intervals from millisecond
+up to and including monthly means. The format comprises:
+
+- Twelve (12) mandatory file header records.
+- Unlimited optional comment records.
+- One (1) mandatory data header record.
+- A series of data records.
+- **Every record is 70 characters long** plus the machine-dependent
+  carriage return/line feed.
+
+Pad records with spaces if needed. Data records report exactly 4
+magnetic field elements (DHIF, DHZF, XYZF, or DHIG, DHZG, XYZG where G =
+DF).
+
+Use missing data values (8's or 9's) if fewer than 4 elements are
+available.
+
+The 12 Mandatory File Header Records
+````````````````````````````````````
+
+Mandatory header and optional comment records begin with a space
+character in column 1 and end with the vertical bar \| (ASCII 124) in
+column 70. Content labels begin in column 2 and descriptions begin in
+column 25.
+
+- This **format** is designated IAGA-2002.
+- **Source of Data** is the name of the institute responsible for
+  collecting the data.
+- Please spell the entire **station name**; do not use abbreviations.
+  Capitalize the first letter.
+- The **IAGA Code** is the official IAGA 3-letter station code. It
+  should be in capital letters and correspond to the IAGA list of
+  magnetic observatories.
+- Location of the station is reported to the one thousandth degree in
+  **geodetic latitude** (positive north) from -90 to 90 degrees and in
+  **geodetic longitude** (positive east) -180 to 180 or 0 to 360
+  degrees. Geographic location is reported using WGS-84 datum
+- Report **elevation** in meters above mean sea level.
+- **Reported** refers to the magnetic field elements contained in the
+  data record, **in the order recorded in data record**. Valid values
+  are DHIF, DHZF, and XYZF (or DHIG, DHZG,and XYZG where G = DF). Use
+  E/V instead of D/I for declination/inclination given in intensity
+  units (ONLY if data type is variation).
+- **Sensor Orientation** is the physical orientation of the observing
+  instruments, i.e. XYZF, HDZ.
+- **Digital Sampling** is the rate (in seconds) of the data sampling of
+  the magnetic field sensor (instrument) or the digitizing interval for
+  analogue data.
+- **Data interval** type is the mean or instantaneous time interval of
+  the data. Common values include 1-minute (00:30-01:29), 1-minute
+  (00:00-00:59), 1-hour (00-59), 1-day (00-23) and 1-month (01-31); the
+  last day could also be 30, 29, or 28. There are many possible
+  intervals, including a fraction of a second (instant value), averages
+  by 1-second (501-1500), 1- second (0-1000), 10 second, or 2.5 minute.
+  **Define the type of mean and how values are centered in the comment section.**
+- **Data type** is provisional (P), definitive(D), quasi-definitive
+  (Q), or variation (V).
+- **Publication date** (optional) is the date when the data is
+  published. This was added in June 2015. The inclusion of this line is
+  (#13) optional but desirable for the modern data. The old data files
+  cannot be modified (e.g. Publication date 2014-10-20).
+
+The Optional Comment Header Records
+```````````````````````````````````
+
+Use these records to record important information concerning the data
+that is not contained in the defined fields. Types of information may
+include the type of means and how the mean values are centered,
+important gaps in the data record, or explanations of missing values (9
+filled element field).
+
+- Every record begins with a space character in column 1 and # (hash or
+  number sign) in column 2.
+
+- The end of each record is indicated with a vertical bar \| (ASCII
+  124) in column 70.
+
+- For transmission of incomplete day files include two additional
+  optional comment headers stating the start time and duration in
+  seconds. These records must have the form:
+
+   - Start Time hh:mm:ss
+   - Duration-in-seconds sssss
+
+- If the data file contains absolute values (Data Type provisional or
+  definitive), include the formula for computing the missing
+  (non-reported) magnetic elements. For example, if an observatory
+  reports XYZF, the comments should contain the formula for computing
+  HDI (see sample data header and data record for 1-minute values).
+
+- If the data file contains variometer values without considering base
+  line values (Data Type variation), formula and constants are to be
+  given to convert the recorded magnetic elements into others or to
+  convert angular units into nT or vice versa. The possible conversions
+  are:
+
+      - E = D \* Ha \* arc(1')
+      - V = I \* Fa \* arc(1')
+      - X = H \* cos(Da) – E\* sin(Da)
+      - Y = H \* sin(Da) + E\* cos(Da)
+      - Z = F \* sin(Ia) + V \* cos(Ia)
+      - F = Z \* sin(Ia) + H \* cos(Ia)
+      - H = X \* cos(Da) + Y \* sin(Da) = F \* cos(Ia) – V \* sin(Ia)
+      - E = Y \* cos(Da) – X \* sin(Da)
+      - V = Z \* cos(Ia) – H \* sin(Ia)
+
+  X, Y, Z, H, F, E, V in nT; D, I in minutes of arc
+
+  arc(1') = 2.9089E-04 = 0.00029089
+
+  Ha, Fa, Da, Ia : approximate values of H, F, D, I (eg the most recent
+  annual mean value or a value from the IGRF)
+
+  The formula and constants are to be given in additional optional
+  comment header lines (see sample data header and data record for 1-second values).
+
+The Mandatory Data Header Record
+````````````````````````````````
+
+The mandatory data-header record contains column headers useful for
+multi-station analysis. Elements, both type and order, are indicated in
+the file-header field Reported.
+
+- The date and time headers are DATE, TIME, and DOY (day of year).
+- The magnetic element headers comprise 4 letters: 3 letters for the
+  observatory IAGA code and 1 letter for the magnetic element reported.
+  Valid values are H, D (or E), I (or V), X, Y, Z, F (or G). The column
+  headers are space delimited.
+- The end of each record is indicated with a vertical bar \| (ASCII 124) in column 70.
+
+The Data Records
+````````````````
+
+The data records contain the date, time, and magnetic field elements
+reported. Report data to the least significant digit. Indicate missing
+data with 99999 to the corresponding accuracy for a given
+component(e.g., 99999.00). If an element is not observed, please record
+(to the corresponding accuracy for a given component) 88888 in that
+field. The format for field elements is 4(1X, F9.2). Each record is
+exactly 70 characters long plus the machine dependent carriage return /
+line feed.
+
+- DATE is the calendar date in ISO YYYY-MM-DD format (4-digit year,
+  month as 01-12, day as 01-31).
+- TIME is in ISO hh:mm:ss.sss format (hour as 0-24, minute as 0-59,
+  second as 0-59 Note: if the hour is 24, the minute and second must be
+  0). Values beyond the time interval of the means being reported must
+  be zero-filled.
+  i.e. 14:01:00.000 for 1 minute data for the 14th hour, first minute.
+  Describe the method of average, i.e., centered to the hour for hourly
+  means, in the comments area.
+- DOY is the day of the year, from 1 - 365 (or 366 for leap years).
+- D and I are reported in angular units of minutes of arc to the
+  precision of the instruments. F, H, X, Y, Z, E, G, and V are reported
+  in nanotesla and a fraction of nT.
+
+Recommended File Name Procedure
+````````````````````````````````
+
+To improve the ease with which data are exchanged and recognized, IAGA
+recommends the following guidelines and style for naming files
+containing magnetic observatory data. The recommendations closely follow
+the current International Standards Organization (ISO) Level II
+recommendations, and are fully compliant with both the Joliette
+extension to Level II and to the proposed modifications for the ISO
+standard. These recommendations are for data exchange and do not
+necessarily apply to data archive. Some changes have been made in this
+section in July 2003 to allow for existence of multiple fragments of
+data starting at different times (which is a possibility for some data
+transmission systems) and to ease usage with compression programs.
+
+- File names are composed of two parts, the base name and a
+  three-character extension. A full stop (period) separates the base
+  from the extension. The base name may be up to 27 characters long.
+  The extension is exactly three characters (total file name length not
+  to exceed 31 characters). This format is sometimes referred to as the
+  "27.3" format. BASENAME (1 to 27 characters) "." EXTENSION (3
+  characters). Ex. my_file_name.dat
+- File names are composed of lower case a-z, 0-9, underscore "_", and
+  dash "-" characters. No spaces, unusual characters (i.e. \*, /, \\,
+  :, ;, ?) or upper case characters allowed.
+- File names must begin with the IAGA 3-Letter Code, Date, and Type of
+  data. The Extension defines the Data Interval (monthly, daily,
+  hourly, minute, or second data). The Extension is duplicated in the
+  last three characters of the base name, so that if the Extension is
+  stripped on compression the Data Interval is not lost. The file name
+  only indicates the general data interval, specific information is
+  contained in the file header Data Interval field (i.e. 2.5 and
+  1-minute averages are both "minute" data, 10 second averages and 1
+  second instantaneous are both "second" data).
+- The first several characters in the base name are strictly defined.
+  Files may be further defined with the remaining characters by using
+  an underscore "_" to separate the standard name. For example,
+  naq20020101d.min and naq20020101d_2-5.min are both acceptable names
+  for 2.5 minute definitive data from Narsarsuaq.
+
+General format: iagyyyymmddtint.int
+
+Where:
+
+- iag = IAGA 3-letter observatory code
+- yyyy = four digit year (i.e. 2002)
+- mm = two digit month (i.e. 01 for January, 12 for December)
+- dd = two digit day of month (01-31)
+- t = type of data (p - provisional, d - definitive, q -
+  quasi-definitive v - variation)
+- int = data interval (mon - monthly, day - daily, hor - hourly, min -
+  minute, sec - second)
+
+.. tabularcolumns:: |p{2cm}|p{2cm}|p{1cm}|p{3cm}|p{4cm}|
+
+.. table::
+    :widths: auto
+    :align: center
+
+    ======= ============= ===== =================== ===================
+    Comment Data Interval Files File name pattern   Example name
+    ======= ============= ===== =================== ===================
+    1       Monthly       Year  iagyyyytint.int     naq2002dmon.mon
+    2       Daily         Year  iagyyyytint.int     naq2002dday.day
+    3       Hourly        Month iagyyyymmtint.int   naq200201phor.hor
+    4       Minute        Day   iagyyyymmddtint.int naq20020101pmin.min
+    5       Second        Day   iagyyyymmddtint.int naq20020211vsec.sec
+    ======= ============= ===== =================== ===================
+
+#. File contains 1 year of definitive monthly data for 2002 from
+   Narsarsuaq.
+#. File contains 1 year of definitive daily data for 2002 from
+   Narsarsuaq.
+#. File contains 1 month of provisional hourly data for January 2002
+   from Narsarsuaq.
+#. File contains 1 day of provisional minute data for 1 January 2002
+   from Narsarsuaq.
+#. File contains 1 day of variation second data for 11 February 2002
+   from Narsarsuaq.
+
+Additional format to handle multiple fragments of data starting at
+different times:
+
+iagyyyymmddhhMMsstint.int
+
+Where:
+
+- iag = IAGA 3-letter observatory code
+- yyyy = four digit year (i.e. 2002)
+- mm = two digit month (i.e. 01 for January, 12 for December)
+- dd = two digit day of month (01-31)
+- hh = hour at which data starts (00-23)
+- MM = minute at which data starts (00-59)
+- ss = second at which data starts (00-59)
+- t = type of data (p - provisional, d - definitive, v - variation)
+- int = data interval (mon - monthly, day - daily, hor - hourly, min -
+  minute, sec - second)
+
+
+.. tabularcolumns:: |p{1.5cm}|p{2cm}|p{1.5cm}|p{4.5cm}|p{4cm}|
+
+.. table::
+    :widths: auto
+    :align: center
+
+    ======= ============= ======== ========================= =========================
+    Comment Data Interval Files    File name pattern         Example name
+    1       Minute        Part-day iagyyyymmddhhMMtint.int   clf200306121320vmin.min
+    2       Second        Part-day iagyyyymmddhhMMsstint.int clf20030612132000vsec.sec
+    ======= ============= ======== ========================= =========================
+
+
+#. File contains part-day of 1-minute variation data from CLF for 12
+   June 2003, starting at 13:20
+#. File contains part-day of 1-second variation data from CLF for 12
+   June 2003, starting at 13:20:00
+
+Sample of IAGA-2002 Format July 2003 Revision
+`````````````````````````````````````````````
+
+Sample Data Header and Data Record for 1-minute Values
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. highlight:: none
+
+::
+
+      Format                 IAGA-2002                                    |
+      Source of Data         Danish Meteorological Institute              |
+      Station Name           Narsarsuaq                                   |
+      IAGA Code              NAQ                                          |
+      Geodetic Latitude      61.160                                       |
+      Geodetic Longitude     314.560                                      |
+      Elevation              4                                            |
+      Reported               XYZF                                         |
+      Sensor Orientation     DIF                                          |
+      Digital Sampling       0.01 seconds                                 |
+      Data Interval Type     Filtered 1-minute (00:30 - 01:29)            |
+      Data Type              Definitive                                   |
+      # This area is where the data source or distributor can include     |
+      # any additional information needed for proper use of data. For     |
+      # example, the observers name and contact, notes on a change of     |
+      # instrumentation, reasons for missing data values, definition of   |
+      # observed values, geomagnetic location of the observatory, etc.    |
+      # This area should also contain the formula for computing the non-  |
+      # reported elements and components of the INTERMAGNET binary        |
+      # format which do not fit elsewhere. These include:                 |
+      # D-conversion:                                                     |
+      # = H/3438*10000.                                                   |
+      # which is word 8 in the INTERMAGNET binary format and is used      |
+      # to convert variations of D in minutes of arc <-> nT. Please       |
+      # note that all of the header records and comment records begin     |
+      # with a space in column 1, end with a | (ASCII 124), and are       |
+      # padded with spaces - never with tabs.                             |
+      # H = squareroot(X*X + Y*Y), cos D = X/H, sin I = Z/F               |
+     DATE       TIME         DOY     NAQX      NAQY      NAQZ      NAQF   |
+     2001-03-13 00:00:00.000 072     10800.11 -6100.23   53381.51  54801.12
+     2001-03-13 00:01:00.000 072     10800.31 -6100.20   53381.51  54801.12
+     2001-03-13 00:02:00.000 072     10801.11 -6101.23   99999.00  54801.12
+     2001-03-13 00:03:00.000 072     10803.12 -6100.23   99999.00  54801.12
+
+
+Sample Data Header and Data Record for Hourly Values
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+| The header record for Data Interval Type might read:
+| Data Interval Type 1-hour (00 - 59). Note filler for non-reported element.
+
+::
+
+     DATE       TIME         DOY     NAQX      NAQY      NAQZ      NAQF   |
+     2001-03-13 00:00:00.000 072     10800.11 -6100.23   53381.51  88888.00
+     2001-03-13 01:00:00.000 072     10800.31 -6100.20   53381.51  88888.00
+     2001-03-13 02:00:00.000 072     10801.11 -6101.23   53381.50  88888.00
+     2001-03-13 03:00:00.000 072     10803.12 -6100.23   99999.00  88888.00
+
+
+Sample Data Header and Data Record for Monthly Values
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+| The header record for Data Interval Type might read:
+| Data Interval Type 1-month (01 - 31). Note filler for non-reported element.
+
+
+::
+
+    DATE       TIME         DOY     NAQX      NAQY      NAQZ      NAQF   |
+    2001-01-15 00:00:00.000 015     10800.11 -6100.23   53381.51  88888.00
+    2001-02-14 00:00:00.000 045     10800.31 -6100.20   53381.51  88888.00
+    2001-03-15 00:00:00.000 074     10801.11 -6101.23   53381.50  88888.00
+    2001-04-15 00:00:00.000 105     10803.12 -6100.23   99999.00  88888.00
+
+
+Sample Data Header and Data Record for 1-second Values
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. highlight:: none
+
+::
+
+    Format                 IAGA-2002                                    |
+    Source of Data         Danish Meteorological Institute              |
+    Station Name           Narsarsuaq                                   |
+    IAGA CODE              NAQ                                          |
+    Geodetic Latitude      61.160                                       |
+    Geodetic Longitude     314.560                                      |
+    Elevation              4                                            |
+    Reported               HEZF                                         |
+    Sensor Orientation     HEZF                                         |
+    Digital Sampling       1 seconds                                    |
+    Data Interval Type     1-second instantaneous                       |
+    Data Type              Variation                                    |
+    # This area should contain additional information needed            |
+    # in order to transform the reported elements. For the data in this |
+    # sample information about the declination at the observatory is    |
+    # needed in order to tranform the variation data from HEZ to the    |
+    # widely used XYZ orientation. Also information about the value of  |
+    # horizontal field H can be useful to convert E-variations in nT to |
+    # variations in minutes of arcs.                                    |
+    # E = D * Ha * 0.00029089                                           |
+    # Ha = 17123.45                                                     |
+    # X = H * cos(Da) B E* sin(Da)                                      |
+    # Y = H * sin(Da) + E* cos(Da)                                      |
+    # Da = 312.89 minutes of arc                                        |
+   DATE       TIME         DOY     NAQH      NAQE      NAQZ      NAQF   |
+   2001-03-13 00:00:00.000 072       800.11   -100.23    381.51  54801.12
+   2001-03-13 00:00:01.000 072       800.31   -100.20    381.51  54802.32
+   2001-03-13 00:00:02.000 072       801.11   -101.23  99999.00  54803.22
+   2001-03-13 00:00:03.000 072       803.12   -100.23  99999.00  54803.43
+
+
+Sample Data Header and Data Record for 5-Millisecond Values
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+| The header record for Data Interval Type might read:
+| Data Interval Type 5-millisecond (instantaneous values). Note filler for missing element.
+
+.. highlight:: none
+
+::
+
+    DATE       TIME         DOY     NAQX      NAQY      NAQZ      NAQF   |
+    2001-03-13 00:00:00.000 072     10800.11 -6100.23   53381.51  99999.00
+    2001-03-13 00:00:00.005 072     10800.31 -6100.20   53381.51  99999.00
+    2001-03-13 00:00:00.010 072     10801.11 -6101.23   53381.50  54801.12
+    2001-03-13 00:00:00.015 072     10803.12 -6100.23   99999.00  54801.12

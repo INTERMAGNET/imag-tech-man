@@ -8,3 +8,20 @@
     max-width: 100%;
     overflow: visible;
 }
+
+div.leftside {
+  width: 43%;
+  padding: 0px 3px 0px 0px;
+  float: left;
+}
+
+div.rightside {
+  margin-left: 45%;
+  /* float: right; */
+}
+
+div.after {
+  content: "";
+  display: table;
+  clear: both;
+}
