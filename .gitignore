@@ -2,3 +2,4 @@
 /venv/
 /_build/
 .idea/
+*backup
