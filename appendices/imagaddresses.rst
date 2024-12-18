@@ -186,19 +186,6 @@ INTERMAGNET Operations Committee Addresses
        | FAX: 33 (0) 1-71-93-77-09
        | INTERNET: vmaury@ipgp.fr
        |
-       |
-
-     * | **Achim Morschhauser**
-       | Helmholtz-Zentrum Potsdam
-       | Deutsches GeoForschungsZentrum GFZ
-       | Adolf-Schmidt-Observatorium für Erdmagnetismus
-       | Lindenstr. 7
-       | 14823 Niemegk
-       | Germany
-       | TEL: +49 (0)33843-624-14
-       | FAX: +49 331-228-1235
-       | INTERNET: mors@gfz-potsdam.de
-       |
 
      * | **Tero Raita**
        | Sodankyla Geophysical Observatory

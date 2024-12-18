@@ -36,7 +36,7 @@ Executive Council and Operations Committee provided by past members.
       |
       |
       |          
-
+      |
 
     * | **OPSCOM**
       | Lanny Wilson (USA)
@@ -61,9 +61,10 @@ Executive Council and Operations Committee provided by past members.
       | Hans-Joachim Linthe (Germany)
       | Masahito Nosé (Japan)
       | Duff Stuart (USA)
-      | Jean Rasson (Belgique)
+      | Jean Rasson (Belgium)
       | Tim White (USA)
       | Simon Flower (UK)
       | Sergey khomutov (Russia)
       | Hiroaki Toh (Japan)
       | Benoit St-Louis (Canada)
+      | Achim Morschhauser (Germany)
