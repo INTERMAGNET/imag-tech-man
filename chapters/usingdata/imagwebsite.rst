@@ -92,7 +92,7 @@ definitive data set since INTERMAGNET’s first recorded definitive data in 1991
 This DOI-referenced annual data set is known as the "INTERMAGNET Reference Data Set" (IRDS).
 The IRDS comprises all INTERMAGNET one-minute definitive data since 1991 and is annually updated
 with a new year and occasional corrections to previous releases.
-The different releases of the IRDS can be found on the INTERMAGNET web site :|imag_data_con|.
+The different releases of the IRDS can be found on the INTERMAGNET web site :|download_plot_data|.
 
 The IRDS are deployed on the servers of the GFZ German Research Centre for Geosciences.
 File names for IRDS data are formatted in the form mag<year>_def<year>.zip.

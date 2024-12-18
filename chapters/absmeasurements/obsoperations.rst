@@ -3,6 +3,7 @@
 Observatory Operations
 ======================
 
+
 INTERMAGNET recommends:
 
 #. Making weekly absolute observations, avoiding intervals of

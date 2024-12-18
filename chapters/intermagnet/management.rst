@@ -3,6 +3,9 @@
 INTERMAGNET Management
 ======================
 
+Executive Council
+-----------------
+
 The  Executive Council establishes policy for INTERMAGNET, deals
 with questions of international participation and data
 exchange, and communicates with national agencies and
@@ -21,6 +24,9 @@ international scientific and funding agencies.
     Jürgen Matzka  Germany
     ============== =========================
 
+Operations Committee
+--------------------
+
 The Operations Committee advises the Executive Council on
 matters relating to magnetic sensors, data capture and data
 processing, and on communications options, protocols, etc. The
@@ -28,32 +34,81 @@ Operations Committee is also responsible for establishing and
 maintaining standards of operation and uniform data formats and
 transmission characteristics which optimize global exchange.
 
-.. table:: Operations Council membership
+The Operations Commitee is led by:
+
+    - Jürgen Matzka, Chairman
+    - Andrew Lewis, Secretary
+
+.. tabularcolumns:: |p{3.5cm}|p{2cm}|p{2cm}|p{2.5cm}|p{2cm}|p{2.5cm}|
+
+.. table:: Operations Committee Structure
     :widths: auto
     :align: center
 
-    ====================== ==============
-    Charles Blais          Canada
-    Stephan Bracke         Belgium
-    Simon M. Flower        United Kingdom
-    Benoit Heumez          France
-    Shun Imajo             Japan
-    Roman Leonhardt        Austria
-    Andrew Lewis           Australia
-    Jürgen Matzka          Germany
-    Virginie Maury         France
-    Achim Morschhauser     Germany
-    Tero Raita             Finland
-    Jan Reda               Poland
-    Christopher W. Turbitt United Kingdom
-    ====================== ==============
-
-.. _inter_man_org:
-
-.. figure:: ../../img/inter_man_chart.png
-    :align: center
-    :scale: 100 %
-    :alt: Intermagnet organigram
-
-    Intermagnet organigram
-
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Name          | Definitive | GINS   | IMO applications | Technical   | Instrumentation      |
+    |               | Data       |        | and Standards    | Manual      | and                  |
+    |               |            |        |                  |             |                      |
+    |               |            |        |                  |             | Data acquisition     |
+    |               |            |        |                  |             |                      |
+    +===============+============+========+==================+=============+======================+
+    | Andras        |            |        |                  | Member      |                      |
+    | Csontos       |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Andrew        |            |        | Deputy           | Member      |                      |
+    | Lewis         |            |        | Chair            |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Benoit        | Deputy     |        | Member           |             |                      |
+    | Heumez        | Chair      |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Brendan       |            | Member |                  |             |                      |
+    | Geels         |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Charles       |            | Member |                  |             |                      |
+    | Blais         |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Chris         |            |        | Chair            | Deputy      |                      |
+    | Turbitt       |            |        |                  | Chair       |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | David         |            |        | Member           |             |                      |
+    | Calp          |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Jan Reda      | Co-Chair   |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Jürgen        |            |        | Member           |             |                      |
+    | Matzka        |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Kristina      | Member     |        |                  |             |                      |
+    | Rossavik      |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Maggie        | Member     |        | Member           |             |                      |
+    | Pueringer     |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Marcos        | Member     |        |                  |             |                      |
+    | Vinicius      |            |        |                  |             |                      |
+    | da Silva      |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Matthew       | Member     |        | Member           |             |                      |
+    | Gard          |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Roman         | Co-Chair   |        |                  |             |                      |
+    | Leonhardt     |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Seiki         |            |        |                  | Member      |                      |
+    | Asari         |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Shun          |            | Member |                  |             |                      |
+    | Imajo         |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Simon         | Member     | Chair  |                  |             |                      |
+    | Flower        |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Stephan       |            | Member |                  | Chair       |                      |
+    | Bracke        |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Tero          | Member     |        | Member           |             |                      |
+    | Raita         |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
+    | Virginie      |            | Member |                  |             |                      |
+    | Maury         |            |        |                  |             |                      |
+    +---------------+------------+--------+------------------+-------------+----------------------+
