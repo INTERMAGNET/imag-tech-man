@@ -21,12 +21,7 @@
 .. |faq_qd| replace:: https://intermagnet.org/faq/04.what-is-quasi.html
 .. |faq_bgs_qd| replace:: https://intermagnet.org/faq/08.bgs-quasi.html
 .. |faq_ipgp_qd| replace:: https://intermagnet.org/faq/09.ipgp-quasi.html
-
-.. |imag_ftp| replace:: ftp://ftp.seismo.nrcan.gc.ca/intermagnet/
 .. |imag_software| replace:: https://intermagnet.org/software.html
-.. |imag_data_con| replace:: https://intermagnet.org/data_conditions.html
-
-.. |imag_software_bgs| replace:: https://geomag.bgs.ac.uk/data_service/intermagnet/home.html
 
 .. |iaga_guide| replace:: http://www.iaga-aiga.org/data/uploads/pdf/guides/iaga-guide-observatories.pdf
 .. |git_hub_pages| replace:: https://pages.github.com/
@@ -48,8 +43,7 @@
 .. |istp_gattr| replace:: http://spdf.gsfc.nasa.gov/istp_guide/gattributes.html
 .. |istp_vattr| replace:: http://spdf.gsfc.nasa.gov/istp_guide/vattributes.html
 
-.. |def_data| replace:: https://intermagnet.org/data_conditions.html
-.. |download_plot_data| replace:: https://intermagnet.org/new_data_download.html
+.. |download_plot_data| replace:: https://intermagnet.org/data_download.html
 
 .. |matzka_qd| replace:: https://publicaciones.defensa.gob.es/boletin-roa-n-3-2013-proceedings-of-the-xvth-iaga-workshop-on-geomagnetic-observatory-instruments-data-acquisition-and-processing.html
 .. |matzka_hansen| replace:: https://pub.igf.edu.pl/files/Pdf/Pubs/37.pdf?t=1702373167

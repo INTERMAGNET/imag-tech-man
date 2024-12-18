@@ -399,7 +399,7 @@ Any enquiries to individual GINs should be made to the
 INTERMAGNET GIN Manager at the following addresses:
 
 | **USGS - USA:**
-| Abram Claycomb
+| Brendan Geels
 | U.S. Geological Survey
 | Box 25046 MS 966
 | Denver Federal Center
@@ -445,7 +445,7 @@ INTERMAGNET GIN Manager at the following addresses:
 | Internet: p_ginman@ipgp.fr
 
 | **Kyoto University - Japan:**
-| Hiroaki Toh
+| Shun Imajo
 | Data Analysis Center for Geomagnetism and
 | Space Magnetism
 | Graduate School of Science, Bldg #4
