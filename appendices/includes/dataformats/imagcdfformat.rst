@@ -779,7 +779,8 @@ for version 1.20 should be used for the contents of these files:
 ImagCDF Global Attributes (V1.30)
 """""""""""""""""""""""""""""""""
 
-There are no changes to the global attributes in the format since version 1.20. See the
+There are no changes to the global attributes in the format since version 1.20,
+except that the "FormatVersion" global attribute should be set to "1.30". See the
 global attributes documentation for :ref:`version 1.20<app_cdf_v1_20_gattr>`.
 
 .. _app_cdf_v1_30_vattr:
