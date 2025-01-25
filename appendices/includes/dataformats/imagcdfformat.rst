@@ -136,7 +136,7 @@ features:
 Geomagnetic data is held in variables called GeomagneticField <E>
 where <E> represents the code for the geomagnetic element recorded
 - see section :ref:`app_cdf_v1_20_gattr_valid_codes`
-for a list of valid codes (in version 1.20). The variable has 0 dimensions,
+for a list of valid codes (in version 1.2). The variable has 0 dimensions,
 each consecutive record holding individual consecutive data samples in CDF double data type,
 starting at record 1. Missing data values are represented by a
 data sample that contains the same number as is present in the
@@ -209,15 +209,15 @@ variables and attributes read from an ImagCDF file.
 
 .. _app_cdf_v1_20:
 
-ImagCDF Version 1.20
-````````````````````
+ImagCDF Version 1.2
+```````````````````
 
-The descriptions in this section apply to version 1.20 of ImagCDF.
+The descriptions in this section apply to version 1.2 of ImagCDF.
 
 .. _app_cdf_v1_20_gattr:
 
-ImagCDF Global Attributes (V1.20)
-"""""""""""""""""""""""""""""""""
+ImagCDF Global Attributes (V1.2)
+""""""""""""""""""""""""""""""""
 
 The following attributes apply to all the data in an ImagCDF file.
 The "Entries" column shows whether the attribute has:
@@ -238,8 +238,8 @@ Superscript numbers following the attribute name show:
 
 .. _app_cdf_v1_20_gattr_describe_data:
 
-Attributes that Describe the Data Format (V1.20)
-################################################
+Attributes that Describe the Data Format (V1.2)
+###############################################
 
 These are 'constant' values that will be the same for all ImagCDF
 files. They allow 'generic' CDF programs to understand and process
@@ -262,8 +262,8 @@ the data correctly.
 
 .. _app_cdf_v1_20_gattr_unique_id:
 
-Attributes that Uniquely Identify the Data (V1.20)
-##################################################
+Attributes that Uniquely Identify the Data (V1.2)
+#################################################
 
 The attributes in this section are sufficient, along with the
 start date and duration of the time series, to uniquely identify a
@@ -321,8 +321,8 @@ piece of geomagnetic data.
 
 .. _app_cdf_v1_20_gattr_obs:
 
-Attributes that Describe the Observatory (V1.20)
-################################################
+Attributes that Describe the Observatory (V1.2)
+###############################################
 
 These attributes are available from other metadata systems (given
 an IAGA code), but are included for convenience of the user.
@@ -361,8 +361,8 @@ an IAGA code), but are included for convenience of the user.
 
 .. _app_cdf_v1_20_gattr_stand_q:
 
-Attributes that Relate to Data Standards and Quality (V1.20)
-############################################################
+Attributes that Relate to Data Standards and Quality (V1.2)
+###########################################################
 
 These attributes describe the standards, if any, that the data
 meets.
@@ -406,8 +406,8 @@ meets.
     | PartialStandDesc        | String    | 0 - 1   | See section :ref:`app_cdf_v1_20_gattr_rel_stand` |
     +-------------------------+-----------+---------+--------------------------------------------------+
 
-Attributes that Relate to Publication of the Data (V1.20)
-#########################################################
+Attributes that Relate to Publication of the Data (V1.2)
+########################################################
 
 These attributes are needed when that data is published.
 
@@ -457,8 +457,8 @@ These attributes are needed when that data is published.
 
 .. _app_cdf_v1_20_gattr_valid_codes:
 
-Valid Codes for Elements Recorded (V1.20)
-#########################################
+Valid Codes for Elements Recorded (V1.2)
+########################################
 
 - 'X', 'Y', or 'Z' indicate that the variable holds the strength
   of the magnetic field vector in the standard geographic
@@ -491,8 +491,8 @@ understood.
 
 .. _app_cdf_v1_20_gattr_rel_stand:
 
-Relevant Data Standards (V1.20)
-###############################
+Relevant Data Standards (V1.2)
+##############################
 
 Different geomagnetic data products have different standards
 associated with them. This table shows what standards are being
@@ -645,8 +645,8 @@ meets the time stamp accuracy and thermal stability sections of the
 
 .. _app_cdf_v1_20_vattr:
 
-ImagCDF Variable Attributes (V1.20)
-"""""""""""""""""""""""""""""""""""
+ImagCDF Variable Attributes (V1.2)
+""""""""""""""""""""""""""""""""""
 
 The following attributes apply to individual variables - there is an
 attribute entry for each geomagnetic field element or temperature in an
@@ -706,8 +706,8 @@ GeomagneticVectorTimes and GeomagneticScalarTimes.
 .. [#f6]  The attribute is part of the ISTP/IACG guidelines - |istp_vattr|
 
 
-ImagCDF File Names (V1.20)
-""""""""""""""""""""""""""
+ImagCDF File Names (V1.2)
+"""""""""""""""""""""""""
 
 ImagCDF files are named using the convention::
 
@@ -722,8 +722,8 @@ ImagCDF files are named using the convention::
 Filenames are in lower case. Files may contain arbitrary amounts of data, however the amount of data
 is not coded into the filename.
 
-Format of Date/Time Portion of Filename and Examples (V1.20)
-############################################################
+Format of Date/Time Portion of Filename and Examples (V1.2)
+###########################################################
 
 The date/time portion of the filename is formatted differently for different data with different
 data intervals:
@@ -766,35 +766,35 @@ data intervals:
 
 .. _app_cdf_v1_30:
 
-ImagCDF Version 1.30
-````````````````````
+ImagCDF Version 1.3
+```````````````````
 
-The descriptions in this section apply to version 1.30 of ImagCDF.
+The descriptions in this section apply to version 1.3 of ImagCDF.
 
-Version 1.30 only changes the format of the ImagCDF filenames. The documentation
-for version 1.20 should be used for the contents of these files:
+Version 1.3 only changes the format of the ImagCDF filenames. The documentation
+for version 1.2 should be used for the contents of these files:
 
 .. _app_cdf_v1_30_gattr:
 
-ImagCDF Global Attributes (V1.30)
-"""""""""""""""""""""""""""""""""
+ImagCDF Global Attributes (V1.3)
+""""""""""""""""""""""""""""""""
 
-There are no changes to the global attributes in the format since version 1.20,
-except that the "FormatVersion" global attribute should be set to "1.30". See the
-global attributes documentation for :ref:`version 1.20<app_cdf_v1_20_gattr>`.
+There are no changes to the global attributes in the format since version 1.2,
+except that the "FormatVersion" global attribute should be set to "1.3". See the
+global attributes documentation for :ref:`version 1.2<app_cdf_v1_20_gattr>`.
 
 .. _app_cdf_v1_30_vattr:
 
-ImagCDF Variable Attributes (V1.30)
-"""""""""""""""""""""""""""""""""""
+ImagCDF Variable Attributes (V1.3)
+""""""""""""""""""""""""""""""""""
 
-There are no changes to the variable attributes in the format since version 1.20. See the
-varible attributes documentation for :ref:`version 1.20<app_cdf_v1_20_vattr>`.
+There are no changes to the variable attributes in the format since version 1.2. See the
+varible attributes documentation for :ref:`version 1.2<app_cdf_v1_20_vattr>`.
 
-ImagCDF File Names (V1.30)
-""""""""""""""""""""""""""
+ImagCDF File Names (V1.3)
+"""""""""""""""""""""""""
 
-Version 1.30 fixes some errors and omissions in the format of ImagCDF filenames.
+Version 1.3 fixes some errors and omissions in the format of ImagCDF filenames.
 
 ImagCDF files are named using the convention::
 
@@ -812,8 +812,8 @@ Filenames are in lower case. Files may contain any amount of data. The date/time
 be used to indicate the amount of data in the file - more information on this is given in the
 description of the date/time format.
 
-ISO 8601 Duration Strings for Common Geomagnetic Sample Periods (V1.30)
-#######################################################################
+ISO 8601 Duration Strings for Common Geomagnetic Sample Periods (V1.3)
+######################################################################
 
 .. tabularcolumns:: |p{3cm}|c|
 
@@ -835,8 +835,8 @@ ISO 8601 Duration Strings for Common Geomagnetic Sample Periods (V1.30)
 The table above is a set of examples. Other sample periods may be used provided that the sample
 period used represents the vector data and conforms to ISO 8601.
 
-Format of Date/Time Portion of Filename and Examples (V1.30)
-############################################################
+Format of Date/Time Portion of Filename and Examples (V1.3)
+###########################################################
 
 The date/time portion of the filename is formatted differently, depending on the amount of data
 the file contains (the data coverage). 
