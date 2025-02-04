@@ -166,7 +166,7 @@ in the series. If all data has the same sample rate, a single
 time stamp variable called DataTimes may be used. Otherwise
 time stamps for all the geomagnetic field vector
 variables are held in a single variable called
-GeomagneticVectorTimes and time stampes for the scalar data are
+GeomagneticVectorTimes and time stamps for the scalar data are
 held in a variable called
 GeomagneticScalarTimes. Time stamps for temperature data are held
 in variables called Temperature1Times, Temperature2Times and so
@@ -715,8 +715,8 @@ ImagCDF files are named using the convention::
 
 - Iaga-code is the three letter IAGA code for the observatory that the data is from. This should
   match the IAGA code in section :ref:`app_cdf_v1_20_gattr_unique_id`.
-- Date-time is the start date/time of the data in the file. The format for the date/time is
-  described below.
+- Date-time describes the data interval (or period) of the data along with the date/time of the data in the file. 
+  The format for the date/time is described below.
 - Publication-level is the PublicationLevel attribute from section :ref:`app_cdf_v1_20_gattr_unique_id`.
 
 Filenames are in lower case. Files may contain arbitrary amounts of data, however the amount of data
@@ -747,7 +747,7 @@ data intervals:
     |               |                  | at the beginning of 2010                                      |
     +---------------+------------------+---------------------------------------------------------------+
     | Hourly means  | YYYYMMDD_HH      | naq_20020201_00_4.cdf – final hourly mean data from NAQ in    |
-    |               |                  | January 2002                                                  |
+    |               |                  | February 2002                                                 |
     +---------------+------------------+---------------------------------------------------------------+
     | Minute means  | YYYYMMDD_HHMM    | naq_20020120_0000_3.cdf – 'bulletin' or quasi-definitive      |
     |               |                  | minute mean data from NAQ for 20th January 2002 starting at   |
@@ -802,8 +802,8 @@ ImagCDF files are named using the convention::
 
 - Iaga-code is the three letter IAGA code for the observatory that the data is from. This should
   match the IAGA code in section :ref:`app_cdf_v1_20_gattr_unique_id`.
-- Date-time is the start date/time of the data in the file. The format for the date/time is
-  described below.
+- Date-time describes the time coverage of the data (i.e. how much data is in the file) 
+  along with the date/time of the data in the file. The format for the date/time is described below.
 - Cadence refers to the data sample period and is formatted as an ISO 8601 duration. Some sample
   ISO 8601 durations are given below.
 - Publication-level is the PublicationLevel attribute from section :ref:`app_cdf_v1_20_gattr_unique_id`.
@@ -865,7 +865,7 @@ the file contains (the data coverage).
     |                |                  | mean data from NAQ starting at midnight on 1st February 2002  |
     +----------------+------------------+---------------------------------------------------------------+
     | One minute     | YYYYMMDD_HHMM    | naq_20020120_0000_pt1s_2.cdf – one minute of provisional      |
-    |                |                  | 1-second data from NAQ starting at 00:00 on 1st of February   |
+    |                |                  | 1-second data from NAQ starting at 00:00 on 20th of January   |
     |                |                  | 2002                                                          |
     +----------------+------------------+---------------------------------------------------------------+
     | One second     | YYYYMMDD_HHMMSS  | naq_20020120_012300_pt1s_1.cdf – one second of raw 1-second   |
