@@ -162,22 +162,34 @@ the temperature was recorded.
 
 Time stamps for the data are held in separate variables. Time
 stamps must represent a regular time series with no missing values
-in the series. If all data has the same sample rate, a single
-time stamp variable called DataTimes may be used. Otherwise
-time stamps for all the geomagnetic field vector
-variables are held in a single variable called
-GeomagneticVectorTimes and time stamps for the scalar data are
-held in a variable called
-GeomagneticScalarTimes. Time stamps for temperature data are held
-in variables called Temperature1Times, Temperature2Times and so
-on. These variables have 0 dimensions and must have the same
+in the series. 
+
+If all data in the CDF file (including non-geomagnetic data)
+has the same sample rate, a single time stamp variable called DataTimes 
+should be used. If all geomagnetic data has the same sample rate
+(but other data has different sample rates), a time
+stamp variable called GeomagneticTimes should be used for the  
+geomagnetic data, and time stamps for temperature data should be called
+TemperatureTimes (if all temperature data has the same sample rate) or 
+Temperature1Times, Temperature2Times, ... (for temperature data with 
+different sample rates). If the geomagnetic vector and scalar data have
+different sample rates, time stamp variables GeomagneticVectorTimes 
+and GeomagneticScalarTimes should be used (time stamp variables for
+temperature data should follow the rules already described). 
+
+All time stamp variables have 0 dimensions and must have the same
 number of records as the data variables that they apply to. Each
 record in a time stamp variable holds a CDF TT2000 epoch time.
 Time stamps must always refer to the start of each sample period
 (e.g. for minute data, the seconds and milliseconds will always be
 set to zero).
 
-Recommended names for time stamp variables are:
+Whatever time stamp variables are used, every data variable must
+have an entry in the DEPEND_0 variable attribute containing the
+name of the time stamp variable that is to be used with that data
+variable.
+
+Names for time stamp variables are:
 
 .. tabularcolumns:: |p{7.5cm}|p{7.5cm}|
 
@@ -188,14 +200,19 @@ Recommended names for time stamp variables are:
     +----------------------------------+----------------------------------+
     | Situation                        | Names                            |
     +==================================+==================================+
-    | The same time stamps can be used |  DataTimes                       |
+    | The same time stamps can be used | *DataTimes*                      |
     | for all data in the file (i.e.   |                                  |
     | there is a single time stamp     |                                  |
     | variable in the file)            |                                  |
     +----------------------------------+----------------------------------+
+    | The same time stamps can be used | *GeomagneticTimes,               |
+    | for all geomagnetic data,        | TemperatureTimes*                |
+    | a single different time stamp is |                                  |
+    | used for all temperature data    |                                  |
+    +----------------------------------+----------------------------------+
     | Different time stamps for        | *GeomagneticVectorTimes,         |
     | vector, scalar and temperature   | GeomagneticScalarTimes,          |
-    |                                  | Temperature1Times,               |
+    | data                             | Temperature1Times,               |
     |                                  | Temperature2Times, …*            |
     +----------------------------------+----------------------------------+
 
