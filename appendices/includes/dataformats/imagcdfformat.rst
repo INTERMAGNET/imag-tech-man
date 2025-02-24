@@ -796,9 +796,19 @@ for version 1.2 should be used for the contents of these files:
 ImagCDF Global Attributes (V1.3)
 """"""""""""""""""""""""""""""""
 
-There are no changes to the global attributes in the format since version 1.2,
-except that the "FormatVersion" global attribute should be set to "1.3". See the
-global attributes documentation for :ref:`version 1.2<app_cdf_v1_20_gattr>`.
+The following changes have been made to global attributes since version 1.2:
+
+1. The "FormatVersion" global attribute should be set to "1.3". 
+2. An additional optional variable "LeapSecondLastUpdated" may be used to describe
+   when the CDF Leap Second table was last updated. NASA CDF libraries specify this
+   value as part of CDF file metadata, but some third party libraries do not set the
+   value in the metadata. Where libraries are used that do not set this value, data
+   providers are encouraged to use this global attribute. The contents of the attribute
+   should be the same as the CDF file metadata, which is the date of the day following 
+   the last leap second, coded as an integer: (year * 10000) + (month * 100) + day.
+
+See the global attributes documentation for :ref:`version 1.2<app_cdf_v1_20_gattr>`
+for a decsription of the other global attributes.
 
 .. _app_cdf_v1_30_vattr:
 
