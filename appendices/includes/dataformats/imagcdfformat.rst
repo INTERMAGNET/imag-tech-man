@@ -1,16 +1,14 @@
 .. _app_cdf:
 
 
-IMAGCDFV1.2 INTERMAGNET Exchange Format
----------------------------------------
+IMAGCDF INTERMAGNET Exchange Format
+-----------------------------------
 
 .. include:: ../shared/variables.rst
 
 
 This document describes how NASA's Common Data Format ( CDF - |cdf_format| )
-will be used to store geomagnetic data.
-This format is called ImagCDF. Version 1.2 of ImagCDF is described
-here.
+is used to store geomagnetic data. This format is called ImagCDF. 
 
 .. _app_cdf_design:
 
@@ -22,15 +20,19 @@ General Design Details
 
 
 Geomagnetic data is held in CDF variables, one variable per
-geomagnetic element. Additional variables hold time stamp data,
-one time stamp variable being used for the timing of the vector
+geomagnetic element. Additional variables hold time stamp data.
+A single time stamp variable may be used if all time series data
+uses the same sample rate. Alternatively
+one time stamp variable may be for the vector
 magnetometer data, a second variable for the scalar magnetometer
-data, since data from these two instruments may be recorded at
-different sample rates. Each variable has one or more records, an
+data, if data from these two instruments are recorded at
+different sample rates. 
+
+Each variable (data or time stamp) has one or more records, an
 individual record holding a single sample value. The index numbers
-of the records in the vector geomagnetic variable correspond with
-the index numbers in the vector time stamp variable's records,
-likewise for the scalar data. A typical file might contain 6
+of the records in the data variables correspond with
+the index numbers in the appropriate time stamp variable's records.
+A typical file might contain 6
 variables: 3 geomagnetic elements (such as HDZ or XYZ); one scalar
 element (F); and two timing variables, one for the vector data,
 the other for the scalar. The format does not mandate that these
@@ -39,7 +41,7 @@ scalar data) or more (for example additional temperature data).
 
 Metadata is held in CDF attributes in two ways: global attribute
 entries concern all the data in a file; variable attributes have
-entries that concern a single variable (e.g. the 'H' variable). An
+entries that concern a single variable (e.g. the geomagnetic data 'H' variable). An
 entry holds an individual item of metadata. An attribute name
 (whether global or variable) must be unique, so when an attribute
 needs to be used more than once (e.g. the element type for a
@@ -110,16 +112,12 @@ option. A day file of four element minute data can occupy under
 Where to Obtain the CDF Software
 ````````````````````````````````
 
-
-
 Before you can use any of NASA or INTERMAGNET's tools for working
 with ImagCDF, you will need to download and install the CDF
 software from NASA: |cdf_software| . Software that has
 been written to work with CDF is likely to need the libraries that
 are installed. For details of other software that may be useful
 see section :ref:`app_cdf_tools`.
-
-
 
 .. _app_cdf_data:
 
@@ -137,8 +135,8 @@ features:
 
 Geomagnetic data is held in variables called GeomagneticField <E>
 where <E> represents the code for the geomagnetic element recorded
-- see section :ref:`app_cdf_gattr_valid_codes`
-for a list of valid codes. The variable has 0 dimensions,
+- see section :ref:`app_cdf_v1_20_gattr_valid_codes`
+for a list of valid codes (in version 1.2). The variable has 0 dimensions,
 each consecutive record holding individual consecutive data samples in CDF double data type,
 starting at record 1. Missing data values are represented by a
 data sample that contains the same number as is present in the
@@ -164,19 +162,34 @@ the temperature was recorded.
 
 Time stamps for the data are held in separate variables. Time
 stamps must represent a regular time series with no missing values
-in the series. Time stamps for all the geomagnetic field vector
-variables are held in a single variable called
-GeomagneticVectorTimes, for the scalar data in a variable called
-GeomagneticScalarTimes. Time stamps for temperature data are held
-in variables called Temperature1Times, Temperature2Times and so
-on. These variables have 0 dimensions and must have the same
+in the series. 
+
+If all data in the CDF file (including non-geomagnetic data)
+has the same sample rate, a single time stamp variable called DataTimes 
+should be used. If all geomagnetic data has the same sample rate
+(but other data has different sample rates), a time
+stamp variable called GeomagneticTimes should be used for the  
+geomagnetic data, and time stamps for temperature data should be called
+TemperatureTimes (if all temperature data has the same sample rate) or 
+Temperature1Times, Temperature2Times, ... (for temperature data with 
+different sample rates). If the geomagnetic vector and scalar data have
+different sample rates, time stamp variables GeomagneticVectorTimes 
+and GeomagneticScalarTimes should be used (time stamp variables for
+temperature data should follow the rules already described). 
+
+All time stamp variables have 0 dimensions and must have the same
 number of records as the data variables that they apply to. Each
 record in a time stamp variable holds a CDF TT2000 epoch time.
 Time stamps must always refer to the start of each sample period
 (e.g. for minute data, the seconds and milliseconds will always be
 set to zero).
 
-Recommended names for time stamp variables are:
+Whatever time stamp variables are used, every data variable must
+have an entry in the DEPEND_0 variable attribute containing the
+name of the time stamp variable that is to be used with that data
+variable.
+
+Names for time stamp variables are:
 
 .. tabularcolumns:: |p{7.5cm}|p{7.5cm}|
 
@@ -187,14 +200,19 @@ Recommended names for time stamp variables are:
     +----------------------------------+----------------------------------+
     | Situation                        | Names                            |
     +==================================+==================================+
-    | The same time stamps can be used |  DataTimes                       |
+    | The same time stamps can be used | *DataTimes*                      |
     | for all data in the file (i.e.   |                                  |
     | there is a single time stamp     |                                  |
     | variable in the file)            |                                  |
     +----------------------------------+----------------------------------+
+    | The same time stamps can be used | *GeomagneticTimes,               |
+    | for all geomagnetic data,        | TemperatureTimes*                |
+    | a single different time stamp is |                                  |
+    | used for all temperature data    |                                  |
+    +----------------------------------+----------------------------------+
     | Different time stamps for        | *GeomagneticVectorTimes,         |
     | vector, scalar and temperature   | GeomagneticScalarTimes,          |
-    |                                  | Temperature1Times,               |
+    | data                             | Temperature1Times,               |
     |                                  | Temperature2Times, …*            |
     +----------------------------------+----------------------------------+
 
@@ -206,10 +224,17 @@ be included without causing problems to software reading ImagCDF
 files. Software writing ImagCDF files should preserve additional
 variables and attributes read from an ImagCDF file.
 
-.. _app_cdf_gattr:
+.. _app_cdf_v1_20:
 
-ImagCDF Global Attributes
-`````````````````````````
+ImagCDF Version 1.2
+```````````````````
+
+The descriptions in this section apply to version 1.2 of ImagCDF.
+
+.. _app_cdf_v1_20_gattr:
+
+ImagCDF Global Attributes (V1.2)
+""""""""""""""""""""""""""""""""
 
 The following attributes apply to all the data in an ImagCDF file.
 The "Entries" column shows whether the attribute has:
@@ -228,10 +253,10 @@ Superscript numbers following the attribute name show:
 #. That the attribute is part of the ISTP/IACG guidelines -
    |istp_gattr|
 
-.. _app_cdf_gattr_describe_data:
+.. _app_cdf_v1_20_gattr_describe_data:
 
-Attributes that Describe the Data Format
-""""""""""""""""""""""""""""""""""""""""
+Attributes that Describe the Data Format (V1.2)
+###############################################
 
 These are 'constant' values that will be the same for all ImagCDF
 files. They allow 'generic' CDF programs to understand and process
@@ -252,10 +277,10 @@ the data correctly.
     ================= ====== ======= ================================================
 
 
-.. _app_cdf_gattr_unique_id:
+.. _app_cdf_v1_20_gattr_unique_id:
 
-Attributes that Uniquely Identify the Data
-""""""""""""""""""""""""""""""""""""""""""
+Attributes that Uniquely Identify the Data (V1.2)
+#################################################
 
 The attributes in this section are sufficient, along with the
 start date and duration of the time series, to uniquely identify a
@@ -280,7 +305,7 @@ piece of geomagnetic data.
     |                       |            |            | this attribute determine the names of the data |
     |                       |            |            | variables (see the section on geomagnetic      |
     |                       |            |            | data). Valid codes are defined in section      |
-    |                       |            |            | :ref:`app_cdf_gattr_valid_codes`               |
+    |                       |            |            | :ref:`app_cdf_v1_20_gattr_valid_codes`         |
     +-----------------------+------------+------------+------------------------------------------------+
     | PublicationLevel      | String     | 1          | Choose one of the following codes to describe  |
     |                       |            |            | the level that the data has been processed to: |
@@ -289,7 +314,7 @@ piece of geomagnetic data.
     |                       |            |            |    recorded at the observatory with no changes |
     |                       |            |            |    made.                                       |
     |                       |            |            | -  *2*: Some edits have been made such as gap  |
-    |                       |            |            |    filling and spike removal and possibly a    |
+    |                       |            |            |    filling and spike removal and a             |
     |                       |            |            |    preliminary baseline added.                 |
     |                       |            |            | -  *3*: The data is at the level required for  |
     |                       |            |            |    production of an initial bulletin or for    |
@@ -303,7 +328,7 @@ piece of geomagnetic data.
     |                       |            |            | point the data has reached in the publication  |
     |                       |            |            | process. For detailed information on the       |
     |                       |            |            | standards that the data conforms to see        |
-    |                       |            |            | section :ref:`app_cdf_gattr_stand_q`           |
+    |                       |            |            | section :ref:`app_cdf_v1_20_gattr_stand_q`     |
     +-----------------------+------------+------------+------------------------------------------------+
     | PublicationDate       | Date/time  | 1          | Date and time on which the data was published. |
     |                       |            |            | This attribute is used to distinguish multiple |
@@ -311,10 +336,10 @@ piece of geomagnetic data.
     +-----------------------+------------+------------+------------------------------------------------+
 
 
-.. _app_cdf_gattr_obs:
+.. _app_cdf_v1_20_gattr_obs:
 
-Attributes that Describe the Observatory
-""""""""""""""""""""""""""""""""""""""""
+Attributes that Describe the Observatory (V1.2)
+###############################################
 
 These attributes are available from other metadata systems (given
 an IAGA code), but are included for convenience of the user.
@@ -351,10 +376,10 @@ an IAGA code), but are included for convenience of the user.
     +------------------+--------+-----------+-------------------------------------------------------+
 
 
-.. _app_cdf_gattr_stand_q:
+.. _app_cdf_v1_20_gattr_stand_q:
 
-Attributes that Relate to Data Standards and Quality
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+Attributes that Relate to Data Standards and Quality (V1.2)
+###########################################################
 
 These attributes describe the standards, if any, that the data
 meets.
@@ -366,40 +391,40 @@ meets.
     :widths: auto
     :align: center
 
-    +-------------------------+-----------+---------+------------------------------------------------+
-    | Attribute Name          | Type      | Entries | Description                                    |
-    +=========================+===========+=========+================================================+
-    | StandardLevel           | String    | 1       | Describe whether the data conforms to a        |
-    |                         |           |         | standard. Choose from one of the following     |
-    |                         |           |         | codes:                                         |
-    |                         |           |         |                                                |
-    |                         |           |         | -  *None*: The data does not conform to any    |
-    |                         |           |         |    standards. When using this, the             |
-    |                         |           |         |    StandardName attribute does not need to be  |
-    |                         |           |         |    set.                                        |
-    |                         |           |         | -  *Partial*: The data partially conforms to   |
-    |                         |           |         |    the relevant standard for this data         |
-    |                         |           |         |    product.                                    |
-    |                         |           |         | -  *Full*: The data fully conforms to the      |
-    |                         |           |         |    relevant standard for this data product.    |
-    |                         |           |         |                                                |
-    |                         |           |         | Only these values are allowed.                 |
-    |                         |           |         |                                                |
-    |                         |           |         | If *StandardsLevel* is set to *Partial*, then  |
-    |                         |           |         | the *PartialStandDesc* attribute must also be  |
-    |                         |           |         | set.                                           |
-    +-------------------------+-----------+---------+------------------------------------------------+
-    | StandardName            | String    | 0 - 1   | The name of the relevant standard. See section |
-    |                         |           |         | :ref:`app_cdf_gattr_rel_stand`                 |
-    +-------------------------+-----------+---------+------------------------------------------------+
-    | StandardVersion         | String    | 0 – 1   | If the standard has a version, put its version |
-    |                         |           |         | number in this attribute.                      |
-    +-------------------------+-----------+---------+------------------------------------------------+
-    | PartialStandDesc        | String    | 0 - 1   | See section :ref:`app_cdf_gattr_rel_stand`     |
-    +-------------------------+-----------+---------+------------------------------------------------+
+    +-------------------------+-----------+---------+--------------------------------------------------+
+    | Attribute Name          | Type      | Entries | Description                                      |
+    +=========================+===========+=========+==================================================+
+    | StandardLevel           | String    | 1       | Describe whether the data conforms to a          |
+    |                         |           |         | standard. Choose from one of the following       |
+    |                         |           |         | codes:                                           |
+    |                         |           |         |                                                  |
+    |                         |           |         | -  *None*: The data does not conform to any      |
+    |                         |           |         |    standards. When using this, the               |
+    |                         |           |         |    StandardName attribute does not need to be    |
+    |                         |           |         |    set.                                          |
+    |                         |           |         | -  *Partial*: The data partially conforms to     |
+    |                         |           |         |    the relevant standard for this data           |
+    |                         |           |         |    product.                                      |
+    |                         |           |         | -  *Full*: The data fully conforms to the        |
+    |                         |           |         |    relevant standard for this data product.      |
+    |                         |           |         |                                                  |
+    |                         |           |         | Only these values are allowed.                   |
+    |                         |           |         |                                                  |
+    |                         |           |         | If *StandardsLevel* is set to *Partial*, then    |
+    |                         |           |         | the *PartialStandDesc* attribute must also be    |
+    |                         |           |         | set.                                             |
+    +-------------------------+-----------+---------+--------------------------------------------------+
+    | StandardName            | String    | 0 - 1   | The name of the relevant standard. See section   |
+    |                         |           |         | :ref:`app_cdf_v1_20_gattr_rel_stand`             |
+    +-------------------------+-----------+---------+--------------------------------------------------+
+    | StandardVersion         | String    | 0 – 1   | If the standard has a version, put its version   |
+    |                         |           |         | number in this attribute.                        |
+    +-------------------------+-----------+---------+--------------------------------------------------+
+    | PartialStandDesc        | String    | 0 - 1   | See section :ref:`app_cdf_v1_20_gattr_rel_stand` |
+    +-------------------------+-----------+---------+--------------------------------------------------+
 
-Attributes that Relate to Publication of the Data
-"""""""""""""""""""""""""""""""""""""""""""""""""
+Attributes that Relate to Publication of the Data (V1.2)
+########################################################
 
 These attributes are needed when that data is published.
 
@@ -414,7 +439,7 @@ These attributes are needed when that data is published.
     +===================+============+===========+==================================================+
     | Source            | String     | 1         | Set to one of: "institute" (if the named         |
     |                   |            |           | institution provided the data- see section       |
-    |                   |            |           | :ref:`app_cdf_gattr_obs`                         |
+    |                   |            |           | :ref:`app_cdf_v1_20_gattr_obs`                   |
     |                   |            |           | for the institution); "INTERMAGNET" (if the data |
     |                   |            |           | file has been created by INTERMAGNET from        |
     |                   |            |           | another data source); "WDC" (if the World Data   |
@@ -447,10 +472,10 @@ These attributes are needed when that data is published.
     |                   |            |           | repository… One URL per entry.                   |
     +-------------------+------------+-----------+--------------------------------------------------+
 
-.. _app_cdf_gattr_valid_codes:
+.. _app_cdf_v1_20_gattr_valid_codes:
 
-Valid Codes for Elements Recorded
-"""""""""""""""""""""""""""""""""
+Valid Codes for Elements Recorded (V1.2)
+########################################
 
 - 'X', 'Y', or 'Z' indicate that the variable holds the strength
   of the magnetic field vector in the standard geographic
@@ -481,10 +506,10 @@ Valid Codes for Elements Recorded
 Other codes are allowed, but may lead to data not being
 understood.
 
-.. _app_cdf_gattr_rel_stand:
+.. _app_cdf_v1_20_gattr_rel_stand:
 
-Relevant Data Standards
-"""""""""""""""""""""""
+Relevant Data Standards (V1.2)
+##############################
 
 Different geomagnetic data products have different standards
 associated with them. This table shows what standards are being
@@ -635,8 +660,10 @@ meets the time stamp accuracy and thermal stability sections of the
     |                   | minute.                                                      |
     +-------------------+--------------------------------------------------------------+
 
-ImagCDF Variable Attributes
-```````````````````````````
+.. _app_cdf_v1_20_vattr:
+
+ImagCDF Variable Attributes (V1.2)
+""""""""""""""""""""""""""""""""""
 
 The following attributes apply to individual variables - there is an
 attribute entry for each geomagnetic field element or temperature in an
@@ -665,8 +692,8 @@ GeomagneticVectorTimes and GeomagneticScalarTimes.
     +--------------------------+--------+---------+-----------------------------------------------------------+
     | FIELDNAM [#f5]_          | String | 1       | Set to "Geomagnetic Field Element " + the element code    |
     |                          |        |         | (e.g. H, D, Z,… - see section                             |
-    |                          |        |         | :ref:`app_cdf_gattr_valid_codes` for a list of valid      |
-    |                          |        |         | codes); or set to "Temperature " + the name of the        |
+    |                          |        |         | :ref:`app_cdf_v1_20_gattr_valid_codes` for a list of      |
+    |                          |        |         | valid codes); or set to "Temperature " + the name of the  |
     |                          |        |         | location where the temperature was recorded.              |
     +--------------------------+--------+---------+-----------------------------------------------------------+
     | UNITS [#f5]_             | String | 1       | Must be one of "nT", "Degrees of arc" or "Celsius"        |
@@ -689,54 +716,31 @@ GeomagneticVectorTimes and GeomagneticScalarTimes.
     | DISPLAY_TYPE  [#f6]_     | String | 1       | Set to "time_series"                                      |
     +--------------------------+--------+---------+-----------------------------------------------------------+
     | LABLAXIS [#f6]_          | String | 1       | Set to the element code (as defined in section            |
-    |                          |        |         | :ref:`app_cdf_gattr_valid_codes` )                        |
+    |                          |        |         | :ref:`app_cdf_v1_20_gattr_valid_codes` )                  |
     +--------------------------+--------+---------+-----------------------------------------------------------+
 
 .. [#f5]  The attribute is a recommended attribute for use with NASA's CDF tools
 .. [#f6]  The attribute is part of the ISTP/IACG guidelines - |istp_vattr|
 
 
-ImagCDF File Names
-``````````````````
+ImagCDF File Names (V1.2)
+"""""""""""""""""""""""""
 
 ImagCDF files are named using the convention::
 
-    ``[iaga-code]_[date-time]_[publication-level].cdf``
+    [iaga-code]_[date-time]_[publication-level].cdf
 
 - Iaga-code is the three letter IAGA code for the observatory that the data is from. This should
-  match the IAGA code in section :ref:`app_cdf_gattr_unique_id`.
-- Date-time is the start date/time of the data in the file. The format for the date/time is
-  described below.
-- Publication-level is the PublicationLevel attribute from section :ref:`app_cdf_gattr_unique_id`.
+  match the IAGA code in section :ref:`app_cdf_v1_20_gattr_unique_id`.
+- Date-time describes the data interval (or period) of the data along with the date/time of the data in the file. 
+  The format for the date/time is described below.
+- Publication-level is the PublicationLevel attribute from section :ref:`app_cdf_v1_20_gattr_unique_id`.
 
 Filenames are in lower case. Files may contain arbitrary amounts of data, however the amount of data
 is not coded into the filename.
 
-ISO 8601 Duration Strings for Common Geomagnetic Sample Periods
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-.. tabularcolumns:: |p{3cm}|c|
-
-.. table::
-    :widths: auto
-    :align: center
-
-    ============= ========================
-    Sample Period ISO 8601 duration string
-    ============= ========================
-    1 second      PT1S
-    1 minute      PT1M
-    Hourly means  PT1H
-    Daily means   P1D
-    Monthly means P1M
-    Annual means  P1Y
-    ============= ========================
-
-The table above is a set of examples. Other sample periods may be used provided that the sample
-period used represents the vector data and conforms to ISO 8601.
-
-Format of Date/Time Portion of Filename and Examples
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+Format of Date/Time Portion of Filename and Examples (V1.2)
+###########################################################
 
 The date/time portion of the filename is formatted differently for different data with different
 data intervals:
@@ -760,7 +764,7 @@ data intervals:
     |               |                  | at the beginning of 2010                                      |
     +---------------+------------------+---------------------------------------------------------------+
     | Hourly means  | YYYYMMDD_HH      | naq_20020201_00_4.cdf – final hourly mean data from NAQ in    |
-    |               |                  | January 2002                                                  |
+    |               |                  | February 2002                                                 |
     +---------------+------------------+---------------------------------------------------------------+
     | Minute means  | YYYYMMDD_HHMM    | naq_20020120_0000_3.cdf – 'bulletin' or quasi-definitive      |
     |               |                  | minute mean data from NAQ for 20th January 2002 starting at   |
@@ -776,6 +780,141 @@ data intervals:
 - HH = two digit hour (0-23)
 - MM = two digit minute (0-59)
 - SS = two digit second (0-59)
+
+.. _app_cdf_v1_30:
+
+ImagCDF Version 1.3
+```````````````````
+
+The descriptions in this section apply to version 1.3 of ImagCDF.
+
+Version 1.3 only changes the format of the ImagCDF filenames. The documentation
+for version 1.2 should be used for the contents of these files:
+
+.. _app_cdf_v1_30_gattr:
+
+ImagCDF Global Attributes (V1.3)
+""""""""""""""""""""""""""""""""
+
+The following changes have been made to global attributes since version 1.2:
+
+1. The "FormatVersion" global attribute should be set to "1.3". 
+2. An additional optional variable "LeapSecondLastUpdated" may be used to describe
+   when the CDF Leap Second table was last updated. NASA CDF libraries specify this
+   value as part of CDF file metadata, but some third party libraries do not set the
+   value in the metadata. Where libraries are used that do not set this value, data
+   providers are encouraged to use this global attribute. The contents of the attribute
+   should be the same as the CDF file metadata, which is the date of the day following 
+   the last leap second, coded as an integer: (year * 10000) + (month * 100) + day.
+
+See the global attributes documentation for :ref:`version 1.2<app_cdf_v1_20_gattr>`
+for a decsription of the other global attributes.
+
+.. _app_cdf_v1_30_vattr:
+
+ImagCDF Variable Attributes (V1.3)
+""""""""""""""""""""""""""""""""""
+
+There are no changes to the variable attributes in the format since version 1.2. See the
+varible attributes documentation for :ref:`version 1.2<app_cdf_v1_20_vattr>`.
+
+ImagCDF File Names (V1.3)
+"""""""""""""""""""""""""
+
+Version 1.3 fixes some errors and omissions in the format of ImagCDF filenames.
+
+ImagCDF files are named using the convention::
+
+    [iaga-code]_[date-time]_[cadence]_[publication-level].cdf
+
+- Iaga-code is the three letter IAGA code for the observatory that the data is from. This should
+  match the IAGA code in section :ref:`app_cdf_v1_20_gattr_unique_id`.
+- Date-time describes the time coverage of the data (i.e. how much data is in the file) 
+  along with the date/time of the data in the file. The format for the date/time is described below.
+- Cadence refers to the data sample period and is formatted as an ISO 8601 duration. Some sample
+  ISO 8601 durations are given below.
+- Publication-level is the PublicationLevel attribute from section :ref:`app_cdf_v1_20_gattr_unique_id`.
+
+Filenames are in lower case. Files may contain any amount of data. The date/time string may
+be used to indicate the amount of data in the file - more information on this is given in the
+description of the date/time format.
+
+ISO 8601 Duration Strings for Common Geomagnetic Sample Periods (V1.3)
+######################################################################
+
+.. tabularcolumns:: |p{3cm}|c|
+
+.. table::
+    :widths: auto
+    :align: center
+
+    ============= =================
+    Sample Period ISO 8601 duration
+    ============= =================
+    1 second      PT1S
+    1 minute      PT1M
+    Hourly means  PT1H
+    Daily means   P1D
+    Monthly means P1M
+    Annual means  P1Y
+    ============= =================
+
+The table above is a set of examples. Other sample periods may be used provided that the sample
+period used represents the vector data and conforms to ISO 8601.
+
+Format of Date/Time Portion of Filename and Examples (V1.3)
+###########################################################
+
+The date/time portion of the filename is formatted differently, depending on the amount of data
+the file contains (the data coverage). 
+
+.. tabularcolumns:: |p{3cm}|p{4cm}|p{8cm}|
+
+.. table::
+    :widths: auto
+    :align: center
+
+    +----------------+------------------+---------------------------------------------------------------+
+    | Amount of data | Date/time format | Example filename                                              |
+    | in file        |                  |                                                               |
+    | (coverage)     |                  |                                                               |
+    +================+==================+===============================================================+
+    | One year       | YYYY             | esk_2000_pt1m_4.cdf – one year of final minute mean data from |
+    |                |                  | Eskdalemuir for the year 2000                                 |
+    +----------------+------------------+---------------------------------------------------------------+
+    | One month      | YYYYMM           | ott_201401_pt1s_4.cdf – one month of final 1-second data from |
+    |                |                  | Ottawa for January 2014                                       |
+    +----------------+------------------+---------------------------------------------------------------+
+    | One day        | YYYYMMDD         | gua_20100101_pt1m_3.cdf – one day of quasi-definitive minute  |
+    |                |                  | mean data from Guam for 1st January 2010                      |
+    +----------------+------------------+---------------------------------------------------------------+
+    | One hour       | YYYYMMDD_HH      | naq_20020201_00_pt1m_2.cdf – one hour of provisional minute   |
+    |                |                  | mean data from NAQ starting at midnight on 1st February 2002  |
+    +----------------+------------------+---------------------------------------------------------------+
+    | One minute     | YYYYMMDD_HHMM    | naq_20020120_0000_pt1s_2.cdf – one minute of provisional      |
+    |                |                  | 1-second data from NAQ starting at 00:00 on 20th of January   |
+    |                |                  | 2002                                                          |
+    +----------------+------------------+---------------------------------------------------------------+
+    | One second     | YYYYMMDD_HHMMSS  | naq_20020120_012300_pt1s_1.cdf – one second of raw 1-second   |
+    |                |                  | data from NAQ at 01:23:00 on 20th January 2002                |
+    +----------------+------------------+---------------------------------------------------------------+
+
+- YYYY = four digit year (i.e. 2002)
+- MM = two digit month (01 for January - 12 for December)
+- DD = two digit day of month (01-31)
+- HH = two digit hour (0-23)
+- MM = two digit minute (0-59)
+- SS = two digit second (0-59)
+
+The start date/time of the data is expected to conform to the coverage: For a year of data the start date/time
+is expected to be the start of the first day of the year. For a day of data the start date/time is expected to
+be the start of the day. And so on for the other coverages listed in the table.
+
+In the situations where the state date/time doesn't conform to this rule, or the amount of data is not
+listed in the table, the data is considered to be a "fragment" (ie an incomplete part of a larger data
+coverage). The filename for data fragments should use the full date/time, the same as for data with
+a coverage of one second.
+
 
 .. _app_cdf_tools:
 
@@ -803,166 +942,205 @@ use CDF data via its NASACDF data format - |wolfram|.
 Example Data File
 `````````````````
 
-The data in this example was converted from an IAGA-2002 day file of Hartland DIF data for 1st
-January 1983. The contents of the TermsOfUse attribute have been truncated, as have the data records
-beyond the first two samples.
+The data in this example was extracted from a monthly file containing 1-second definitive data from
+Abisko observatory for January 2019. Only the first two data records are shown for each variable.
 
 .. highlight:: none
 
 ::
 
-   File Info
-   =========================================
-   CDF File:     had_19830101_0000_1.cdf
-   Version:      3.4.1
-   Copyright:
-   Common Data Format (CDF)
-   (C) Copyright 1990-2012 NASA/GSFC
-   Space Physics Data Facility
-   NASA/Goddard Space Flight Center
-   Greenbelt, Maryland 20771 USA
-   (Internet -- GSFC-CDF-SUPPORT@LISTS.NASA.GOV)
+  File Info
+  =========================================
+  CDF File:     abk_201901_PT1S_4.cdf
+  Version:      3.7.0
 
-   Format:       SINGLE
-   Encoding:     IBMPC
-   Majority:     ROW
-   NumrVars:     0
-   NumzVars:     4
-   NumAttrs:     25 (17 global, 8 variable)
-   Compression:  GZIP.6
-   Checksum:     None
+  Common Data Format (CDF)
+  https://cdf.gsfc.nasa.gov
+  Space Physics Data Facility
+  NASA/Goddard Space Flight Center
+  Greenbelt, Maryland 20771 USA
+  (User support: gsfc-cdf-support@lists.nasa.gov)
 
-   Global Attributes (17 attributes)
-   =========================================
-   FormatDescription (1 entry):
-       0 (CDF_CHAR/22):    "INTERMAGNET CDF Format"
-   FormatVersion (1 entry):
-       0 (CDF_CHAR/3):     "1.0"
-   Title (1 entry):
-       0 (CDF_CHAR/28):    "Geomagnetic time series data"
-   IagaCode (1 entry):
-       0 (CDF_CHAR/3):     "HAD"
-   ElementsRecorded (1 entry):
-       0 (CDF_CHAR/3):     "DIF"
-   PublicationLevel (1 entry):
-       0 (CDF_CHAR/1):     "1"
-   PublicationDate (1 entry):
-       0 (CDF_TT2000/1):   2014-10-08T12:19:06.088000000
-   ObservatoryName (1 entry):
-       0 (CDF_CHAR/8):     "Hartland"
-   Latitude (1 entry):
-       0 (CDF_DOUBLE/1):   50.995
-   Longitude (1 entry):
-       0 (CDF_DOUBLE/1):   355.516
-   Elevation (1 entry):
-       0 (CDF_DOUBLE/1):   95.0
-   Institution (1 entry):
-       0 (CDF_CHAR/31):    "British Geological Survey (BGS)"
-   VectorSensOrient (1 entry):
-       0 (CDF_CHAR/4):     "HDZ"
-   StandardLevel (1 entry):
-       0 (CDF_CHAR/4):     "None"
-   Source (1 entry):
-       0 (CDF_CHAR/11):    "INTERMAGNET"
-   TermsOfUse (1 entry):
-       0 (CDF_CHAR/1545):  "CONDITIONS OF USE FOR DATA PROVIDED..."
-   References (1 entry):
-       0 (CDF_CHAR/27):    "http://www.intermagnet.org/"
+  Format:       SINGLE
+  Encoding:     IBMPC
+  Majority:     ROW
+  NumrVars:     0
+  NumzVars:     5
+  NumAttrs:     29 (21 global, 8 variable)
+  Compression:  GZIP.1
+  Checksum:     None
+  LeapSecondLastUpdated:     20170101
 
-   Variable Attributes (8 attributes)
-   =========================================
-   FIELDNAM
-   VALIDMIN
-   VALIDMAX
-   UNITS
-   FILLVAL
-   DEPEND_0
-   DISPLAY_TYPE
-   LABLAXIS
+  Global Attributes (21 attributes)
+  =========================================
+  FormatDescription (num:0) (1 entry):
+          0 (CDF_CHAR/22):        "INTERMAGNET CDF format"
+  FormatVersion (num:1) (1 entry):
+          0 (CDF_CHAR/3):         "1.3"
+  Title (num:2) (1 entry):
+          0 (CDF_CHAR/28):        "Geomagnetic time series data"
+  IagaCode (num:3) (1 entry):
+          0 (CDF_CHAR/3):         "ABK"
+  ElementsRecorded (num:4) (1 entry):
+          0 (CDF_CHAR/4):         "XYZG"
+  PublicationLevel (num:5) (1 entry):
+          0 (CDF_CHAR/1):         "4"
+  PublicationDate (1 entry):
+       0 (CDF_TT2000/1):          2022-10-08T12:19:06.088000000
+  ObservatoryName (num:7) (1 entry):
+          0 (CDF_CHAR/6):         "Abisko"
+  Latitude (num:8) (1 entry):
+          0 (CDF_DOUBLE/1):       68.358
+  Longitude (num:9) (1 entry):
+          0 (CDF_DOUBLE/1):       18.823
+  Elevation (num:10) (1 entry):
+          0 (CDF_CHAR/5):         "380.0"
+  Institution (num:11) (1 entry):
+          0 (CDF_CHAR/27):        "Geological Survey of Sweden"
+  VectorSensOrient (num:12) (1 entry):
+          0 (CDF_CHAR/3):         "XYZ"
+  StandardLevel (num:13) (1 entry):
+          0 (CDF_CHAR/7):         "Partial"
+  StandardName (num:14) (1 entry):
+          0 (CDF_CHAR/20):        "INTERMAGNET_1-Second"
+  PartialStandDesc (num:15) (1 entry):
+          0 (CDF_CHAR/87):        "IMOS-03,IMOS-04,IMOS-05,IMOS-06,IMOS-11,IMOS-12,IMOS-14,IMOS-15,IMOS-22,IMOS-41,IMOS-42"
+  Source (num:16) (1 entry):
+          0 (CDF_CHAR/9):         "institute"
+  TermsOfUse (num:17) (1 entry):
+          0 (CDF_CHAR/62):        "http://www.intermagnet.org/data-donnee/data-eng.php#conditions"
+  LeapSecondUpdated (num:18) (1 entry):
+          0 (CDF_CHAR/8):         "20170101"
+  ParentIdentifiers (num:19) (1 entry):
+          0 (CDF_CHAR/13):        "ABKsec_4_0001"
+  SamplingRate (num:20) (1 entry):
+          0 (CDF_CHAR/7):         "1.0 sec"
 
-   Variable Information (0 rVariable, 4 zVariables)
-   ===========================================================
-   GeomagneticFieldD     CDF_DOUBLE/1  0:[]    T/
-   GeomagneticFieldI     CDF_DOUBLE/1  0:[]    T/
-   GeomagneticFieldF     CDF_DOUBLE/1  0:[]    T/
-   GeomagneticVectorTimes CDF_TT2000/1 0:[]    T/
+  Variable Attributes (8 attributes)
+  =========================================
+  DEPEND_0 (num:21)
+  DISPLAY_TYPE (num:22)
+  LABLAXIS (num:23)
+  FILLVAL (num:24)
+  VALIDMIN (num:25)
+  VALIDMAX (num:26)
+  FIELDNAM (num:27)
+  UNITS (num:28)
 
+  Variable Information (0 rVariable, 5 zVariables)
+  ===========================================================
+  DataTimes             CDF_TT2000/1      0:[]    T/
+  GeomagneticFieldX     CDF_DOUBLE/1      0:[]    T/
+  GeomagneticFieldY     CDF_DOUBLE/1      0:[]    T/
+  GeomagneticFieldZ     CDF_DOUBLE/1      0:[]    T/
+  GeomagneticFieldG     CDF_DOUBLE/1      0:[]    T/
 
-   Variable (4 variables)
-   =========================================
+  Variable (5 variables)
+  =========================================
 
-   GeomagneticFieldD
-   -----------------
-   Data Type:           CDF_DOUBLE
-   Dimensionality:      0:[]   (T/)
-   Written Records:     1440/1440(max)
-   Allocated Records:   1472/1472(max)
-   Blocking Factor:     0 (records)
-   Attribute Entries:
-        FIELDNAM        (CDF_CHAR/27): "Geomagnetic Field Element D"
-        VALIDMIN        (CDF_DOUBLE/1): -360.0
-        VALIDMAX        (CDF_DOUBLE/1): 360.0
-        UNITS           (CDF_CHAR/14): "Degrees of arc"
-        FILLVAL         (CDF_DOUBLE/1): 99999.0
-        DEPEND_0        (CDF_CHAR/22): "GeomagneticVectorTimes"
-        DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
-        LABLAXIS        (CDF_CHAR/1): "D"
-   Variable Data:
-     Record # 1: -7.315
-     Record # 2: -7.315
-     ...
+  DataTimes (No: 0) (Recs: 2678400) (Compression: GZIP.6 BlockingFactor: 8192)
+  ----------------------
+  Data Type:           CDF_TT2000
+  Dimensionality:      0:[]       (T/)
+  Compression:         GZIP.6
+  Pad value:           0000-01-01T00:00:00.000000000
+  Written Records:     2678400/2678400(max)
+  Allocated Records:   2678400/2678400(max)
+  Blocking Factor:     8192 (records)
+  Attribute Entries:
+  Variable Data:
+    Record # 1: 2019-01-01T00:00:00.000000000
+    Record # 2: 2019-01-01T00:00:01.000000000
+    ...
 
-   GeomagneticFieldI
-   -----------------
-   Data Type:           CDF_DOUBLE
-   Dimensionality:      0:[]   (T/)
-   Written Records:     1440/1440(max)
-   Allocated Records:   1472/1472(max)
-   Blocking Factor:     0 (records)
-   Attribute Entries:
-        FIELDNAM        (CDF_CHAR/27): "Geomagnetic Field Element I"
-        VALIDMIN        (CDF_DOUBLE/1): -90.0
-        VALIDMAX        (CDF_DOUBLE/1): 90.0
-        UNITS           (CDF_CHAR/14): "Degrees of arc"
-        FILLVAL         (CDF_DOUBLE/1): 99999.0
-        DEPEND_0        (CDF_CHAR/22): "GeomagneticVectorTimes"
-        DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
-        LABLAXIS        (CDF_CHAR/1): "I"
-   Variable Data:
-     Record # 1: 66.1598
-     Record # 2: 66.1605
-      ...
+  GeomagneticFieldX (No: 1) (Recs: 2678400) (Compression: GZIP.6 BlockingFactor: 8192)
+  -----------------
+  Data Type:           CDF_DOUBLE
+  Dimensionality:      0:[]       (T/)
+  Compression:         GZIP.6
+  Pad value:           -1.0e+30
+  Written Records:     2678400/2678400(max)
+  Allocated Records:   2678400/2678400(max)
+  Blocking Factor:     8192 (records)
+  Attribute Entries:
+       DEPEND_0        (CDF_CHAR/22): "DataTimes"
+       DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
+       LABLAXIS        (CDF_CHAR/1): "X"
+       FILLVAL         (CDF_DOUBLE/1): nan
+       VALIDMIN        (CDF_DOUBLE/1): -88880.0
+       VALIDMAX        (CDF_DOUBLE/1): 88880.0
+       FIELDNAM        (CDF_CHAR/27): "Geomagnetic Field Element X"
+       UNITS           (CDF_CHAR/2): "nT"
+  Variable Data:
+    Record # 1: 11283.1
+    Record # 2: 11283.0
+    ...
 
-   GeomagneticFieldF
-   -----------------
-   Data Type:           CDF_DOUBLE
-   Dimensionality:      0:[]   (T/)
-   Written Records:     1440/1440(max)
-   Allocated Records:   1472/1472(max)
-   Blocking Factor:     0 (records)
-   Attribute Entries:
-        FIELDNAM        (CDF_CHAR/27): "Geomagnetic Field Element F"
-        VALIDMIN        (CDF_DOUBLE/1): 0.0
-        VALIDMAX        (CDF_DOUBLE/1): 79999.0
-        UNITS           (CDF_CHAR/2): "nT"
-        FILLVAL         (CDF_DOUBLE/1): 99999.0
-        DEPEND_0        (CDF_CHAR/22): "GeomagneticVectorTimes"
-        DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
-        LABLAXIS        (CDF_CHAR/1): "F"
-   Variable Data:
-     Record # 1: 47881.4
-     Record # 2: 47880.1
-     ...
+  GeomagneticFieldY (No: 2) (Recs: 2678400) (Compression: GZIP.6 BlockingFactor: 8192)
+  -----------------
+  Data Type:           CDF_DOUBLE
+  Dimensionality:      0:[]	(T/)  
+  Compression:         GZIP.6
+  Pad value:           -1.0e+30
+  Written Records:     2678400/2678400(max)
+  Allocated Records:   2678400/2678400(max)
+  Blocking Factor:     8192 (records)
+  Attribute Entries:
+       DEPEND_0        (CDF_CHAR/22): "DataTimes"
+       DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
+       LABLAXIS        (CDF_CHAR/1): "Y"
+       FILLVAL         (CDF_DOUBLE/1): nan
+       VALIDMIN        (CDF_DOUBLE/1): -88880.0
+       VALIDMAX        (CDF_DOUBLE/1): 88880.0
+       FIELDNAM        (CDF_CHAR/27): "Geomagnetic Field Element Y"
+       UNITS           (CDF_CHAR/2): "nT"
+  Variable Data:
+    Record # 1: 1806.72
+    Record # 2: 1806.67
+    ...
 
-   GeomagneticVectorTimes
-   ----------------------
-   Data Type:           CDF_TT2000
-   Dimensionality:      0:[]   (T/)
-   Written Records:     1440/1440(max)
-   Allocated Records:   1472/1472(max)
-   Blocking Factor:     0 (records)
-   Attribute Entries:
-   Variable Data:
-     Record # 1: 1983-01-01T00:00:00.000000000
-     Record # 2: 1983-01-01T00:01:00.000000000
+  GeomagneticFieldZ (No: 3) (Recs: 2678400) (Compression: GZIP.6 BlockingFactor: 8192)
+  -----------------
+  Data Type:           CDF_DOUBLE
+  Dimensionality:      0:[]	(T/)  
+  Compression:         GZIP.6
+  Pad value:           -1.0e+30
+  Written Records:     2678400/2678400(max)
+  Allocated Records:   2678400/2678400(max)
+  Blocking Factor:     8192 (records)
+  Attribute Entries:
+       DEPEND_0        (CDF_CHAR/22): "DataTimes"
+       DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
+       LABLAXIS        (CDF_CHAR/1): "Z"
+       FILLVAL         (CDF_DOUBLE/1): nan
+       VALIDMIN        (CDF_DOUBLE/1): -88880.0
+       VALIDMAX        (CDF_DOUBLE/1): 88880.0
+       FIELDNAM        (CDF_CHAR/27): "Geomagnetic Field Element Z"
+       UNITS           (CDF_CHAR/2): "nT"
+  Variable Data:
+    Record # 1: 52087.4
+    Record # 2: 52087.4
+    ...
 
+  GeomagneticFieldG (No: 4) (Recs: 2678400) (Compression: GZIP.6 BlockingFactor: 8192)
+  -----------------
+  Data Type:           CDF_DOUBLE
+  Dimensionality:      0:[]	(T/)  
+  Compression:         GZIP.6
+  Pad value:           -1.0e+30
+  Written Records:     2678400/2678400(max)
+  Allocated Records:   2678400/2678400(max)
+  Blocking Factor:     8192 (records)
+  Attribute Entries:
+       DEPEND_0        (CDF_CHAR/22): "DataTimes"
+       DISPLAY_TYPE    (CDF_CHAR/11): "time_series"
+       LABLAXIS        (CDF_CHAR/1): "G"
+       FILLVAL         (CDF_DOUBLE/1): nan
+       VALIDMIN        (CDF_DOUBLE/1): -88880.0
+       VALIDMAX        (CDF_DOUBLE/1): 88880.0
+       FIELDNAM        (CDF_CHAR/28): "Geomagnetic Field Element DF"
+       UNITS           (CDF_CHAR/2): "nT"
+  Variable Data:
+    Record # 1: 0.0254182
+    Record # 2: 0.0189378
+    ...
