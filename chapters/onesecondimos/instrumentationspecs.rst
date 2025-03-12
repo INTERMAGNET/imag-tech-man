@@ -198,7 +198,7 @@ Other
     :align: center
 
     +-----------------+---------------------------------------------------+
-    | Data format     | IAGA2002 or ImagCDFV1.10 (or later)               |
+    | Data format     | IAGA2002 or ImagCDFV1.30 (or later)               |
     +-----------------+---------------------------------------------------+
     | Definitive data | to be submitted for inclusion in the INTERMAGNET  |
     |                 | archive                                           |
