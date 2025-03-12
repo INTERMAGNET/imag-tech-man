@@ -3,7 +3,7 @@
 Participation
 =============
 
-Intermagnet membership is available to institutions who wish to
+INTERMAGNET membership is available to institutions who wish to
 operate one or more INTERMAGNET Magnetic Observatories (IMOs).
 Members agree to allow distribution of their IMO data in
 accordance with INTERMAGNET guidelines. In return for
