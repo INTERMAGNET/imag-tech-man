@@ -552,7 +552,7 @@ provide a mechanism for verifying the arrival of your data.
 One simple method the check whether your data has been received
 is to look for the data at the INTERMAGNET web site. The delay
 time from receipt of data at the GIN to data becoming available
-at the web site can be as much as 20 minutes, so you need to
+at the web site can be as much as 10 minutes, so you need to
 allow time for the data to arrive. If your data does not
 arrive, contact the manager of the GIN you have sent data to
 and they will investigate where the problem lies.
@@ -572,14 +572,13 @@ to which they refer (72 hours after the end of the month, all
 data should have been received). They contain summary
 information on the completeness of the previous month’s data.
 
-The INTERMAGNET web site keeps CSV files that describe, on a
+The INTERMAGNET web site keeps data that describes, on a
 minute by minute basis, the difference between the current time
 and the time stamp of the most recently received data from each
 observatory – the observatory’s lag time. These files are
 useful for analysing an observatory’s near real-time
-performance. These files are available via the ftp service on
-the INTERMAGNET web site – for more information contact the web
-manager.
+performance. These files are available from the "statistics"
+section of the INTERMAGNET data portal.
 
 .. _sub_dat_prel_probs:
 
@@ -617,7 +616,7 @@ Data Publication Delays
 INTERMAGNET understands that some institutes would like to
 restrict their data for the public within a defined time
 period. Although INTERMAGNET encourages institutes to deliver
-their data within 72 hours, the INTERMAGNET website and FTP can
+their data within 72 hours, the INTERMAGNET website can
 enforce these rules to secure their data.
 
 By default, if the institute does not request a data
