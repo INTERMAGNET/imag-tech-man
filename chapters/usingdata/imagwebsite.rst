@@ -171,8 +171,8 @@ publishing delay, data are available within 10 to 20 minutes
 after being placed on the server. The data covers the period
 from 1991 to present. In addition to data of reported and adjusted quality,
 quasi-definitive and definitive data may also be available for one-minute 
-or one-second sampling rates in various data formats. Data are also available
-via web services and ftp. For further details and to download data, you can consult 
+or one-second sampling rates in various data formats. Data are available
+via web services. For further details and to download data, you can consult 
 the INTERMAGNET web site: |download_plot_data|
 
 Plots of magnetic observatory data and information derived from

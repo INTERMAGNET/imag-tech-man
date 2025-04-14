@@ -371,8 +371,8 @@ INTERMAGNET has a two stage approach to collection and
 dissemination of non-definitive data. Observatories send their
 data to one of 5 Geomagnetic Information Nodes (GINs). The GINs
 then forward data to the INTERMAGNET web site for distribution
-to users, where it is made available via a web service, a data
-download application on the web and an FTP site. GINs may make
+to users, where it is made available via a web service and a data
+download application on the web site. GINs may make
 provision for observatories to access their own data once it
 has been sent to the GIN, but there is no public access to data
 at the GINs – all public access to data is via the INTERMAGNET
