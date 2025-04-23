@@ -18,7 +18,7 @@ comments provided by our colleagues.
 .. line-block::
 
  Cite as:
- St-Louis, B. (Ed.), INTERMAGNET Operations Committee and Executive Council, |copyright| Technical Reference Manual, Version |version|
+ Bracke, S. (Ed.), INTERMAGNET Operations Committee and Executive Council, |copyright| Technical Reference Manual, Version |version|
 
 
                     The INTERMAGNET Office :
@@ -35,10 +35,6 @@ comments provided by our colleagues.
 
     \newpage
     \thispagestyle{empty}
-    \mbox{}
-    \newpage
-    \thispagestyle{empty}
-
 
 
 .. centered:: **QUICK REFERENCES**
@@ -125,7 +121,6 @@ comments provided by our colleagues.
 .. raw:: latex
 
     \end{multicols}
-    \newpage
     \thispagestyle{empty}
     \mbox{}
     \newpage
