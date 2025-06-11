@@ -4,8 +4,8 @@
 Contacts
 ========
 
-INTERMAGNET Executive Council Addresses
----------------------------------------
+INTERMAGNET Executive Council 
+-----------------------------
 
 .. hlist::
     :columns: 2
@@ -16,9 +16,7 @@ INTERMAGNET Executive Council Addresses
       | 2617 Anderson Rd.
       | Ottawa Ontario K1A OE7
       | CANADA
-      | TEL: 1-613-837-2035
-      | FAX: 1-613-824-9803
-      | INTERNET: David.Boteler@canada.ca
+      | e-mail: David.Boteler@canada.ca
       |
 
     * | **Ellen Clarke**
@@ -27,9 +25,7 @@ INTERMAGNET Executive Council Addresses
       | Research Avenue South
       | Edinburgh EH14 4AP
       | UK
-      | TEL: 44-131-650-0233
-      | INTERNET: ecla@bgs.ac.uk
-      |
+      | e-mail: ecla@bgs.ac.uk
       |
 
     * | **Gauthier Hulot**
@@ -38,11 +34,7 @@ INTERMAGNET Executive Council Addresses
       | 1, rue Jussieu
       | 75238 Paris Cedex 05
       | FRANCE
-      | TEL: 33 (0) 1-83-95-74-78
-      | FAX: 33 (0) 1-71-93-77-09
-      | INTERNET: gh@ipgp.fr
-      |
-      |
+      | e-mail: gh@ipgp.fr
       |
 
     * | **Kristen Lewis**
@@ -51,9 +43,7 @@ INTERMAGNET Executive Council Addresses
       | Denver Federal Center
       | Denver, Colorado 80225-0046
       | USA
-      | TEL: 1-303-273-8471
-      | FAX: 1-303-273-8506
-      | INTERNET: klewis@usgs.gov
+      | e-mail: klewis@usgs.gov
       |
 
     * | **Andrew Lewis**
@@ -61,10 +51,8 @@ INTERMAGNET Executive Council Addresses
       | Cnr Jerrabomberra Avenue and Hindmarsh Drive Symonston ACT
       | GPO Box 378
       | Canberra ACT 2601
-      | Australia
-      | TEL: +61 2 6249 9764
-      | FAX: +61 2 6249 9999
-      | INTERNET: andrew.lewis@ga.gov.au
+      | AUSTRALIA
+      | e-mail: andrew.lewis@ga.gov.au
       |
 
     * | **Jürgen Matzka**
@@ -73,10 +61,8 @@ INTERMAGNET Executive Council Addresses
       | Adolf-Schmidt-Observatorium für Erdmagnetismus
       | Lindenstr. 7
       | 14823 Niemegk
-      | Germany
-      | TEL: +49 (0)33843-624-0
-      | FAX: +49 33843 624-23
-      | INTERNET: jmat@gfz-potsdam.de
+      | GERMANY
+      | e-mail: jmat@gfz-potsdam.de
       |
   
 .. raw:: latex
@@ -84,21 +70,27 @@ INTERMAGNET Executive Council Addresses
     \newpage
 
 
-INTERMAGNET Operations Committee Addresses
-------------------------------------------
+INTERMAGNET Operations Committee 
+--------------------------------
 
 .. hlist::
      :columns: 2
 
+     * | **Seiki Asari**
+       | Japan Meteorological Agency
+       | Kakioka Magnetic Observatory - Technical Division
+       | Kakioka 595, Ishioka, 315-0116 
+       | JAPAN
+       | e-mail: asari@kakioka-jma.go.jp
+       | 
+       
      * | **Charles Blais**
        | Natural Resources Canada
        | Canadian Hazards Information Service
        | 7 Observatory Cr.
        | Ottawa, Ontario K1A OY3
        | CANADA
-       | TEL: 1-613-298-1292
-       | FAX: 1-613-992-8836
-       | INTERNET: charles.blais@canada.ca
+       | e-mail: charles.blais@canada.ca
        |
 
      * | **Stephan Bracke**
@@ -106,9 +98,33 @@ INTERMAGNET Operations Committee Addresses
        | Centre de Physique du Globe
        | Observatoire Magnétique
        | B-5670 Dourbes
-       | Belgique
-       | TEL: +32(60)395409
-       | INTERNET: stbracke@meteo.be
+       | BELGIQUE
+       | e-mail: stbracke@meteo.be
+       |
+       
+     * | **Andras Csontos**
+       | HUN-REN Institute of Earth Physics and SPace Science
+       | Tihany Geophysical Observatory Kossuth utca 91
+       | 8237 Tihany
+       | HUNGARY
+       | e-mail: csontos.andras@epss.hun-ren.hu
+       |
+     
+     * | **David Calp**
+       | Natural Resources Canada
+       | Canadian Hazards Information Service
+       | 2617 Anderson Rd.
+       | Ottawa Ontario K1A OE7
+       | CANADA
+       | e-mail: david.calp@nrcan-rncan.gc.ca
+
+       
+     * | **Matthew Gard**
+       | Geoscience Australia
+       | 101 Jerrabomberra Avenue Symonston 
+       | ACT 2609
+       | AUSTRALIA
+       | e-mail: Matthew.Gard@ga.gov.au
        |
 
      * | **Simon M. Flower**
@@ -117,18 +133,24 @@ INTERMAGNET Operations Committee Addresses
        | Research Avenue South
        | Edinburgh EH14 4AP
        | UK
-       | TEL: 44-131-667-1000
-       | FAX: 44-131-667-1877
-       | INTERNET: s.flower@bgs.ac.uk
+       | e-mail: s.flower@bgs.ac.uk
        |
+
+     * | **Brendan Geels**
+       | U.S. Geological Survey
+       | Box 25046 MS 966
+       | Denver Federal Center
+       | Denver, Colorado 80225-0046
+       | USA 
+       | e-mail: bgeels@@usgs.gov
+
 
      * | **Benoit Heumez**
        | Observatoire Magnétique National
        | Carrefour des 8 routes
        | 45340 Chambon la Forêt
-       | FRANCE
-       | TEL: 33-2-38-33-95-01
-       | INTERNET: heumez@ipgp.fr
+       | France
+       | e-mail: heumez@ipgp.fr
        |
 
      * | **Shun Imajo**
@@ -139,8 +161,7 @@ INTERMAGNET Operations Committee Addresses
        | Oiwake-cho, Kitashirakawa, Sakyo-ku
        | Kyoto 606-8502
        | JAPAN
-       | TEL: 81-75-753-3959
-       | INTERNET: imajo@kugi.kyoto-u.ac.jp
+       | e-mail: imajo@kugi.kyoto-u.ac.jp
        |
 
      * | **Roman Leonhardt**
@@ -148,32 +169,25 @@ INTERMAGNET Operations Committee Addresses
        | ZAMG - Zentralanstalt für Meteorologie und Geodynamik
        | 1190 Wien, Hohe Warte 38
        | AUSTRIA
-       | TEL: +43 1 36026 2507
-       | FAX: +43 1 36866 21
-       | INTERNET: roman.leonhardt@zamg.ac.at
+       | e-mail: roman.leonhardt@zamg.ac.at
        |
 
      * | **Andrew Lewis**
        | Geoscience Australia
-       | Cnr Jerrabomberra Avenue and Hindmarsh Drive   Symonston ACT
-       | GPO Box 378
-       | Canberra ACT 2601
-       | Australia
-       | TEL: +61 2 6249 9764
-       | FAX: +61 2 6249 9999
-       | INTERNET: andrew.lewis@ga.gov.au
+       | 101 Jerrabomberra Avenue Symonston
+       | ACT 2609
+       | AUSTRALIA
+       | e-mail: andrew.lewis@ga.gov.au
        |
 
      * | **Jürgen Matzka**
        | Helmholtz-Zentrum Potsdam
        | Deutsches GeoForschungsZentrum GFZ
-       | Adolf-Schmidt-Observatorium für Erdmagnetismu  s
+       | Adolf-Schmidt-Observatorium für Erdmagnetismus
        | Lindenstr. 7
        | 14823 Niemegk
-       | Germany
-       | TEL: +49 (0)33843-624-0
-       | FAX: +49 33843 624-23
-       | INTERNET: jmat@gfz-potsdam.de
+       | GERMANY
+       | e-mail: jmat@gfz-potsdam.de
        |
 
      * | **Virginie Maury**
@@ -181,10 +195,8 @@ INTERMAGNET Operations Committee Addresses
        | Observatoires magnétiques - bur 110
        | 1, rue Jussieu
        | 75238 Paris Cedex 05
-       | France
-       | TEL: +33 (0)1 83 95 77 80
-       | FAX: 33 (0) 1-71-93-77-09
-       | INTERNET: vmaury@ipgp.fr
+       | FRANCE
+       | e-mail: vmaury@ipgp.fr
        |
 
      * | **Tero Raita**
@@ -192,29 +204,40 @@ INTERMAGNET Operations Committee Addresses
        | University of Oulu
        | Tahtelantie 62
        | FI-99600 Sodankyla
-       | Finland
-       | TEL: +358-294-480864
-       | FAX: +358-16-619875
-       | INTERNET: tero.raita@sgo.fi
+       | FINLAND
+       | e-mail: tero.raita@sgo.fi
        |
 
      * |  **Jan Reda**
        |  Institute of Geophysics PAS
        |  Central Geophysical Observatory
        |  05-622 Belsk
-       |  Poland
-       |  TEL: 48-48-661-0830
-       |  FAX: 48-48-661-0840
-       |  INTERNET: jreda@igf.edu.pl
+       |  POLAND
+       |  e-mail: jreda@igf.edu.pl
        |
 
+     * | **Kristina Rossavik**
+       | U.S. Geological Survey
+       | Box 25046 MS 966
+       | Denver Federal Center
+       | Denver, Colorado 80225-0046
+       | USA 
+       | e-mail: crossavik@usgs.gov
+       
+     * | **Marcos Vinicius da Silva**
+       | Helmholtz-Zentrum Potsdam
+       | Deutsches GeoForschungsZentrum GFZ
+       | Adolf-Schmidt-Observatorium für Erdmagnetismus
+       | Lindenstr. 7
+       | 14823 Niemegk
+       | GERMANY
+       | e-mail: mvsilva@gfz-potsdam.de
+       
      * | **Christopher W. Turbitt**
        | British Geological Survey
        | The Lyell Centre
        | Research Avenue South
        | Edinburgh EH14 4AP
        | UK
-       | TEL: 44-131-667-1000
-       | FAX: 44-131-667-1877
-       | INTERNET: c.turbitt@bgs.ac.uk
+       | e-mail: c.turbitt@bgs.ac.uk
        |
