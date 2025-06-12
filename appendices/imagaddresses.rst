@@ -36,6 +36,8 @@ INTERMAGNET Executive Council
       | FRANCE
       | e-mail: gh@ipgp.fr
       |
+      |
+      |
 
     * | **Kristen Lewis**
       | U.S. Geological Survey
@@ -117,6 +119,7 @@ INTERMAGNET Operations Committee
        | Ottawa Ontario K1A OE7
        | CANADA
        | e-mail: david.calp@nrcan-rncan.gc.ca
+       |
 
        
      * | **Matthew Gard**
@@ -143,6 +146,7 @@ INTERMAGNET Operations Committee
        | Denver, Colorado 80225-0046
        | USA 
        | e-mail: bgeels@@usgs.gov
+       |
 
 
      * | **Benoit Heumez**
@@ -171,6 +175,12 @@ INTERMAGNET Operations Committee
        | AUSTRIA
        | e-mail: roman.leonhardt@zamg.ac.at
        |
+
+        .. only:: latex
+
+            |
+            |
+            |
 
      * | **Andrew Lewis**
        | Geoscience Australia
@@ -223,6 +233,7 @@ INTERMAGNET Operations Committee
        | Denver, Colorado 80225-0046
        | USA 
        | e-mail: crossavik@usgs.gov
+       |
        
      * | **Marcos Vinicius da Silva**
        | Helmholtz-Zentrum Potsdam
@@ -232,6 +243,7 @@ INTERMAGNET Operations Committee
        | 14823 Niemegk
        | GERMANY
        | e-mail: mvsilva@gfz-potsdam.de
+       |
        
      * | **Christopher W. Turbitt**
        | British Geological Survey

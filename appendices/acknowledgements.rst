@@ -5,10 +5,7 @@ We gratefully acknowledge the many and significant contributions
 provided by past members of the Executive Council, the 
 Operations Committee and the Data Checking Team.
 
-..
-   COMMENT not sure how to split pages to set up 2 columns correctly  ..raw:: latex  \newpage ?
-  
-    
+
 .. hlist::
     :columns: 2
 
@@ -41,12 +38,6 @@ Operations Committee and the Data Checking Team.
       | Lee Pankratz (USA)
       | Donald Herzog (USA)
       | Laszlo Hegymegi (Hungary)
-      
-.. raw:: latex
-
-    \newpage
-      
-      
       | Danielle Fouassier (France)
       | Jean-Jacques Schott (France)
       | Manabu Kunitake (Japan)
@@ -64,7 +55,7 @@ Operations Committee and the Data Checking Team.
       | Margaret Pueringer (USA)
       |
       
-    * | **Data Checking Team **    
+    * | **Data Checking Team**
       | Jennifer Parmelee (Canada)
       | Don Herzog, (USA)
       | Larry Newitt, (Canada)
