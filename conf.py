@@ -178,7 +178,7 @@ preamble = r'''
     \setlist{noitemsep}
     \setlength{\parindent}{0cm}
     '''
-
+file_dir = file_dir.replace("\\", "/")
 latex_maketitle =  r'''
         \pagenumbering{Roman} %%% to avoid page 1 conflict with actual page 1
         \begin{titlepage}
