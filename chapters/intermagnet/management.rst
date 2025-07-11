@@ -16,7 +16,7 @@ international scientific and funding agencies.
     :align: center
 
     ============== =========================
-    David Boteler  Canada (Chairman)
+    David Boteler  Canada (Chair)
     Ellen Clarke   United Kingdom
     Gauthier Hulot France
     Kristen Lewis  United States of America
@@ -32,11 +32,11 @@ matters relating to magnetic sensors, data capture and data
 processing, and on communications options, protocols, etc. The
 Operations Committee is also responsible for establishing and
 maintaining standards of operation and uniform data formats and
-transmission characteristics which optimize global exchange.
+transmission characteristics which optimize global data exchange.
 
 The Operations Commitee is led by:
 
-    - Jürgen Matzka, Chairman
+    - Jürgen Matzka, Chair
     - Andrew Lewis, Secretary
 
 .. tabularcolumns:: |p{3.5cm}|p{2cm}|p{2cm}|p{2.5cm}|p{2cm}|p{2.5cm}|
@@ -80,9 +80,6 @@ The Operations Commitee is led by:
     +---------------+------------+--------+------------------+-------------+----------------------+
     | Kristina      | Member     |        |                  |             |                      |
     | Rossavik      |            |        |                  |             |                      |
-    +---------------+------------+--------+------------------+-------------+----------------------+
-    | Maggie        | Member     |        | Member           |             |                      |
-    | Pueringer     |            |        |                  |             |                      |
     +---------------+------------+--------+------------------+-------------+----------------------+
     | Marcos        | Member     |        |                  |             |                      |
     | Vinicius      |            |        |                  |             |                      |
