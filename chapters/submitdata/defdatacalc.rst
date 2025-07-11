@@ -115,7 +115,7 @@ be derived from :numref:`sub_dat_def_calc_vario`:
 
  (1a)\qquad  Z(t) &= V_0(t) + V_{var}(t) \\
  (1b)\qquad  H(t) &= \sqrt{(N_0(t) + N_{var}(t))^2 + E_{var}^2(t)} \\
- (1c)\qquad  D(t) &= D_0(t) + atan{(\frac{E_{var}(t)}{N_0(t)+V_{var}(t)})} \\
+ (1c)\qquad  D(t) &= D_0(t) + atan{(\frac{E_{var}(t)}{N_0(t)+N_{var}(t)})} \\
 
 
 with :math:`N_0` being the baseline of the horizontal component
@@ -135,8 +135,8 @@ derived from (1a) to (1c):
 .. math::
 
  (2a)\qquad  V_0(t_1) &= Z(t_1) - V_{var}(t_1) \\
- (2b)\qquad  N_0(t_1) &= \sqrt{(H^2(t_1)  - E_{var}^2(t_1)} - N_{var}(t_1)) \\
- (2c)\qquad  D_0(t_1) &= D(t_1) - atan{(\frac{E_{var}(t_1)}{N_0(t_1)+V_{var}(t_1)})} \\
+ (2b)\qquad  N_0(t_1) &= \sqrt{H^2(t_1)  - E_{var}^2(t_1)} - N_{var}(t_1) \\
+ (2c)\qquad  D_0(t_1) &= D(t_1) - atan{(\frac{E_{var}(t_1)}{N_0(t_1)+N_{var}(t_1)})} \\
 
 
 Note that in the case of the absolute values :math:`H(t_1)`,
