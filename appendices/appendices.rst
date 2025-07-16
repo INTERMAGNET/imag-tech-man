@@ -3,7 +3,6 @@
 .. |app_iaf| replace:: :ref:`APPENDIX C1 <app_iaf>`
 .. |app_imag_dir| replace:: :ref:`APPENDIX C2 <app_imag_dir>`
 .. |app_iyf| replace:: :ref:`APPENDIX C3 <app_iyf>`
-.. |app_imag_cd| replace:: :ref:`APPENDIX C4 <app_imag_cd>`
 .. |app_imag_addr| replace:: :ref:`APPENDIX D <app_imag_addr>`
 .. |app_imag_imfv_2| replace:: :ref:`APPENDIX E1  <app_imag_imfv_2>`
 .. |app_sat_cod| replace:: :ref:`APPENDIX E2 <app_sat_cod>`
