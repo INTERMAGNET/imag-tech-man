@@ -405,9 +405,7 @@ INTERMAGNET GIN Manager at the following addresses:
 | Denver Federal Center
 | Denver, Colorado 80225-0046
 | USA
-| Telephone: 1-303-273-8485
-| Fax: 1-303-273-8506
-| Internet: aclaycomb@usgs.gov
+| Email: |contact_gin_golden|
 
 | **GSC - Canada:**
 | Charles Blais
@@ -417,9 +415,7 @@ INTERMAGNET GIN Manager at the following addresses:
 | Ottawa, Ontario
 | CANADA
 | K1A 0Y3
-| Telephone: 1-613-298-1292
-| Fax: 1-613-992-8836
-| Internet: charles.blais@canada.ca
+| Email: |contact_gin_ottawa|
 
 | **BGS - Scotland:**
 | Simon M. Flower
@@ -429,9 +425,7 @@ INTERMAGNET GIN Manager at the following addresses:
 | Research Avenue South
 | Edinburgh EH14 4AP
 | UK
-| Telephone: 44-131-667-1000
-| Fax: 44-131-667-1877
-| Internet: e_ginman@mail.nmh.ac.uk
+| Email: |contact_gin_edin|
 
 | **IPG - France:**
 | Virginie Maury
@@ -440,9 +434,7 @@ INTERMAGNET GIN Manager at the following addresses:
 | 1, rue Jussieu
 | 75238 Paris Cedex 05
 | France
-| Telephone: +33 (0)1 83 95 77 80
-| Fax: 33 (0) 1-71-93-77-09
-| Internet: p_ginman@ipgp.fr
+| Email: |contact_gin_paris|
 
 | **Kyoto University - Japan:**
 | Shun Imajo
@@ -453,9 +445,7 @@ INTERMAGNET GIN Manager at the following addresses:
 | Oiwake-cho, Kitashirakawa, Sakyo-ku
 | Kyoto 606-8502
 | JAPAN
-| Telephone: 81-75-753-3959
-| Fax: 81-75-722-7884
-| Internet: imagmanager@swdcdb.kugi.kyoto-u.ac.jp
+| Email: |contact_gin_kyoto|
 
 .. _sub_dat_intro_gin_email:
 
