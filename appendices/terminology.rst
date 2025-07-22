@@ -16,27 +16,35 @@ INTERMAGNET Terminology
         to modify baselines, remove spikes, fill gaps etc. on any
         day file. When data are missing from an ADJUSTED data file,
         these data may be input to a GIN in a later message. This
-        new message file can be transmitted to a GIN with the 'A'
-        flag set in byte 25 of each hourly block header ( |app_imag_imfv_1| ).
-        ADJUSTED data are maintained online until the annual
-        INTERMAGNET Reference Data Set (IRDS) is available.
+        new message file can be transmitted to a GIN with the data 
+        type set to ADJUSTED (See |app_imag_imfv_2| &
+        |app_iaga_2002| ). ADJUSTED data are maintained online
+        until the annual NTERMAGNET Reference Data Set (IRDS) is
+        available.
         They are then archived by the GIN and only
         available thereafter by special arrangement.
 
     DEFINITIVE Data
-        This describes observatory data which have been corrected
-        for baseline variations and which have had spikes removed
-        and gaps filled where possible. DEFINITIVE data have each
-        block header byte 25 set to 'D' (|app_imag_imfv_1|), and the
-        quality of the data is such that in this form they would be
-        used for inclusion into Observatory Year Books, input to
-        World Data Centers and included in the INTERMAGNET Reference
-        Data Set (IRDS).
+        This describes the final publication stage of observatory
+        data. DEFINITIVE data have been corrected for baseline
+        variations, have had spikes removed and gaps filled where
+        possible. DEFINITIVE data are recorded and
+        transmitted in files with the data type set to
+        ADJUSTED ( |app_imag_imfv_2| , |app_iaga_2002| ).
+        The quality of DEFINITIVE data is such that in this form
+        they would be used for inclusion into Observatory Year
+        Books, input to World Data Centers and included in the
+        INTERMAGNET Reference Data Set (IRDS).
 
     Flags
-        Two bytes "Flags #1" and "Flags #2" (bytes 8 and 9) of
-        Format IMFV2.83, are reserved for IMO status information
-        (see |app_imag_imfv_2|).
+        Flags are reserved data values that are typically used to
+        indicate that a data sample is missing. This can be the
+        result of a fault with an instrument; where data have been
+        removed due to poor quality; or where a particular component
+        is not recorded because the necessary instrument is not
+        operated. The value of a data flag is specific to
+        the data format.
+        See ( |app_imag_imfv_2|, |app_iaga_2002| ).
 
     GIN
         Geomagnetic Information Nodes are data centers, organized on
@@ -76,15 +84,22 @@ INTERMAGNET Terminology
         approximately 1 Sec.
 
     NESS binary
-        For GOES users, each 16-bit binary word is encoded as 3
-        pseudo ASCII bytes, so that the 126 bytes of IMFV2.83 data
-        are encoded as 189 bytes NESS binary (see |app_sat_cod|).
+        This term is specific to the data transmission format used
+        by the GOES  satellite. For GOES transmissions, each
+        16-bit binary word is encoded as 3 pseudo ASCII bytes,
+        so that the 126 bytes of IMFV2.83 data are encoded as
+        189 bytes NESS binary (see |app_sat_cod|).
 
     Offset
-        The component offset values determined by the INTERMAGNET
-        coding algorithm that has been applied to recorded data for
-        coding data stored in the "minute value" section of Format
-        IMFV2.83 (see |app_imag_imfv_2|).
+        A fixed-value change applied to an instrument or data set.
+        An offset can be inherent in an instrument but is often
+        used to bring an instrument into its operating range, or
+        to reduce the magnitude of a data point for storage or
+        transmission. For example, offsets are used to reduce
+        the size of data blocks where bandwidth is limited,
+        such as in satellite telemtery. The IMFV2.83 format
+        has provisions for offset values for one-minute data
+        per component ( |app_imag_imfv_2| ).
 
     QUASI-DEFINITIVE Data
         As the name implies, the data should be close to the
@@ -121,13 +136,15 @@ INTERMAGNET Terminology
         by INTERMAGNET.
 
     Reference Measurement (RM)
-        Values provided automatically by an IMO using 2 independent
-        instruments for inter-comparison. Reference Measurements are
-        provided by the institute operating the observatory site
-        using satellite communications to INTERMAGNET GINs using the
-        Format IMFV2.83. The RMs are applied to reported data to
+        RMs are optional values provided by an IMO as 
+        additional quality control information. RM values have
+        historically been derived automatically from variometer
+        data and an independent, stable vector instrument,
+        often sampling at a slower cadence.
+        RMs transmitted in data formats such as IMFV2.83 
+        ( |app_imag_imfv_2| ) can be applied to reported data to
         produce adjusted data and to supplement baseline control.
-
+        
     REPORTED Data
         Data as output by an observatory, transmitting through a
         satellite or using email. REPORTED data have not had any
@@ -136,10 +153,10 @@ INTERMAGNET Terminology
         REPORTED data are removed from online access.
 
     Time stamp
-        The time of the first sample of the data block:
-
-        -  Greenwich day 1 through 366 encoded as a 12-bit binary
-           number.
-        -  Minute of the Greenwich day : 0 through 1439 encoded as a
-           12-bit binary number (see |app_imag_imfv_2| and |app_sat_cod|).
+        The precise date and time of acquisition of a data sample.
+        Timestamp are recorded and transmited alongside the data.
+        In the IMFV2.83 format, a timestamp is recorded for the  
+        first sample of each 12-minute data block only due to
+        bandwidth constraints (see |app_imag_imfv_2| and 
+        |app_sat_cod| ).
 
