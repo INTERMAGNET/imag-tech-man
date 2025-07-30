@@ -69,6 +69,4 @@ precision of the data will be that provided by the IAF format
 precision is unacceptably low, particularly for angular measurements.
 
 Prior to the current software, INTERMAGNET distributed a
-DOS-based program for working with the DVD/CD-ROM data. For
-historical purposes this software is documented in |app_imag_cd|.
-
+DOS-based program for working with the DVD/CD-ROM data.
