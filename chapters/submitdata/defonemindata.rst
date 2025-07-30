@@ -529,8 +529,7 @@ precision is unacceptably low, particularly for angular
 measurements.
 
 Prior to the current software, INTERMAGNET distributed a
-DOS-based program for working with the IPM data. For
-historical purposes this software is documented in |app_imag_cd|.
+DOS-based program for working with the IPM data.
 
 Copies of INTERMAGNET Physical Media may be obtained from:
 
