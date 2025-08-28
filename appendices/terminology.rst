@@ -17,20 +17,19 @@ INTERMAGNET Terminology
         day file. When data are missing from an ADJUSTED data file,
         these data may be input to a GIN in a later message. This
         new message file can be transmitted to a GIN with the data 
-        type set to ADJUSTED (See |app_imag_imfv_2| &
-        |app_iaga_2002| ). ADJUSTED data are maintained online
-        until the annual NTERMAGNET Reference Data Set (IRDS) is
-        available.
-        They are then archived by the GIN and only
-        available thereafter by special arrangement.
+        type set to ADJUSTED (See |app_imag_imfv_2| ). ADJUSTED
+        data are maintained online until the annual INTERMAGNET
+        Reference Data Set (IRDS) is available. They are then
+        archived by the GIN and only available thereafter by
+        special arrangement.
 
     DEFINITIVE Data
         This describes the final publication stage of observatory
         data. DEFINITIVE data have been corrected for baseline
         variations, have had spikes removed and gaps filled where
         possible. DEFINITIVE data are recorded and
-        transmitted in files with the data type set to
-        ADJUSTED ( |app_imag_imfv_2| , |app_iaga_2002| ).
+        transmitted in files with the data type set to 
+        DEFINITIVE ( |app_imag_imfv_2| , |app_iaga_2002| ).
         The quality of DEFINITIVE data is such that in this form
         they would be used for inclusion into Observatory Year
         Books, input to World Data Centers and included in the
@@ -41,7 +40,7 @@ INTERMAGNET Terminology
         indicate that a data sample is missing. This can be the
         result of a fault with an instrument; where data have been
         removed due to poor quality; or where a particular component
-        is not recorded because the necessary instrument is not
+        is not observed when the necessary instrument is not
         operated. The value of a data flag is specific to
         the data format.
         See ( |app_imag_imfv_2|, |app_iaga_2002| ).
@@ -154,7 +153,7 @@ INTERMAGNET Terminology
 
     Time stamp
         The precise date and time of acquisition of a data sample.
-        Timestamp are recorded and transmited alongside the data.
+        Timestamp are recorded and transmitted alongside the data.
         In the IMFV2.83 format, a timestamp is recorded for the  
         first sample of each 12-minute data block only due to
         bandwidth constraints (see |app_imag_imfv_2| and 
