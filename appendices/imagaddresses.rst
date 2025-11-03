@@ -78,20 +78,16 @@ INTERMAGNET Executive Council
      - andrew.lewis@ga.gov.au
 
    * - **Jürgen Matzka**
-     - Helmholtz-Zentrum Potsdam
+     - GFZ Helmholtz Centre for Geosciences
 
-       Deutsches GeoForschungsZentrum GFZ
-
-       Adolf-Schmidt-Observatorium
-
-       für Erdmagnetismus
+       A.-Schmidt-Observatory for Geomagnetism
 
        Lindenstr. 7
 
        14823 Niemegk
 
        GERMANY
-     - jmat@gfz-potsdam.de
+     - juergen.matzka@gfz.de
 
 
 
@@ -296,20 +292,16 @@ INTERMAGNET Operations Committee
      - mandici@gfz.hr
 
    * - **Jürgen Matzka**
-     - Helmholtz-Zentrum Potsdam
+     - GFZ Helmholtz Centre for Geosciences
 
-       Deutsches GeoForschungsZentrum GFZ
-
-       Adolf-Schmidt-Observatorium
-
-       für Erdmagnetismus
+       A.-Schmidt-Observatory for Geomagnetism
 
        Lindenstr. 7
 
        14823 Niemegk
 
        GERMANY
-     - jmat@gfz-potsdam.de
+     - juergen.matzka@gfz.de
 
    * - **Virginie Maury**
      - Institut de Physique du Globe de Paris
@@ -358,20 +350,16 @@ INTERMAGNET Operations Committee
      - jreda@igf.edu.pl
 
    * - **Marcos Vinicius da Silva**
-     - Helmholtz-Zentrum Potsdam
+     - GFZ Helmholtz Centre for Geosciences
 
-       Deutsches GeoForschungsZentrum GFZ
-
-       Adolf-Schmidt-Observatorium
-
-       für Erdmagnetismus
+       A.-Schmidt-Observatory for Geomagnetism
 
        Lindenstr. 7
 
        14823 Niemegk
 
        GERMANY
-     - mvsilva@gfz-potsdam.de
+     - mvsilva@gfz.de
 
    * - **Christopher W. Turbitt**
      - British Geological Survey
