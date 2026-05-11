@@ -1,11 +1,13 @@
 .. _app_iyf:
 
 
-INTERMAGNET Format for Yearmean File : IYF V1.02
-------------------------------------------------
+INTERMAGNET Format for Yearmean File
+------------------------------------
 
+IYF V1.02
+`````````
 
-Magnetic data with 1nT or 0.1min of arc resolution are organized
+Magnetic data with 1 nT or 0.1 min of arc resolution are organized
 on a year file basis. One file contains all annual mean values of
 the geomagnetic field components that are available from the
 observatory.
@@ -19,7 +21,7 @@ but may also contain tables of annual means for QUIET-DAYS and
 DISTURBED-DAYS.
 
 Description of the Header Block
-```````````````````````````````
+"""""""""""""""""""""""""""""""
 
 The header contains information on observatory name, ID-code,
 Colatitude, Longitude and Elevation to WGS-84 datum. It further
@@ -106,7 +108,7 @@ for positive values is optional.
   records.
 
 Description of the Footer
-`````````````````````````
+"""""""""""""""""""""""""
 
 
 At the end of the file is added a footer describing the data. The
@@ -140,7 +142,7 @@ footer looks like this:
 
 
 Sample of a Yearmean File
-`````````````````````````
+"""""""""""""""""""""""""
 
 ::
 
@@ -255,7 +257,7 @@ Sample of a Yearmean File
                  is unknown.
 
 Sample of Missing Values
-````````````````````````
+""""""""""""""""""""""""
 
 ::
 
@@ -264,3 +266,359 @@ Sample of Missing Values
 
   1983.500 999 99.9 999 99.9 999999 999999 999999 999999 999999 A  DHZ
   1984.500 999 99.9  77 14.3  12171 999999  -6642  53736  55097 A  DHZ
+
+
+IYF V1.03
+`````````
+
+Annual means of magnetic data with 1 nT or 0.1 minute-of-arc resolution are organized on a year file
+basis. One file contains all annual mean values of the geomagnetic field components that are available
+from the observatory.
+
+The file includes a header block, a data block and a footer block. The data block must have from 1 to 3
+tables containing annual mean values. A table of annual means for ALL DAYS for each year of
+INTERMAGNET membership is required. Optionally, ALL DAYS annual mean data available prior
+to INTERMAGNET membership and tables of annual mean data for QUIET-DAYS and
+DISTURBED-DAYS are encouraged where possible.
+
+The first table in the data block must contain ALL DAYS means, optionally followed by tables
+containing QUIET DAYS means and DISTURBED DAYS means in that order if these data are
+available. Each table must have at least one blank line at the end of the table (CrLf end-of lines, or 73
+space characters followed by CrLf end-of-lines)
+
+If DISTURBED DAYS means are available but QUIET DAYS means are not available then a table of
+QUIET DAYS means must be included between the ALL DAYS and DISTURBED DAYS tables with
+QUIET DAYS data filled with No Data Values.
+
+File name
+"""""""""
+
+"yearmean" and the three-letter observatory ID code as an extension. eg:
+yearmean.bou for Boulder.
+
+Description of the header block
+"""""""""""""""""""""""""""""""
+
+The header contains information on file format version, observatory name, IAGA three-letter
+code, colatitude, longitude and elevation. It further contains the headers for each data column.
+Location data must be decimal degrees with three decimal places for colatitude and east
+longitude on the WGS-84 datum and elevation as integer metres above sea level.
+
+The file format version information is identified by including "IYFV" as the first four
+characters in the file followed by a numerical format descriptor defining the format version.
+If "IYFV" is not include or the numerical format descriptor is not included or not defined as a
+format version then the file is interpreted as IYFV1.02 or earlier.
+
+The header must follow the layout in the example shown below with each line no longer than
+75 characters including CrLf end-of-lines.
+
+eg: The header for an IYFV1.03 format yearmean data file for Wingst is:
+
+
+::
+
+  IYFV1.03                    ANNUAL MEAN VALUES 
+  
+                             WINGST, WNG, GERMANY
+                                                   
+  COLATITUDE:  36.275      LONGITUDE:   9.053 E      ELEVATION:   66 m 
+  
+  YEAR      D        I         H      X      Y      Z      F  * ELE Note 
+         Deg. min Deg. min     nT     nT     nT     nT     nT
+  
+
+Description of the data block
+"""""""""""""""""""""""""""""
+Each line in the data block is 75 characters per line including CrLf. All data fields are right
+justified. The field width must be maintained, either by zero-filling or space filling for number 
+fields and space filling for character fields.
+The '+'sign for positive values is optional.
+
+::
+  
+  _YYYY.yyy_DDD_dd.d_III_ii.i_HHHHHH_XXXXXX_YYYYYY_ZZZZZZ_FFFFFF_A_EEEE_NNNCrLf 
+   
+
+
+
+.. tabularcolumns:: |>{\centering\arraybackslash}p{2cm}|p{9cm}|
+
+.. table::
+    :class: longtable
+    :widths: auto
+    :align: center
+
+    +----------+----------------------------------------------------------+
+    | YYYY.yyy | Epoch is given with 3 decimals                           |
+    +----------+----------------------------------------------------------+
+    | DDD_dd.d | Declination is given in degrees and decimal minutes of   |
+    |          | arc                                                      |
+    +----------+----------------------------------------------------------+
+    | III_ii.i | Inclination is given in degrees and decimal minutes of   |
+    |          | arc                                                      |
+    +----------+----------------------------------------------------------+
+    | HHHHHH   | H-component is given in nT                               |
+    +----------+----------------------------------------------------------+
+    | XXXXXX   | X-component is given in nT                               |
+    +----------+----------------------------------------------------------+
+    | YYYYYY   | Y-component is given in nT                               |
+    +----------+----------------------------------------------------------+
+    | ZZZZZZ   | Z-component is given in nT                               |
+    +----------+----------------------------------------------------------+
+    | FFFFFF   | F-component is given in nT calculated from vector data;  |
+    |          | if F data from previous years were calculated using a    |
+    |          | continuously recording scalar magnetometer this should   |
+    |          | be identified in an explanatory note in the footer block.|
+    +----------+----------------------------------------------------------+
+    | A        | Type of annual means                                     |
+    +----------+----------------------------------------------------------+
+    | EEEE     | Vector variometer sensor orientation                     |
+    |          | eg "XYZF", "HDZF", "DFI", "ABZ"                          |
+    +----------+----------------------------------------------------------+
+    | NNN      | Note number                                              |
+    +----------+----------------------------------------------------------+
+    | \_       | represents a space character                             |
+    +----------+----------------------------------------------------------+
+    | CrLf     | indicates a Carriage return and Line feed character      |
+    +----------+----------------------------------------------------------+
+
+
+Angular values of the magnetic field are expressed as degrees and minutes. Values may be
+written in the range 0 to 360 or -180 to 180. Observatories may choose which range to use.
+Negative values must always have the minus sign before the degree field, never before the 
+minute field (including values between 0 and -1 degrees, for example "-0 59.0" means a value of 
+minus zero degrees fifty nine minutes). This applies to all types of records, including jump 
+records
+
+
+A
+##
+The type of annual means may be "A"ll, "Q"uiet, "D"isturbed, "I"ncomplete" or "J"ump.
+
+Any annual means calculated using greater than or equal to 50% but less than 90% of a full
+year of minute data must be identified as incomplete with "I". Optionally, these data can be 
+included as No Data Values and identified with "I". Where there are less than 50% of a full 
+year of minute data available the No Data Value must be used and the record identified as 
+incomplete with "I".
+
+Where a data record is marked "I" it must be clarified with an explanatory note in the footer 
+block.
+
+"Q" means are calculated using minute data from the 5 international most quiet days for each 
+month of the year as published by the International Service of Geomagnetic Indices.
+
+"D" means are calculated using minute data from the 5 international most disturbed days for 
+each month of the year as published by the International Service of Geomagnetic Indices.
+
+"J" is not an annual mean value, but indicates a jump in the observatory recordings, the cause 
+of which must be described in an explanatory note. Jump records contain measured differences 
+between an old setup or location and a new set-up or location within an observatory data 
+series. It is common practice to carry a jump forward or backward to the start of a year. Jump 
+records should be repeated in every data table included in the data block (A, Q, D).
+
+To update values (be they annual, monthly, hourly etc) before the jump so that they are 
+consistent with values after the jump, the jump values should be subtracted. If the measured 
+differences are in D (in degrees), H and Z (in nT) then those for I (in degrees), X, Y and F (in 
+nT) are
+
+
+.. math::
+
+  \Delta I &= \frac{180}{\pi} \frac{H \Delta Z - Z \Delta H}{F^2} \\
+  \Delta X &= \Delta H cosD - \frac{\pi}{180}\Delta DHsinD \\
+  \Delta Y &= \Delta HsinD + \frac{\pi}{180}\Delta DHcosD \\
+  \Delta F &= \frac{H\Delta H + Z\Delta Z}{F} \\
+ 
+ 
+And if the measured differences are in X, Y and Z (in nT) those in D and I (in degrees), H and 
+F (in nT) are 
+ 
+.. math::
+ 
+   \Delta D &= \frac{180}{\pi} \frac{X \Delta Y - Y \Delta X}{H^2} \\
+   \Delta I &= \frac{180}{\pi} \frac{H \Delta Z - Z \Delta H}{F^2} \\
+   \Delta H &= \frac{X\Delta X + Y\Delta Y}{H} \\
+   \Delta F &= \frac{X\Delta X + Y\Delta Y + Z \Delta Z}{F} \\
+
+
+
+Where the full-field values are averages of the annual means before (uncorrected) and after the jump.
+
+
+EEEE
+#####
+Vector variometer sensor orientation. Two common examples are XYZF and HDZF. If an 
+independent total field measurement is not made at an observatory this field should not include 
+an "F" code. For example, an observatory using a three component fluxgate with one horizontal 
+sensor aligned along the magnetic meridian and a proton magnetometer should use "HDZF" in 
+this field. An observatory using only the fluxgate should use "HDZ". An observatory using a 
+dIdI variometer should use "DIF"
+
+YYYY.yyy
+########
+Epoch of the annual mean. Where ALL DAYS annual means are calculated from 90% or more 
+of a full year of minute data the epoch should be listed as the middle of the year (for example 
+2022.500).
+
+If there is less than 50% of a full year of minute data and an annual mean data record is 
+included using No Data Values then the epoch is listed as the middle of the year, for example 
+2022.500.
+
+If ALL DAYS annual means are calculated from greater than or equal to 50% but less than 
+90% of a full year of minute data and data are not represented by No Data Values the epoch 
+must be listed as the average epoch of the available data, for example 2022.440.
+
+QUIET DAYS and DISTURBED DAYS tables, if included, should use the same epochs as the 
+corresponding ALL DAYS table.
+
+No data value
+#############
+Where data are not available for a particular year or element the data are replaced with a No 
+Data Value. For the angular elements the No Data Value is "999 99.9". For the magnitude 
+elements, the No Data Value is "999999".
+For any years where no data are available or the No Data Value is used for all data fields, it is 
+acceptable to omit that record entirely, except in the special case when a DISTURBED DAYS 
+data table is included without any QUIET DAYS data table, as described above.
+
+Description of the footer block
+"""""""""""""""""""""""""""""""
+At the end of the file is added a footer describing the data. The footer contains notes on jumps, 
+incomplete data sets etc. The footer must look like the example below with notes adjusted for 
+each particular observatory. Each line in the notes section should be terminated with CrLf.: 
+::
+
+  * A = All days 
+  * Q = Quiet Days 
+  * D = Disturbed Days 
+  * I = Incomplete 
+  * J = Jump: jump value = old site value - new site value 
+    ELE = vector variometer sensor orientation 
+    Notes: 
+    1. Note A 
+    2. Note B 
+
+
+Example of a yearmean file
+""""""""""""""""""""""""""
+::
+
+  IYFV1.03                    ANNUAL MEAN VALUES 
+   
+                        OBSERVATORY NAME, COD, COUNTRY 
+   
+    COLATITUDE:  23.510      LONGITUDE: 333.863 E      ELEVATION:  4 m 
+   
+      YEAR      D        I        H      X      Y      Z      F  * ELE Note 
+             Deg.  '  Deg.  '     nT     nT     nT     nT     nT 
+   
+   1942.500 -27 47.9  76 42.1  12973  11476  -6050  54889  56401 A  XYZ     
+   1949.500 -28 03.0 999 99.9  12946  11426  -6088 999999 999999 I  XYZ   1 
+   1950.650 -28 13.6  76 43.5  12940  11401  -6120  54843  56349 I HDZF   2 
+   1951.500 -28 22.9 999 99.9  12926  11372  -6144  54810  56313 A HDZF   3 
+   1983.568 326 41.6  77 15.8  12152  10156  -6673  53764  55120 I  DHZ   3 
+   1984.500 326 55.7  77 14.3  12171  10199  -6642  53736  55097 A  DHZ     
+   1985.500 327 11.1  77 12.9  12187  10242  -6604  53706  55071 A  DHZ     
+   1986.500 327 26.8  77 11.7  12201  10284  -6565  53679  55048 A  DHZ     
+   1987.500 327 44.5  77 09.9  12223  10336  -6524  53647  55022 A  DHZ     
+   1988.500 328 00.5  77 09.0  12235  10377  -6482  53633  55011 A  DHZ     
+   1989.000   0 02.6   0 00.7     -4      2     10     30     28 J  DHZ   4 
+   1989.500 328 13.8  77 07.2  12254  10418  -6452  53592  54975 A  DHZ     
+   1990.500 328 29.9  77 05.9  12271  10463  -6412  53571  54959 A  DHZ     
+   1991.500 328 45.6  77 04.9  12284  10503  -6371  53555  54946 A UVZF   5 
+   1992.500 329 01.3  77 03.4  12302  10547  -6332  53525  54920 A  DHZ     
+   1993.500 329 17.9  77 01.6  12323  10596  -6292  53495  54896 A  DHZ     
+   1994.000   0 00.0   0 00.0     -1     -1      0     -2     -3 J  DHZ   6 
+   1994.500 329 34.3  77 00.7  12335  10636  -6247  53476  54880 A  DHZ     
+   1995.500 329 53.6  76 58.3  12366  10698  -6203  53444  54856 A  DHZ     
+   1996.500 330 13.6  76 56.0  12395  10759  -6155  53409  54828 A  DHZ     
+   1997.500 330 33.9  76 54.0  12423  10819  -6105  53381  54807 A  DHZ     
+   1998.500 330 55.6  76 52.2  12446  10878  -6048  53361  54793 A  DHZ     
+   1999.500 331 17.3  76 50.2  12473  10939  -5992  53332  54771 A  DHZ     
+   2000.500 331 39.0  76 48.4  12497  10998  -5934  53311  54756 A  DHZ     
+   2001.500 332 01.3  76 46.1  12527  11063  -5877  53278  54731 A  DHZ     
+   2002.500 332 23.6  76 44.2  12553  11124  -5817  53254  54714 A  DHZ     
+   2003.500 332 45.2  76 43.3  12564  11170  -5752  53237  54699 A  DHZ     
+   2004.500 333 07.8  76 40.5  12600  11240  -5695  53202  54674 A  DHZ     
+   2005.500 333 29.3  76 38.7  12624  11296  -5635  53176  54654 A  DHZ     
+   2006.500 333 50.4  76 36.2  12656  11360  -5580  53140  54626 A  DHZ     
+   
+   1983.568 326 42.3  77 15.1  12164  10167  -6677  53765  55124 I  DHZ   3 
+   1984.500 326 56.3  77 13.3  12186  10213  -6648  53734  55098 Q  DHZ     
+   1985.500 327 11.6  77 12.0  12202  10256  -6611  53704  55073 Q  DHZ     
+   1986.500 327 27.4  77 10.8  12215  10297  -6571  53676  55048 Q  DHZ     
+   1987.500 327 44.9  77 09.4  12232  10345  -6527  53648  55025 Q  DHZ     
+   1988.500 328 00.8  77 08.2  12246  10387  -6487  53631  55011 Q  DHZ     
+   1989.000   0 02.6   0 00.7     -4      2     10     30     28 J  DHZ   4 
+   1989.500 328 14.4  77 06.6  12263  10427  -6455  53591  54976 Q  DHZ     
+   1990.500 328 30.0  77 05.3  12279  10470  -6416  53567  54956 Q  DHZ     
+   1991.500 328 46.1  77 04.0  12297  10515  -6376  53551  54945 Q UVZF   5 
+   1992.500 329 01.6  77 02.7  12312  10556  -6336  53521  54919 Q  DHZ     
+   1993.500 329 18.2  77 00.9  12335  10607  -6297  53491  54895 Q  DHZ     
+   1994.000   0 00.0   0 00.0     -1     -1      0     -2     -3 J  DHZ   6 
+   1994.500 329 35.4  76 59.2  12357  10657  -6255  53470  54879 Q  DHZ     
+   1995.500 329 54.2  76 57.5  12380  10711  -6208  53443  54858 Q  DHZ     
+   1996.500 330 13.6  76 55.5  12403  10766  -6159  53407  54828 Q  DHZ     
+   1997.500 330 34.2  76 53.4  12431  10827  -6108  53380  54808 Q  DHZ     
+   1998.500 330 55.5  76 51.6  12456  10886  -6053  53359  54793 Q  DHZ     
+   1999.500 331 17.9  76 49.6  12483  10949  -5995  53330  54771 Q  DHZ     
+   2000.500 331 39.3  76 47.8  12507  11007  -5938  53308  54755 Q  DHZ     
+   2001.500 332 01.5  76 45.6  12535  11070  -5880  53278  54733 Q  DHZ     
+   2002.500 332 23.7  76 43.6  12562  11132  -5821  53252  54714 Q  DHZ     
+   2003.500 332 45.9  76 42.0  12584  11189  -5759  53234  54701 Q  DHZ     
+   2004.500 333 08.1  76 39.7  12613  11252  -5700  53200  54675 Q  DHZ     
+   2005.500 333 29.6  76 37.8  12640  11311  -5641  53177  54659 Q  DHZ     
+   2006.500 333 50.5  76 35.5  12669  11371  -5585  53141  54630 Q  DHZ     
+                                                                            
+   1983.568 326 40.4  77 17.7  12121  10128  -6659  53763  55112 I  DHZ   3 
+   1984.500 326 54.6  77 16.5  12136  10168  -6626  53744  55097 D  DHZ     
+   1985.500 327 10.1  77 14.7  12158  10216  -6592  53707  55066 D  DHZ     
+   1986.500 327 25.6  77 13.7  12169  10255  -6552  53683  55045 D  DHZ     
+   1987.500 327 43.9  77 11.0  12205  10320  -6516  53645  55016 D  DHZ     
+   1988.500 327 59.5  77 10.9  12204  10349  -6469  53636  55007 D  DHZ     
+   1989.000   0 02.6   0 00.7     -4      2     10     30     28 J  DHZ   4 
+   1989.500 328 12.2  77 08.9  12228  10393  -6443  53598  54975 D  DHZ     
+   1990.500 328 30.0  77 07.3  12249  10444  -6400  53577  54959 D  DHZ     
+   1991.500 328 45.1  77 06.5  12258  10480  -6359  53560  54945 D UVZF   5 
+   1992.500 329 00.8  77 05.6  12268  10517  -6316  53539  54927 D  DHZ     
+   1993.500 329 16.8  77 03.5  12295  10570  -6281  53502  54897 D  DHZ     
+   1994.000   0 00.0  00 00.0     -1     -1      0     -2     -3 J  DHZ   6 
+   1994.500 329 33.2  77 02.9  12300  10604  -6233  53481  54877 D  DHZ     
+   1995.500 329 52.6  76 59.7  12344  10677  -6195  53445  54852 D  DHZ     
+   1996.500 330 12.9  76 57.1  12378  10743  -6149  53411  54827 D  DHZ     
+   1997.500 330 33.7  76 54.8  12409  10807  -6099  53382  54805 D  DHZ     
+   1998.500 330 54.7  76 54.2  12416  10850  -6036  53371  54796 D  DHZ     
+   1999.500 331 17.0  76 51.9  12446  10915  -5980  53336  54769 D  DHZ     
+   2000.500 331 37.8  76 50.1  12472  10974  -5926  53317  54756 D  DHZ     
+   2001.500 332 00.3  76 47.0  12512  11048  -5873  53276  54726 D  DHZ     
+   2002.500 332 23.3  76 45.3  12536  11108  -5810  53256  54711 D  DHZ     
+   2003.500 332 44.1  76 45.7  12526  11134  -5738  53245  54698 D  DHZ     
+   2004.500 333 06.5  76 42.6  12567  11208  -5684  53206  54670 D  DHZ     
+   2005.500 333 29.1  76 40.1  12600  11275  -5625  53174  54647 D  DHZ     
+   2006.500 333 50.1  76 37.7  12631  11337  -5570  53140  54621 D  DHZ     
+   
+  * A = All Days 
+  * Q = Quiet Days 
+  * D = Disturbed Days 
+  * I = Incomplete 
+  * J = Jumps       jump value = old site value - new site value 
+   
+    ELE = vector variometer sensor orientation 
+     
+    Notes: 
+             1. No data were available from 01 January 1943 until 
+                15 January 1949. From 15 January 1949 until 15 December  
+                1949 there were no data from the vertical (Z) channel. 
+             2. No data available from 2 January until 20 April 1950 due  
+                to installation of a new variometer system.
+             3. The observatory was shut down on 15 December 1951 and re-opened 
+                on 19 February 1983 
+             4. The jump in the values in 1989 is due to establishment of a new 
+                absolute pillar during 1989 
+             5. A temporary variometer was used from 02 February 1991 until 
+                01 December 1992 when the primary variometer was  
+                repaired after a lightning strike. 
+             6. The jump in the values from 1993 to 1994 is due to 
+                a change in the height of the absolute pillar when swapping 
+                from QHM and declinometer absolute instruments to DIFlux
+
+
