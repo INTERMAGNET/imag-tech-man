@@ -372,8 +372,7 @@ The '+'sign for positive values is optional.
     +----------+----------------------------------------------------------+
     | A        | Type of annual means                                     |
     +----------+----------------------------------------------------------+
-    | EEEE     | Vector variometer sensor orientation                     |
-    |          | eg "XYZF", "HDZF", "DFI", "ABZ"                          |
+    | EEEE     | Variometer sensor orientation                            |
     +----------+----------------------------------------------------------+
     | NNN      | Note number                                              |
     +----------+----------------------------------------------------------+
@@ -447,12 +446,15 @@ Where the full-field values are averages of the annual means before (uncorrected
 
 EEEE
 #####
-Vector variometer sensor orientation. Two common examples are XYZF and HDZF. If an 
-independent total field measurement is not made at an observatory this field should not include 
-an "F" code. For example, an observatory using a three component fluxgate with one horizontal 
-sensor aligned along the magnetic meridian and a proton magnetometer should use "HDZF" in 
-this field. An observatory using only the fluxgate should use "HDZ". An observatory using a 
-dIdI variometer should use "DIF"
+Variometer sensor orientation. For example, an observatory using a three component fluxgate variometer should use:
+
+    - "HDZ" or "DHZ" for two horizontal components, one of which is aligned along the magnetic meridian and the third component is vertically aligned.
+    - "XYZ" for two horizontal components, one of which is aligned along the geographic north and the third component is vertically aligned.
+    - "DFI" for one horizontal component perpendicular to the magnetic meridian. one component aligned along the magnetic field and the third in the magnetic meridian perpendicular to the magnetic field.
+   
+If an independent total field measurement is made at an observatory this field should include an "F" code. Two common examples are "XYZF" and "HDZF". 
+An observatory using a dIdD variometer should use "DIF" or "DIFF" (see above).
+
 
 YYYY.yyy
 ########
@@ -492,7 +494,7 @@ each particular observatory. Each line in the notes section should be terminated
   * D = Disturbed Days 
   * I = Incomplete 
   * J = Jump: jump value = old site value - new site value 
-    ELE = vector variometer sensor orientation 
+    ELE = variometer sensor orientation 
     Notes: 
     1. Note A 
     2. Note B 
@@ -602,7 +604,7 @@ Example of a yearmean file
   * I = Incomplete 
   * J = Jumps       jump value = old site value - new site value 
    
-    ELE = vector variometer sensor orientation 
+    ELE = variometer sensor orientation 
      
     Notes: 
              1. No data were available from 01 January 1943 until 
