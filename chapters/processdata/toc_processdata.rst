@@ -9,6 +9,7 @@ Processing Data
     :maxdepth: 4
 
     introduction
+    components
     dataqualitycontrol
     computebaseline
     adoptbaseline

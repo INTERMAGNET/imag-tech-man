@@ -39,7 +39,7 @@ preliminary data submission (described in :numref:`sub_dat_prel_data`).
 Observatories may submit quasi-definitive data in place of
 preliminary data if this meets the requirement of being
 received within 72 hours of recording, but ideally faster (see
-:numref:`sub_dat_intro_rtpd`).
+:numref:`sub_dat_intro`).
 
 At the end of a calendar year, data are to be prepared using
 final baselines and submitted as definitive data for inclusion

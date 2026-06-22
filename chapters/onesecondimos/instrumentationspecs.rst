@@ -182,7 +182,7 @@ Transmission
 
 Transmission by electronic means to a Geomagnetic Information
 Node (GIN) must be within 72 hours of acquisition or sooner
-(see :numref:`sub_dat_intro_rtpd`).
+(see :numref:`sub_dat_intro`).
 
 
 

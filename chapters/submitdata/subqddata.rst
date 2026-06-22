@@ -19,7 +19,7 @@ Update Frequencies and Formats for Quasi-Definitive Data
 --------------------------------------------------------
 
 Typical update frequencies are updates on a daily or monthly
-basis. For the formats, please refer to :numref:`sub_dat_prel_upf`.
+basis. For the formats, please refer to :numref:`sub_dat_prel_go`.
 
 
 .. _sub_dat_qd_data_ws:

@@ -3,6 +3,11 @@
 INTERMAGNET Management
 ======================
 
+.. include:: ../../appendices/appendices.rst
+
+Contact details for INTERMAGNET Executive Council and Operations Committee
+members can be found in |app_imag_addr|.
+
 Executive Council
 -----------------
 

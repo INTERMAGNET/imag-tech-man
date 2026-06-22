@@ -4,6 +4,7 @@
 .. |app_imag_dir| replace:: :ref:`APPENDIX C2 <app_imag_dir>`
 .. |app_iyf| replace:: :ref:`APPENDIX C3 <app_iyf>`
 .. |app_imag_addr| replace:: :ref:`APPENDIX D <app_imag_addr>`
+.. |app_imag_addr_ginman| replace:: :ref:`APPENDIX D <app_imag_addr_ginman>`
 .. |app_imag_imfv_2| replace:: :ref:`APPENDIX E1  <app_imag_imfv_2>`
 .. |app_sat_cod| replace:: :ref:`APPENDIX E2 <app_sat_cod>`
 .. |app_imag_imfv_1| replace:: :ref:`APPENDIX E3 <app_imag_imfv_1>`

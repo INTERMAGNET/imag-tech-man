@@ -116,7 +116,7 @@ Transmission
 
 Transmission to a Geomagnetic Information Node (GIN) must be
 over the Internet or by satellite, within 72 hours of
-acquisition or sooner (see :numref:`sub_dat_intro_rtpd` ).
+acquisition or sooner (see :numref:`sub_dat_intro` ).
 
  .. note::
 

@@ -54,15 +54,6 @@ comments provided by our colleagues.
   | |intermagnet_website|
   |
 
-* | **GIN internet addresses**
-  |
-  | Ottawa: |contact_gin_ottawa|
-  | Paris: |contact_gin_paris|
-  | Golden: |contact_gin_golden|
-  | Edinburgh: |contact_gin_edin|
-  | Kyoto: |contact_gin_kyoto|
-  |
-
 * | **INTERMAGNET PHYSICAL MEDIA (IPM) distribution office**
   |
   | INTERMAGNET Physical Media distribution office
@@ -73,11 +64,6 @@ comments provided by our colleagues.
   | TEL: 33 (0) 2-38-33-95-01
   | INTERNET: |contact_ipgp|
   |
-
-.. raw:: html
-
-   </div>
-   <div class="rightside">
 
 * | **General inquiries**
   |
@@ -92,6 +78,11 @@ comments provided by our colleagues.
   | FAX: +61 2 6249 9999
   | INTERNET: |contact_gen_inq|
   |
+
+.. raw:: html
+
+   </div>
+   <div class="rightside">
 
 .. raw:: latex
 
