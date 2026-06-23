@@ -69,7 +69,7 @@ partially superseded) an older one.
     | Data format         | Type of data        | Notes                                         | Reference         |
     |                     | supported           |                                               |                   |
     +=====================+=====================+===============================================+===================+
-    | ImagMQTT            | Minute or second    | The preferred format for submission of        | TODO              |
+    | ImagMQTT            | Minute or second    | The preferred format for submission of        | |app_imag_mqtt|   |
     |                     | values              | preliminary data, using MQTT.                 |                   |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
     | IAGA-2002           | Any regular time-   | An alternative format for submission of       | |app_iaga_2002|   |
@@ -108,6 +108,10 @@ partially superseded) an older one.
     +---------------------+---------------------+-----------------------------------------------+-------------------+
     | IMFV2.83 Satellite  | Minute mean values  | A format designed to transport compressed     | |app_imag_imfv_2| |
     | Transmission Format |                     | data via GOES and METEOSAT satellites.        |                   |
+    |                     |                     |                                               |                   |
+    |                     |                     | Satellite transmission is no longer widely    |                   |
+    |                     |                     | used in Intermagnet. Details of this format   |                   |
+    |                     |                     | are kept for historical purposes.             |                   |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
 
 

@@ -41,6 +41,7 @@ INTERMAGNET Technical Reference Manual
             appendices/imagaddresses
             appendices/dataformats
             appendices/filters
+            appendices/historicdata
             appendices/acknowledgements
 
 

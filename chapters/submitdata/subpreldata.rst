@@ -122,8 +122,180 @@ to send quasi-definitive data in near real-time.
 Submission via MQTT
 -------------------
 
+For the best real-time performance (and least delay) data should be submitted to
+Intermagnet using MQTT. With MQTT there is a very small delay (typically less
+than a second) between an observatory submitting data and the data becoming
+available on the Intermagnet data portal. Delays in data are then mainly due
+to the frequency at which observatories transmit data. Observatories are 
+encourged to transmit data as soon as it is recorded. This is more easily
+accomplished with MQTT than other methods of data transfer.
+
+MQTT (Message Queuing Telemetry Transport) is a messaging protocol that enables 
+communication between devices in the Internet of Things. Messages are sent over
+MQTT using software that conforms to the MQTT protocol - this software is
+responsible for delivering your data to Intermagnet. One of the central
+concepts in MQTT is that of the "broker". A broker receives messages from "publishers"
+and makes them available to "subscribers". An observatory will publish data to a broker
+that Intermagnet manages (and Intermagnet will subscribe to the broker in order to receive
+the messages observatories send).
+
+There are a number of suppliers of MQTT software, both commercial and free. There are
+interfaces to most popular languages as well as standalone commands that can be
+inegrated into scripts or schedulers (such as Unix cron). For standalone MQTT publishing
+and subscription programs (as well as broker software) people in the observatory 
+community have succesfully used Eclipse Mosquito MQTT (https://mosquitto.org/), which is 
+free software. Binary packages are available for Windows, Linux and Mac. 
+Eclipse Mosquitto also includes a library that can publish and subscribe messages from
+programs written in the C language. For Python and Java programmers, the Paho project 
+(https://eclipse.dev/paho/) offers a library that can be easily added to your programs (and
+Paho also includes a C library, with other langauge interfaces being developed). 
+
+MQTT at the GINs
+````````````````
+
+MQTT brokers are available at the Edinburgh, Kyoto and Paris GINs.
+
+MQTT at the Edinburgh GIN
+"""""""""""""""""""""""""
+
+Public MQTT brokers run at the Edinburgh GIN at the following Internet addresses:
+
+- gin-mqtt.bgs.ac.uk - main Intermagnet/BGS MQTT service
+- gin-mqtt-staging.bgs.ac.uk - development Intermagnet/BGS MQTT service
+
+Access to MQTT uses TLS, to ensure that all traffic is securely encrypted. 
+Connections to these services are received on the default MQTT TLS port, port 8883.
+All connections to these servers require authentication and a username and
+password will be set up for each observatory. Be sure to use these in a way that
+ensures that any user can connect only once at a time to the brokers, as the
+brokers are configured to only allow a single connection per user (and to
+log off any previously existing connections).
+
+MQTT at the Kyoto GIN
+"""""""""""""""""""""
+
+TODO - get details from Shun
+
+MQTT at the Paris GIN
+"""""""""""""""""""""
+
+MQTT is not yet available at the Paris GIN.
 
 
+Submitting data using MQTT
+``````````````````````````
+
+MQTT data is transmitted to Intermagnet by connecting to an Intermagnet 
+MQTT broker and "publishing" data messages. Before starting, please contact
+the manager of the GIN that you will use in order to get a username and
+password to access the MQTT broker (see :ref:`sub_dat_prel_mqtt_auth`).
+MQTT messages have a topic and a payload. Topics are used to identify
+and group messages. Payloads contain the message's data. To send data to
+Intermagnet topics and payloads must conform to the Intermagnet MQTT topic 
+and payload format descriptions that are described in |app_imag_mqtt|.
+
+Software is needed to send MQTT messages. One simple approach is to use
+the 'mosquitto_pub' command from the Mosquitto MQTT package. This is
+a command line program that enables publication of a single MQTT
+message. The command can be used to test access to an MQTT broker, or
+can be integrated into scripts or scheduled operations on a data logger.
+Here is an example of publishing a message to the Edinburgh GIN MQTT broker
+using the user "esk_w" for data in the file "data-file" from the 
+Eskdalemuir observatory::
+
+   mosquitto_pub -h gin-mqtt.bgs.ac.uk \
+      -p 8883 -u esk_w -P <password> -i "esk_w" \
+      -t 'impf/esk/pt1m/2/xyzs' \
+      -q 1 -f <data-file>
+
+The 'mosquitto_sub' command, also from the Mosquitto MQTT pacakge, can
+be used to view the transmitted message. Unlike 'mosquitto_pub' which
+publishes a single message, 'mosquitto_sub' will run continuously until
+it is stopped, displaying messages as they are received. Here is an
+example command
+
+   mosquitto_sub -h gin-mqtt.bgs.ac.uk -p 8883 -u esk_r -P <password> -c -t '#' -q 0 -i "test_r"
+
+It is expected that 'mosquitto_sub' will be used by observatories to test 
+receipt of MQTT messages, not as part of regular operations. Note the use
+of different user IDs for publishing and subscribing (see :ref:`sub_dat_prel_mqtt_id`).
+
+MQTT software is also available as libraries for most computer languages.
+Using these libraries, transmission of data via MQTT can be closely
+integrated into data loggers or data processing software.
+
+MQTT Quality of Service
+"""""""""""""""""""""""
+
+When publishing and subscribing to MQTT, one of the parameters that needs to be set is the
+"quality of service" (QoS). For a description of QoS see here: 
+https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/.
+
+GINs will subscribe to their MQTT brokers with a QoS of 2. Observatories
+are recommended to publish with a QoS of 1, which reduces the overhead needed to manage
+the message stream (since the lower of the two QoS levels is used between publisher and
+subsriber). However, if there is a reason why it's important to guarantee that messages
+are delivered in the same order they are sent, observatories can publish using a QoS of 2.
+GINs are able to handle out of sequence messages from observatories.
+
+To enable QoS level 2 and to ensure messages are not missed, the GINs
+subscribe to their MQTT brokers with a 
+[persistant session](https://www.hivemq.com/blog/mqtt-essentials-part-7-persistent-session-queuing-messages/).
+
+
+.. _sub_dat_prel_mqtt_id:
+
+Importance of the MQTT Client ID
+""""""""""""""""""""""""""""""""
+
+In MQTT, publication and subscription is associated with the subscriber's and publisher's client ID,
+not the username. Only one client ID may be connected to an MQTT broker at at time. If a duplicate
+client ID attempts to connect to a broker, the broker will disconnect the earlier connection. For these
+reasons it is important that client IDs are selected so that there can never be any duplicate IDs.
+
+The MQTT broker allows the username (used in authenticating with the broker) to be used as the
+client ID. The only way to enforce unique client IDs is to allocate unique usernames to each
+client (ie each observatory) and force clients to use the username as their client ID. This is
+the approach used by the Intermagnet MQTT service.
+
+
+.. _sub_dat_prel_mqtt_auth:
+
+MQTT Authentication and authorization
+"""""""""""""""""""""""""""""""""""""
+
+Each observatory wishing to send data will be assigned connection details that will be 
+needed to publish data on the Intermagnet MQTT service:
+
+- A publication username. The username will be unique to the observatory and should not be shared.
+  This username is used for publishing data.
+- A publication password. The publication password is linked to the publication username.
+- A subscription username. The username will be unique to the observatory and should not be shared.
+  This username is used for subscribing to data, to allow an observatry to check that its
+  data is being received.
+- A subscription password. The subscription password is linked to the subscription username.
+
+The usernames given to each observatory will define which topics (and so which observatories)
+they can publish and subscribe to.
+
+An observatory will be allowed to subscribe to the topics that it can publish to. Because
+the client ID (specified by the username) can only connect once to a broker, it is
+not possible to use one username to publish and subscribe at the same time. The username 
+assigned for publication must be used only for publishing. A second username and password 
+allows subscription at the same time as publication.
+
+From a client perspective it isn’t easy to know if MQTT access control is being applied, as restrictions 
+aren’t notified to the client (at least in MQTT v3.1.1). The way around this for a client wanting to
+verify successful publication of data is to subscribe to a topic as well publishing and check whether 
+any published messages are received through the subscription.
+
+Secure MQTT transport
+"""""""""""""""""""""
+
+Only secure (TLS) connections will be accepted by the Intermagnet MQTT service. Open
+(unecrypted) connections expose the authentication and authorization credentials used
+to connect to the service, thereby risking publication of data from unauthorized sources,
+and so will not be accepted. The default port (8883) is used for MQTT over TLS.
 
 
 .. _sub_dat_prel_ws:
@@ -131,43 +303,31 @@ Submission via MQTT
 Submission via WEB Service
 --------------------------
 
-TODO - find a place for this paragraph
-The smallest fragment of
-data that should be encoded into an IAGA-2002 file is 2
-samples, since some software using this format calculates the
-sample rate from time difference between the first pair of
-samples in the file.
-
 Data can be submitted to INTERMAGNET GINs using a web service.
-The web was chosen as a delivery medium because it provides the
-best chance of avoiding issues with firewalls between two
-institutes. The http: ‘file upload’ mechanism is used, as
+The http: ‘file upload’ mechanism is used, as
 described in RFC1867 "Form-based File Upload in HTML" - see
-|rfc1867|. The web service responsible for receiving data
-from INTERMAGNET observatories works as follows:
-
-#. Observatories upload their data to the web service.
-#. The web service indexes and caches the data, making it
-   available for download by the GIN.
-#. The web service provides a search mechanism by which a GIN
-   can find out what data is in the cache.
-#. The web service provides a download form which allows the
-   GIN to download data files that observatories have uploaded
-   to the cache.
-#. The responses which the web service makes to these actions
-   are standardised, making it easy to automate the processes
-   of uploading and downloading data.
-
-In this way, issues with firewalls are avoided, since both
-observatories and the GIN access the web service using a
-standard http: connection.
+|rfc1867|. Data should be uploaded in IAGA-2002 format 
+(|app_iaf|). Observatories upload their data to the web service,
+which indexes and caches the data, making it
+available for download and ingestion into the GIN.
+The responses which the web service makes to these actions
+are standardised, making it easy to automate the processes
+of uploading data. One of the primary goals of the web service
+is to allow data to be safely imported from the public
+Internet into the private networks where the GINs operate.
+This process introduces a short delay between transmission
+of the data and ingestion into the GIN, which is the reason
+MQTT is preffered for transmission of preliminary data with
+minimum delay.
 
 Observatories connect to the web service in one of three ways:
 
 #. Manually using a standard web browser. Once connected the
    file upload is very simple, similar to the method used by
    online mail services to upload files as attachments when
-   sending mail.
+   sending mail. This is useful for testing the system, but
+   can also be used if a large volume of data needs to be
+   submited manually (e.g. sending quasi-definitive data).
 #. Automatically using a command line based tool that supports
    file upload. One such tool is CURL |curl| .
    which is available for SUN Solaris, Linux and Windows.
@@ -178,10 +338,19 @@ The web service will accept data in the following formats:
 
 #. One-second data in IAGA 2002 format.
 #. One-minute data in IAGA 2002 format.
-#. One-minute data in IMF V1.23.
+#. One-minute data in IMF V1.23 (but this format is not
+   recommended for new systems).
 
-Data files may contain a maximum of 24 hours data. There is no
-minimum quantity of data, but an IMO may not make more than
+Data files may contain a maximum of 24 hours data. 
+Smaller ‘fragments’ of data may be sent (an hour, or even a 
+few minutes) and are encouraged to allow an observatory to 
+send updates more than once a day. In this case, the GIN is
+responsible for reassembling the data fragments into a day
+file. The smallest ‘fragment’ of
+data that should be encoded into an IAGA-2002 file is 2
+samples, since some software using this format calculates the
+sample rate from time difference between the first pair of
+samples in the file. An IMO may not make more than
 1440 uploads per day. The same file may not be uploaded more
 than once. These limits are imposed to help prevent Denial Of
 Service (DOS) attacks.
@@ -247,7 +416,7 @@ and view the file that you uploaded at a later date. Note that
 successful delivery of data to the web service does not mean
 that the data has been loaded to the GIN. The GIN’s operating
 software needs to download the data from the web service and
-insert it into the GIN data store. This may take a few seconds
+ingest it into the GIN data store. This may take a few seconds
 to minutes following the upload. In exceptional circumstances a
 file may be successfully loaded to the web service, but fail to
 load on the GIN – these occurrences are very rare.
@@ -284,7 +453,8 @@ Data may be sent by email in the following formats:
 
 #. One-second data in IAGA 2002 format.
 #. One-minute data in IAGA 2002 format.
-#. One-minute data in IMF V1.23.
+#. One-minute data in IMF V1.23 (but this format is not
+   recommended for new systems).
 
 Whatever format is used, data may be submitted in one of two
 ways:
@@ -343,202 +513,12 @@ GIN Email Addresses
 Satellite Transmission
 ----------------------
 
-In preparation for transmitting data to one of several possible
-satellites, an IMO will first prepare its data in INTERMAGNET
-format IMFV2.83 or later. This format, which is fully described
-in |app_imag_imfv_2|, imposes a common structure on the data files,
-ensuring that all necessary information is included so that the
-data may be properly decoded at a GIN. Once data are in
-IMFV2.83, a supplementary encoding step is applied to make the
-data stream, as transmitted to satellites, exactly compatible
-with the requirements of the satellite operators. |app_sat_cod|
-shows the supplementary encoding steps for the GOES and
-Meteosat satellites along with examples using a specific data
-set.|app_sat_cod| also provides provisional information about
-encoding for the GMS satellite.
+Satellite transmission is no longer used widely in Intermagnet.
+Details of satellite transmission have been retained for
+historic purposes and can be found in |app_sat_trans| along
+with the data format in |app_imag_imfv_2| and some coding examples 
+in |app_sat_cod|.
 
-Geostationary Satellites
-````````````````````````
-
-Orbiting the earth, 36,000 km above the equator with
-approximately 72E of longitude between them are four
-geostationary satellites, METEOSAT, GOESEast, GOES-West, and
-GMS. The primary function of these satellites is to provide
-regular updates, to meteorological agencies, of cloud and
-infra-red image data which they use to produce forecasts of
-weather conditions worldwide. Along with these imaging
-facilities the satellites can, at regular time intervals, relay
-data collected from remote ground based transmitters to users
-equipped with suitable receiving and decoding equipment.
-
-METEOSAT
-````````
-Each Data Collection Platform (DCP) that transmits through
-METEOSAT is allocated a one-minute transmission slot every
-hour. During this time, the DCP encodes and transmits to the
-satellite any data input to it during the previous 60 minutes.
-From the satellite, the data are relayed to the EUMETSAT
-operations center at Darmstadt, Germany, where they are checked
-and temporarily stored. The GIN automatically collects the data
-from the EUMETSAT web site. For more information please contact
-the Paris GIN manager.
-
-GOES
-````
-
-Observatories transmitting through the GOES East/West
-satellites output their data every 12 minutes to the satellite;
-there is no secondary retransmission stage, as is the case with
-METEOSAT. In the GOES system, the data are transmitted directly
-to a receiving GIN where they are transferred to the
-INTERMAGNET web site. This form of communication is simpler,
-but the GOES link does require a much larger receiving antenna
-as signals transmitted directly from a geostationary satellite
-are at a very much lower power than those relayed using the
-METEOSAT retransmission facility. To overcome the necessity for
-a large 3-5m receiving dish antenna, users in or near the
-United States may also access GOES East and West transmissions
-using a DOMSAT (DOMestic SATellite) receiving station. This is
-a retransmission facility similar to that used with METEOSAT,
-providing users with a much stronger signal and hence a
-considerable reduction in the size of the receiving antenna
-required (1.2 - 1.8m in diameter).
-
-Transmission Access
-```````````````````
-
-The use of satellites and the timed-transmission slots on any
-of the geostationary satellites is very closely controlled.
-Before an observatory can transmit data using a satellite, an
-application must be made to the relevant controlling body. All
-transmission equipment used must be checked and certified to be
-of an acceptable standard before a licence and a transmission
-slot can be granted. Also, although it may be possible to gain
-free access to geostationary satellites, depending on the
-institute and the use to which the data is being put, the
-satellite operators may charge users for access.
-
-Two different types of transmission authority may be necessary
-before an observatory can transmit its data through a satellite
-to a GIN:
-
-#. Authority to transmit to an Earth orbiting apparatus. This
-   is a licence issued by the government of a particular
-   country which gives an institute permission to operate radio
-   transmission equipment. This type of licence may not be
-   necessary, but prospective participants should check with
-   the appropriate regulatory authorities in their country to
-   ensure that they are not contravening any transmission laws
-   in force in their country.
-#. Application must be made to the operators of whichever
-   satellite is accessible from the observatory. |app_obs|
-   shows the footprints of geostationary satellites and from
-   this users can decide which satellite should provide the
-   best transmission path. Since satellite positions are
-   sometimes changed, those intending to operate an IMO near
-   the edge of a footprint should contact the satellite
-   operators for more detailed information concerning the
-   satellite accessibility. Most satellite operators have a
-   standard application form. A prospective user should write
-   to the operator giving details of the proposed use to which
-   the transmitted data is to be put, a brief description of
-   the project and a request for a transmission slot
-   application form.
-
-If an application form has to be completed, it may include many
-questions about the operator, site location, and technical
-questions about the type of DCP, transmission power and whether
-or not the proposed DCP has been certified for use on this
-satellite by the satellite operators. To answer these
-questions, it is usually necessary to contact the DCP supplier.
-
-The completed form is then sent to the respective satellite
-operator, who, after due deliberation will hopefully issue the
-applicant with a satellite identification number, a
-transmission frequency/channel and a specific time slot on the
-allocated channel.
-
-Alternatively, if the user or the organization to which the
-user belongs is a member of the World Meteorological
-Organization (WMO), access to a specific satellite and a
-transmission slot may be granted simply by quoting an
-identification number which has been issued by the respective
-satellite operators to the member state or country.
-
-The length of the time slots allotted to the applicant depends
-on the satellite which is being accessed. A METEOSAT time slot
-is 1 minute every hour. On GMS it is 90 seconds every 12
-minutes and on GOES, 20 seconds every 12 minutes. During these
-times users transmit their data. It is essential that the DCP
-clocks maintain accurate timing, as any transmission outside
-the allocated time slot will result not only in corruption of
-the data being transmitted, but also of data transmitted by
-users on adjacent time slots.
-
-Satellite Operators
-```````````````````
-
-| **METEOSAT**
-| EUMETSAT
-| AM Kavalleriesand 31
-| D-64295
-| Darmstadt
-| Germany
-| Telephone: 49 61 51 80 77
-| Fax: 49 61 51 80 75 55
-| Internet: ops@eumetsat.de
-| Web: www.eumetsat.de
-
-Those whose potential IMOs would be serviced by METEOSAT are
-advised to first contact the PARIS GIN operators for timely
-information on access to METEOSAT.
-
-| **GOES East and West**
-| Letecia Reeves
-| NOAA Satellite Operations Facility
-| (NSOF), RM 1646
-| 1315 East West Hwy
-| Silver Spring, MD 20746
-| USA
-| Telephone: 1-301-817-4563
-| Fax: 1-301-817-4569
-| Internet: GOES.DCS@noaa.gov
-
-Those whose potential IMOs would be serviced by GOES are
-advised to first contact the GOLDEN GIN operators for timely
-information on access to GOES.
-
-Satellite Services
-``````````````````
-
-Other methods of obtaining permission to transmit via METEOSAT
-and GOES East and West are:
-
-#. Through MAEDS (Multisatellite Applications Extended
-   Dissemination Service), which is a commercial organization
-   based in France. This company undertakes to arrange a
-   satellite transmission slot on METEOSAT and GOES.
-
-   | CLS Service MEADS
-   | 18, Av. Edouard Belin
-   | Toulouse Cedex 31055
-   | FRANCE
-
-#. Through North American Collection and Location Service
-   (NACL), which is a company providing similar services to
-   those provided by MAEDS.
-
-   | Mr. Peter Griffith
-   | North American Collection & Location by
-   | Satellite
-   | 9200 Basil Court, Suite 306
-   | Landover, MD 20785
-   | USA
-   | Telephone: 1-301-341-1814
-   | Fax: 1-301-341-2130
-
-These companies have been given the right by EUMETSAT to market
-environmental data gathering services.
 
 .. _sub_dat_prel_transfer:
 
