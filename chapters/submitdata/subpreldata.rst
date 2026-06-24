@@ -4,11 +4,11 @@ Submission of Preliminary Data
 ==============================
 
 .. include:: ../../shared/variables.rst
-
 .. include:: ../../appendices/appendices.rst
 
 
-An observatory sends preliminary (non-definitive) data to its
+An observatory sends preliminary (non-definitive) data, including
+quasi-defintive data, to its
 assigned GIN via MQTT, web upload, email or satellite transmission.
 INTERMAGNET encourages observatories to send data as close to
 real-time as possible. The best way to achieve this is to use
@@ -39,8 +39,8 @@ other types of preliminary data.
 
 .. _sub_dat_prel_go:
 
-General Observations
---------------------
+Guiding Principles
+------------------
 
 The format in which preliminary data should be supplied depends on the
 method used to transmit the data, but will most likely be either
@@ -95,7 +95,7 @@ possible to achieve latencies within the INTERMAGNET goal of
 .. _sub_dat_prel_types:
 
 Types of Preliminary Data
--------------------------
+`````````````````````````
 
 In the past INTERMAGNET has collected Reported (or Variometer)
 data - preliminary data without a baseline. New observatories
@@ -513,7 +513,7 @@ GIN Email Addresses
 Satellite Transmission
 ----------------------
 
-Satellite transmission is no longer used widely in Intermagnet.
+Satellite transmission is no longer widely used in Intermagnet.
 Details of satellite transmission have been retained for
 historic purposes and can be found in |app_sat_trans| along
 with the data format in |app_imag_imfv_2| and some coding examples 
@@ -525,15 +525,15 @@ in |app_sat_cod|.
 Transferring Data from GINs to WEB Site
 ---------------------------------------
 
-GINs receive non-definitive data from observatories in either
-IAGA-2002, IMFV1.23 or IMFV2.83 format. They forward this to
-the INTERMAGNET web site in IAGA-2002 format only (data in
-other formats will be converted to IAGA-2002 format at the
-GIN). Data is transmitted frequently (e.g. every 5 minutes)
-between GINs and the web site using the rsync protocol. It is
-received into a ‘staging area’ at the web site, and then copied
-to the data store (so not available to the public until a short
-while after it has been received).
+GINs receive preliminary data from observatories. They forward 
+this to the INTERMAGNET web site. Data is transmitted between the
+GINs using a variety of technologies (Seedlink, MQTT and Rsync), some
+of which may introduce a delay (e.g. Rsync transfers are typically
+made every 5 minutes). The GINs and the Intermagnet web site
+take care of any format conversions needed so that data is
+available to web site users in a number standard formats
+such as IAGA-2002 as well as being served through web
+services.
 
 Different GINs have different practices over how far back in
 time to go when transferring data to the web site, since
@@ -552,14 +552,6 @@ INTERMAGNET web site, contact your GIN manager.
 How to Check if Your Data Has Been Received
 -------------------------------------------
 
-
-The web interface to the GIN provides a mechanism to verify
-that your data has been successfully delivered (via the
-‘Success’ code response to a file upload and the transaction ID
-that goes with it). Email and satellite transmission, although
-generally reliable, do not guarantee delivery and do not
-provide a mechanism for verifying the arrival of your data.
-
 One simple method the check whether your data has been received
 is to look for the data at the INTERMAGNET web site. The delay
 time from receipt of data at the GIN to data becoming available
@@ -573,7 +565,8 @@ email can be sent from the GIN to the observatory contact at
 the start of each day describing the amount of data sent the
 previous day (or a longer time back if the observatory is not
 sending in near real-time). This allows the observatory to fill
-in any gaps dues to transmission problems.
+in any gaps dues to transmission problems. For more information
+and to set up a handshake, contact the Edinburgh GIN manager.
 
 GINs send statistics describing the amount of data received
 from all observatories registered on the GIN. These statistics
@@ -588,8 +581,9 @@ minute by minute basis, the difference between the current time
 and the time stamp of the most recently received data from each
 observatory – the observatory’s lag time. These files are
 useful for analysing an observatory’s near real-time
-performance. These files are available from the "statistics"
-section of the INTERMAGNET data portal.
+performance. The INTERMAGNET web site also holds monthly
+lists of data received from observatories. These files are 
+available from the "statistics" section of the web site.
 
 .. _sub_dat_prel_probs:
 
@@ -619,51 +613,47 @@ date and time of a message that was sent. This will allow the
 administrators of the filtering system to track your message
 and describe what happened to it.
 
-.. _sub_dat_prel_delays:
+Another problem with email transmission is modern email
+clients use of formatting. GINs require email in plain text.
+Email clients often add formatting (such as Rich Text or HTML)
+to an email. It if often difficult to detect whether this
+formatting has been added. If there is concern that this
+problem may be occuring, try to view the email in a "raw"
+view, which should show the formatting along with the
+email text.
 
-Data Publication Delays
------------------------
+.. _sub_dat_prel_embargoes:
+
+Data Embargoes
+--------------
 
 INTERMAGNET understands that some institutes would like to
-restrict their data for the public within a defined time
-period. Although INTERMAGNET encourages institutes to deliver
-their data within 72 hours, the INTERMAGNET website can
-enforce these rules to secure their data.
+restrict their data from public use within a defined time
+period. Although INTERMAGNET requires institutes to deliver
+their data within 72 hours, and more rapidly if possible,
+the INTERMAGNET website can enforce an embargo on data, to
+prevent it being made available until a set time after recording.
 
-By default, if the institute does not request a data
-publication delay, it will be published once received by
-INTERMAGNET.
+By default, if the institute does not request an embargo, data
+will be published once received by INTERMAGNET.
 
-Two data publications delays can be requested:
+Two embargoes can be requested:
 
--  Plotting delay
--  Download delay
+-  **Plotting embargo**
+
+   The INTERMAGNET website offers online plotting utilities.
+   |download_plot_data| . A delay (in hours) can be added to prevent the user from
+   plotting the data.
+
+-  **Download embargo**
+
+   Data can be download via the website.
+   |download_plot_data| . A delay (in hours) can be added to prevent the user from
+   downloading the data.
 
 For example, an institute can request that their data be
 plotted (image) as soon as received by INTERMAGNET but prevent
 the data files from being downloaded until the following day.
 
-| To request a data delay, the institute can contact the webmaster at
-| nrcan.geomag-webmaster-geomag-webmaster.rncan@canada.ca .
-
-
--  **Plotting delay**
-
-   The INTERMAGNET website offers online plotting utilities.
-   |download_plot_data| . A delay (in days) can be added to prevent the user from
-   plotting the data.
-
--  **Download delay**
-
-   Data can be download via the website.
-   |download_plot_data| . A delay (in days) can be added to prevent the user from
-   downloading the data.
-
--  **Exception**
-
-   There is, however, an exception to this feature. No matter
-   the delay requested by the institute, INTERMAGNET will
-   generate hourly range values from the data and will use
-   these values for the INTERMAGNET Geomagnetic Activity Map.
-   It was determined by INTERMAGNET that hourly range
-   values are too low resolution to be of any use.
+To request an embargo, the institute can contact the Edinburgh GIN.
+GIN manager contact details are in |app_imag_addr_ginman|.

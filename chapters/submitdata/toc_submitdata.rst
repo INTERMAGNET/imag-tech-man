@@ -10,7 +10,6 @@ Submitting Data
 
     introduction
     subpreldata
-    subqddata
     defonemindata
     defdatacalc
     standardsformeans

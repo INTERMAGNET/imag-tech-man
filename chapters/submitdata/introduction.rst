@@ -8,7 +8,7 @@ Introduction
 
 
 Membership of INTERMAGNET requires observatories to submit
-both preliminary data (all types of non-definitive data 
+both preliminary data (all types of non-definitive data, 
 including quasi-definitive) and definitive data. These two
 types of data are sent to INTERMAGNET in different ways using
 different formats. For both preliminary and definitive data
@@ -16,27 +16,37 @@ INTERMAGNET wishes to make data available to users as soon as
 possible. The guidelines in this section are designed to
 help observatories to achieve that goal.
 
-For preliminary data, each
-observatory is assigned to a Geomagnetic Information Node
-(GIN). Observatories send their preliminary data to their
-assigned GIN in ‘near real-time’. When INTERMAGNET was
-formed in the 1990s, this was defined as within 72 hours
-of recording. Submission of preliminary data within 72 hours 
-is a minimum requirements for INTERMAGNET membership. More 
-recently INTERMAGNET has requested observatories to submit 
-preliminary data within these limits:
+For preliminary data, each observatory is assigned to a 
+Geomagnetic Information Node (GIN). Observatories send 
+their preliminary data to their assigned GIN in ‘near 
+real-time’. When INTERMAGNET was formed in the 1990s, 
+this was defined as within 72 hours of acquisition. Submission 
+of all type of preliminary data, with the exception of 
+quasi-definitive data, within 72 hours 
+is a minimum requirement for INTERMAGNET membership. 
 
--  1-second data: Submitted and available to users within 30 seconds.
--  1-minute data: Submitted and available to users within 2 minutes.
+More recently INTERMAGNET has requested observatories to 
+submit preliminary data within these limits:
+
+-  1-second data: Submitted within 30 seconds of acquisition.
+-  1-minute data: Submitted within 2 minutes of acquisition.
+
+Quasi-definitive data should be sent within 3 months of 
+acquisition, however INTERMAGNET encourages observatories 
+to submit quasi-definitive data as soon as possible. Observatories
+have a number of different ways of creating quasi-definitive 
+data (see :numref:`proc_dat_qd_data_ref`), some of which allow 
+for much faster creation and dissemination.
 
 These are challenging targets, however with modern technologies
 and using the best-practice described here, they are achievable.
+
 The process of submitting preliminary data is designed to be 
 automated, so that observatories can upload data to INTERMAGNET as 
-part of their automatic data recording or processing systems. 
-Multiple submissions of preliminary data are possible, where an
+part of their automatic data acquisition or processing systems. 
+Multiple submissions of preliminary data are allowed, where an
 observatory is refining the quality of the data shortly after
-recording. The GIN is responsible for forwarding this data to
+acquisition. The GIN is responsible for forwarding this data to
 the INTERMAGNET web site for onward distribution to users. The
 INTERMAGNET web site is the only place where users have access
 to data from INTERMAGNET observatories. 
@@ -143,65 +153,52 @@ This data type field is explained below.
     |                  | be used                |                        |
     +==================+========================+========================+
     | Reported         | IMFV1.23               | Preliminary data from  |
-    |                  | (as a metadata field)  | an observatory that    |
+    |                  | (as a metadata field). | an observatory that    |
     |                  |                        | has not had any        |
     |                  | IMFV2.83 (implied –    | baseline corrections   |
     |                  | data in this format    | applied. It may        |
     |                  | can only be            | contain spikes and may |
     |                  | ‘Reported’).           | have missing values.   |
-    |                  |                        |                        |
     +------------------+------------------------+------------------------+
-    | Variation        | IAGA-2002 (as a        | The data type is not   |
-    |                  | metadata field)        | defined in the format  |
-    |                  |                        | definition. It is      |
+    | Variation        | ImagMQTT, IAGA-2002,   | The data type is not   |
+    |                  | ImagCDF and ImagMQTT   | defined in the format  |
+    |                  | (as a metadata field). | definition. It is      |
     |                  |                        | assumed to contain     |
     |                  |                        | data to the same       |
     |                  |                        | definition as the      |
     |                  |                        | ‘Reported’ data type.  |
     +------------------+------------------------+------------------------+
     | Adjusted         | IMFV1.23 (as a         | Adjusted data may have |
-    |                  | metadata field)        | modifications made to  |
+    |                  | metadata field).       | modifications made to  |
     |                  |                        | raw data to apply      |
     |                  |                        | baselines, remove      |
     |                  |                        | spikes or fill gaps.   |
     +------------------+------------------------+------------------------+
-    | Provisional      | IAGA-2002 (as a        | The data type is not   |
-    |                  | metadata field)        | defined in the format  |
-    |                  |                        | definition. It is      |
+    | Provisional      | ImagMQTT, IAGA-2002,   | The data type is not   |
+    |                  | ImagCDF and ImagMQTT   | defined in the format  |
+    |                  | (as a metadata field). | definition. It is      |
     |                  |                        | assumed to contain     |
     |                  |                        | data to the same       |
     |                  |                        | definition as the      |
     |                  |                        | ‘Adjusted’ data type.  |
     +------------------+------------------------+------------------------+
-    | Quasi-definitive | IMFV1.23, IAGA-2002    | Quasi-definitive data  |
-    |                  | and IAFV2.11           | are defined as data    |
-    |                  |                        | that have been         |
-    |                  |                        | corrected using        |
-    |                  | (as a metadata field)  | provisional baselines. |
-    |                  |                        | Produced soon after    |
-    |                  |                        | data acquisition,      |
-    |                  |                        | their accuracy is      |
-    |                  |                        | intended to be very    |
-    |                  |                        | close to that of an    |
-    |                  |                        | observatory’s          |
-    |                  |                        | definitive data        |
-    |                  |                        | product. 98% of the    |
-    |                  |                        | differences between    |
-    |                  |                        | quasi- definitive and  |
-    |                  |                        | definitive data        |
-    |                  |                        | monthly mean values    |
-    |                  |                        | should be less than    |
-    |                  |                        | 5nT in (X, Y, Z)       |
-    |                  |                        | orientation.           |
+    | Quasi-definitive | ImagMQTT, IAGA-2002    | Quasi-definitive data  |
+    |                  | ImagCDF, IMFV1.23      | are defined as data    |
+    |                  | and IAFV2.11           | that have been         |
+    |                  | (as a metadata field). | corrected using        |
+    |                  |                        | provisional baselines. |
+    |                  |                        | For the full           |
+    |                  |                        | definition refer to    |
+    |                  |                        | |app_imag_term|.       |
     +------------------+------------------------+------------------------+
-    | Definitive       | IMFV1.23, IAGA-2002    | Observatory data which |
-    |                  | and IAFV2.11 (as a     | have been corrected    |
-    |                  | metadata field) and    | for baseline           |
-    |                  | IAF version prior to   | variations, have had   |
-    |                  | V2.11 (implied - data  | spikes removed and     |
-    |                  | in this format can     | gaps filled where      |
-    |                  | only be ‘Definitive’). | possible. No further   |
-    |                  |                        | change is expected and |
+    | Definitive       | ImagMQTT, IAGA-2002    | Observatory data which |
+    |                  | ImagCDF, IMFV1.23      | have been corrected    |
+    |                  | and IAFV2.11 (as a     | for baseline           |
+    |                  | metadata field) and    | variations, have had   |
+    |                  | IAF version prior to   | spikes removed and     |
+    |                  | V2.11 (implied - data  | gaps filled where      |
+    |                  | in this format can     | possible. No further   |
+    |                  | only be ‘Definitive’)  | change is expected and |
     |                  |                        | the quality of the     |
     |                  |                        | data is such that they |
     |                  |                        | would be used for      |
