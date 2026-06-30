@@ -126,7 +126,7 @@ Where:
 -  mmm is the month
 -  country_id is the three-letter country code
 
-#. A binary file in IAF format (described in detail in :numref:`sub_dat_1min_data`
+#. A binary file in IAF format (described in detail in :numref:`sub_dat_def_data`
    and |app_iaf|) includes minute values as well as
    other accompanying data such as: metadata headers W01-W16, K indices,
    hourly and daily mean values.

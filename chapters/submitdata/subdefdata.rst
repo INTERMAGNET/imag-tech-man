@@ -1,37 +1,69 @@
-.. _sub_dat_1min_data:
+.. _sub_dat_def_data:
 
-Definitive 1-Minute Data
-========================
+Submission of Definitive Data
+=============================
 
 .. include:: ../../shared/variables.rst
-
 .. include:: ../../appendices/appendices.rst
 
 In January 1992 the Executive Council and Operations Committee
 decided to produce a CD-ROM of definitive minute data values
 from observatories of participating institutions, beginning
-with 1991 data and continuing annually thereafter. Users thus
-have access to global magnetic observatory data near real-time
-values and also the final, definitive data. The institution
-responsible for an IMO must deliver a complete set of
-definitive data (this includes de-spiking, filling gaps where
+with 1991 data and continuing annually thereafter. Annual
+publication of definitive data continues to the present day,
+but with some changes to how the data is published:
+
+- Starting with data for the year TODO, data was published
+  in compressed form to allow the increasing number of
+  observatories' data to fit on a CD-ROM
+- Starting with data for the year TODO, data was published
+  on a double CD-ROM
+- Starting with data for the year TODO, data was published
+  on DVD-ROM
+- Starting with data for the year 2013, data was published
+  online under a Digital Object Identifier (DOI).
+- The Intermagnet Reference Data Set (IRDS) was introduced
+  for data from 2015 onwards. Previous publications only
+  included data from the year of publication plus any
+  corrections to data from previous years. The IRDS includes
+  corrected definitive data from all INTERMAGNET observatories
+  that supplied data from 1991 to the year of publication.
+
+Since 2014 INTERMAGNET has also requested observatories to provide
+1-second definitive data, if they are able to do so. It is not a  
+requirement of INTERMAGNET membership that an observatory is able to 
+provide 1-second data. Where possible, observatories should produce
+data that complies with the INTERMAGNET 1-second data standard
+(see :numref:`Chapter %s <1sec_imo>`). At present observatories
+are requested to provide baseline corrected 1-second definitive
+data whether or not it conforms to the standard, though
+this is likely to change in the future as more observatories
+become able to meet the standard. INTERMAGNET is currently developing 
+recommendations on how to produce 1-second definitive data that will 
+conform to the standard.
+
+INTERMAGNET thus gives users access to global magnetic observatory
+data in both near real-time and also to the final, definitive data. 
+
+The institution responsible for an IMO must deliver a complete set of
+one-minute definitive data (this includes de-spiking, filling gaps where
 possible, correcting baselines, and applying other processing
 procedures). The baselines for one-minute definitive data must
 also be included in the annual definitive data submissions to
-INTERMAGNET.
+INTERMAGNET. Where possible institutes are also request to deliver
+one-second definitive data.
 
 The definitive data volume only contains data from
 participating observatories. Participating observatories are
-those that meet the INTERMAGNET standards, have been accepted
-by the INTERMAGNET operations committee and also report their
-data to a GIN within 72 hours of recording. The data from all
+those that meet the INTERMAGNET standards and have been accepted
+by the INTERMAGNET operations committee. The data from all
 contributing observatories are provided by the institutions
 responsible for those observatories.
 
 One of the main objectives of INTERMAGNET is to process
 definitive data as fast as possible and to make these data
 available to users. To facilitate this, institutes should send
-their definitive data in the INTERMAGNET binary data format as
+their definitive data in the INTERMAGNET binary data formats as
 well as accompanying files (e.g. baseline files) by ftp to the
 Paris GIN’s ftp server as soon as possible and before the data
 submission deadline which is set by INTERMAGNET operations
@@ -39,18 +71,18 @@ committee:
 
 -  Host name: |gin_paris|
 -  User name: userint
--  Password can obtained from Virginie Maury (vmaury@ipgp.fr)
-   or Jan Reda (jreda@igf.edu.pl)
-
+-  Password can obtained from the Paris GIN manager (|contact_par_gin_manager|)
+   or the chair of the Definitive Data Subcommittee (|contact_subcom_defdat|).
 
 Once the data have been put on this server, INTERMAGNET then:
 
 -  Checks the data for problems.
--  Transfers the data to the INTERMAGNET Web server.
--  Transfers the data to the World Data Centre Edinburgh
--  Publishes the data (CD-ROM up to 2005, DVD to 2013, USB
-   memory to 2015, on-line publication after 2015). The annual
-   data volume includes definitive data from all IMOs.
+-  Ingests the minute data into the INTERMAGNET Web site.
+-  Copies the data to the World Data Centre Edinburgh
+-  Publishes the data under a DOI. The data is hosted at GFZ data services
+   (https://dataservices.gfz-potsdam.de/web/). Entering "Intermagnet" in
+   the search box on this page will show all INTERMAGNET definitive data
+   DOIs.
 
 Institutes must prepare definitive data with extreme care. The
 data are distributed widely. Publishing corrections to this
@@ -65,10 +97,10 @@ The most important program to control the data is the imagcdview
 Java browser which is also available on the annual data media
 and on the INTERMAGNET web site: |imag_software|
 
-Usually, after the end of the calendar year, INTERMAGNET
+After the end of each calendar year, INTERMAGNET
 officers send an email to IMOs titled "Call For Data". This
 email informs, among other things, about the delivery deadline
-of definitive data. For this, the email list
+of definitive data (both 1-minute and 1-second data). For this, the email list
 |imag_imo_email| is used. The subject of this email
 starts traditionally with the words "Call for Data". The
 request always includes a submission date by which data must be
@@ -80,15 +112,15 @@ recorded). If an IMO misses the deadline:
   deadline (specified by the Operations committee) will be
   included in the annual data publication.
 - Definitive data delivered after this publication deadline
-  will be published on the INTERMAGNET web site and subsequent
+  will be published on the INTERMAGNET web site and in subsequent
   data publications.
 - Any corrections to definitive data will also be published on
-  the INTERMAGNET web site and subsequent data publications.
+  the INTERMAGNET web site and in subsequent data publications.
 
 Each INTERMAGNET observatory should put the following data and
 information on the Paris ftp server:
 
-A. Twelve files of definitive binary data, oriented XYZG.
+A. Twelve files of definitive one minute binary data, oriented XYZG.
 B. One baseline file.
 C. One readme file for the observatory.
 D. One yearmean file listing annual mean values for the
@@ -96,6 +128,8 @@ D. One yearmean file listing annual mean values for the
 E. Information about the readme-country file.
 F. Information concerning the About-screen for the country.
 G. Information concerning the Map of the institutes country.
+H. Twelve files of definitive one second binary data, if one
+   second data is being contributed for the observatory.
 
 For each of options E, F, and G, please state whether you want:
 
@@ -107,7 +141,7 @@ For each of options E, F, and G, please state whether you want:
 
 Please note the following:
 
-- The total field element Fs included in the binary file, used
+- The total field element Fs included in the binary files, used
   to calculate G=Fv-Fs, should come from an absolute scalar
   magnetometer. INTERMAGNET is not accepting total field data
   calculated from a vector magnetometer.
@@ -139,20 +173,24 @@ INTERMAGNET data, the subdirectories ctry_inf and yyyymaps are
 needed even if they are empty.
 
 A complete annual INTERMAGNET data structure includes the
-following files (the following example is for the year 2010):
+following files (the following example is for the year 2020 on
+a Windows file system):
 
-#. x:\\mag2010\\sss\\sss10mmm.bin (12 binary files in format IAF)
-#. x:\\mag2010\\sss\\readme.sss (1 readme file)
-#. x:\\mag2010\\sss\\sss2010.blv (1 baseline file)
-#. x:\\mag2010\\sss\\yearmean.sss (1 annual means file)
-#. x:\\mag2010\\2010maps\\country_id.xxx (1 map for each country (xxx = png or pcx))
-#. x:\\mag2010\\ctry_inf\\readme.country_id (1 readme-file for each country)
-#. x:\\mag2010\\ctry_inf\\country_id+srn.xxx (1 about-screen for each country
+#. x:\\mag2020\\sss\\sss20mmm.bin (12 binary files in format IAF)
+#. x:\\mag2020\\sss\\readme.sss (1 readme file)
+#. x:\\mag2020\\sss\\sss2020.blv (1 baseline file)
+#. x:\\mag2020\\sss\\yearmean.sss (1 annual means file)
+#. x:\\mag2020\\2020maps\\country_id.xxx (1 map for each country (xxx = png or pcx))
+#. x:\\mag2020\\ctry_inf\\readme.country_id (1 readme-file for each country)
+#. x:\\mag2020\\ctry_inf\\country_id+srn.xxx (1 about-screen for each country
    (xxx = png or pcx))
+#. x:\\mag2020\\sss\\sss_2020mm_pt1s_4.cdf (12 binary files in format ImagCDF,
+   if one second data is being contributed for the observatory)
 
-sss is 3-letter observatory code, mmm is the month, country_id
-is the country code. The same structure is also required by
-most of the other programs used to check data.
+x: is the Windows drive letter, sss is 3-letter observatory code, 
+mmm is the 3 character month name, country_id is the country code,
+mm is the 2 digit month number. The same structure is also required 
+by most of the other programs used to check data.
 
 Before putting INTERMAGNET files on the Paris GIN ftp server,
 institutes must perform the following as a minimum set of
@@ -177,13 +215,17 @@ tests:
    The resource that can be used to make this check is imcdview
    Java browser.
 
+#. If submitting one second data, check for discrepancies between
+   the one minute and one second data. The imcdview Java browser
+   provides a way of making this comparison.
+
 #. Check the binary data headers and the consistency of the
    binary data with the yearmean baseline, and readme files.
 
 Software for this action: check1min.exe
 
 The program check1min.exe checks the headers of the binary
-data. It also checks whether recent yearly mean values
+one minute data. It also checks whether recent yearly mean values
 included in the yearmean.sss file are consistent with the 12
 binary files, i.e. whether annual means included in the
 yearmean file agree with annual means calculated from the
@@ -199,7 +241,7 @@ XYZFIDH, and also detects format errors.
 
    .. note::
 
-     Program Kasm.exe available on INTERMAGNET web
+     Program Kasm.exe available on the INTERMAGNET web site
      enables to include K-numbers to binary files generated
      according to the Adaptive Smoothing method.
 
@@ -218,6 +260,15 @@ XYZFIDH, and also detects format errors.
    Lf), which should not be in readme and other text files, and
    gives easy control of line length is preferred. The contents
    of readme files can also be seen using imcdview.
+
+#. Inspection of CDF binary files
+
+   The CDF software (available from NASA at https://cdf.gsfc.nasa.gov/)
+   includes the programs "cdfdump" and "cdfedit" which can be used to
+   inspect and update CDF data files.
+
+   The Autoplot program (https://autoplot.org/) can be used to create
+   plots of the data in CDF data files.
 
 .. _sub_dat_1min_data_soft:
 

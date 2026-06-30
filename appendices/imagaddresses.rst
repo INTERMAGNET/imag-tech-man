@@ -4,6 +4,8 @@
 Contacts
 ========
 
+.. include:: ../shared/variables.rst
+
 .. _app_imag_addr_excon:
 
 
@@ -404,7 +406,7 @@ Geomagnetic Information Node (GIN) Managers
        Edinburgh EH14 4AP
 
        UK
-     - e_ginman@bgs.ac.uk
+     - |contact_edinburgh_gin_manager|
 
    * - **Golden (USA)**
      - **Brendan Geels**
@@ -417,7 +419,7 @@ Geomagnetic Information Node (GIN) Managers
        Denver, Colorado 80225-0046
 
        USA
-     - bgeels@usgs.gov
+     - |contact_golden_gin_manager|
 
    * - **Kyoto (Japan)**
      - **Shun Imajo**
@@ -432,7 +434,7 @@ Geomagnetic Information Node (GIN) Managers
        Kyoto 606-8502
 
        JAPAN
-     - imajo@kugi.kyoto-u.ac.jp
+     - |contact_kyoto_gin_manager|
 
    * - **Ottawa (Canada)**
      - **Charles Blais**
@@ -445,7 +447,7 @@ Geomagnetic Information Node (GIN) Managers
        Ottawa, Ontario K1A OY3
 
        CANADA
-     - charles.blais@canada.ca
+     - |contact_ottawa_gin_manager|
 
    * - **Paris (France)**
      - **Virginie Maury**
@@ -458,4 +460,4 @@ Geomagnetic Information Node (GIN) Managers
        75238 Paris Cedex 05
 
        FRANCE
-     - vmaury@ipgp.fr
+     - |contact_par_gin_manager|

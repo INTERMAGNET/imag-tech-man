@@ -4,6 +4,13 @@
 .. |contact_gen_inq| replace:: andrew.lewis@ga.gov.au
 .. |contact_imag_memb| replace:: c.turbitt@bgs.ac.uk
 .. |imag_apply_form| replace:: https://intermagnet.org/membership.html
+.. |contact_subcom_defdat| replace:: jreda@igf.edu.pl
+
+.. |contact_edinburgh_gin_manager| replace:: e_ginman@bgs.ac.uk
+.. |contact_golden_gin_manager| replace:: bgeels@usgs.gov
+.. |contact_kyoto_gin_manager| replace:: imajo@kugi.kyoto-u.ac.jp
+.. |contact_ottawa_gin_manager| replace:: charles.blais@canada.ca
+.. |contact_par_gin_manager| replace:: vmaury@ipgp.fr
 
 .. |imag_imo_list| replace:: https://intermagnet.org/metadata/#/imos
 .. |intermagnet_website| replace:: https://www.intermagnet.org/

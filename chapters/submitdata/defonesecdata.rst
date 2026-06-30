@@ -7,6 +7,9 @@ Definitive 1-Second Data
 
 .. include:: ../../appendices/appendices.rst
 
+INCLUDED IN DEFINITIVE DATA SUB_SECTION
+---------------------------------------
+
 Since 2014 INTERMAGNET has requested observatories to provide
 1-second definitive data if they are able to do so. Calls for
 1-second definitive data will be made at the same time as calls
@@ -21,6 +24,9 @@ this is likely to change in the future as more observatories
 become able to meet the standard.
 INTERMAGNET is currently developing recommendations on how to produce 
 1-second definitive data that will conform to the standard.
+
+NOT INCLUDED IN DEFINITIVE DATA SUB_SECTION
+-------------------------------------------
 
 INTERMAGNET has created a format for 1-second data (see
 |app_cdf|) based on NASA’s Common Data Format (CDF)

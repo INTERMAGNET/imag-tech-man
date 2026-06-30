@@ -4,6 +4,8 @@ Producing Quasi-Definitive Data
 ===============================
 
 .. include:: ../../appendices/appendices.rst
+.. include:: ../../shared/variables.rst
+.. include:: ../../shared/targets.rst
 
 
 The production of quasi-definitive data is similar to the
