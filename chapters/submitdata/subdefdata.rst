@@ -4,6 +4,7 @@ Submission of Definitive Data
 =============================
 
 .. include:: ../../shared/variables.rst
+.. include:: ../../shared/targets.rst
 .. include:: ../../appendices/appendices.rst
 
 In January 1992 the Executive Council and Operations Committee
@@ -79,10 +80,9 @@ Once the data have been put on this server, INTERMAGNET then:
 -  Checks the data for problems.
 -  Ingests the minute data into the INTERMAGNET Web site.
 -  Copies the data to the World Data Centre Edinburgh
--  Publishes the data under a DOI. The data is hosted at GFZ data services
-   (https://dataservices.gfz-potsdam.de/web/). Entering "Intermagnet" in
-   the search box on this page will show all INTERMAGNET definitive data
-   DOIs.
+-  Publishes the data under a DOI. The data is hosted at `GFZ data services`_.
+   Entering "Intermagnet" in the search box on this page will show all
+   INTERMAGNET definitive data DOIs.
 
 Institutes must prepare definitive data with extreme care. The
 data are distributed widely. Publishing corrections to this
@@ -263,11 +263,11 @@ XYZFIDH, and also detects format errors.
 
 #. Inspection of CDF binary files
 
-   The CDF software (available from NASA at https://cdf.gsfc.nasa.gov/)
+   The CDF software (available from NASA at |cdf_format| )
    includes the programs "cdfdump" and "cdfedit" which can be used to
    inspect and update CDF data files.
 
-   The Autoplot program (https://autoplot.org/) can be used to create
+   The Autoplot program (|autoplot|) can be used to create
    plots of the data in CDF data files.
 
 .. _sub_dat_1min_data_soft:

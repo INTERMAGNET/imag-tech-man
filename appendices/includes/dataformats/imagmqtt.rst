@@ -112,9 +112,9 @@ Only arrays corresponding with the "elements-recorded" in the message topic may 
 The optional extra metadata may be completely missing, or any part of parts may be included.
 The purpose of this metadata is to allow the data provider to supply metadata values that the Intermagnet
 data portal will use when creating IMF, IAGA-2002 and ImagCDF data files for users. The data portal
-stores a metadata file for each day and publication level of data. Thus it is only neccessary
+stores a metadata file for each day and publication level of data. Thus it is only necessary
 for a data provider to send one message per day / publication level, containing the optional metadata that
-they require to be distributed with their data. Subsquent messages for the same day / publication level
+they require to be distributed with their data. Subsequent messages for the same day / publication level
 do not require any optional metadata. If data provider's follow this advice, it is best
 to provide the optional metadata along with the first data of the day, to ensure that data and
 metadata are always consistent.
@@ -149,10 +149,9 @@ fields describes which data distribution format(s) the metadata field is used in
 
 For details of each of these fields, see the [JSON schema](ImagMQTTSchema.json).
 
-Data sets created for this schema can be checked at the JSON Schema verfier:
-https://json-schema.hyperjump.io/. Reference material for JSON Schema is here:
-https://json-schema.org/learn/getting-started-step-by-step. The Schema for 
-Intermagnet MQTT JSON is [here](ImagMQTTSchema.json).
+Data sets created for this schema can be checked at the JSON Schema verifier:
+|json_verifier|. Reference material for JSON Schema is here:|json_reference| .
+The Schema for Intermagnet MQTT JSON is [here](ImagMQTTSchema.json).
 
 
 .. _app_imag_mqtt_example:

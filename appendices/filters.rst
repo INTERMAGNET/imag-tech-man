@@ -122,8 +122,3 @@ Filter Coefficients to Produce One Minute Values
     | t\ :sub:`50`   |                |                | 0.0017886      |
     +----------------+----------------+----------------+----------------+
 
-.. _app_1sec_filter:
-
-Filter Coefficients to Produce One Second Values
-````````````````````````````````````````````````
-

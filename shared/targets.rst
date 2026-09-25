@@ -4,3 +4,7 @@
 .. _publication xvth iaga workshop: https://publicaciones.defensa.gob.es/boletin-roa-n-3-2013-proceedings-of-the-xvth-iaga-workshop-on-geomagnetic-observatory-instruments-data-acquisition-and-processing.html
 .. _sphinx framework: https://www.sphinx-doc.org/
 .. _readthedocs.org: https://readthedocs.org
+.. _persistent session: https://www.hivemq.com/blog/mqtt-essentials-part-7-persistent-session-queuing-messages/
+.. _QoS : https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/
+.. _GFZ data services : https://dataservices.gfz-potsdam.de/web/
+

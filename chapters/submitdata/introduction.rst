@@ -87,15 +87,16 @@ partially superseded) an older one.
     |                     | data                | (MQTT is preferred).                          |                   |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
     | INTERMAGNET Archive | Definitive and      | The required format for submission of         | |app_iaf|         |
-    | Format              | quasi-definitive    | all cadences of definitive data except        | NOTE:             |
-    |                     | minute, hourly,     | 1-second. Primarily used in the annual        | Several versions  |
-    |                     | daily values and    | INTERMAGNET Reference Data Set (IRDS).        | of the format     |
-    |                     | K-indices           | Although quasi-definitive data can be held in | are described.    |
-    |                     |                     | this format, it is most commonly submitted to | When submitting   |
-    |                     |                     | Intermagnet in IAGA-2002 format.              | data              |
-    |                     |                     |                                               | observatories     |
-    |                     |                     | INTERMAGNET has published data in this format | should use        |
-    |                     |                     | since 1991.                                   | version 2.11.     |
+    | Format              | quasi-definitive    | all cadences of definitive data except        |                   |
+    |                     | minute, hourly,     | 1-second. Primarily used in the annual        | NOTE:             |
+    |                     | daily values and    | INTERMAGNET Reference Data Set (IRDS).        | Several versions  |
+    |                     | K-indices           | Although quasi-definitive data can be held in | of the format     |
+    |                     |                     | this format, it is most commonly submitted to | are described.    |
+    |                     |                     | Intermagnet in IAGA-2002 format.              | When submitting   |
+    |                     |                     |                                               | data              |
+    |                     |                     | INTERMAGNET has published data in this format | observatories     |
+    |                     |                     | since 1991.                                   | should use        |
+    |                     |                     |                                               | version 2.11.     |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
     | IYF INTERMAGNET     | Annual mean values  | Primarily used for submission of definitive   | |app_iyf|         |
     | Year-Mean File      |                     | annual mean data to the IRDS.                 |                   |

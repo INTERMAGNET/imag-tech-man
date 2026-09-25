@@ -20,9 +20,9 @@
 .. |tech_man_github_src| replace:: https://github.com/INTERMAGNET/imag-tech-man
 
 
-.. |faq_qd| replace:: https://intermagnet.org/faq/04.what-is-quasi.html
-.. |faq_bgs_qd| replace:: https://intermagnet.org/faq/08.bgs-quasi.html
-.. |faq_ipgp_qd| replace:: https://intermagnet.org/faq/09.ipgp-quasi.html
+.. |faq_qd| replace:: https://intermagnet.org/faq/what-is-quasi.html
+.. |faq_bgs_qd| replace:: https://intermagnet.org/faq/bgs-quasi.html
+.. |faq_ipgp_qd| replace:: https://intermagnet.org/faq/ipgp-quasi.html
 .. |imag_software| replace:: https://intermagnet.org/software.html
 
 .. |iaga_guide| replace:: http://www.iaga-aiga.org/data/uploads/pdf/guides/iaga-guide-observatories.pdf
@@ -47,7 +47,12 @@
 
 .. |download_plot_data| replace:: https://intermagnet.org/data_download.html
 
-.. |matzka_qd| replace:: https://publicaciones.defensa.gob.es/boletin-roa-n-3-2013-proceedings-of-the-xvth-iaga-workshop-on-geomagnetic-observatory-instruments-data-acquisition-and-processing.html
 .. |matzka_hansen| replace:: https://pub.igf.edu.pl/files/Pdf/Pubs/37.pdf?t=1702373167
 
+
+.. |mosquitto| replace:: https://mosquitto.org/
+.. |eclipse_paho| replace:: https://eclipse.dev/paho/
+
+.. |json_verifier| replace:: https://json-schema.hyperjump.io/
+.. |json_reference| replace:: https://json-schema.org/learn/getting-started-step-by-step
 

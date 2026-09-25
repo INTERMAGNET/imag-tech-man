@@ -16,7 +16,6 @@
 .. |app_imag_imfv_1| replace:: :ref:`APPENDIX E5 <app_imag_imfv_1>`
 
 .. |app_1min_filter| replace:: :ref:`APPENDIX F1 <app_1min_filter>`
-.. |app_1sec_filter| replace:: :ref:`APPENDIX F2 <app_1sec_filter>`
 
 .. |app_hist_data| replace:: :ref:`APPENDIX G <app_hist_data>`
 .. |app_sat_trans| replace:: :ref:`APPENDIX G1 <app_sat_trans>`
