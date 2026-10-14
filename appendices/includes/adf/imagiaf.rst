@@ -150,7 +150,7 @@ IAFV2.11 Binary Data Structure Format-32 Bit Words
     +-----------------+-------------+-----------------+----------------------------------------+
 
 
-See  :numref:`sub_dat_1min_data_enc_iaf_211` for details.
+See  :numref:`sub_dat_def_data_enc_iaf_211` for details.
 
 
 
@@ -905,7 +905,7 @@ IAFV1.00 Binary Data Structure Format-32 Bit Words
     |                 |             | derived         | 999                                     |
     |                 |             | K-values        |                                         |
     +-----------------+-------------+-----------------+-----------------------------------------+
-    | Reserved        | 5885 - 5888 | Reserved for    | see :numref:`sub_dat_1min_data_enc_iaf` |
+    | Reserved        | 5885 - 5888 | Reserved for    | see :numref:`sub_dat_def_data_enc_iaf`  |
     |                 |             | future use = 0  | for details on word   5885              |
     |                 |             |                 |                                         |
     |                 |             |                 |                                         |

@@ -13,7 +13,6 @@ Submitting Data
     subdefdata
     defdatacalc
     standardsformeans
-    defonesecdata
 
     
 

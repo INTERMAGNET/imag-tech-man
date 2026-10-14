@@ -20,6 +20,8 @@ but with some changes to how the data is published:
   on a double CD-ROM
 - Starting with data for the year TODO, data was published
   on DVD-ROM
+- Starting with data for the year TODO, data was published
+  on a USB memory stick
 - Starting with data for the year 2013, data was published
   online under a Digital Object Identifier (DOI).
 - The Intermagnet Reference Data Set (IRDS) was introduced
@@ -28,6 +30,9 @@ but with some changes to how the data is published:
   corrections to data from previous years. The IRDS includes
   corrected definitive data from all INTERMAGNET observatories
   that supplied data from 1991 to the year of publication.
+
+Collectively, the publications on CD-ROM, DVD-ROM and USB memory
+stick are known as INTERMAGNET Physical Media (IPM).
 
 Since 2014 INTERMAGNET has also requested observatories to provide
 1-second definitive data, if they are able to do so. It is not a  
@@ -92,7 +97,7 @@ Inspection of definitive data should be done carefully. The
 method of inspection is left to each individual institute.
 However software tools are available which can help in the
 preparation and checking of data. These tools are available
-from the Internet (see :numref:`sub_dat_1min_data_soft` for details).
+from the Internet (see :numref:`sub_dat_def_data_soft` for details).
 The most important program to control the data is the imagcdview
 Java browser which is also available on the annual data media
 and on the INTERMAGNET web site: |imag_software|
@@ -159,7 +164,7 @@ Please note the following:
   of the given country.
 
 
-.. _sub_dat_1min_data_check:
+.. _sub_dat_def_data_check:
 
 Checking Procedure
 ------------------
@@ -168,28 +173,36 @@ In order to check the data for publication, it is necessary to
 create a directory structure on disk similar to the structure
 of the IRDS - this will allow the user to use the
 imcdview software to view the data (imcdview is the Java
-software). In order for imcdview to recognize that a directory contains
-INTERMAGNET data, the subdirectories ctry_inf and yyyymaps are
-needed even if they are empty.
+visualisation software). A complete annual INTERMAGNET 
+data structure includes the following folders and files:
 
-A complete annual INTERMAGNET data structure includes the
-following files (the following example is for the year 2020 on
-a Windows file system):
-
-#. x:\\mag2020\\sss\\sss20mmm.bin (12 binary files in format IAF)
-#. x:\\mag2020\\sss\\readme.sss (1 readme file)
-#. x:\\mag2020\\sss\\sss2020.blv (1 baseline file)
-#. x:\\mag2020\\sss\\yearmean.sss (1 annual means file)
-#. x:\\mag2020\\2020maps\\country_id.xxx (1 map for each country (xxx = png or pcx))
-#. x:\\mag2020\\ctry_inf\\readme.country_id (1 readme-file for each country)
-#. x:\\mag2020\\ctry_inf\\country_id+srn.xxx (1 about-screen for each country
+#. DDD\\magYYYY\\SSS\\SSSYYMMM.bin (12 binary files in IAF format)
+#. DDD\\magYYYY\\SSS\\readme.SSS (1 readme file for the observatory)
+#. DDD\\magYYYY\\SSS\\SSSYYYY.blv (1 baseline file)
+#. DDD\\magYYYY\\SSS\\yearmean.SSS (1 annual means file)
+#. DDD\\magYYYY\\YYYYmaps\\CCC.xxx (1 map for each country (xxx = png or pcx))
+#. DDD\\magYYYY\\ctry_inf\\readme.CCC (1 readme-file for each country)
+#. DDD\\magYYYY\\ctry_inf\\CCCsrn.xxx (1 about-screen image for each country
    (xxx = png or pcx))
-#. x:\\mag2020\\sss\\sss_2020mm_pt1s_4.cdf (12 binary files in format ImagCDF,
+#. DDD\\magYYYY\\SSS\\SSS_YYYYMM_pt1s_4.cdf (12 binary files in ImagCDF format,
    if one second data is being contributed for the observatory)
 
-x: is the Windows drive letter, sss is 3-letter observatory code, 
-mmm is the 3 character month name, country_id is the country code,
-mm is the 2 digit month number. The same structure is also required 
+Where:
+
+  - DDD is the base folder for the data, which can be any folder
+    in the filesystem
+  - SSS is the 3-letter observatory code
+  - YYYY is the 4 digit year and century, YY is the 2 digit year
+  - MMM is the 3 character month name ('jan', 'feb', 'mar', 'apr', may',
+    'jun', 'jul', 'aug', 'sep', 'oct', 'nov' or 'dec'), MM is the 2 digit 
+    month number ('01' to '12')
+  - CCC is the country code
+
+In order for imcdview to recognize that a directory contains
+INTERMAGNET data, the subdirectories ctry_inf and YYYYmaps are
+needed even if they are empty. 
+
+The same structure is also required 
 by most of the other programs used to check data.
 
 Before putting INTERMAGNET files on the Paris GIN ftp server,
@@ -270,7 +283,7 @@ XYZFIDH, and also detects format errors.
    The Autoplot program (https://autoplot.org/) can be used to create
    plots of the data in CDF data files.
 
-.. _sub_dat_1min_data_soft:
+.. _sub_dat_def_data_soft:
 
 Obtaining the Checking Software
 -------------------------------
@@ -279,24 +292,26 @@ See the following web page to download the checking software:
 |imag_software|
 
 
-.. _sub_dat_1min_data_enc:
+.. _sub_dat_def_data_enc:
 
 Data Encoding for Publication
 -----------------------------
 
-1-minute definitive data for an IMO are to be provided to
+Definitive data for an IMO are to be provided to
 INTERMAGNET shortly after the end of each calendar year for
 inclusion in the annual data publication. INTERMAGNET will send
 out a "call for data" to each observatory, specifying the
-deadline for providing data. Observatories should provide data
+deadline for providing data. Observatories should provide 1-minute data
 in the INTERMAGNET Archive Format (IAF) which is described in
 |app_iaf|. Data can be converted to IAF using INTERMAGNET’s
-"imcdview" viewing software, which can be obtained
-from |imag_software|
-Baseline data will accompany the definitive data, and will be
-provided in format IBFV2.00 as described in |app_imag_ibf|.
+"gm_convert" data conversion software, which can be obtained
+from |imag_software|. Baseline data should accompany the definitive 
+data, and will be provided in format IBFV2.00 as described in 
+|app_imag_ibf|. Institutes chosing to contribute 1-second data should
+provide the data in Intermagnet CDF Format (ImagCDF) which is
+described in |app_cdf|.
 
-.. _sub_dat_1min_data_enc_gen:
+.. _sub_dat_def_data_enc_gen:
 
 General Features
 ````````````````
@@ -306,13 +321,84 @@ observatories provided by 11 countries for the year 1991. The
 1992 and subsequent IPMs also contain baseline data for
 the year for each observatory in the form of text and plots.
 |app_obs| of this manual provides a list of observatories
-currently contributing to the data publication.
+currently contributing to the data publication. The IRDS
+online publication contains data from the year of publication
+plus all previous years back to 1991.
 
-.. _sub_dat_1min_data_enc_iaf:
+
+.. _sub_dat_def_data_enc_dir:
+
+INTERMAGNET Reference Data Set and Physical Media Directory Structure
+`````````````````````````````````````````````````````````````````````
+
+This section describes the structure of the 2011 DVD, by way of an example,
+since all other years of data, whether in the IPM or IRDS, are structured 
+in a similar way. Further documentation on the structure is described in 
+|app_imag_dir|.
+
+The files are presented in a fixed
+directory structure. The root directory contains a "README.TXT"
+file, which is an ASCII file describing the DVD and where to
+obtain information about it, the software, and documentation;
+
+On the 2011 DVD there are also three directories and a further
+file. The directory called "ERRATA" contains a file
+"ERRATA.TXT". This file lists errors on previous IPMs. A
+second folder, called "SOFTWARE", holds the "imcdview"
+programme, software, for visualizing and working with the data.
+This software is described in :numref:`sub_dat_def_data_enc_soft`
+The file "imcdview_install.txt" describes how to install the imcdview software.
+
+The final directory, MAG2011, contains a sub-directory for each
+observatory identified by its 3-letter ID code. In addition,
+there are sub-directories labeled "2011MAPS", "CTRY_INF", and
+"OBSY_INF". The 2011MAPS directory contains the \*.PNG files
+that are the map images of each country for use in the access
+software. These are labeled by a 3-letter country ID with the
+PNG extension, and one labeled "ALL.PNG" for all countries. The
+CTRY_INF directory contains a \*.PNG file for each country (and
+one for ALL) that are the images used to show the flag and
+organizational Logo for the different countries, and the README
+files that pertain to each country's geomagnetism program
+(including a README for the ALL option). The OBSY_INF
+subdirectory is empty, but is required to identify to software
+that the this folder holds data in the IRDS
+structure.
+
+The individual sub-directories (e.g. BFE for Brorfelde, TUC for
+Tucson, etc.) contain the 12 months of 1-minute data labeled with the
+3-letter ID, 2-character year, 3-letter month abbreviation, and
+a "BIN" extension indicating they are binary files in the IAF
+format (see  :numref:`sub_dat_def_data_enc_iaf_211`).
+For example, "BFE91AUG.BIN" is a file of 31 sequential day-records
+for Brorfelde, for 1991, for August. In addition,
+there are "README.XXX" files for the individual observatory,
+a YEARMEAN.XXX containing annual mean data in plain text format f
+or all years that the observatory has operated
+(see |app_iyf| for details of the format)
+and an XXX2011.BLV file that contains absolute observation and
+baseline data in the INTERMAGNET baseline format (see |app_imag_ibf|)
+where XXX indicates the 3-letter observatory ID.
+
+This sub-directory may also contain a file labeled XXXYRK.DKA,
+where XXX is the 3-letter observatory ID, YR is the 2-character
+year value and K indicates a K-Index file. Originally the DKA
+extension was used to indicate that the data were generated
+from a digital algorithm in an ASCII format, however
+subsequently these files have been used to hold both digitally
+derived and hand-scaled K indices. Since the 2005 CD-ROM the
+DKA files have been created by INTERMAGNET using data from the
+binary IAF file (before 2005 these files were provided by the
+observatories). These ASCII K-Index files are used, even though
+the data are in the binary records, because they are much
+faster to access than paging through the binary records.
+
+
+
+.. _sub_dat_def_data_enc_iaf:
 
 IAF INTERMAGNET Archive Format
 ``````````````````````````````
-
 
 The INTERMAGNET IRDS and IPM contain a variety of
 metadata, including contact information and quality control
@@ -351,7 +437,11 @@ January would require 730,112 bytes of storage. A year of
 observatory data requires almost 8.6 Megabytes (Mb) of storage.
 The storage capacity of a CD-ROM is about 640 Mb. A single
 sided, single layer DVD holds about 4.7 Gb, a single sided,
-double layer DVD about 8.5Gb. Following the increase of
+double layer DVD about 8.5Gb. 
+
+
+TODO - move this information to the start of the section:
+Following the increase of
 observatories within INTERMAGNET and the evolution of the
 physical media, definitive data were publised on one CD from
 1991 to 1999, two CDs from 2000 to 2005, one DVD from 2006 to
@@ -364,7 +454,7 @@ data for each year of production, previous versions (and the
 years they are associated with) are fully described in |app_iaf|.
 
 
-.. _sub_dat_1min_data_enc_iaf_211:
+.. _sub_dat_def_data_enc_iaf_211:
 
 IAFV2.11 (2014 and after)
 """""""""""""""""""""""""
@@ -449,82 +539,13 @@ scalar instrument is not used (so no data is recorded in the
 fourth element) the value "888888" should be used instead of
 "999999". Missing K-Index values are stored as "999".
 
-
-.. _sub_dat_1min_data_enc_dir:
-
-INTERMAGNET Reference Data Set and Physical Media Directory Structure
-`````````````````````````````````````````````````````````````````````
-
-This section describes the structure of the DVD (2011). The
-structure of the INTERMAGNET Reference Data Set (IRDS), which is also the 
-strucutre of the data on the INTERMAGNET Physical Media (IPM) at the example
-is described in |app_imag_dir|.
-
-The files are set up in a particular
-directory structure. The root directory contains a "README.TXT"
-file, which is an ASCII file describing the DVD and where to
-obtain information about it, the software, and documentation;
-
-On the 2011 DVD there are also three directories and a further
-file. The directory called "ERRATA" contains a file
-"ERRATA.TXT". This file lists errors on previous IPMs. A
-second folder, called "SOFTWARE", holds the "imcdview"
-programme, software, for visualizing and working with the data.
-This software is described in :numref:`sub_dat_1min_data_enc_soft`
-The file "imcdview_install.txt" describes how to install the imcdview software.
-
-The final directory, MAG2011, contains a sub-directory for each
-observatory identified by its 3-letter ID code. In addition,
-there are sub-directories labeled "2011MAPS", "CTRY_INF", and
-"OBSY_INF". The 2011MAPS directory contains the \*.PNG files
-that are the map images of each country for use in the access
-software. These are labeled by a 3-letter country ID with the
-PNG extension, and one labeled "ALL.PNG" for all countries. The
-CTRY_INF directory contains a \*.PNG file for each country (and
-one for ALL) that are the images used to show the flag and
-organizational Logo for the different countries, and the README
-files that pertain to each country's geomagnetism program
-(including a README for the ALL option). The OBSY_INF
-subdirectory is empty, but is required to identify to software
-that the this folder holds data in the IRDS
-structure.
-
-The individual sub-directories (e.g. BFE for Brorfelde, TUC for
-Tucson, etc.) contain the 12 months of data labeled with the
-3-letter ID, 2-character year, 3-letter month abbreviation, and
-a "BIN" extension indicating they are binary files in the IAF
-format (see  :numref:`sub_dat_1min_data_enc_iaf_211`).
-For example, "BFE91AUG.BIN" is a file of 31 sequential day-records
-for Brorfelde, for 1991, for August. In addition,
-there are "README.XXX" files for the individual observatory,
-a YEARMEAN.XXX containing annual mean data in plain text format f
-or all years that the observatory has operated
-(see |app_iyf| for details of the format)
-and an XXX2011.BLV file that contains absolute observation and
-baseline data in the INTERMAGNET baseline format (see |app_imag_ibf|)
-where XXX indicates the 3-letter observatory ID.
-
-This sub-directory may also contain a file labeled XXXYRK.DKA,
-where XXX is the 3-letter observatory ID, YR is the 2-character
-year value and K indicates a K-Index file. Originally the DKA
-extension was used to indicate that the data were generated
-from a digital algorithm in an ASCII format, however
-subsequently these files have been used to hold both digitally
-derived and hand-scaled K indices. Since the 2005 CD-ROM the
-DKA files have been created by INTERMAGNET using data from the
-binary IAF file (before 2005 these files were provided by the
-observatories). These ASCII K-Index files are used, even though
-the data are in the binary records, because they are much
-faster to access than paging through the binary records.
-
-.. _sub_dat_1min_data_enc_soft:
+.. _sub_dat_def_data_enc_soft:
 
 INTERMAGNET Reference Data Set and Physical Media Software
 ``````````````````````````````````````````````````````````
 
-INTERMAGNET provides software to work with the data.
-This software can be installed from the
-IPM, or downloaded from |imag_software| .
+INTERMAGNET provides the "imcdview" program to work with the data.
+This software can be downloaded from |imag_software| .
 The software is designed to be simple and easy to use. When the
 software starts for the first time on a new computer, a dialog
 is displayed describing how to tell the software where to find
