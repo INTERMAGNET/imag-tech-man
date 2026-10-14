@@ -4,11 +4,12 @@ Submission of Preliminary Data
 ==============================
 
 .. include:: ../../shared/variables.rst
+.. include:: ../../shared/targets.rst
 .. include:: ../../appendices/appendices.rst
 
 
 An observatory sends preliminary (non-definitive) data, including
-quasi-defintive data, to its
+quasi-definitive data, to its
 assigned GIN via MQTT, web upload, email or satellite transmission.
 INTERMAGNET encourages observatories to send data as close to
 real-time as possible. The best way to achieve this is to use
@@ -23,7 +24,7 @@ to achieve as good real-time performance as use of MQTT.
 The GINs still accept data via email. Whilst this method of
 data transfer is not suitable for real-time data transmission,
 it can still be useful as a backup transmission method and for
-backfilling gaps that might have occured when sending data
+backfilling gaps that might have occurred when sending data
 via MQTT or the web.
 
 Satellite transmission, which was used extensively in the
@@ -127,7 +128,7 @@ Intermagnet using MQTT. With MQTT there is a very small delay (typically less
 than a second) between an observatory submitting data and the data becoming
 available on the Intermagnet data portal. Delays in data are then mainly due
 to the frequency at which observatories transmit data. Observatories are 
-encourged to transmit data as soon as it is recorded. This is more easily
+encouraged to transmit data as soon as it is recorded. This is more easily
 accomplished with MQTT than other methods of data transfer.
 
 MQTT (Message Queuing Telemetry Transport) is a messaging protocol that enables 
@@ -141,13 +142,13 @@ the messages observatories send).
 
 There are a number of suppliers of MQTT software, both commercial and free. There are
 interfaces to most popular languages as well as standalone commands that can be
-inegrated into scripts or schedulers (such as Unix cron). For standalone MQTT publishing
+integrated into scripts or schedulers (such as Unix cron). For standalone MQTT publishing
 and subscription programs (as well as broker software) people in the observatory 
-community have succesfully used Eclipse Mosquito MQTT (https://mosquitto.org/), which is 
+community have successfully used Eclipse Mosquito MQTT (|mosquitto|), which is
 free software. Binary packages are available for Windows, Linux and Mac. 
 Eclipse Mosquitto also includes a library that can publish and subscribe messages from
 programs written in the C language. For Python and Java programmers, the Paho project 
-(https://eclipse.dev/paho/) offers a library that can be easily added to your programs (and
+(|eclipse_paho|) offers a library that can be easily added to your programs (and
 Paho also includes a C library, with other langauge interfaces being developed). 
 
 MQTT at the GINs
@@ -228,19 +229,17 @@ MQTT Quality of Service
 """""""""""""""""""""""
 
 When publishing and subscribing to MQTT, one of the parameters that needs to be set is the
-"quality of service" (QoS). For a description of QoS see here: 
-https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/.
+"quality of service" (`QoS`_).
 
 GINs will subscribe to their MQTT brokers with a QoS of 2. Observatories
 are recommended to publish with a QoS of 1, which reduces the overhead needed to manage
 the message stream (since the lower of the two QoS levels is used between publisher and
-subsriber). However, if there is a reason why it's important to guarantee that messages
+subscriber). However, if there is a reason why it's important to guarantee that messages
 are delivered in the same order they are sent, observatories can publish using a QoS of 2.
 GINs are able to handle out of sequence messages from observatories.
 
 To enable QoS level 2 and to ensure messages are not missed, the GINs
-subscribe to their MQTT brokers with a 
-[persistant session](https://www.hivemq.com/blog/mqtt-essentials-part-7-persistent-session-queuing-messages/).
+subscribe to their MQTT brokers with a `persistent session`_ .
 
 
 .. _sub_dat_prel_mqtt_id:
@@ -271,7 +270,7 @@ needed to publish data on the Intermagnet MQTT service:
   This username is used for publishing data.
 - A publication password. The publication password is linked to the publication username.
 - A subscription username. The username will be unique to the observatory and should not be shared.
-  This username is used for subscribing to data, to allow an observatry to check that its
+  This username is used for subscribing to data, to allow an observatory to check that its
   data is being received.
 - A subscription password. The subscription password is linked to the subscription username.
 
@@ -293,7 +292,7 @@ Secure MQTT transport
 """""""""""""""""""""
 
 Only secure (TLS) connections will be accepted by the Intermagnet MQTT service. Open
-(unecrypted) connections expose the authentication and authorization credentials used
+(unencrypted) connections expose the authentication and authorization credentials used
 to connect to the service, thereby risking publication of data from unauthorized sources,
 and so will not be accepted. The default port (8883) is used for MQTT over TLS.
 
@@ -317,7 +316,7 @@ is to allow data to be safely imported from the public
 Internet into the private networks where the GINs operate.
 This process introduces a short delay between transmission
 of the data and ingestion into the GIN, which is the reason
-MQTT is preffered for transmission of preliminary data with
+MQTT is preferred for transmission of preliminary data with
 minimum delay.
 
 Observatories connect to the web service in one of three ways:
@@ -327,7 +326,7 @@ Observatories connect to the web service in one of three ways:
    online mail services to upload files as attachments when
    sending mail. This is useful for testing the system, but
    can also be used if a large volume of data needs to be
-   submited manually (e.g. sending quasi-definitive data).
+   submitted manually (e.g. sending quasi-definitive data).
 #. Automatically using a command line based tool that supports
    file upload. One such tool is CURL |curl| .
    which is available for SUN Solaris, Linux and Windows.
@@ -618,7 +617,7 @@ clients use of formatting. GINs require email in plain text.
 Email clients often add formatting (such as Rich Text or HTML)
 to an email. It if often difficult to detect whether this
 formatting has been added. If there is concern that this
-problem may be occuring, try to view the email in a "raw"
+problem may be occurring, try to view the email in a "raw"
 view, which should show the formatting along with the
 email text.
 

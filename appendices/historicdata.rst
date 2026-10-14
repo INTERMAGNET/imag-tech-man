@@ -98,7 +98,9 @@ The use of satellites and the timed-transmission slots on any
 of the geostationary satellites is very closely controlled.
 Before an observatory can transmit data using a satellite, an
 application must be made to the relevant controlling body. All
-transmission equipment used must be checked and certified to be
+transmission equipment used enth-nanotesla resolution, are organized on a day
+file basis. One file contains 24 one-hour blocks, each containing 60
+minutes worth of values. Blocmust be checked and certified to be
 of an acceptable standard before a licence and a transmission
 slot can be granted. Also, although it may be possible to gain
 free access to geostationary satellites, depending on the
@@ -152,7 +154,9 @@ transmission slot may be granted simply by quoting an
 identification number which has been issued by the respective
 satellite operators to the member state or country.
 
-The length of the time slots allotted to the applicant depends
+The length of the time slotsenth-nanotesla resolution, are organized on a day
+file basis. One file contains 24 one-hour blocks, each containing 60
+minutes worth of values. Bloc allotted to the applicant depends
 on the satellite which is being accessed. A METEOSAT time slot
 is 1 minute every hour. On GMS it is 90 seconds every 12
 minutes and on GOES, 20 seconds every 12 minutes. During these

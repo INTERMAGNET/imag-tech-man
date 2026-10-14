@@ -157,6 +157,7 @@ latex_appendices = ['appendices/terminology',
                     'appendices/imagaddresses',
                     'appendices/dataformats',
                     'appendices/filters',
+                    'appendices/historicdata',
                     'appendices/acknowledgements'
                     ]
 
