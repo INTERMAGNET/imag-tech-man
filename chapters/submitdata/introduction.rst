@@ -335,7 +335,31 @@ individual elements of the geomagnetic vector.
     |      | calculated from and consistent with XYZ or HDZ field         |
     |      | elements.                                                    |
     +------+--------------------------------------------------------------+
-
+    | S    | Scalar field intensity. The geomagnetic field strength,      |
+    |      | measured using an instrument that is independent from that   |
+    |      | used to measure the vector field values.                     |
+    +------+--------------------------------------------------------------+
+    | G    | Delta-F. Delta-F is defined as F(vector)-S(scalar) in nT.    |
+    |      | When calculating values for the G element, if F(vector) is   |
+    |      | missing, G is set to -S (scalar)                             |
+    +------+--------------------------------------------------------------+
+    | E    | East magnetic component. A field strength in the horizontal  |
+    |      | plane perpendicular to H. E is only defined for data that    |
+    |      | are not baseline corrected                                   |
+    +------+--------------------------------------------------------------+
+    | UVZ  |  A general orthogonal component set where Z denotes vertical |
+    |      |  intensity and U & V are arbitraily aligned in the           |
+    |      |  horizontal plane                                            |
+    +------+--------------------------------------------------------------+
+    | ABZ  |  A special case of UVZ where A & B are aligned at            |
+    |      |  approximately 45 degrees to H, such that A & B approximate  |
+    |      |  magnetic NE & NW intensity respectively                     |
+    +------+--------------------------------------------------------------+
+    | UVW  |  Used to denote a general orthogonal component set           |
+    |      |  arbitrarily rotated with respect to XYZ                     |
+    |      |                                                              |
+    +------+--------------------------------------------------------------+
+    
 
 .. _sub_dat_intro_rtpd:
 
