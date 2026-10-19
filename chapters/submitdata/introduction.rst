@@ -21,9 +21,11 @@ Geomagnetic Information Node (GIN). Observatories send
 their preliminary data to their assigned GIN in ‘near 
 real-time’. When INTERMAGNET was formed in the 1990s, 
 this was defined as within 72 hours of acquisition. Submission 
-of all type of preliminary data, with the exception of 
-quasi-definitive data, within 72 hours 
-is a minimum requirement for INTERMAGNET membership. 
+of all type of preliminary data within 72 hours 
+is a minimum requirement for INTERMAGNET membership. The
+only exception to this is quasi-definitive data, which
+includes the requirement for delivery within 3 months
+as part of its definition.
 
 More recently INTERMAGNET has requested observatories to 
 submit preliminary data within these limits:
@@ -90,13 +92,13 @@ partially superseded) an older one.
     | Format              | quasi-definitive    | all cadences of definitive data except        |                   |
     |                     | minute, hourly,     | 1-second. Primarily used in the annual        | NOTE:             |
     |                     | daily values and    | INTERMAGNET Reference Data Set (IRDS).        | Several versions  |
-    |                     | K-indices           | Although quasi-definitive data can be held in | of the format     |
-    |                     |                     | this format, it is most commonly submitted to | are described.    |
-    |                     |                     | Intermagnet in IAGA-2002 format.              | When submitting   |
-    |                     |                     |                                               | data              |
-    |                     |                     | INTERMAGNET has published data in this format | observatories     |
-    |                     |                     | since 1991.                                   | should use        |
-    |                     |                     |                                               | version 2.11.     |
+    |                     | K-indices           | Although this format is able to hold          | of the format     |
+    |                     |                     | quasi-definitive data,  QD data is most       | are described.    |
+    |                     |                     | commonly submitted to Intermagnet in          | When submitting   |
+    |                     |                     | IAGA-2002 format.                             | data              |
+    |                     |                     |                                               | observatories     |
+    |                     |                     | INTERMAGNET has published data in this format | should use        |
+    |                     |                     | since 1991.                                   | version 2.11.     |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
     | IYF INTERMAGNET     | Annual mean values  | Primarily used for submission of definitive   | |app_iyf|         |
     | Year-Mean File      |                     | annual mean data to the IRDS.                 |                   |
@@ -153,33 +155,33 @@ This data type field is explained below.
     | Data type        | Formats where it can   | What it means          |
     |                  | be used                |                        |
     +==================+========================+========================+
-    | Reported         | IMFV1.23               | Preliminary data from  |
-    |                  | (as a metadata field). | an observatory that    |
-    |                  |                        | has not had any        |
+    | Reported (an     | IMFV1.23               | Preliminary data from  |
+    | INTERMAGNET      | (as a metadata field). | an observatory that    |
+    | data type)       |                        | has not had any        |
     |                  | IMFV2.83 (implied –    | baseline corrections   |
     |                  | data in this format    | applied. It may        |
     |                  | can only be            | contain spikes and may |
     |                  | ‘Reported’).           | have missing values.   |
     +------------------+------------------------+------------------------+
-    | Variation        | ImagMQTT, IAGA-2002,   | The data type is not   |
-    |                  | ImagCDF and ImagMQTT   | defined in the format  |
-    |                  | (as a metadata field). | definition. It is      |
-    |                  |                        | assumed to contain     |
+    | Variation (from  | ImagMQTT, IAGA-2002,   | The data type is not   |
+    | the IAGA-2002    | ImagCDF and ImagMQTT   | defined in the format  |
+    | data format      | (as a metadata field). | definition. It is      |
+    | description)     |                        | assumed to contain     |
     |                  |                        | data to the same       |
     |                  |                        | definition as the      |
     |                  |                        | ‘Reported’ data type.  |
     +------------------+------------------------+------------------------+
-    | Adjusted         | IMFV1.23 (as a         | Adjusted data may have |
-    |                  | metadata field).       | modifications made to  |
-    |                  |                        | raw data to apply      |
+    | Adjusted (an     | IMFV1.23 (as a         | Adjusted data may have |
+    | INTERMAGNET      | metadata field).       | modifications made to  |
+    | data type)       |                        | raw data to apply      |
     |                  |                        | baselines, remove      |
     |                  |                        | spikes or fill gaps.   |
     +------------------+------------------------+------------------------+
     | Provisional      | ImagMQTT, IAGA-2002,   | The data type is not   |
-    |                  | ImagCDF and ImagMQTT   | defined in the format  |
-    |                  | (as a metadata field). | definition. It is      |
-    |                  |                        | assumed to contain     |
-    |                  |                        | data to the same       |
+    | (from the        | ImagCDF and ImagMQTT   | defined in the format  |
+    | IAGA-2002        | (as a metadata field). | definition. It is      |
+    | data format      |                        | assumed to contain     |
+    | description)     |                        | data to the same       |
     |                  |                        | definition as the      |
     |                  |                        | ‘Adjusted’ data type.  |
     +------------------+------------------------+------------------------+
@@ -218,7 +220,9 @@ Where software is used to convert between formats (e.g. at GINs):
   the Provisional data type.
 
 The use of data types to describe more than the state of data
-in the publication process is prone to error. INTERMAGNET is
+in the publication process is prone to error. In particular,
+the standard that data meets should not be infered from its
+data type. INTERMAGNET is
 moving to a system of describing the standard that a data set
 meets and including this description alongside the data to
 which it applies.

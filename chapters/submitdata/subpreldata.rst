@@ -124,8 +124,8 @@ Submission via MQTT
 -------------------
 
 For the best real-time performance (and least delay) data should be submitted to
-Intermagnet using MQTT. With MQTT there is a very small delay (typically less
-than a second) between an observatory submitting data and the data becoming
+Intermagnet using MQTT. With MQTT there is a very small delay (typically a 
+few seconds) between an observatory submitting data and the data becoming
 available on the Intermagnet data portal. Delays in data are then mainly due
 to the frequency at which observatories transmit data. Observatories are 
 encouraged to transmit data as soon as it is recorded. This is more easily
@@ -213,7 +213,7 @@ The 'mosquitto_sub' command, also from the Mosquitto MQTT pacakge, can
 be used to view the transmitted message. Unlike 'mosquitto_pub' which
 publishes a single message, 'mosquitto_sub' will run continuously until
 it is stopped, displaying messages as they are received. Here is an
-example command
+example command::
 
    mosquitto_sub -h gin-mqtt.bgs.ac.uk -p 8883 -u esk_r -P <password> -c -t '#' -q 0 -i "test_r"
 
@@ -236,7 +236,9 @@ are recommended to publish with a QoS of 1, which reduces the overhead needed to
 the message stream (since the lower of the two QoS levels is used between publisher and
 subscriber). However, if there is a reason why it's important to guarantee that messages
 are delivered in the same order they are sent, observatories can publish using a QoS of 2.
-GINs are able to handle out of sequence messages from observatories.
+GINs are able to handle out of sequence messages from observatories. Observatories are
+not recommended to use QoS 0, as this does not guarantee delivery of messages. Using
+QoS 0 is likely to result in lost data.
 
 To enable QoS level 2 and to ensure messages are not missed, the GINs
 subscribe to their MQTT brokers with a `persistent session`_ .
@@ -248,9 +250,10 @@ Importance of the MQTT Client ID
 """"""""""""""""""""""""""""""""
 
 In MQTT, publication and subscription is associated with the subscriber's and publisher's client ID,
-not the username. Only one client ID may be connected to an MQTT broker at at time. If a duplicate
-client ID attempts to connect to a broker, the broker will disconnect the earlier connection. For these
-reasons it is important that client IDs are selected so that there can never be any duplicate IDs.
+not the username. A client ID may be connected to an MQTT broker only once at at time. If duplicate
+client IDs attempt to connect to a broker at the same time, the broker will disconnect the earlier 
+connection. For these reasons it is important that client IDs are selected so that there can never 
+be any duplicate IDs.
 
 The MQTT broker allows the username (used in authenticating with the broker) to be used as the
 client ID. The only way to enforce unique client IDs is to allocate unique usernames to each
@@ -293,7 +296,7 @@ Secure MQTT transport
 
 Only secure (TLS) connections will be accepted by the Intermagnet MQTT service. Open
 (unencrypted) connections expose the authentication and authorization credentials used
-to connect to the service, thereby risking publication of data from unauthorized sources,
+to connect to the service, thereby risking use of data by unauthorized parties,
 and so will not be accepted. The default port (8883) is used for MQTT over TLS.
 
 
@@ -331,7 +334,7 @@ Observatories connect to the web service in one of three ways:
    file upload. One such tool is CURL |curl| .
    which is available for SUN Solaris, Linux and Windows.
 #. Automatically using their own software. File upload to a web
-   server is supported by Java and other languages.
+   server is supported in Java, Python and other languages.
 
 The web service will accept data in the following formats:
 
@@ -348,7 +351,7 @@ responsible for reassembling the data fragments into a day
 file. The smallest ‘fragment’ of
 data that should be encoded into an IAGA-2002 file is 2
 samples, since some software using this format calculates the
-sample rate from time difference between the first pair of
+sample rate from the time difference between the first pair of
 samples in the file. An IMO may not make more than
 1440 uploads per day. The same file may not be uploaded more
 than once. These limits are imposed to help prevent Denial Of
@@ -464,14 +467,14 @@ ways:
    the filename rules for the data format used. So, for
    example, if data is sent in the IMFV1.23 format for Boulder
    observatory on 15th March 1992, the mail subject line would
-   be:
+   be::
 
-   Subject: MAR1592.BOU
+     Subject: MAR1592.BOU
 
    For 1-minute provisional Canberra data on 1st January 2002
-   in IAGA2002 format the subject line would be:
+   in IAGA2002 format the subject line would be::
 
-   Subject: bou20020101pmin.min
+     Subject: bou20020101pmin.min
 
    The body of the mail message should contain the data,
    formatted according to the rules of the format used. The
@@ -493,16 +496,16 @@ ways:
    attached file must be named according to the filename rules
    for the chosen data format. When data is attached to an
    email, the subject field and body of the mail message are
-   ignored.
+   ignored. Multiple data files may be attached to a single message.
 
 The email address when sending data to a GIN is:
 
 GIN Email Addresses
 ```````````````````
 
--  Ottawa: TODO
+-  Ottawa: N/A
 -  Paris: TODO
--  Golden: TODO
+-  Golden: N/A
 -  Edinburgh: e_gin@mail.nmh.ac.uk
 -  Kyoto: TODO
 
@@ -551,7 +554,7 @@ INTERMAGNET web site, contact your GIN manager.
 How to Check if Your Data Has Been Received
 -------------------------------------------
 
-One simple method the check whether your data has been received
+One simple method to check whether your data has been received
 is to look for the data at the INTERMAGNET web site. The delay
 time from receipt of data at the GIN to data becoming available
 at the web site can be as much as 10 minutes, so you need to
@@ -568,7 +571,7 @@ in any gaps dues to transmission problems. For more information
 and to set up a handshake, contact the Edinburgh GIN manager.
 
 GINs send statistics describing the amount of data received
-from all observatories registered on the GIN. These statistics
+from all observatories registered with the GIN. These statistics
 are sent out to the observatory email contact once a month,
 shortly after the 72 hour period following the end of the month
 to which they refer (72 hours after the end of the month, all
@@ -615,7 +618,7 @@ and describe what happened to it.
 Another problem with email transmission is modern email
 clients use of formatting. GINs require email in plain text.
 Email clients often add formatting (such as Rich Text or HTML)
-to an email. It if often difficult to detect whether this
+to an email. It is often difficult to detect whether this
 formatting has been added. If there is concern that this
 problem may be occurring, try to view the email in a "raw"
 view, which should show the formatting along with the
@@ -641,14 +644,14 @@ Two embargoes can be requested:
 -  **Plotting embargo**
 
    The INTERMAGNET website offers online plotting utilities.
-   |download_plot_data| . A delay (in hours) can be added to prevent the user from
-   plotting the data.
+   |download_plot_data| . A delay (in hours) can be added to prevent users from
+   plotting data.
 
 -  **Download embargo**
 
    Data can be download via the website.
-   |download_plot_data| . A delay (in hours) can be added to prevent the user from
-   downloading the data.
+   |download_plot_data| . A delay (in hours) can be added to prevent users from
+   downloading data.
 
 For example, an institute can request that their data be
 plotted (image) as soon as received by INTERMAGNET but prevent
