@@ -196,5 +196,5 @@ As well as providing access to real-time data, it allows users to search
 both Intermagnet and the World Data Centre (Edinburgh) archives to 
 facilitate comparison with historic data.
 
-https://geomag.bgs.ac.uk/data_service/deltaH-viewer
+`BGS Activity viewer`_
 

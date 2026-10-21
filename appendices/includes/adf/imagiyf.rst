@@ -4,6 +4,12 @@
 INTERMAGNET Format for Yearmean File
 ------------------------------------
 
+IYF V1.03
+`````````
+
+TODO: This version of the format needs adding
+
+
 IYF V1.02
 `````````
 

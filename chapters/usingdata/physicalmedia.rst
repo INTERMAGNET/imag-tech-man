@@ -23,20 +23,15 @@ the year for each observatory in the form of text and plots.
 |app_obs| of this manual provides a list of observatories
 currently contributing to the data publication. 
 
-Following the increase of
-observatories within INTERMAGNET and the evolution of the
-physical media, definitive data were publised on one CD from
-1991 to 1999, two CDs from 2000 to 2005, one DVD from 2006 to
-2013 and on one USB drive thereafter.
-
+Following the increase of observatories within INTERMAGNET and 
+the evolution of the physical media, definitive data were 
+publised initially on one CD, then on two CDs, then on DVD 
+and finally on a USB drive.
 Annual publication of definitive data continues to the present day,
 but with some changes to how the data is published:
 
-- Starting with data for the year TODO, data was published
-  in compressed form to allow the increasing number of
-  observatories' data to fit on a CD-ROM
 - Starting with data for the year 2000, data was published
-  on a double CD-ROM
+  on a double CD-ROM, 6 months on each CD
 - Starting with data for the year 2006, data was published
   on DVD-ROM
 - Starting with data for the year 2014, data was published

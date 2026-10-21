@@ -5,6 +5,8 @@ INTERMAGNET Terminology
 
 .. include:: ./appendices.rst
 
+.. include:: ../shared/targets.rst
+
 
 
 .. glossary::
@@ -73,7 +75,7 @@ INTERMAGNET Terminology
         in 1991 up to the current year, including any corrections
         that have been made. Published with a DOI, for example
         the INTERMAGNET Reference Data Set, 2015:
-        https://doi.org/10.5880/INTERMAGNET.1991.2015.
+        `INTERMAGNET 2015 DOI`_.
 
 
     Magnetic observatory

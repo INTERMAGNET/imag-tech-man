@@ -58,15 +58,6 @@ recorded). If an IMO misses the deadline:
 How to submit data
 ``````````````````
 
-The institute responsible for an IMO must deliver a complete set of
-one-minute definitive data (this includes de-spiking, filling gaps where
-possible, correcting baselines, and applying other processing
-procedures). The baselines for one-minute definitive data must
-also be included in the annual definitive data submissions, as 
-should a file containing annual mean values for the currect and
-previous years. Where possible institutes 
-are also encouraged to submit one-second definitive data.
-
 The following files should be put on the Paris ftp server:
 
 .. tabularcolumns:: |p{4cm}|p{6cm}|p{5cm}|
@@ -136,9 +127,9 @@ Please note the following:
   magnetometer. INTERMAGNET is not accepting total field data
   calculated from a vector magnetometer.
 - K-indices should be included in the binary files only. DKA
-  files are created by INTERMAGNET from
-  the binary data. Any DKA file provided by an institute will
-  be ignored.
+  files have been created by INTERMAGNET from the binary data,
+  but will not be distributed from IRDS 2025 onwards.
+  Any DKA file provided by an institute will be ignored.
 - INTERMAGNET needs information about changes (or lack of
   changes) to country files. The publication of data cannot be
   finished before receiving all country information (points
@@ -156,94 +147,56 @@ their definitive data in the INTERMAGNET binary data formats as
 well as accompanying files by ftp to the
 Paris GIN’s ftp server as soon as possible and before the data
 submission deadline which is set by the INTERMAGNET operations
-committee:
+committee.
+
+Submit 1-minute data to:
 
 -  Host name: |gin_paris|
 -  User name: userint
 -  Password can obtained from the Paris GIN manager (|contact_par_gin_manager|)
-   or the chair of the Definitive Data Subcommittee (|contact_subcom_defdat|).
+   or the co-chair of the Definitive Data Subcommittee (|contact_subcom_defdat_1m|).
 
-Once the data have been put on this server, INTERMAGNET then:
+Submit 1-second data to:
 
--  Checks the data for problems.
+-  Host name: |gin_paris|
+-  User name: user1sec
+-  Password can obtained from the Paris GIN manager (|contact_par_gin_manager|)
+   or the co-chair of the Definitive Data Subcommittee (|contact_subcom_defdat_1s|).
+
+Once the data have been put on the server, INTERMAGNET then:
+
+-  Reviews the data.
 -  Ingests the minute data into the INTERMAGNET Web site.
 -  Copies the data to the World Data Centre Edinburgh
 -  Publishes the data under a DOI. The data is hosted at `GFZ data services`_.
    Entering "Intermagnet" in the search box on this page will show all
    INTERMAGNET definitive data DOIs.
 
+See :numref:`sub_dat_def_data_review` for a detailed description of the process.
+
 
 .. _sub_dat_def_data_check:
 
-Checking Procedure
-------------------
+Pre-submission checking Procedure
+---------------------------------
 
 Institutes must prepare definitive data with extreme care. The
 data are distributed widely. Publishing corrections to this
 data set is a very difficult task.
 
-The data checking method is left to individual institutes.
-However software tools are available which can help in the
-preparation and checking of data. These tools are available
-from the Internet (see :numref:`sub_dat_def_data_soft` for details).
-The descriptions in this part of the Technical Manual mainly refer to
-the imcdview program (imcdview is visualisation software for 
-INTERMANGET definitive data), but other tools, such as MagPy, can also
-be used. Links to all the software used in Intermagnet are
-available from INTERMAGNET web site's software page: |imag_software|
-
-When an observatory wants to check data before submission,
-it is necessary to create a directory structure on disk similar 
-to the structure of the INTERMAGNET Reference Data Set (IRDS).
-This will allow the user to use the
-imcdview software to view the data. A complete annual INTERMAGNET 
-data structure includes the following folders and files:
-
-#. ``DDD\\magYYYY\\SSS\\SSSYYMMM.bin`` (12 binary files in IAF format)
-#. ``DDD\\magYYYY\\SSS\\SSSYYYY.blv`` (1 baseline file)
-#. ``DDD\\magYYYY\\SSS\\yearmean.SSS`` (1 annual means file)
-#. ``DDD\\magYYYY\\SSS\\readme.SSS`` (1 readme file for the observatory)
-#. ``DDD\\magYYYY\\ctry_inf\\readme.CCC`` (1 readme-file for each country)
-#. ``DDD\\magYYYY\\ctry_inf\\CCCsrn.png`` (1 about-screen image for each country)
-#. ``DDD\\magYYYY\\YYYYmaps\\CCC.png`` (1 map image for each country)
-#. ``DDD\\magYYYY\\SSS\\SSS_YYYYMM_pt1s_4.cdf`` (12 binary files in ImagCDF format,
-   if one second data is being contributed for the observatory)
-
-Where:
-
-  - ``DDD`` is the base folder for the data, which can be any folder in the filesystem
-  - ``YYYY`` is the 4 digit year and century
-  - ``YY`` is the 2 digit year
-  - ``SSS`` is the 3-letter observatory code
-  - ``MMM`` is the 3 character month name ('jan', 'feb', 'mar', 'apr', may',
-    'jun', 'jul', 'aug', 'sep', 'oct', 'nov' or 'dec')
-  - ``MM`` is the 2 digit month number ('01' to '12')
-  - ``CCC`` is the country code
-
-In order for imcdview to recognize that a directory contains
-INTERMAGNET data, the subdirectories ctry_inf and YYYYmaps are
-needed even if they are empty. For more information see
-|app_imag_dir|.
-
-The same structure is also required 
-by most of the other programs used to check data.
+The method of inspection is left to each individual institute. 
+However software tools are available which can help in the preparation 
+and checking of data (see :numref:`sub_dat_def_data_soft` for details). 
+The application check1min.exe, the imagcdview software and MagPy contain methods 
+for data inspection and are available on the INTERMAGNET web site: |imag_software|.
 
 Before putting INTERMAGNET files on the Paris GIN ftp server,
 institutes must perform the following as a minimum set of
 tests:
 
-#. Review the whole year of binary data. Software for this
-   action:
-
-   #. **imcdview, imagplot.exe**
-
-      The imcdview software allows users
-      to display data in both graphics (plots) and text modes.
-
-   #. **imagplot.exe**
-
-      The imagplot.exe works under Windows and allows users to
-      create PostScript plots.
+#. Review the whole year of binary data. The software for this
+   action is imcdview, which allows users
+   to display data in both graphics (plots) and text modes.
 
 #. Check for any discrepancies between Fvector (Fv total field
    calculated on the basis of XYZ elements) and Fscalar (Fs
@@ -304,6 +257,135 @@ tests:
    The Autoplot program (|autoplot|) can be used to create
    plots of the data in CDF data files.
 
+
+Obligatory check for one-miniute submissions - check1min 
+````````````````````````````````````````````````````````
+
+The program check1min.exe checks the headers of the binary 
+one minute data. It also checks whether recent yearly mean 
+values included in the yearmean.sss file are consistent with 
+the 12 binary files, i.e. whether annual means included in 
+the yearmean file agree with annual means calculated from 
+the binary data. Please remember that for XYZG orientation 
+the D-conversion factor should be set to exactly 10000.
+
+Reports of this testing procedure are requested to be 
+uploaded along with your data submission. 
+Please use a file name like IMO2025_check1min.txt for 
+this file. INTERMAGNET intends to automize this procedure, 
+so that such a report is automatically generated when uploading 
+data. Nevertheless, up to now IMO are requested to add this 
+report to their submissions.
+
+IMAGCDVIEW 
+``````````
+
+When an observatory wants to use imcdview to check data before submission,
+it is necessary to create a directory structure on disk similar 
+to the structure of the INTERMAGNET Reference Data Set (IRDS).
+This will allow the user to use the
+imcdview software to view the data. A complete annual INTERMAGNET 
+data structure includes the following folders and files:
+
+#. ``DDD\\magYYYY\\SSS\\SSSYYMMM.bin`` (12 binary files in IAF format)
+#. ``DDD\\magYYYY\\SSS\\SSSYYYY.blv`` (1 baseline file)
+#. ``DDD\\magYYYY\\SSS\\yearmean.SSS`` (1 annual means file)
+#. ``DDD\\magYYYY\\SSS\\readme.SSS`` (1 readme file for the observatory)
+#. ``DDD\\magYYYY\\ctry_inf\\readme.CCC`` (1 readme-file for each country)
+#. ``DDD\\magYYYY\\ctry_inf\\CCCsrn.png`` (1 about-screen image for each country)
+#. ``DDD\\magYYYY\\YYYYmaps\\CCC.png`` (1 map image for each country)
+#. ``DDD\\magYYYY\\SSS\\SSS_YYYYMM_pt1s_4.cdf`` (12 binary files in ImagCDF format,
+   if one second data is being contributed for the observatory)
+
+Where:
+
+  - ``DDD`` is the base folder for the data, which can be any folder in the filesystem
+  - ``YYYY`` is the 4 digit year and century
+  - ``YY`` is the 2 digit year
+  - ``SSS`` is the 3-letter observatory code
+  - ``MMM`` is the 3 character month name ('jan', 'feb', 'mar', 'apr', may',
+    'jun', 'jul', 'aug', 'sep', 'oct', 'nov' or 'dec')
+  - ``MM`` is the 2 digit month number ('01' to '12')
+  - ``CCC`` is the country code
+
+In order for imcdview to recognize that a directory contains
+INTERMAGNET data, the subdirectories ctry_inf and YYYYmaps are
+needed even if they are empty. For more information see
+|app_imag_dir|.
+
+MagPy
+`````
+
+The MagPy python package and its graphical user interface XMagPy 
+contain data checking tools for INTERMAGNET data submissions of 
+one-minute and one-second data. You can check such data sets 
+separately or combined in order to analyse any differences between 
+supposely similar definitive data products. Acceptable data formats 
+for one-minute data are IAF or IAGA-2002 collections for one-minute 
+and IMAGCDF or IAGA-2002 archives for one-second data. There are 
+no special reuqiremennts except that the selected directory should 
+soley contains the files for definitive data submission, separate 
+directories for one-minute and one-second. Two checking procedures 
+are possible: quick and full. For the quick test a single, randomly 
+selected month will be tested. For full analysis, the validity tests 
+will be performed for all months of one year. You can also specify 
+check options. By default all possible tests as shown below will be 
+run. A final report window will automatically pop up when finished, 
+giving you a summary of the check results. The color and rating helps 
+to guide your eye and eventually indicate points which need your 
+attention. Orange or red colors do not necessarily indicate that 
+the data is not ready for IM submission. Please read the recommendations 
+carefully.
+
+The report window will contain some details on each performed check. 
+It will also contain explanations if problems occurred. Warnings (orange)
+and errors (red) are found at the top of the report window. You can 
+save the summary to a markdown file. In summary the following checks 
+are performed at each step:
+
+#. Test whether selected directories are existing and they contain 
+   expected data files (amount and types) for definitive data submission.
+
+#. For each month (or the randomly selected one in case of quick) 
+   the data sets from the selected source will be opened. The data 
+   is tested for consitency and completeness.
+
+#. The basevalue (.BLV) file will be opened and also shown in the 
+   plotting area. The adopted baseline will be checked. The quality 
+   analysis starts with an average periodicity, i.e. how often have 
+   measurements been performed. If several measurements are performed 
+   each day, then the average intra-day deviation of measurements is 
+   analyzed. Afterwards the residuals between adopted baseline and 
+   basevalues are calculated. Finally the amplitude of the adopted 
+   baseline is determined. If any of these parameters exceeds 5 nT 
+   than a warning message is issued. The report contains all numerical 
+   values. When accessing the BLV plot later, you can also select 
+   the delta F component there, providing information on the F baseline.
+
+#. Meta information and header content from all provided data sets is 
+   checked. Besides the data files (IAF, IAGA, ImagCDF) also the 
+   BLV and yearly mean files are investigated. All header information 
+   will be listed in the report. If differences of identically 
+   expected information is found, then a special notification will 
+   be created. Some notifications are uncritical as e.g. IAF only 
+   contains abbreviations of institute names whereas other formats 
+   contain the full name. Sometime you might run into problems with 
+   this test, as MagPy tries to open and interpret a yearly mean 
+   file which actually is not fixed in its form. You can test that 
+   before by just opening the yearmean file alone. You might want 
+   to disable this check if you have problems.
+
+#. An overview about k values as contained in the IAF data file is 
+   shown and the difference of the K indices in comparison to an 
+   evaluation using the K(FMI) method will be provided.
+
+See `MagPy checking instructions`_ for further details and instructions.
+
+# Other Tools
+
+Checking for dicrepancies between elements XYZFIDH...
+
+
 .. _sub_dat_def_data_soft:
 
 Obtaining the Checking Software
@@ -312,3 +394,29 @@ Obtaining the Checking Software
 See the following web page to download the checking software:
 |imag_software|
 
+
+.. _sub_dat_def_data_review:
+
+INTERMAGNET's data review process
+---------------------------------
+
+After uploading definitive data into the respective data repository 
+an automatic evaluation process is initiated, typically 
+within 24 hours, which will perfom an inital data check to test for basic 
+issues with the data submissions. IMO will be informed by e-mail on this 
+data check. If any seveire issues are found, the IMO will be requested to
+update their submission. If this pre-check is successfully passed, the 
+responsible data checker for the IMO in question will be informed on the 
+upload and is asked to perform data checks within 2 months after submission. 
+In case of any issues, the data checker might directly contact the IMO asking 
+for corrections. Data checker will not change data contents of the submission 
+without explicit agreement of the submitting institute. Data sets successfully 
+passing the intiial step of the data reviewing process will be forwarded to an 
+editorial check, commonly referred to as step2. The chairs of the definitive 
+subcomm will act as editors (|name_subcom_defdat_1m| for 1-minute, 
+|name_subcom_defdat_1s| 1-second submissions) and evaluate data review reports 
+plus the current state of the submission. IMO's are automatically informed 
+when their data products reach this evaluation state. Editor might contact 
+data checkers and/or IMO for clarifactions. After successfully passing this 
+final review step, definitive data will be uploaded for Web publication and 
+IMO will get an information e-mail on final acceptance and publication. 

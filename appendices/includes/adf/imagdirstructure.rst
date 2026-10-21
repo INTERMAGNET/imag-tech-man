@@ -20,7 +20,7 @@ files and folders on the INTERMAGNET Physical Media (IPM).
 
 
 Structure of the IRDS (2020)
-```````````````````````````
+````````````````````````````
 
 ::
 

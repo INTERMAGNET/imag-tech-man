@@ -4,7 +4,10 @@
 .. |contact_gen_inq| replace:: andrew.lewis@ga.gov.au
 .. |contact_imag_memb| replace:: c.turbitt@bgs.ac.uk
 .. |imag_apply_form| replace:: https://intermagnet.org/membership.html
-.. |contact_subcom_defdat| replace:: jreda@igf.edu.pl
+.. |contact_subcom_defdat_1m| replace:: jreda@igf.edu.pl
+.. |contact_subcom_defdat_1s| replace:: roman.leonhardt@geosphere.at
+.. |name_subcom_defdat_1m| replace:: jreda@igf.edu.pl
+.. |name_subcom_defdat_1s| replace:: roman.leonhardt@geosphere.at
 
 .. |contact_edinburgh_gin_manager| replace:: e_ginman@bgs.ac.uk
 .. |contact_golden_gin_manager| replace:: bgeels@usgs.gov

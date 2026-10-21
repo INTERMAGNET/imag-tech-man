@@ -86,6 +86,11 @@ the most successful have been:
    file via email shortly after the day has ended, which will
    have the effect of filling any gaps that occurred from
    unsuccessful transmissions.
+#. When submitting data via MQTT, a complete day file could
+   also be sent via the web service (as opposed to email)
+   to fill any gaps. The choice of web service versus email
+   as a backup transmission system should be guided by
+   whichever is easiest to implement.
 
 Other combinations of data transmission are possible if they
 suit an observatory’s working practice. Using MQTT it is
@@ -106,7 +111,9 @@ data and instead send baseline corrected data using the
 Adjusted (or Provisional) data type.
 
 Observatories should send Adjusted (or Provisional) data as
-close to real-time as possible.
+close to real-time as possible. INTERMAGNET further encourages 
+new observatories to solely use the terms Adjusted, Quasi-Definitive 
+and Definitive for their data products.
 
 Observatories are encouraged to send quasi-definitive data to
 the GIN as well as adjusted data, unless they are producing
@@ -128,8 +135,9 @@ Intermagnet using MQTT. With MQTT there is a very small delay (typically a
 few seconds) between an observatory submitting data and the data becoming
 available on the Intermagnet data portal. Delays in data are then mainly due
 to the frequency at which observatories transmit data. Observatories are 
-encouraged to transmit data as soon as it is recorded. This is more easily
-accomplished with MQTT than other methods of data transfer.
+encouraged to transmit data as soon as it is recorded and any steps needed to
+achieve adjusted (or quasi-definitive) quality have been completed. Real-time
+transmission is more easily accomplished with MQTT than other method of data transfer.
 
 MQTT (Message Queuing Telemetry Transport) is a messaging protocol that enables 
 communication between devices in the Internet of Things. Messages are sent over
@@ -175,7 +183,9 @@ log off any previously existing connections).
 MQTT at the Kyoto GIN
 """""""""""""""""""""
 
-TODO - get details from Shun
+MQTT transmission from observatories to the Kyoto GIN is currently being tested with 
+the Kakioka Magnetic Observatory (Japan Meteorological Agency). Details of the service 
+will be provided once it is ready for operational use.
 
 MQTT at the Paris GIN
 """""""""""""""""""""
@@ -209,7 +219,7 @@ Eskdalemuir observatory::
       -t 'impf/esk/pt1m/2/xyzs' \
       -q 1 -f <data-file>
 
-The 'mosquitto_sub' command, also from the Mosquitto MQTT pacakge, can
+The 'mosquitto_sub' command, also from the Mosquitto MQTT package, can
 be used to view the transmitted message. Unlike 'mosquitto_pub' which
 publishes a single message, 'mosquitto_sub' will run continuously until
 it is stopped, displaying messages as they are received. Here is an
@@ -309,7 +319,7 @@ Data can be submitted to INTERMAGNET GINs using a web service.
 The http: ‘file upload’ mechanism is used, as
 described in RFC1867 "Form-based File Upload in HTML" - see
 |rfc1867|. Data should be uploaded in IAGA-2002 format 
-(|app_iaf|). Observatories upload their data to the web service,
+(|app_iaga_2002|). Observatories upload their data to the web service,
 which indexes and caches the data, making it
 available for download and ingestion into the GIN.
 The responses which the web service makes to these actions
@@ -507,7 +517,7 @@ GIN Email Addresses
 -  Paris: TODO
 -  Golden: N/A
 -  Edinburgh: e_gin@mail.nmh.ac.uk
--  Kyoto: TODO
+-  Kyoto: {ID_for_each_observatory_or_institute}@wdcvmmagdata.kugi.kyoto-u.ac.jp
 
 
 .. _sub_dat_prel_sat:

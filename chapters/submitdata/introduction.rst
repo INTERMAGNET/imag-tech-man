@@ -21,7 +21,7 @@ Geomagnetic Information Node (GIN). Observatories send
 their preliminary data to their assigned GIN in ‘near 
 real-time’. When INTERMAGNET was formed in the 1990s, 
 this was defined as within 72 hours of acquisition. Submission 
-of all type of preliminary data within 72 hours 
+of all types of preliminary data within 72 hours 
 is a minimum requirement for INTERMAGNET membership. The
 only exception to this is quasi-definitive data, which
 includes the requirement for delivery within 3 months
@@ -103,8 +103,9 @@ partially superseded) an older one.
     | IYF INTERMAGNET     | Annual mean values  | Primarily used for submission of definitive   | |app_iyf|         |
     | Year-Mean File      |                     | annual mean data to the IRDS.                 |                   |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | IBF INTERMAGNET     | Baseline values and | Primarily used for submission of baseline     | |app_imag_ibf|    |
-    | Baseline File       | absolute            | observation data to the IRDS.                 |                   |
+    | IBF INTERMAGNET     | Measured and        | Primarily used for submission of baseline     | |app_imag_ibf|    |
+    | Baseline File       | adopted baseline    | observation data to the IRDS.                 |                   |
+    |                     | values              |                                               |                   |
     +---------------------+---------------------+-----------------------------------------------+-------------------+
     | ImagCDF             | High precision      | A required format for submission of 1-second  | |app_cdf|         |
     |                     | 1-second data       | definitive data.                              |                   |
@@ -189,7 +190,9 @@ This data type field is explained below.
     |                  | ImagCDF, IMFV1.23      | are defined as data    |
     |                  | and IAFV2.11           | that have been         |
     |                  | (as a metadata field). | corrected using        |
-    |                  |                        | provisional baselines. |
+    |                  |                        | provisional baselines  |
+    |                  |                        | and are well           |
+    |                  |                        | controlled.            |
     |                  |                        | For the full           |
     |                  |                        | definition refer to    |
     |                  |                        | |app_imag_term|.       |
@@ -218,6 +221,9 @@ Where software is used to convert between formats (e.g. at GINs):
   the Variation data type.
 - The Adjusted data type is assumed to be interchangeable with
   the Provisional data type.
+
+Full guidance is given on which data types to use when submitting
+preliminary data in :numref:`sub_dat_prel_types`.
 
 The use of data types to describe more than the state of data
 in the publication process is prone to error. In particular,
