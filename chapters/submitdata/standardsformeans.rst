@@ -3,6 +3,8 @@
 Standards for Calculating Hourly, Daily and Annual Means
 ========================================================
 
+TODO: Move this whole sub-section to a more relevant section
+
 INTERMAGNET requires that all mean values be calculated using
 the rules described in the next sections.
 

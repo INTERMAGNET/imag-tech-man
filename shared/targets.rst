@@ -7,4 +7,5 @@
 .. _persistent session: https://www.hivemq.com/blog/mqtt-essentials-part-7-persistent-session-queuing-messages/
 .. _QoS : https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/
 .. _GFZ data services : https://dataservices.gfz-potsdam.de/web/
+.. _GFZ DOI search : https://dataservices.gfz.de/doi-search
 

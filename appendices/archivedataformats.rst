@@ -3,6 +3,8 @@
 Archive Data Formats
 ====================
 
+.. include:: ../appendices/appendices.rst
+
 .. include:: ./includes/adf/imagiaf.rst
 
 .. raw:: latex

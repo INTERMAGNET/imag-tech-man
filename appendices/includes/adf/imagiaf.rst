@@ -4,6 +4,49 @@
 INTERMAGNET Archive Format : IAF
 --------------------------------
 
+Geomagnetic data in the INTERMAGNET Reference Data
+Set (IRDS) and INTERMAGNET Physical Media (IPM) is held in 
+INTERMAGNET Archive Format. This format holds minute, hourly 
+and daily mean values as well as K indices.
+
+The data are coded as 32-bit (long integer) binary words, with
+5888 words comprising a day-long record. Each file contains one
+month of day-records (so files are variable length, from 28 to
+31 records). Each day of data has a header and data section,
+the data being subdivided into minute means, hourly means,
+daily means and a set of K-indices. To date, five versions of
+this format have been used: IAFV1.00 being the original
+description of the format. It was only designated as version
+1.00 in 2007. Minor undocumented changes were made to how the
+header was used over the lifetime of this version. IAFV1.10 was
+defined in 2008 to add the publication date, encoding of the
+format version number and to reserve word 16 in the header,
+affecting words 14, 15 and 16. In 2009, delta-F was introduced
+in IAFV2.00 affecting words 6,8 and 15 in the header, and words
+4337 to 5776, words 5849 to 5872 and word 5876 in the data
+section. Also in IAFV2.00, space padding was specified to be at
+the left most position affecting word 13 in the header and
+words 5885 to 5888 in the data section were made available for
+each contributing institution. In 2010, IAFV2.10 was defined to
+allow for a missing instrument designator affecting words 6 and
+15 in the header, and words 4337 to 5776 in the data section.
+In 2014, IAFV2.11 was introduced to add a data type flag in
+word 15 to indicate whether the data is definitive or
+quasi-definitive. 
+
+Each 1-day record requires 23,552 bytes, so a month-file for
+January would require 730,112 bytes of storage. A year of
+observatory data requires almost 8.6 Megabytes (Mb) of storage.
+The storage capacity of a CD-ROM is about 640 Mb. A single
+sided, single layer DVD holds about 4.7 Gb, a single sided,
+double layer DVD about 8.5Gb. 
+
+Observatories should provide new definitive data to INTERMAGNET
+in IAF V2.11, which is described here. In order to allow users
+of historic CD-ROM/DVD/USB data to understand the format of the
+data for each year of production, previous versions (and the
+years they are associated with) are also fully described here.
+
 
 IAFV2.11 Binary Data Structure Format-32 Bit Words
 ``````````````````````````````````````````````````
@@ -150,8 +193,88 @@ IAFV2.11 Binary Data Structure Format-32 Bit Words
     +-----------------+-------------+-----------------+----------------------------------------+
 
 
-See  :numref:`sub_dat_def_data_enc_iaf_211` for details.
+IAFV2.11 (2014 and after)
+"""""""""""""""""""""""""
 
+Words 1 to 16 comprise the header section containing a mixture
+of text and numeric fields, including a 3-letter observatory
+identification preceded with a space [hex20] (ID) code, the
+year concatenated with the day of the year, co-latitude,
+longitude, elevation, reported orientation, originating
+organization, a D-conversion factor, data quality,
+instrumentation, K-9, sampling rate, sensor orientation,
+publication date and format version/data type. Latitude,
+longitude/colatitude and elevation must be given using the
+WGS-84 datum. From 2014 onward, a field was been added to
+indicate whether the data is definitive or quasi-definitive.
+This field is a single bit flag in the second byte of word 15.
+It will be encoded as 0x00 to indicate definitive data, 0x01 to
+indicate quasi-definitive data. From 2010 onward, the
+orientation codes "XYZ" and "HDZ" have been added to "XYZG" and
+"HDZG" where "G" represents ΔF (see description below). These
+new codes indicate that the observatory is recording 3 elements
+only (no scalar instrument). The D-conversion factor is a fixed
+value used only in the graphics portion of the access software
+to allow Declination to be plotted in minutes of arc and
+equivalent nanoteslas (nT). It is given as H/3438*10000, where
+H is the annual mean value of the horizontal intensity.
+Example: If H is 16500 D will be 47993(Integer). When XYZG or
+XYZ is used, the D-conversion factor should be set to 10000.
+
+ASCII values, such as the observatory ID and orientation, are
+also stored as 32-bit words, but are coded as the hexadecimal
+byte-string corresponding to the ASCII string. For example, the
+string "HDZF" is coded as the sequence "48 44 5A 46". Where a
+string is shorter than four bytes, it is padded to the left
+with spaces. For example, the string "ESK" is coded as the
+sequence "20 45 53 4B".
+
+Word 11 is the K-9 value for the observatory in nT, word 12 is
+the digital sampling rate in msec, and word 13 is the sensor
+orientation. Sensor orientation could be XYZF, DIF, UVZ, HDZ,
+HDZF etc. and should indicates which components are actually
+measured. If a three component sensor orientation is used, a
+space must be added to the left. Word 14 is the publication
+date encoded as 4 ASCII bytes "YYMM" provided by INTERMAGNET.
+The high byte (left most) of word 15 is the INTERMAGNET Archive
+Format version number code provided by the IMO. It takes the
+form of a binary single byte number ranging from 0 to 255. Zero
+(0x00) represents version 1.00, one (0x01) represents version
+1.10, two (0x02) represents version 2.00, three (0x03)
+represents version 2.10 and four (0x04) represents version
+2.11. The second byte in word 15 will be encoded as 0x00 to
+indicate definitive data, 0x01 to indicate quasi-definitive
+data. The other two bytes of word 15 are reserved for future
+use and padded with zeros. Word 16 is reserved for future use.
+
+Words 17-5776 contain the minute values of the 4 geomagnetic
+elements (successively X,Y,Z,G or H,D,Z,G or X,Y,Z, or H,D,Z )
+for the day. From 2009 onward, the 4th element contains the
+difference between the square root of the sum of the squares of
+the variometer components, F(v), and the total field from an
+independent scalar recording, F(s). This difference, ΔF, is
+defined as F(v) - F(s). Both F(v) and F(s) must be corrected to
+the location in the observatory where absolute geomagnetic
+observations are made. When F(s) is missing or both F(s) and
+F(v) are missing, ΔF must be set to 999999. When F(v) only is
+missing, ΔF must be set to -F(s). The values of the 4 elements
+are stored in tenth-units with an implied decimal point. Thus,
+an H value of 21305.6 is stored (in tenth-nT) as 213056 with a
+decimal point implied between the last and next-to-last digits.
+Words 5777-5872 are used for the hourly mean values of the
+successive 4 elements. From 2009 onward, words 5849-5872 always
+record 999999 (missing value), this is done because the 4th
+element in the data is a quality check for minute mean data and
+this quality check is meaningless for hourly means. Words
+5873-5876 store the 4 daily mean values. From 2009 onward, word
+5876 always record 999999 (missing value) because the quality
+check for daily means is also meaningless. From 2009 onward,
+the last 4 words (5885-5888) are available for each
+contributing institution. Missing data for minute, hour, and
+day values are stored as "999999". From 2010 onward, if a
+scalar instrument is not used (so no data is recorded in the
+fourth element) the value "888888" should be used instead of
+"999999". Missing K-Index values are stored as "999".
 
 
 
@@ -905,8 +1028,8 @@ IAFV1.00 Binary Data Structure Format-32 Bit Words
     |                 |             | derived         | 999                                     |
     |                 |             | K-values        |                                         |
     +-----------------+-------------+-----------------+-----------------------------------------+
-    | Reserved        | 5885 - 5888 | Reserved for    | see :numref:`sub_dat_def_data_enc_iaf`  |
-    |                 |             | future use = 0  | for details on word   5885              |
+    | Reserved        | 5885 - 5888 | Reserved for    |                                         |
+    |                 |             | future use = 0  |                                         |
     |                 |             |                 |                                         |
     |                 |             |                 |                                         |
     +-----------------+-------------+-----------------+-----------------------------------------+

@@ -3,6 +3,8 @@
 Definitive Data Calculation Based on Most Common Orientations
 =============================================================
 
+TODO: Move this whole sub-section to a more relevant section
+
 Fluxgate variometers usually have 3 orthogonal fluxgate
 sensors. These sensors can be oriented in various ways. Most
 variometers are designed such that two sensors are horizontal

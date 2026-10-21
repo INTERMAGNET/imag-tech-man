@@ -1,15 +1,55 @@
 .. _app_imag_dir:
 
-INTERMAGNET Physical Media Directory Structure
-----------------------------------------------
+INTERMAGNET Definitive Data Media Directory Structure
+-----------------------------------------------------
+
+TODO: This whole section needs updating to:
+- Include information about the structure used to distribute the IRDS
+- Work out what historic information needs to be includes
+- Remove any duplication
 
 The structure of files and folders on the INTERMAGNET
-Physical Media (IPM) has remained broadly the same since its
-inception in 1991, however there have been some differences.
-This appendix documents the structure for the USB
-(2014), then describes the structure of the DVD (2011) and the
+Physical Media (IPM) and the INTERMAGNET Reference Data Set
+(IRDS) has remained broadly the same since the first IPM
+release for data from 1991, however there have been some differences.
+This appendix documents the structure for the IRDS (2020), then
+goes on to describe some of the IPM publications, first the 
+strcuture of the USB (2014), then the DVD (2011) and the
 first CD-ROM (1991) and lists year by year differences in the
 files and folders on the INTERMAGNET Physical Media (IPM).
+
+
+Structure of the IRDS (2020)
+```````````````````````````
+
+::
+
+    .
+    ├── mag1991_def2015.zip
+    │   ├── ...
+    |
+    ├── mag1992_def2015.zip
+    │   ├── ...
+    |
+    | ...
+    |
+    ├── mag2020_def2020.zip
+    │   └── mag2020
+    │       ├── 2020maps
+    │       ├── ctry_inf
+    │       ├── abg
+    │       │   ├── abg20jan.bin
+    │       │   ├── abg20feb.bin
+    │       │   ├── ...
+    │       │   ├── abg20k.dka
+    │       │   ├── abg2020.blv
+    │       │   ├── readme.abg
+    │       │   └── yearmean.abg
+    │       ├── ...
+    |
+    ├── change_log_IRDS2020.txt
+    └── readme_INTERMAGNET_IRDS2020.txt
+    
 
 Structure of the USB (2014)
 ```````````````````````````
@@ -156,6 +196,7 @@ Structure of first (1991) CD-ROM
 
 ::
 
+    .
     ├── MAG1991
     │ 	├── 1991MAPS
     │ 	│   ├── ALL.png
@@ -185,17 +226,19 @@ Structure of first (1991) CD-ROM
 
 
 
-INTERMAGNET Physical Media Directory Structure
-``````````````````````````````````````````````
+The Directory Structure
+```````````````````````
 
-The files on the INTERMAGNET Physical Media are set up in a
+The files on the IRDS and IPM use a
 particular directory structure. The root directory contains a
-"README.TXT" file, which is an ASCII file describing the
-INTERMAGNET Physical Media and where to obtain information about it, the
-software, and documentation; CD-ROMs from 1991-2004 also hold a
+README file ("README.TXT" on the IPM publications, 
+"readme_INTERMAGNET_IRDS<year>.txt" on the IRDS publications), 
+which is an ASCII file describing the data
+and where to obtain information about it, the
+software, and documentation. CD-ROMs from 1991-2004 also hold a
 "README.EXE" file, which is an executable version of the
 README.TXT file that allows the user to scroll back and forth
-through the information. DVDs and USBs do not contain
+through the information. DVDs, USBs and the IRDS do not contain
 README.EXE.
 
 On the 1991 CD-ROM there are also two sub-directories. One is
@@ -249,6 +292,74 @@ INTERMAGNET Physical Media. These ASCII K-Index files are published on,
 even though the data are in the binary records, because they
 are much faster to access than paging through the binary
 records on the INTERMAGNET Physical Media.
+
+
+Detailed description of the 2011 DVD
+````````````````````````````````````
+
+This section describes the structure of the 2011 DVD, by way of an example,
+since all other years of data, whether in the IPM or IRDS, are structured 
+in a similar way.
+
+The files are presented in a fixed
+directory structure. The root directory contains a "README.TXT"
+file, which is an ASCII file describing the DVD and where to
+obtain information about it, the software, and documentation;
+
+On the 2011 DVD there are also three directories and a further
+file. The directory called "ERRATA" contains a file
+"ERRATA.TXT". This file lists errors on previous IPMs. A
+second folder, called "SOFTWARE", holds the "imcdview"
+programme, software, for visualizing and working with the data.
+This software is described in :numref:`use_dat_data_view`
+The file "imcdview_install.txt" describes how to install the imcdview software.
+
+The final directory, MAG2011, contains a sub-directory for each
+observatory identified by its 3-letter ID code. In addition,
+there are sub-directories labeled "2011MAPS", "CTRY_INF", and
+"OBSY_INF". The 2011MAPS directory contains the \*.PNG files
+that are the map images of each country for use in the access
+software. These are labeled by a 3-letter country ID with the
+PNG extension, and one labeled "ALL.PNG" for all countries. The
+CTRY_INF directory contains a \*.PNG file for each country (and
+one for ALL) that are the images used to show the flag and
+organizational Logo for the different countries, and the README
+files that pertain to each country's geomagnetism program
+(including a README for the ALL option). The OBSY_INF
+subdirectory is empty, but is required to identify to software
+that the this folder holds data in the IRDS
+structure.
+
+The individual sub-directories (e.g. BFE for Brorfelde, TUC for
+Tucson, etc.) contain the 12 months of 1-minute data labeled with the
+3-letter ID, 2-character year, 3-letter month abbreviation, and
+a "BIN" extension indicating they are binary files in the IAF
+format (see  |app_iaf|).
+For example, "BFE91AUG.BIN" is a file of 31 sequential day-records
+for Brorfelde, for 1991, for August. In addition,
+there are "README.XXX" files for the individual observatory,
+a YEARMEAN.XXX containing annual mean data in plain text format f
+or all years that the observatory has operated
+(see |app_iyf| for details of the format)
+and an XXX2011.BLV file that contains absolute observation and
+baseline data in the INTERMAGNET baseline format (see |app_imag_ibf|)
+where XXX indicates the 3-letter observatory ID.
+
+This sub-directory may also contain a file labeled XXXYRK.DKA,
+where XXX is the 3-letter observatory ID, YR is the 2-character
+year value and K indicates a K-Index file. Originally the DKA
+extension was used to indicate that the data were generated
+from a digital algorithm in an ASCII format, however
+subsequently these files have been used to hold both digitally
+derived and hand-scaled K indices. Since the 2005 CD-ROM the
+DKA files have been created by INTERMAGNET using data from the
+binary IAF file (before 2005 these files were provided by the
+observatories). These ASCII K-Index files are used, even though
+the data are in the binary records, because they are much
+faster to access than paging through the binary records.
+
+
+.. _app_imag_dir_struct_changes:
 
 List of Changes to the Structure since the first (1991) CD-ROM
 ``````````````````````````````````````````````````````````````
@@ -450,6 +561,21 @@ List of Changes to the Structure since the first (1991) CD-ROM
     |                                   | including all data from 1991 to   |
     |                                   | 2015                              |
     +-----------------------------------+-----------------------------------+
+    | 2015                              | First IRDS DOI                    |
+    |                                   | including all data from 1991 to   |
+    |                                   | 2015. New ways of republishing    |
+    |                                   | data.                             |
+    +-----------------------------------+-----------------------------------+
+    | 2016                              | No change                         |
+    +-----------------------------------+-----------------------------------+
+    | 2017                              | No change                         |
+    +-----------------------------------+-----------------------------------+
+    | 2018                              | No change                         |
+    +-----------------------------------+-----------------------------------+
+    | 2019                              | No change                         |
+    +-----------------------------------+-----------------------------------+
+    | 2020                              | No change                         |
+    +-----------------------------------+-----------------------------------+
 
 .. note::
 
@@ -457,17 +583,26 @@ List of Changes to the Structure since the first (1991) CD-ROM
     the change affects all years subsequent to the year where the
     change is described. The exception to this is republished data.
 
-Republished data is put into a folder at the root of the
+In the IPM (physical publications from 1992 to 2015)
+republished data is put into a folder at the root of the
 INTERMAGNET Physical Media. It is only put on for one year – the republished data
 is not repeated on subsequent INTERMAGNET Physical Medias. Because the data is not
 under the MAGyyyy folder, it will not be recognised by the
-imcdview viewing software (where a number of years where
+imcdview viewing software (where a number of years were
 republished in a form that the software can access).
+
+The IRDS republishes data by overwriting the previous data in the MAGyyyy
+folders, so that the new data is recognised by the imcdview software. So that
+it is clear when data has been republished (and to reduce the size of the
+archive), the MAGyyyy folders are compressed into MAGyyyy_DEFzzzz.zip files,
+where zzzz represents the year in which the data was last (re)published.
 
 The OBSY_INF folder is present on all INTERMAGNET Physical Medias, though it
 may be empty. It is used by software (along with the CTRY_INF and
 yyyyMAPS folders) to indicate the presence of an INTERMAGNET Physical Media
 folder structure.
+
+The OBSY_INF folder is not present in the IRDS publications.
 
 The .com and .exe files on earlier CD-ROMs are programs that were
 designed to run on Microsoft DOS operating system. They will not

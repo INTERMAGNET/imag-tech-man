@@ -7,36 +7,11 @@ Submission of Definitive Data
 .. include:: ../../shared/targets.rst
 .. include:: ../../appendices/appendices.rst
 
-In January 1992 the Executive Council and Operations Committee
-decided to produce a CD-ROM of definitive minute data values
-from observatories of participating institutions, beginning
-with 1991 data and continuing annually thereafter. Annual
-publication of definitive data continues to the present day,
-but with some changes to how the data is published:
-
-- Starting with data for the year TODO, data was published
-  in compressed form to allow the increasing number of
-  observatories' data to fit on a CD-ROM
-- Starting with data for the year TODO, data was published
-  on a double CD-ROM
-- Starting with data for the year TODO, data was published
-  on DVD-ROM
-- Starting with data for the year TODO, data was published
-  on a USB memory stick
-- Starting with data for the year 2013, data was published
-  online under a Digital Object Identifier (DOI).
-- The Intermagnet Reference Data Set (IRDS) was introduced
-  for data from 2015 onwards. Previous publications only
-  included data from the year of publication plus any
-  corrections to data from previous years. The IRDS includes
-  corrected definitive data from all INTERMAGNET observatories
-  that supplied data from 1991 to the year of publication.
-- TODO: Describe the change for IRDS 2025 where data are
-  published as they are received, rather than waiting for
-  a complete year of data.
-
-Collectively, the publications on CD-ROM, DVD-ROM and USB memory
-stick are known as INTERMAGNET Physical Media (IPM).
+An observatory sends definitive 1-minute to INTERMAGNET annually.
+A "call for data" is made by INTERMAGNET early in the calendar
+year for definitive data from the previous year. Insitutes
+are requested to provide their data as soon as possible in
+the new year and may send it before the call for data is made.
 
 Since 2014 INTERMAGNET has also requested observatories to provide
 1-second definitive data, if they are able to do so. It is not a  
@@ -51,15 +26,6 @@ become able to meet the standard. INTERMAGNET is currently developing
 recommendations on how to produce 1-second definitive data that will 
 conform to the standard.
 
-INTERMAGNET thus gives users access to global magnetic observatory
-data in both near real-time and also to the final, definitive data. 
-
-The definitive data volume only contains data from
-participating observatories. Participating observatories are
-those that meet the INTERMAGNET standards and have been accepted
-by the INTERMAGNET operations committee. The data from all
-contributing observatories are provided by the institutions
-responsible for those observatories.
 
 Submitting data
 ---------------
@@ -97,7 +63,8 @@ one-minute definitive data (this includes de-spiking, filling gaps where
 possible, correcting baselines, and applying other processing
 procedures). The baselines for one-minute definitive data must
 also be included in the annual definitive data submissions, as 
-should a file containing annual mean values. Where possible institutes 
+should a file containing annual mean values for the currect and
+previous years. Where possible institutes 
 are also encouraged to submit one-second definitive data.
 
 The following files should be put on the Paris ftp server:
@@ -114,7 +81,7 @@ The following files should be put on the Paris ftp server:
     | of         |                                                              |                                      |
     | files      |                                                              |                                      |
     +============+==============================================================+======================================+
-    | 12         | Definitive one minute data, oriented XYZG                    | Intermagnet Archive Format -         |
+    | 12         | Definitive one minute data, oriented XYZG, 1 per month       | Intermagnet Archive Format -         |
     |            |                                                              | see |app_iaf|                        |
     +------------+--------------------------------------------------------------+--------------------------------------+
     | 1          | Baseline values file                                         | Intermagnet Baseline Values Format - |
@@ -134,7 +101,7 @@ The following files should be put on the Paris ftp server:
     |            | observatories.                                               |                                      |
     +------------+--------------------------------------------------------------+--------------------------------------+
     | 12 [#b]_   | Definitive one second data (if one second data is            | Intermagnet CDF Format -             |
-    |            | being contributed for the observatory)                       | see |app_cdf|                        |
+    |            | being contributed for the observatory), 1 per month          | see |app_cdf|                        |
     +------------+--------------------------------------------------------------+--------------------------------------+
 
 .. [#a] For each of these items please state whether you want:
@@ -151,14 +118,15 @@ TODO: Jan/Roman - please check this is accurate and correct?
 
 TODO: Are the "about" and map images needed/accepted any more?
 
-Observatories should provide 1-minute data
+Observatories should provide 1-minute definitive data
 in the INTERMAGNET Archive Format (IAF) which is described in
 |app_iaf|. Data can be converted to IAF using INTERMAGNET’s
-"imcdview" data visualisation software or "gm_convert" data
-conversion software. Institutes chosing to contribute 1-second
+"imcdview" data visualisation software, "gm_convert" data
+conversion software or "MagPy" analysis and display software.
+Institutes chosing to contribute 1-second
 data should provide the data in Intermagnet CDF Format (ImagCDF) 
 which is described in |app_cdf|. Data can be converted to ImagCDF 
-using the "gm_convert software". These software products can be
+using the "gm_convert" or MagPy software. These software products can be
 obtained from  |imag_software|.
 
 Please note the following:
@@ -219,15 +187,16 @@ However software tools are available which can help in the
 preparation and checking of data. These tools are available
 from the Internet (see :numref:`sub_dat_def_data_soft` for details).
 The descriptions in this part of the Technical Manual mainly refer to
-the imcdview program, but other tools, such as MagPy, can also
+the imcdview program (imcdview is visualisation software for 
+INTERMANGET definitive data), but other tools, such as MagPy, can also
 be used. Links to all the software used in Intermagnet are
 available from INTERMAGNET web site's software page: |imag_software|
 
 When an observatory wants to check data before submission,
 it is necessary to create a directory structure on disk similar 
-to the structure of the IRDS - this will allow the user to use the
-imcdview software to view the data (imcdview is visualisation 
-software for the IRDS). A complete annual INTERMAGNET 
+to the structure of the INTERMAGNET Reference Data Set (IRDS).
+This will allow the user to use the
+imcdview software to view the data. A complete annual INTERMAGNET 
 data structure includes the following folders and files:
 
 #. ``DDD\\magYYYY\\SSS\\SSSYYMMM.bin`` (12 binary files in IAF format)
@@ -254,7 +223,7 @@ Where:
 In order for imcdview to recognize that a directory contains
 INTERMAGNET data, the subdirectories ctry_inf and YYYYmaps are
 needed even if they are empty. For more information see
-TODO: add a reference to the new appendix on IAF and folder structure.
+|app_imag_dir|.
 
 The same structure is also required 
 by most of the other programs used to check data.
@@ -343,321 +312,3 @@ Obtaining the Checking Software
 See the following web page to download the checking software:
 |imag_software|
 
-
-
-
-
-
-
-
-
-
-.. _sub_dat_def_data_enc_gen:
-
-Move to appendix
-----------------
-
-General Features
-````````````````
-
-The first INTERMAGNET CD-ROM contains data from 41
-observatories provided by 11 countries for the year 1991. The
-1992 and subsequent IPMs also contain baseline data for
-the year for each observatory in the form of text and plots.
-|app_obs| of this manual provides a list of observatories
-currently contributing to the data publication. The IRDS
-online publication contains data from the year of publication
-plus all previous years back to 1991.
-
-
-.. _sub_dat_def_data_enc_dir:
-
-INTERMAGNET Reference Data Set and Physical Media Directory Structure
-`````````````````````````````````````````````````````````````````````
-
-This section describes the structure of the 2011 DVD, by way of an example,
-since all other years of data, whether in the IPM or IRDS, are structured 
-in a similar way. Further documentation on the structure is described in 
-|app_imag_dir|.
-
-The files are presented in a fixed
-directory structure. The root directory contains a "README.TXT"
-file, which is an ASCII file describing the DVD and where to
-obtain information about it, the software, and documentation;
-
-On the 2011 DVD there are also three directories and a further
-file. The directory called "ERRATA" contains a file
-"ERRATA.TXT". This file lists errors on previous IPMs. A
-second folder, called "SOFTWARE", holds the "imcdview"
-programme, software, for visualizing and working with the data.
-This software is described in :numref:`sub_dat_def_data_enc_soft`
-The file "imcdview_install.txt" describes how to install the imcdview software.
-
-The final directory, MAG2011, contains a sub-directory for each
-observatory identified by its 3-letter ID code. In addition,
-there are sub-directories labeled "2011MAPS", "CTRY_INF", and
-"OBSY_INF". The 2011MAPS directory contains the \*.PNG files
-that are the map images of each country for use in the access
-software. These are labeled by a 3-letter country ID with the
-PNG extension, and one labeled "ALL.PNG" for all countries. The
-CTRY_INF directory contains a \*.PNG file for each country (and
-one for ALL) that are the images used to show the flag and
-organizational Logo for the different countries, and the README
-files that pertain to each country's geomagnetism program
-(including a README for the ALL option). The OBSY_INF
-subdirectory is empty, but is required to identify to software
-that the this folder holds data in the IRDS
-structure.
-
-The individual sub-directories (e.g. BFE for Brorfelde, TUC for
-Tucson, etc.) contain the 12 months of 1-minute data labeled with the
-3-letter ID, 2-character year, 3-letter month abbreviation, and
-a "BIN" extension indicating they are binary files in the IAF
-format (see  :numref:`sub_dat_def_data_enc_iaf_211`).
-For example, "BFE91AUG.BIN" is a file of 31 sequential day-records
-for Brorfelde, for 1991, for August. In addition,
-there are "README.XXX" files for the individual observatory,
-a YEARMEAN.XXX containing annual mean data in plain text format f
-or all years that the observatory has operated
-(see |app_iyf| for details of the format)
-and an XXX2011.BLV file that contains absolute observation and
-baseline data in the INTERMAGNET baseline format (see |app_imag_ibf|)
-where XXX indicates the 3-letter observatory ID.
-
-This sub-directory may also contain a file labeled XXXYRK.DKA,
-where XXX is the 3-letter observatory ID, YR is the 2-character
-year value and K indicates a K-Index file. Originally the DKA
-extension was used to indicate that the data were generated
-from a digital algorithm in an ASCII format, however
-subsequently these files have been used to hold both digitally
-derived and hand-scaled K indices. Since the 2005 CD-ROM the
-DKA files have been created by INTERMAGNET using data from the
-binary IAF file (before 2005 these files were provided by the
-observatories). These ASCII K-Index files are used, even though
-the data are in the binary records, because they are much
-faster to access than paging through the binary records.
-
-
-
-.. _sub_dat_def_data_enc_iaf:
-
-IAF INTERMAGNET Archive Format
-``````````````````````````````
-
-The INTERMAGNET IRDS and IPM contain a variety of
-metadata, including contact information and quality control
-records. The geomagnetic data is held in INTERMAGNET Archive
-Format. This format holds minute, hourly and daily mean values
-as well as K indices.
-
-The data are coded as 32-bit (long integer) binary words, with
-5888 words comprising a day-long record. Each file contains one
-month of day-records (so files are variable length, from 28 to
-31 records). Each day of data has a header and data section,
-the data being subdivided into minute means, hourly means,
-daily means and a set of K-indices. To date, five versions of
-this format have been used: IAFV1.00 being the original
-description of the format. It was only designated as version
-1.00 in 2007. Minor undocumented changes were made to how the
-header was used over the lifetime of this version. IAFV1.10 was
-defined in 2008 to add the publication date, encoding of the
-format version number and to reserve word 16 in the header,
-affecting words 14, 15 and 16. In 2009, delta-F was introduced
-in IAFV2.00 affecting words 6,8 and 15 in the header, and words
-4337 to 5776, words 5849 to 5872 and word 5876 in the data
-section. Also in IAFV2.00, space padding was specified to be at
-the left most position affecting word 13 in the header and
-words 5885 to 5888 in the data section were made available for
-each contributing institution. In 2010, IAFV2.10 was defined to
-allow for a missing instrument designator affecting words 6 and
-15 in the header, and words 4337 to 5776 in the data section.
-In 2014, IAFV2.11 was introduced to add a data type flag in
-word 15 to indicate whether the data is definitive or
-quasi-definitive. |app_iaf| provides a schematic
-representation of the record structure.
-
-Each 1-day record requires 23,552 bytes, so a month-file for
-January would require 730,112 bytes of storage. A year of
-observatory data requires almost 8.6 Megabytes (Mb) of storage.
-The storage capacity of a CD-ROM is about 640 Mb. A single
-sided, single layer DVD holds about 4.7 Gb, a single sided,
-double layer DVD about 8.5Gb. 
-
-
-TODO - move this information to the start of the section:
-Following the increase of
-observatories within INTERMAGNET and the evolution of the
-physical media, definitive data were publised on one CD from
-1991 to 1999, two CDs from 2000 to 2005, one DVD from 2006 to
-2013 and on one USB drive thereafter.
-
-Observatories should provide new definitive data to INTERMAGNET
-in IAF V2.11, which is described here. In order to allow users
-of historic CD-ROM/DVD/USB data to understand the format of the
-data for each year of production, previous versions (and the
-years they are associated with) are fully described in |app_iaf|.
-
-
-.. _sub_dat_def_data_enc_iaf_211:
-
-IAFV2.11 (2014 and after)
-"""""""""""""""""""""""""
-
-Words 1 to 16 comprise the header section containing a mixture
-of text and numeric fields, including a 3-letter observatory
-identification preceded with a space [hex20] (ID) code, the
-year concatenated with the day of the year, co-latitude,
-longitude, elevation, reported orientation, originating
-organization, a D-conversion factor, data quality,
-instrumentation, K-9, sampling rate, sensor orientation,
-publication date and format version/data type. Latitude,
-longitude/colatitude and elevation must be given using the
-WGS-84 datum. From 2014 onward, a field was been added to
-indicate whether the data is definitive or quasi-definitive.
-This field is a single bit flag in the second byte of word 15.
-It will be encoded as 0x00 to indicate definitive data, 0x01 to
-indicate quasi-definitive data. From 2010 onward, the
-orientation codes "XYZ" and "HDZ" have been added to "XYZG" and
-"HDZG" where "G" represents ΔF (see description below). These
-new codes indicate that the observatory is recording 3 elements
-only (no scalar instrument). The D-conversion factor is a fixed
-value used only in the graphics portion of the access software
-to allow Declination to be plotted in minutes of arc and
-equivalent nanoteslas (nT). It is given as H/3438*10000, where
-H is the annual mean value of the horizontal intensity.
-Example: If H is 16500 D will be 47993(Integer). When XYZG or
-XYZ is used, the D-conversion factor should be set to 10000.
-
-ASCII values, such as the observatory ID and orientation, are
-also stored as 32-bit words, but are coded as the hexadecimal
-byte-string corresponding to the ASCII string. For example, the
-string "HDZF" is coded as the sequence "48 44 5A 46". Where a
-string is shorter than four bytes, it is padded to the left
-with spaces. For example, the string "ESK" is coded as the
-sequence "20 45 53 4B".
-
-Word 11 is the K-9 value for the observatory in nT, word 12 is
-the digital sampling rate in msec, and word 13 is the sensor
-orientation. Sensor orientation could be XYZF, DIF, UVZ, HDZ,
-HDZF etc. and should indicates which components are actually
-measured. If a three component sensor orientation is used, a
-space must be added to the left. Word 14 is the publication
-date encoded as 4 ASCII bytes "YYMM" provided by INTERMAGNET.
-The high byte (left most) of word 15 is the INTERMAGNET Archive
-Format version number code provided by the IMO. It takes the
-form of a binary single byte number ranging from 0 to 255. Zero
-(0x00) represents version 1.00, one (0x01) represents version
-1.10, two (0x02) represents version 2.00, three (0x03)
-represents version 2.10 and four (0x04) represents version
-2.11. The second byte in word 15 will be encoded as 0x00 to
-indicate definitive data, 0x01 to indicate quasi-definitive
-data. The other two bytes of word 15 are reserved for future
-use and padded with zeros. Word 16 is reserved for future use.
-
-Words 17-5776 contain the minute values of the 4 geomagnetic
-elements (successively X,Y,Z,G or H,D,Z,G or X,Y,Z, or H,D,Z )
-for the day. From 2009 onward, the 4th element contains the
-difference between the square root of the sum of the squares of
-the variometer components, F(v), and the total field from an
-independent scalar recording, F(s). This difference, ΔF, is
-defined as F(v) - F(s). Both F(v) and F(s) must be corrected to
-the location in the observatory where absolute geomagnetic
-observations are made. When F(s) is missing or both F(s) and
-F(v) are missing, ΔF must be set to 999999. When F(v) only is
-missing, ΔF must be set to -F(s). The values of the 4 elements
-are stored in tenth-units with an implied decimal point. Thus,
-an H value of 21305.6 is stored (in tenth-nT) as 213056 with a
-decimal point implied between the last and next-to-last digits.
-Words 5777-5872 are used for the hourly mean values of the
-successive 4 elements. From 2009 onward, words 5849-5872 always
-record 999999 (missing value), this is done because the 4th
-element in the data is a quality check for minute mean data and
-this quality check is meaningless for hourly means. Words
-5873-5876 store the 4 daily mean values. From 2009 onward, word
-5876 always record 999999 (missing value) because the quality
-check for daily means is also meaningless. From 2009 onward,
-the last 4 words (5885-5888) are available for each
-contributing institution. Missing data for minute, hour, and
-day values are stored as "999999". From 2010 onward, if a
-scalar instrument is not used (so no data is recorded in the
-fourth element) the value "888888" should be used instead of
-"999999". Missing K-Index values are stored as "999".
-
-.. _sub_dat_def_data_enc_soft:
-
-INTERMAGNET Reference Data Set and Physical Media Software
-``````````````````````````````````````````````````````````
-
-INTERMAGNET provides the "imcdview" program to work with the data.
-This software can be downloaded from |imag_software| .
-The software is designed to be simple and easy to use. When the
-software starts for the first time on a new computer, a dialog
-is displayed describing how to tell the software where to find
-data. This same information, on how to find data, is available
-from the "Help" menu under "Help for New Users".
-
-The program has 3 main windows. The window that you see when
-the program starts shows a view of the World. The observatories
-that the program has discovered in its database(s) are shown as
-red dots on the world map. If you move your mouse over an
-observatory its name will be displayed. If you click on an
-observatory using the left mouse button then a popup-menu will
-appear with a list of data that you can view. If you use the
-right mouse button you will get the same menu, but in a
-permanent window that will not close when you select an item
-from the menu. The World Map window also holds the program’s
-menu bar. The World Map window is always present while the
-software is running. If you close this window, the program will
-exit.
-
-There is also an Explorer window, available from the "View"
-menu. This window gives you an alternative view of data.
-The view of the data that the window presents is
-similar in structure to the directory structure used to hold
-the data on the IPM. To view an object in the Explorer
-window, double click the object. For example, to plot data from
-an observatory using the Explorer window, expand the tree until
-the observatory is listed, expand the observatory, select and
-expand the data file that you want to view then double click
-the "Data Plot" icon. The Explorer window also shows you which
-databases the program is using. For more information about
-databases see the online help system.
-
-The third main window, also available from the "View" menu, is
-the Export Window. This window allows you to create data files
-in IAGA 2002 and other data formats from the INTERMAGNET
-archive data. The window has been designed so that you can
-convert as much data as you want with the minimum of work.
-Further details are available in the online help system.
-
-The software also includes an import function, allowing you to
-convert data from IAGA 2002 and other data formats into the
-INTERMAGNET Archive Format. This function is available from the
-"Database" menu. Using this software, observatories can convert
-their own data into IAF for delivery to INTERMAGNET. It’s also
-possible to use the import and then export functions to convert
-between data formats (e.g. to convert INTERMAGNET minute mean
-format to IAGA-2002), but please note that between import and
-export the data will always be stored in IAF format and so the
-precision of the data will be that provided by the IAF format
-(1/10th nT and 1/10th minute of arc). For most modern data this
-precision is unacceptably low, particularly for angular
-measurements.
-
-Prior to the current software, INTERMAGNET distributed a
-DOS-based program for working with the IPM data.
-
-Copies of INTERMAGNET Physical Media may be obtained from:
-
-| INTERMAGNET Physical Media (IPM) distribution office
-| Observatoire Magnétique National
-| Carrefour des 8 routes
-| 45340 Chambon la Forêt
-| FRANCE
-| Tel: 33 (0) 2-38-33-95-01
-| Internet: |contact_ipgp|
-
-From 2015 onward, INTERMAGNET stopped the production of physical medias.
-Definitive data is now published yearly with a Digital Object Identifier (DOI) see
-:numref:`use_dat_imag_web_down_data_doi`.
-Individual (monthly) IAF data files are available from the INTERMAGNET web site.

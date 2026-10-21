@@ -16,7 +16,7 @@ The web site offers access to various data products:
 
 * The annual definitive data published with a
   Digital Object Identifier (DOI).
-* Magnetograms and data files of reported and adjusted
+* Magnetograms and data files of preliminary
   minute values from all the IMOs.
 * The Online Technical Reference Manual.
 * The INTERMAGNET application form.
@@ -75,11 +75,12 @@ The stable version should be the only one used as reference.
 Downloading Data
 ----------------
 
-Geomagnetic observatory data can be downloaded using a web browser by either using DOIs for definitive  data or
-using the web data distribution interface for all data types including definitive data.
-Until 2015, the annual definitive data was released on a physical media (see |app_imag_dir|).
+Geomagnetic observatory data can be downloaded using a web browser by either using DOIs for definitive data or
+using the web data distribution interface which provides access to all data types including definitive data.
+Until 2015, the annual definitive data was released on a physical media (see :numref:`use_dat_physical_media`).
 From 2015 onward, the intermagnet definitive data is published yearly with a Digital Object Identifier (DOI) which includes
-all definitive data since 1991 to the publication year.
+all definitive data since 1991 to the publication year. 
+
 
 .. _use_dat_imag_web_down_data_doi:
 
@@ -92,9 +93,10 @@ definitive data set since INTERMAGNET’s first recorded definitive data in 1991
 This DOI-referenced annual data set is known as the "INTERMAGNET Reference Data Set" (IRDS).
 The IRDS comprises all INTERMAGNET one-minute definitive data since 1991 and is annually updated
 with a new year and occasional corrections to previous releases.
-The different releases of the IRDS can be found on the INTERMAGNET web site :|download_plot_data|.
+The DOIs and their associated data are hosted at `GFZ data services`_.
+Use the `GFZ DOI search`_ page and enter "Intermagnet" in the search box to show all INTERMAGNET 
+definitive data DOIs.
 
-The IRDS are deployed on the servers of the GFZ German Research Centre for Geosciences.
 File names for IRDS data are formatted in the form mag<year>_def<year>.zip.
 The mag<year> section of the filename describes the year in which the data was
 recorded. The def<year> section of the filename describes the most recent annual
@@ -102,56 +104,56 @@ INTERMAGNET publication in which the data was updated. Files where mag<year> = d
 have had no corrections since their original publication. For example, "mag2015_def2016"
 indicates that this file is different from the first release "mag2015_def2015".
 
-The zip archive is organized in a number of
-subdirectories. Most of them are named with observatory IAGA codes,
-they contain information regarding a particular observatory.
+The zip archive is divided into a number of
+subdirectories. Most of them are named with observatory IAGA codes
+and contain information regarding a particular observatory.
 Further subdirectories provide country information about
 national operators of magnetic observatories. A complete set
 for one observatory consists of the following files (this
 example is for the year 2010):
 
-#. x:\\mag2010\\sss\\sss10mmm.bin (12 binary files in IAF format)
-#. x:\\mag2010\\sss\\readme.sss (1 readme file)
-#. x:\\mag2010\\sss\\sss2010.blv (1 baseline file)
-#. x:\\mag2010\\sss\\yearmean.sss (1 annual means file)
-#. x:\\mag2010\\sss\\sss10k.dka (1 text file of K-indices)
-#. x:\\mag2010\\2010maps\\country_id.xxx (1 map for each country (xxx = png or pcx))
-#. x:\\mag2010\\ctry_inf\\readme.country_id (1 readme-file for each country)
-#. x:\\mag2010\\ctry_inf\\country_idsrn.xxx (1 about-screen for each country
+#. ``x:\\mag2010\\SSS\\SSS10MMM.bin`` (12 binary files in IAF format)
+#. ``x:\\mag2010\\SSS\\readme.SSS`` (1 readme file)
+#. ``x:\\mag2010\\SSS\\SSS2010.blv`` (1 baseline file)
+#. ``x:\\mag2010\\SSS\\yearmean.SSS`` (1 annual means file)
+#. ``x:\\mag2010\\SSS\\SSS10k.dka`` (1 text file of K-indices)
+#. ``x:\\mag2010\\2010maps\\CCC.xxx`` (1 map for each country (xxx = png or pcx))
+#. ``x:\\mag2010\\ctry_inf\\readme.CCC`` (1 readme-file for each country)
+#. ``x:\\mag2010\\ctry_inf\\CCCsrn.xxx`` (1 about-screen for each country
    (xxx = png or pcx))
 
 Where:
 
--  sss is the 3-letter observatory IAGA code
--  mmm is the month
--  country_id is the three-letter country code
+-  ``SSS`` is the 3-letter observatory IAGA code
+-  ``MMM`` is the month
+-  ``CCC`` is the three-letter country code
 
-#. A binary file in IAF format (described in detail in :numref:`sub_dat_def_data`
+#. Each binary file in IAF format (described in detail in :numref:`sub_dat_def_data`
    and |app_iaf|) includes minute values as well as
    other accompanying data such as: metadata headers W01-W16, K indices,
    hourly and daily mean values.
-#. A text file readme.sss contains meta-data and information 
+#. A text file readme.SSS contains meta-data and information 
    about the observatory such as location, parent
    institute, personnel, equipment and instrumentation etc.
-#. A text file sssyyyy.blv includes results of absolute control
+#. A text file SSSyyyy.blv includes results of absolute control
    of geomagnetic observations and adopted baseline values. The format of this file is
    described in |app_imag_ibf|. Baseline data are considered by
    many experts as an indicator of data quality, especially with regard to observation of
    secular variation.
-#. A text file yearmean.sss includes a listing of annual mean
+#. A text file yearmean.SSS includes a listing of annual mean
    values for the observatory. The format of this file is
    described in |app_iyf|. Most observatories publish all
    annual means, i.e. since the beginning of their activity.
    Some observatories also publish annual means for international geomagnetic quiet-days
    and disturbed-days.
-#. A text file sssyyk.dka includes K-indices. DKA files are created by
-   INTERMAGNET from the K index data includied in binary IAF files. if K-indices are not 
+#. A text file SSSyyk.dka includes K-indices. DKA files are created by
+   INTERMAGNET from the K index data included in binary IAF files. if K-indices are not 
    scaled by the IMO there is no DKA file.
-#. The image file country_id.xxx shows the location of observatories of a
+#. The image file CCC.xxx shows the location of observatories of a
    given country.
-#. The text file readme.country_id provides information about
+#. The text file readme.CCC provides information about
    parent institute(s) in a given country.
-#. The image file country_idsrn.xxx provides information about parent institute(s)
+#. The image file CCCsrn.xxx provides information about parent institute(s)
    managing IMOs in a given country in graphical form.
 
 
@@ -167,9 +169,9 @@ Downloading Data Using the WEB Interface
 Reported and adjusted intermagnet data are available for many IMOs in near real-time.
 The availability of data files is dependent on the
 publishing delay and data embargo policy of participating institutes. If there is no
-publishing delay, data are available within 10 to 20 minutes
-after being placed on the server. The data covers the period
-from 1991 to present. In addition to data of reported and adjusted quality,
+publishing delay, data may be available within a few minutes or even seconds
+after being recorded. The data covers the period
+from 1991 to present. In addition to data of preliminary quality,
 quasi-definitive and definitive data may also be available for one-minute 
 or one-second sampling rates in various data formats. Data are available
 via web services. For further details and to download data, you can consult 
@@ -189,8 +191,10 @@ the data are also available. These include:
 Geomagnetic Activity
 --------------------
 
-A map of geomagnetic activity is currently under development. 
-The magnetic activity maps will show the range of the magnetic
-variation in each hour at INTERMAGNET observatories around the
-world. For recent events only those observatories with fast
-reporting capabilities can be presented. 
+A tool for viewing Geomagnetic activity is available on the BGS web site.
+As well as providing access to real-time data, it allows users to search 
+both Intermagnet and the World Data Centre (Edinburgh) archives to 
+facilitate comparison with historic data.
+
+https://geomag.bgs.ac.uk/data_service/deltaH-viewer
+
