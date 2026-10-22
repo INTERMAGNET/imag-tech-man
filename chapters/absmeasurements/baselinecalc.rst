@@ -18,7 +18,7 @@ Generally, use variometer spot-readings or one-second means or
 means over a few seconds (and not minute means) for reducing
 the absolute measurements.
 
-Accurate formula (as those presented in :numref:`sub_dat_def_calc`) should be
+Accurate formula (as those presented in :numref:`proc_dat_def_calc`) should be
 used. If approximate formulas are used, then one has to be
 clear about the assumptions they are based on (some formula
 currently used at observatories only work under certain

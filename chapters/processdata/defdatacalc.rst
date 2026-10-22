@@ -1,9 +1,7 @@
-.. _sub_dat_def_calc:
+.. _proc_dat_def_calc:
 
 Definitive Data Calculation Based on Most Common Orientations
 =============================================================
-
-TODO: Move this whole sub-section to a more relevant section
 
 Fluxgate variometers usually have 3 orthogonal fluxgate
 sensors. These sensors can be oriented in various ways. Most
@@ -85,7 +83,7 @@ formulas that we use here to be valid:
    direction at the main pillar of the observatory, where
    declination is measured.
 
-:numref:`sub_dat_def_calc_vario` depicts this situation for horizontal fluxgate sensors
+:numref:`proc_dat_def_calc_vario` depicts this situation for horizontal fluxgate sensors
 E and N and their output in nT, :math:`N_{var}` and :math:`E_{var}`.
 :math:`D_0` is now the baseline of declination,
 its physical meaning is the orientation of the fluxgate
@@ -99,9 +97,9 @@ offset of that sensor.
 While the relationship between the absolute values Z, baselines
 :math:`V_0` and variations :math:`V_{var}` for Z component is
 simply linear (1a), the relationship for H (1b) and D (1c) can
-be derived from :numref:`sub_dat_def_calc_vario`:
+be derived from :numref:`proc_dat_def_calc_vario`:
 
-.. _sub_dat_def_calc_vario:
+.. _proc_dat_def_calc_vario:
 
 .. figure:: ../../img/vario_orientation.png
     :align: center

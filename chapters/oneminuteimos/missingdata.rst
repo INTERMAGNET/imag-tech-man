@@ -29,4 +29,4 @@ provide high levels of data continuity, so this rule is
 expected to be applied only rarely. To avoid the propagation of
 missing values into higher level means, it is recommended to
 calculate all higher level means using the method described in
-:numref:`sub_dat_mean_std`.
+:numref:`proc_dat_mean_std`.

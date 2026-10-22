@@ -11,8 +11,6 @@ Submitting Data
     introduction
     subpreldata
     subdefdata
-    defdatacalc
-    standardsformeans
 
     
 
