@@ -10,7 +10,7 @@ Submission of Preliminary Data
 
 An observatory sends preliminary (non-definitive) data, including
 quasi-definitive data, to its
-assigned GIN via MQTT, web upload, email or satellite transmission.
+assigned GIN via MQTT, web upload or email transmission.
 INTERMAGNET encourages observatories to send data as close to
 real-time as possible. The best way to achieve this is to use
 MQTT, which requires data to be submitted in
@@ -65,29 +65,27 @@ previously been sent. This allows observatories to send data in
 close to real-time, then correct that data at a later date
 (e.g. after manual gap filling or spike removal).
 
-There are a number of ways that observatories can combine the
-different transmission methods that INTERMAGNET offers to
-achieve reliable throughput of data in near real-time. Two of
-the most successful have been:
+When using the MQTT method (or, less preferably the web 
+service method) to submit small data fragments to
+the GIN, both MQTT and the web service include methods
+to detect when data has failed to be received.
+If failure is detected, the
+observatory can flag that this data was not uploaded and
+attempt to upload it again (along with any new data) on a
+subsequent upload.
 
-#. To use the MQTT method (or, less preferably the web 
-   service method) to submit small data fragments to
-   the GIN. Both MQTT and the web service allow detection
-   of failure to receive data. If failure is detected, the
-   observatory can flag that this data was not uploaded and
-   attempt to upload it again (along with any new data) on a
-   subsequent upload.
-#. It is not always easy to keep track of whether data has been
-   successfully uploaded (and it is likely to be only a small
-   number of occasions where there is a problem). An
-   alternative is to submit regular small fragments of a day
-   file throughout the day via MQTT or web service, without
-   tracking their successful upload, then submit a complete day
+Altentively, there are ways that observatories can combine the
+different transmission methods that INTERMAGNET offers to
+achieve reliable throughput of data in near real-time:
+
+#. Submit small numbers of data samples regularly
+   throughout the day via MQTT or web service. Don't
+   track their successful upload, instead submit a complete day
    file via email shortly after the day has ended, which will
    have the effect of filling any gaps that occurred from
    unsuccessful transmissions.
-#. When submitting data via MQTT, a complete day file could
-   also be sent via the web service (as opposed to email)
+#. When submitting data via MQTT, the complete day file could
+   be sent via the web service (as opposed to email)
    to fill any gaps. The choice of web service versus email
    as a backup transmission system should be guided by
    whichever is easiest to implement.
@@ -131,26 +129,27 @@ Submission via MQTT
 -------------------
 
 For the best real-time performance (and least delay) data should be submitted to
-Intermagnet using MQTT. With MQTT there is a very small delay (typically a 
+Intermagnet using MQTT (Message Queuing Telemetry Transport). 
+With MQTT there is a very small delay (typically a 
 few seconds) between an observatory submitting data and the data becoming
 available on the Intermagnet data portal. Delays in data are then mainly due
 to the frequency at which observatories transmit data. Observatories are 
 encouraged to transmit data as soon as it is recorded and any steps needed to
 achieve adjusted (or quasi-definitive) quality have been completed. Real-time
-transmission is more easily accomplished with MQTT than other method of data transfer.
+transmission is more easily accomplished with MQTT than other methods of data transfer.
 
-MQTT (Message Queuing Telemetry Transport) is a messaging protocol that enables 
-communication between devices in the Internet of Things. Messages are sent over
-MQTT using software that conforms to the MQTT protocol - this software is
-responsible for delivering your data to Intermagnet. One of the central
+MQTT is a messaging protocol that enables 
+communication between devices in the Internet of Things. Messages are sent 
+using software that conforms to the MQTT protocol. The software is
+responsible for delivering observatory data to Intermagnet. One of the central
 concepts in MQTT is that of the "broker". A broker receives messages from "publishers"
 and makes them available to "subscribers". An observatory will publish data to a broker
-that Intermagnet manages (and Intermagnet will subscribe to the broker in order to receive
-the messages observatories send).
+that Intermagnet manages. Intermagnet GINs will subscribe to the broker in order to receive
+the messages observatories send.
 
-There are a number of suppliers of MQTT software, both commercial and free. There are
-interfaces to most popular languages as well as standalone commands that can be
-integrated into scripts or schedulers (such as Unix cron). For standalone MQTT publishing
+There are a number of suppliers of MQTT software, both commercial and free. Most popular 
+languages are supported. There are also complete programs that can be integrated into scripts 
+or schedulers (such as Unix cron), requiring a minimum of programming. For standalone MQTT publishing
 and subscription programs (as well as broker software) people in the observatory 
 community have successfully used Eclipse Mosquito MQTT (|mosquitto|), which is
 free software. Binary packages are available for Windows, Linux and Mac. 
@@ -162,7 +161,7 @@ Paho also includes a C library, with other langauge interfaces being developed).
 MQTT at the GINs
 ````````````````
 
-MQTT brokers are available at the Edinburgh, Kyoto and Paris GINs.
+MQTT brokers are available at the Edinburgh and Kyoto GINs.
 
 MQTT at the Edinburgh GIN
 """""""""""""""""""""""""
@@ -173,9 +172,9 @@ Public MQTT brokers run at the Edinburgh GIN at the following Internet addresses
 - gin-mqtt-staging.bgs.ac.uk - development Intermagnet/BGS MQTT service
 
 Access to MQTT uses TLS, to ensure that all traffic is securely encrypted. 
-Connections to these services are received on the default MQTT TLS port, port 8883.
-All connections to these servers require authentication and a username and
-password will be set up for each observatory. Be sure to use these in a way that
+Connections to these services are received on the default MQTT TLS port, 8883.
+All connections to these servers require authentication with a username and
+password. These will be set up for each observatory. Be sure to use these in a way that
 ensures that any user can connect only once at a time to the brokers, as the
 brokers are configured to only allow a single connection per user (and to
 log off any previously existing connections).
@@ -187,11 +186,6 @@ MQTT transmission from observatories to the Kyoto GIN is currently being tested 
 the Kakioka Magnetic Observatory (Japan Meteorological Agency). Details of the service 
 will be provided once it is ready for operational use.
 
-MQTT at the Paris GIN
-"""""""""""""""""""""
-
-MQTT is not yet available at the Paris GIN.
-
 
 Submitting data using MQTT
 ``````````````````````````
@@ -201,7 +195,7 @@ MQTT broker and "publishing" data messages. Before starting, please contact
 the manager of the GIN that you will use in order to get a username and
 password to access the MQTT broker (see :ref:`sub_dat_prel_mqtt_auth`).
 MQTT messages have a topic and a payload. Topics are used to identify
-and group messages. Payloads contain the message's data. To send data to
+and group messages. Payloads contain the message data. To send data to
 Intermagnet topics and payloads must conform to the Intermagnet MQTT topic 
 and payload format descriptions that are described in |app_imag_mqtt|.
 
@@ -296,9 +290,10 @@ not possible to use one username to publish and subscribe at the same time. The 
 assigned for publication must be used only for publishing. A second username and password 
 allows subscription at the same time as publication.
 
-From a client perspective it isn’t easy to know if MQTT access control is being applied, as restrictions 
+From a client perspective it isn’t easy to know if MQTT access control is being applied, and so
+to tell whether data has succesfully been received, since access control restrictions 
 aren’t notified to the client (at least in MQTT v3.1.1). The way around this for a client wanting to
-verify successful publication of data is to subscribe to a topic as well publishing and check whether 
+verify successful publication of data is to subscribe to the topic being used for publication and check whether 
 any published messages are received through the subscription.
 
 Secure MQTT transport
@@ -315,7 +310,7 @@ and so will not be accepted. The default port (8883) is used for MQTT over TLS.
 Submission via WEB Service
 --------------------------
 
-Data can be submitted to INTERMAGNET GINs using a web service.
+Data can be submitted to the Edinburgh GIN using a web service.
 The http: ‘file upload’ mechanism is used, as
 described in RFC1867 "Form-based File Upload in HTML" - see
 |rfc1867|. Data should be uploaded in IAGA-2002 format 
@@ -323,8 +318,8 @@ described in RFC1867 "Form-based File Upload in HTML" - see
 which indexes and caches the data, making it
 available for download and ingestion into the GIN.
 The responses which the web service makes to these actions
-are standardised, making it easy to automate the processes
-of uploading data. One of the primary goals of the web service
+are standardised, making it easy to automate the error
+detection. One of the primary goals of the web service
 is to allow data to be safely imported from the public
 Internet into the private networks where the GINs operate.
 This process introduces a short delay between transmission
@@ -348,9 +343,9 @@ Observatories connect to the web service in one of three ways:
 
 The web service will accept data in the following formats:
 
-#. One-second data in IAGA 2002 format.
-#. One-minute data in IAGA 2002 format.
-#. One-minute data in IMF V1.23 (but this format is not
+#. 1-second or 1-minute data in IAGA 2002 format.
+#. 1-second or 1-minute data in ImagCDF format.
+#. 1-minute data in IMF V1.23 (but this format is not
    recommended for new systems).
 
 Data files may contain a maximum of 24 hours data. 
@@ -360,7 +355,7 @@ send updates more than once a day. In this case, the GIN is
 responsible for reassembling the data fragments into a day
 file. The smallest ‘fragment’ of
 data that should be encoded into an IAGA-2002 file is 2
-samples, since some software using this format calculates the
+samples, since the GIN's ingestion software for this format calculates the
 sample rate from the time difference between the first pair of
 samples in the file. An IMO may not make more than
 1440 uploads per day. The same file may not be uploaded more
@@ -433,8 +428,7 @@ to minutes following the upload. In exceptional circumstances a
 file may be successfully loaded to the web service, but fail to
 load on the GIN – these occurrences are very rare.
 
-An example of the web service (as implemented at the Edinburgh
-GIN) can be seen here:
+The web service at the Edinburgh GIN can be seen here:
 
     |gin_edin_up|
 
@@ -456,15 +450,17 @@ Submission via Email
 
 All GINs support receipt of data by email. An entire day of
 data may be sent by email, or a smaller ‘fragment’ of data may
-be sent (an hour, or even a few minutes) if an observatory is
+be sent (an hour) if an observatory is
 sending updates more than once a day. In this case, the GIN is
 responsible for reassembling the data fragments into a day
-file.
+file. However observatories should not use email to send
+data in real-time by sending large numbers of small files
+throughout the day, as this is likely to cause problems with
+the GIN's email servers.
 
 Data may be sent by email in the following formats:
 
-#. One-second data in IAGA 2002 format.
-#. One-minute data in IAGA 2002 format.
+#. 1-second of 1-minute data in IAGA 2002 format.
 #. One-minute data in IMF V1.23 (but this format is not
    recommended for new systems).
 
@@ -484,7 +480,7 @@ ways:
    For 1-minute provisional Canberra data on 1st January 2002
    in IAGA2002 format the subject line would be::
 
-     Subject: bou20020101pmin.min
+     Subject: cnb20020101pmin.min
 
    The body of the mail message should contain the data,
    formatted according to the rules of the format used. The
@@ -514,7 +510,7 @@ GIN Email Addresses
 ```````````````````
 
 -  Ottawa: N/A
--  Paris: TODO
+-  Paris: N/A
 -  Golden: N/A
 -  Edinburgh: e_gin@mail.nmh.ac.uk
 -  Kyoto: {ID_for_each_observatory_or_institute}@wdcvmmagdata.kugi.kyoto-u.ac.jp
@@ -591,7 +587,7 @@ information on the completeness of the previous month’s data.
 The INTERMAGNET web site keeps data that describes, on a
 minute by minute basis, the difference between the current time
 and the time stamp of the most recently received data from each
-observatory – the observatory’s lag time. These files are
+observatory – the observatory’s data latency or "lag time". These files are
 useful for analysing an observatory’s near real-time
 performance. The INTERMAGNET web site also holds monthly
 lists of data received from observatories. These files are 
@@ -615,14 +611,14 @@ are using before you start regular transmissions.
 An increasing problem with email transmission is the filtering
 of emails for unwanted and malicious messages. Whilst these
 filtering systems are necessary to protect users of email
-systems, they do frequently block data messages of the type
+systems, they also frequently block data messages of the type
 exchanged in INTERMAGNET. Getting to the bottom of this type of
 problem may take a little time as GIN managers do not have
 direct control of mail filtering systems. When investigating
 this type of problem you will need to provide the GIN manager
 with the full email address that you send mail from and the
 date and time of a message that was sent. This will allow the
-administrators of the filtering system to track your message
+administrators of email server to track your message
 and describe what happened to it.
 
 Another problem with email transmission is modern email

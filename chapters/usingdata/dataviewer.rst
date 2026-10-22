@@ -8,9 +8,9 @@ Data Viewer
 .. include:: ../../appendices/appendices.rst
 
 
-INTERMAGNET provides software called "imcdview" to work with the data 
-from the DOIs, web downloads and from the INTERMAGNET Physical Media 
-(IPM). This software can be downloaded from |imag_software| .
+INTERMAGNET provides software called "imcdview" to work its
+definitive data, both IPM and IRDS. 
+This software can be downloaded from |imag_software| .
 The software is designed to be simple and easy to use. When the
 software starts for the first time on a new computer, a dialog
 is displayed describing how to configure the software to find
@@ -69,6 +69,3 @@ precision is unacceptably low, particularly for angular measurements.
 As an alternative use the "gm_convert" or "MagPy" programs, also
 available from INTERMAGNET, which do not suffer from this
 restriction.
-
-Prior to the current software, INTERMAGNET distributed a
-DOS-based program for working with the DVD/CD-ROM data.

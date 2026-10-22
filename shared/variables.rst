@@ -16,7 +16,7 @@
 .. |contact_par_gin_manager| replace:: vmaury@ipgp.fr
 
 .. |imag_imo_list| replace:: https://intermagnet.org/metadata/#/imos
-.. |intermagnet_website| replace:: https://www.intermagnet.org/
+.. |intermagnet_website| replace:: https://intermagnet.org/
 .. |techman_website| replace:: https://tech-man.intermagnet.org/
 .. |intermagnet_github| replace:: https://github.com/INTERMAGNET
 .. |website_github_src| replace:: https://github.com/INTERMAGNET/intermagnet.github.io

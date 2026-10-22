@@ -9,7 +9,9 @@ Intermagnet Physical Media
 
 This section is mainly provided for historical purposes
 to help understand the data publications that INTERMAGNET
-has made since its inception.
+has made since its inception. The most recent definitive
+data publications from INTERMAGNET are made using DOIs and
+are described in the previous section.
 
 In January 1992 the Executive Council and Operations Committee
 decided to produce a CD-ROM of definitive minute data values
@@ -46,9 +48,6 @@ but with some changes to how the data is published:
   corrections to data from previous years. The IRDS includes
   corrected definitive data from all INTERMAGNET observatories
   that supplied data from 1991 to the year of publication.
-- TODO: Describe the change for IRDS 2025 where data are
-  published as they are received, rather than waiting for
-  a complete year of data.
 
 Collectively, the publications on CD-ROM, DVD-ROM and USB memory
 stick are known as INTERMAGNET Physical Media (IPM). More detailed

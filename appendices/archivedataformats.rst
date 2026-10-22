@@ -3,7 +3,11 @@
 Archive Data Formats
 ====================
 
+.. include:: ../shared/variables.rst
+
 .. include:: ../appendices/appendices.rst
+
+.. include:: ../shared/targets.rst
 
 .. include:: ./includes/adf/imagiaf.rst
 

@@ -105,10 +105,6 @@ The following files should be put on the Paris ftp server:
 
 .. [#b] One second data is encouraged, but not required.
 
-TODO: Jan/Roman - please check this is accurate and correct?
-
-TODO: Are the "about" and map images needed/accepted any more?
-
 Observatories should provide 1-minute definitive data
 in the INTERMAGNET Archive Format (IAF) which is described in
 |app_iaf|. Data can be converted to IAF using INTERMAGNET’s
@@ -186,7 +182,7 @@ data set is a very difficult task.
 
 The method of inspection is left to each individual institute. 
 However software tools are available which can help in the preparation 
-and checking of data (see :numref:`sub_dat_def_data_soft` for details). 
+and checking of data. 
 The application check1min.exe, the imcdview software and MagPy contain methods 
 for data inspection and are available on the INTERMAGNET web site: |imag_software|.
 
@@ -201,27 +197,17 @@ tests:
 #. Check for any discrepancies between Fvector (Fv total field
    calculated on the basis of XYZ elements) and Fscalar (Fs
    recorded by means of proton magnetometer) for minute values.
-   The resource that can be used to make this check is imcdview
-   Java browser.
+   The resource that can be used to make this check is the imcdview
+   software.
 
 #. If submitting one second data, check for discrepancies between
-   the one minute and one second data. The imcdview Java browser
+   the one minute and one second data. The imcdview software
    provides a way of making this comparison.
 
 #. Check the binary data headers and the consistency of the
    binary data with the yearmean baseline, and readme files.
-   Software for this action: check1min.exe
-
-   The program check1min.exe checks the headers of the binary
-   one minute data. It also checks whether recent yearly mean values
-   included in the yearmean.sss file are consistent with the 12
-   binary files, i.e. whether annual means included in the
-   yearmean file agree with annual means calculated from the
-   binary data. Please remember that for XYZG orientation the
-   D-conversion factor should be set to exactly 10000.
-
-   The program also checks for discrepancies between elements
-   XYZFIDH, and also detects format errors.
+   Software for this action is check1min.exe and the procedure
+   is described in detail in the following subsection.
 
 #. K-indices
    Software: The imcdview software includes, among
@@ -268,6 +254,9 @@ the 12 binary files, i.e. whether annual means included in
 the yearmean file agree with annual means calculated from 
 the binary data. Please remember that for XYZG orientation 
 the D-conversion factor should be set to exactly 10000.
+
+The program also checks for discrepancies between elements
+XYZFIDH, and also detects format errors.
 
 Reports of this testing procedure are requested to be 
 uploaded along with your data submission. 

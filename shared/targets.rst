@@ -9,5 +9,6 @@
 .. _GFZ data services : https://dataservices.gfz-potsdam.de/web/
 .. _GFZ DOI search : https://dataservices.gfz.de/doi-search
 .. _INTERMAGNET 2015 DOI : https://doi.org/10.5880/INTERMAGNET.1991.2015
+.. _INTERMAGNET 2020 DOI : https://doi.org/10.5880/INTERMAGNET.1991.2020
 .. _BGS Activity viewer : https://geomag.bgs.ac.uk/data_service/deltaH-viewer
 .. _MagPy checking instructions : https://github.com/geomagpy/magpy/blob/master/magpy/gui/README_gui.md#36-specials
