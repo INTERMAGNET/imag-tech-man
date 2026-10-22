@@ -165,12 +165,14 @@ This data type field is explained below.
     |                  | ‘Reported’).           | have missing values.   |
     +------------------+------------------------+------------------------+
     | Variation (from  | ImagMQTT, IAGA-2002,   | The data type is not   |
-    | the IAGA-2002    | ImagCDF and ImagMQTT   | defined in the format  |
-    | data format      | (as a metadata field). | definition. It is      |
-    | description)     |                        | assumed to contain     |
+    | the IAGA-2002    | ImagCDF and ImagMQTT   | defined in the         |
+    | data format      | (as a metadata field). | IAGA-2002 format       |
+    | description)     |                        | definition. It is      |
+    |                  |                        | assumed to contain     |
     |                  |                        | data to the same       |
     |                  |                        | definition as the      |
-    |                  |                        | ‘Reported’ data type.  |
+    |                  |                        | INTERMAGNET ‘Reported’ |
+    |                  |                        | data type.             |
     +------------------+------------------------+------------------------+
     | Adjusted (an     | IMFV1.23 (as a         | Adjusted data may have |
     | INTERMAGNET      | metadata field).       | modifications made to  |
@@ -179,12 +181,14 @@ This data type field is explained below.
     |                  |                        | spikes or fill gaps.   |
     +------------------+------------------------+------------------------+
     | Provisional      | ImagMQTT, IAGA-2002,   | The data type is not   |
-    | (from the        | ImagCDF and ImagMQTT   | defined in the format  |
-    | IAGA-2002        | (as a metadata field). | definition. It is      |
-    | data format      |                        | assumed to contain     |
-    | description)     |                        | data to the same       |
+    | (from the        | ImagCDF and ImagMQTT   | defined in the         |
+    | IAGA-2002        | (as a metadata field). | IAGA-2002 format       |
+    | data format      |                        | definition. It is      |
+    | description)     |                        | assumed to contain     |
+    |                  |                        | data to the same       |
     |                  |                        | definition as the      |
-    |                  |                        | ‘Adjusted’ data type.  |
+    |                  |                        | INTERMAGNET ‘Adjusted’ |
+    |                  |                        | data type.             |
     +------------------+------------------------+------------------------+
     | Quasi-definitive | ImagMQTT, IAGA-2002    | Quasi-definitive data  |
     |                  | ImagCDF, IMFV1.23      | are defined as data    |
@@ -217,10 +221,10 @@ This data type field is explained below.
 
 Where software is used to convert between formats (e.g. at GINs):
 
-- The Reported data type is assumed to be interchangeable with
-  the Variation data type.
-- The Adjusted data type is assumed to be interchangeable with
-  the Provisional data type.
+- The INTERMAGNET Reported data type is assumed to be interchangeable with
+  the IAGA-2002 Variation data type.
+- The INTERMAGNET Adjusted data type is assumed to be interchangeable with
+  the IAGA-2002 Provisional data type.
 
 Full guidance is given on which data types to use when submitting
 preliminary data in :numref:`sub_dat_prel_types`.

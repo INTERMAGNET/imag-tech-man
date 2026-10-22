@@ -166,7 +166,7 @@ See :numref:`use_dat_data_view` for more info on the usage of this Data Viewer.
 Downloading Data Using the WEB Interface
 ````````````````````````````````````````
 
-Reported and adjusted intermagnet data are available for many IMOs in near real-time.
+Adjusted Intermagnet data are available for many IMOs in near real-time.
 The availability of data files is dependent on the
 publishing delay and data embargo policy of participating institutes. If there is no
 publishing delay, data may be available within a few minutes or even seconds

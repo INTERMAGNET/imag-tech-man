@@ -36,9 +36,7 @@ INTERMAGNET recognized format (see :numref:`sub_dat_intro_df`) to one of the INT
 Geomagnetic Information Nodes (GIN) by electronic means within
 72 hours of recording. Data are typically transmitted over the
 Internet such that preliminary data can be made available on
-the INTERMAGNET web site. Note that, for the time being, GINs
-also accept reported data from observatories that have
-historically transmitted such data.
+the INTERMAGNET web site.
 
 Within 3-months, observatories may transmit quasi-definitive
 data to one of the INTERMAGNET GINs provided these data meet

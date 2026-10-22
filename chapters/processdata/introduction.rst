@@ -4,7 +4,7 @@ Introduction
 ============
 
 Quality control methods should be employed in the production of
-reported, adjusted and definitive data. Total field intensity
+adjusted and definitive data. Total field intensity
 values that are recorded using a proton precession magnetometer
 are an excellent tool for monitoring the measurement process
 that produces component values. The total field values may also

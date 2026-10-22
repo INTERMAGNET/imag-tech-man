@@ -51,10 +51,10 @@ must be in lower case.
 
 ### Examples ###
 
-The topic for Eskdalemuir observatory's 1-minute "reported" HDZ data (straight from the observatory with no processing)
+The topic for Eskdalemuir observatory's 1-minute "adjusted" HDZ data (straight from the observatory with no processing)
 would be::
 
-    impf/esk/pt1m/1/hdzs
+    impf/esk/pt1m/2/hdzs
 
 The topic for Lerwick observatory's 1-second quasi-definitive XYZS data would be either of the following::
 

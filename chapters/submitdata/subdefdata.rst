@@ -187,7 +187,7 @@ data set is a very difficult task.
 The method of inspection is left to each individual institute. 
 However software tools are available which can help in the preparation 
 and checking of data (see :numref:`sub_dat_def_data_soft` for details). 
-The application check1min.exe, the imagcdview software and MagPy contain methods 
+The application check1min.exe, the imcdview software and MagPy contain methods 
 for data inspection and are available on the INTERMAGNET web site: |imag_software|.
 
 Before putting INTERMAGNET files on the Paris GIN ftp server,
@@ -277,8 +277,8 @@ so that such a report is automatically generated when uploading
 data. Nevertheless, up to now IMO are requested to add this 
 report to their submissions.
 
-IMAGCDVIEW 
-``````````
+IMCDVIEW 
+````````
 
 When an observatory wants to use imcdview to check data before submission,
 it is necessary to create a directory structure on disk similar 

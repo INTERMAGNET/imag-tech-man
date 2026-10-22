@@ -12,24 +12,17 @@ recordings at a minimum rate of one minute. One minute magnetic
 field values should be measured using a vector magnetometer
 and, optionally, a scalar magnetometer. Vector measurements
 performed by a continually recording magnetometer are typically
-variation measurements and variation data, transmitted as
-reported data, can be accepted by INTERMAGNET GINs from
-existing member observatories. However, it has been considered
-best practice since Technical Manual V4.0 (1999) that
-variometer data are corrected to near absolute values using the
-best available baseline estimates at the time of transmission.
-Observatories making new applications for INTERMAGNET
-membership will be required to transmit data with best
-available baseline estimates applied.
+variation measurements. The variometer data must be corrected
+to near absolute values using the
+best available baseline estimates at the time of transmission
+before they can be accepted by INTERMAGNET GINs.
 
 IMOs are required to transmit preliminary data in an
 INTERMAGNET recognized format (see :numref:`sub_dat_intro_df`) to one of the INTERMAGNET
 Geomagnetic Information Nodes (GIN) by electronic means within
 72 hours of recording. Data are typically transmitted over the
 Internet or through satellite such that preliminary data can be
-made available on the INTERMAGNET web site. Note that, for the
-time being, GINs also accept reported data from observatories
-that have historically transmitted such data.
+made available on the INTERMAGNET web site.
 
 Within 3-months, observatories may transmit quasi-definitive
 data to one of the INTERMAGNET GINs provided these data meet

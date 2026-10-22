@@ -552,7 +552,7 @@ time to go when transferring data to the web site, since
 transferring the entire data set would be a time consuming
 operation. There may be different rules for transferring the
 different data types. For example a GIN may transfer
-Quasi-Definitive data less frequently than Adjusted or Reported
+Quasi-Definitive data less frequently than Adjusted
 data, but over a longer time span, since Quasi-Definitive data
 is not required to be delivered within 72 hours. If there are
 problems with the transfer of data from your observatory to the
