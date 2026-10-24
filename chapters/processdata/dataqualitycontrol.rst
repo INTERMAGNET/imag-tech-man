@@ -190,7 +190,7 @@ distance and/or direction they are with respect to the two
 magnetometers. Therefore, spikes and disturbances can best be recognized by looking at
 the difference between these two magnetometers, as this will eliminate 
 the natural geomagnetic field variations that are identical at both magnetometers, 
-but not the signal from moving moving magnetic objects. For two scalar magnetometers, 
+but not the signal from moving magnetic objects. For two scalar magnetometers,
 calculating the total field difference is simple.  For a vector and a scalar magnetometer,
 the total field difference between the two magnetometers can be calculated 
 (see :numref:`proc_dat_tot_f_dif` computation of total field differences)

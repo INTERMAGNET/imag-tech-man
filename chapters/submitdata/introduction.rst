@@ -77,56 +77,56 @@ partially superseded) an older one.
     :widths: auto
     :align: center
 
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | Data format         | Type of data        | Notes                                         | Reference         |
-    |                     | supported           |                                               |                   |
-    +=====================+=====================+===============================================+===================+
-    | ImagMQTT            | Minute or second    | The preferred format for submission of        | |app_imag_mqtt|   |
-    |                     | values              | preliminary data, using MQTT.                 |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | IAGA-2002           | Any regular time-   | An alternative format for submission of       | |app_iaga_2002|   |
-    |                     | series geomagnetic  | preliminary data using a web service          |                   |
-    |                     | data                | (MQTT is preferred).                          |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | INTERMAGNET Archive | Definitive and      | The required format for submission of         | |app_iaf|         |
-    | Format              | quasi-definitive    | all cadences of definitive data except        |                   |
-    |                     | minute, hourly,     | 1-second. Primarily used in the annual        | NOTE:             |
-    |                     | daily values and    | INTERMAGNET Reference Data Set (IRDS).        | Several versions  |
-    |                     | K-indices           | Although this format is able to hold          | of the format     |
-    |                     |                     | quasi-definitive data,  QD data is most       | are described.    |
-    |                     |                     | commonly submitted to Intermagnet in          | When submitting   |
-    |                     |                     | IAGA-2002 format.                             | data              |
-    |                     |                     |                                               | observatories     |
-    |                     |                     | INTERMAGNET has published data in this format | should use        |
-    |                     |                     | since 1991.                                   | version 2.11.     |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | IYF INTERMAGNET     | Annual mean values  | Primarily used for submission of definitive   | |app_iyf|         |
-    | Year-Mean File      |                     | annual mean data to the IRDS.                 |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | IBF INTERMAGNET     | Measured and        | Primarily used for submission of baseline     | |app_imag_ibf|    |
-    | Baseline File       | adopted baseline    | observation data to the IRDS.                 |                   |
-    |                     | values              |                                               |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | ImagCDF             | High precision      | A required format for submission of 1-second  | |app_cdf|         |
-    |                     | 1-second data       | definitive data.                              |                   |
-    |                     |                     |                                               |                   |
-    |                     |                     | Unlike IAGA-2002, this format has sufficient  |                   |
-    |                     |                     | resolution for data that conforms to the      |                   |
-    |                     |                     | INTERMAGNET one second data standard          |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | IMFV1.23 GIN        | Minute mean values  | GINs continue to support this format, but     | |app_imag_imfv_1| |
-    | Dissemination       |                     | INTERMAGNET no longer recommends it.          |                   |
-    | Format              |                     |                                               |                   |
-    |                     |                     | Observatories are encouraged to use           |                   |
-    |                     |                     | the IAGA-2002 format instead.                 |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
-    | IMFV2.83 Satellite  | Minute mean values  | A format designed to transport compressed     | |app_imag_imfv_2| |
-    | Transmission Format |                     | data via GOES and METEOSAT satellites.        |                   |
-    |                     |                     |                                               |                   |
-    |                     |                     | Satellite transmission is no longer widely    |                   |
-    |                     |                     | used in Intermagnet. Details of this format   |                   |
-    |                     |                     | are kept for historical purposes.             |                   |
-    +---------------------+---------------------+-----------------------------------------------+-------------------+
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | Data format             | Type of data        | Notes                                         | Reference         |
+    |                         | supported           |                                               |                   |
+    +=========================+=====================+===============================================+===================+
+    | ImagMQTT                | Minute or second    | The preferred format for submission of        | |app_imag_mqtt|   |
+    |                         | values              | preliminary data, using MQTT.                 |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | IAGA-2002               | Any regular time-   | An alternative format for submission of       | |app_iaga_2002|   |
+    |                         | series geomagnetic  | preliminary data using a web service          |                   |
+    |                         | data                | (MQTT is preferred).                          |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | IAF INTERMAGNET Archive | Definitive and      | The required format for submission of         | |app_iaf|         |
+    | Format                  | quasi-definitive    | all cadences of definitive data except        |                   |
+    |                         | minute, hourly,     | 1-second. Primarily used in the annual        | NOTE:             |
+    |                         | daily values and    | INTERMAGNET Reference Data Set (IRDS).        | Several versions  |
+    |                         | K-indices           | Although this format is able to hold          | of the format     |
+    |                         |                     | quasi-definitive data,  QD data is most       | are described.    |
+    |                         |                     | commonly submitted to INTERMAGNET in          | When submitting   |
+    |                         |                     | IAGA-2002 format.                             | data              |
+    |                         |                     |                                               | observatories     |
+    |                         |                     | INTERMAGNET has published data in this format | should use        |
+    |                         |                     | since 1991.                                   | version 2.11.     |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | IYF INTERMAGNET         | Annual mean values  | Primarily used for submission of definitive   | |app_iyf|         |
+    | Year-Mean File          |                     | annual mean data to the IRDS.                 |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | IBF INTERMAGNET         | Measured and        | Primarily used for submission of baseline     | |app_imag_ibf|    |
+    | Baseline File           | adopted baseline    | observation data to the IRDS.                 |                   |
+    |                         | values              |                                               |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | ImagCDF                 | High precision      | A required format for submission of 1-second  | |app_cdf|         |
+    |                         | 1-second data       | definitive data.                              |                   |
+    |                         |                     |                                               |                   |
+    |                         |                     | Unlike IAGA-2002, this format has sufficient  |                   |
+    |                         |                     | resolution for data that conforms to the      |                   |
+    |                         |                     | INTERMAGNET one second data standard          |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | IMFV1.23 GIN            | Minute mean values  | GINs continue to support this format, but     | |app_imag_imfv_1| |
+    | Dissemination           |                     | INTERMAGNET no longer recommends it.          |                   |
+    | Format                  |                     |                                               |                   |
+    |                         |                     | Observatories are encouraged to use           |                   |
+    |                         |                     | the IAGA-2002 format instead.                 |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
+    | IMFV2.83 Satellite      | Minute mean values  | A format designed to transport compressed     | |app_imag_imfv_2| |
+    | Transmission Format     |                     | data via GOES and METEOSAT satellites.        |                   |
+    |                         |                     |                                               |                   |
+    |                         |                     | Satellite transmission is no longer widely    |                   |
+    |                         |                     | used in INTERMAGNET. Details of this format   |                   |
+    |                         |                     | are kept for historical purposes.             |                   |
+    +-------------------------+---------------------+-----------------------------------------------+-------------------+
 
 
 .. _sub_dat_intro_dt:
@@ -231,7 +231,7 @@ preliminary data in :numref:`sub_dat_prel_types`.
 
 The use of data types to describe more than the state of data
 in the publication process is prone to error. In particular,
-the standard that data meets should not be infered from its
+the standard that data meets should not be inferred from its
 data type. INTERMAGNET is
 moving to a system of describing the standard that a data set
 meets and including this description alongside the data to

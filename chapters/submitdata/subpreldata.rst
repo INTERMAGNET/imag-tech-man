@@ -74,7 +74,7 @@ observatory can flag that this data was not uploaded and
 attempt to upload it again (along with any new data) on a
 subsequent upload.
 
-Altentively, there are ways that observatories can combine the
+Alternatively, there are ways that observatories can combine the
 different transmission methods that INTERMAGNET offers to
 achieve reliable throughput of data in near real-time:
 
@@ -129,10 +129,10 @@ Submission via MQTT
 -------------------
 
 For the best real-time performance (and least delay) data should be submitted to
-Intermagnet using MQTT (Message Queuing Telemetry Transport). 
+INTERMAGNET using MQTT (Message Queuing Telemetry Transport).
 With MQTT there is a very small delay (typically a 
 few seconds) between an observatory submitting data and the data becoming
-available on the Intermagnet data portal. Delays in data are then mainly due
+available on the INTERMAGNET data portal. Delays in data are then mainly due
 to the frequency at which observatories transmit data. Observatories are 
 encouraged to transmit data as soon as it is recorded and any steps needed to
 achieve adjusted (or quasi-definitive) quality have been completed. Real-time
@@ -141,10 +141,10 @@ transmission is more easily accomplished with MQTT than other methods of data tr
 MQTT is a messaging protocol that enables 
 communication between devices in the Internet of Things. Messages are sent 
 using software that conforms to the MQTT protocol. The software is
-responsible for delivering observatory data to Intermagnet. One of the central
+responsible for delivering observatory data to INTERMAGNET. One of the central
 concepts in MQTT is that of the "broker". A broker receives messages from "publishers"
 and makes them available to "subscribers". An observatory will publish data to a broker
-that Intermagnet manages. Intermagnet GINs will subscribe to the broker in order to receive
+that INTERMAGNET manages. INTERMAGNET GINs will subscribe to the broker in order to receive
 the messages observatories send.
 
 There are a number of suppliers of MQTT software, both commercial and free. Most popular 
@@ -156,7 +156,7 @@ free software. Binary packages are available for Windows, Linux and Mac.
 Eclipse Mosquitto also includes a library that can publish and subscribe messages from
 programs written in the C language. For Python and Java programmers, the Paho project 
 (|eclipse_paho|) offers a library that can be easily added to your programs (and
-Paho also includes a C library, with other langauge interfaces being developed). 
+Paho also includes a C library, with other language interfaces being developed).
 
 MQTT at the GINs
 ````````````````
@@ -168,8 +168,8 @@ MQTT at the Edinburgh GIN
 
 Public MQTT brokers run at the Edinburgh GIN at the following Internet addresses:
 
-- gin-mqtt.bgs.ac.uk - main Intermagnet/BGS MQTT service
-- gin-mqtt-staging.bgs.ac.uk - development Intermagnet/BGS MQTT service
+- gin-mqtt.bgs.ac.uk - main INTERMAGNET/BGS MQTT service
+- gin-mqtt-staging.bgs.ac.uk - development INTERMAGNET/BGS MQTT service
 
 Access to MQTT uses TLS, to ensure that all traffic is securely encrypted. 
 Connections to these services are received on the default MQTT TLS port, 8883.
@@ -190,13 +190,13 @@ will be provided once it is ready for operational use.
 Submitting data using MQTT
 ``````````````````````````
 
-MQTT data is transmitted to Intermagnet by connecting to an Intermagnet 
+MQTT data is transmitted to INTERMAGNET by connecting to an INTERMAGNET
 MQTT broker and "publishing" data messages. Before starting, please contact
 the manager of the GIN that you will use in order to get a username and
 password to access the MQTT broker (see :ref:`sub_dat_prel_mqtt_auth`).
 MQTT messages have a topic and a payload. Topics are used to identify
 and group messages. Payloads contain the message data. To send data to
-Intermagnet topics and payloads must conform to the Intermagnet MQTT topic 
+INTERMAGNET topics and payloads must conform to the INTERMAGNET MQTT topic
 and payload format descriptions that are described in |app_imag_mqtt|.
 
 Software is needed to send MQTT messages. One simple approach is to use
@@ -253,16 +253,15 @@ subscribe to their MQTT brokers with a `persistent session`_ .
 Importance of the MQTT Client ID
 """"""""""""""""""""""""""""""""
 
-In MQTT, publication and subscription is associated with the subscriber's and publisher's client ID,
-not the username. A client ID may be connected to an MQTT broker only once at at time. If duplicate
+In MQTT, publication and subscription are associated with the subscriber's and publisher's client ID,
+not the username. A client ID may only have a single connection to the same MQTT broker at one time. If duplicate
 client IDs attempt to connect to a broker at the same time, the broker will disconnect the earlier 
-connection. For these reasons it is important that client IDs are selected so that there can never 
-be any duplicate IDs.
+connection. For these reasons it is important that client IDs are unique.
 
 The MQTT broker allows the username (used in authenticating with the broker) to be used as the
 client ID. The only way to enforce unique client IDs is to allocate unique usernames to each
 client (ie each observatory) and force clients to use the username as their client ID. This is
-the approach used by the Intermagnet MQTT service.
+the approach used by the INTERMAGNET MQTT service.
 
 
 .. _sub_dat_prel_mqtt_auth:
@@ -271,7 +270,7 @@ MQTT Authentication and authorization
 """""""""""""""""""""""""""""""""""""
 
 Each observatory wishing to send data will be assigned connection details that will be 
-needed to publish data on the Intermagnet MQTT service:
+needed to publish data on the INTERMAGNET MQTT service:
 
 - A publication username. The username will be unique to the observatory and should not be shared.
   This username is used for publishing data.
@@ -291,7 +290,7 @@ assigned for publication must be used only for publishing. A second username and
 allows subscription at the same time as publication.
 
 From a client perspective it isn’t easy to know if MQTT access control is being applied, and so
-to tell whether data has succesfully been received, since access control restrictions 
+to tell whether data has successfully been received, since access control restrictions
 aren’t notified to the client (at least in MQTT v3.1.1). The way around this for a client wanting to
 verify successful publication of data is to subscribe to the topic being used for publication and check whether 
 any published messages are received through the subscription.
@@ -299,7 +298,7 @@ any published messages are received through the subscription.
 Secure MQTT transport
 """""""""""""""""""""
 
-Only secure (TLS) connections will be accepted by the Intermagnet MQTT service. Open
+Only secure (TLS) connections will be accepted by the INTERMAGNET MQTT service. Open
 (unencrypted) connections expose the authentication and authorization credentials used
 to connect to the service, thereby risking use of data by unauthorized parties,
 and so will not be accepted. The default port (8883) is used for MQTT over TLS.
@@ -573,7 +572,7 @@ email can be sent from the GIN to the observatory contact at
 the start of each day describing the amount of data sent the
 previous day (or a longer time back if the observatory is not
 sending in near real-time). This allows the observatory to fill
-in any gaps dues to transmission problems. For more information
+in any gaps due to transmission problems. For more information
 and to set up a handshake, contact the Edinburgh GIN manager.
 
 GINs send statistics describing the amount of data received

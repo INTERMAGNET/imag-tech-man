@@ -10,6 +10,7 @@
 .. |app_imag_mqtt_topic| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_topic>`
 .. |app_imag_mqtt_payload| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_payload>`
 .. |app_imag_mqtt_example| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_example>`
+.. |app_imag_mqtt_json_schema| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_json_schema>`
 .. |app_iaga_2002| replace:: :ref:`APPENDIX E2 <app_iaga_2002>`
 .. |app_imag_ibf| replace:: :ref:`APPENDIX E3 <app_imag_ibf>`
 .. |app_cdf| replace:: :ref:`APPENDIX E4 <app_cdf>`

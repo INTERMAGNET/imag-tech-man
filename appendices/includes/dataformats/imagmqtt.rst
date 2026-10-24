@@ -1,6 +1,6 @@
 .. _app_imag_mqtt:
 
-Intermagnet MQTT format
+INTERMAGNET MQTT format
 -----------------------
 
 This section describes how to format topics and payloads when
@@ -9,20 +9,20 @@ sending data over MQTT.
 
 .. _app_imag_mqtt_topic:
 
-Intermagnet MQTT topics
+INTERMAGNET MQTT topics
 ```````````````````````
 
 Topics in MQTT are strings used to identify and route messages. Topics allow
 publishers to identify messages and subscribers to choose which types of message
-to receive. Topics for the Intermagnet MQTT service have been designed to allow
+to receive. Topics for the INTERMAGNET MQTT service have been designed to allow
 the contents of the message to be easily identified. Observatories publishing data 
-through the Intermagnet MQTT service must use the topic::
+through the INTERMAGNET MQTT service must use the topic::
 
     impf/<iaga-code>/<cadence>/<publication-level>/<elements-recorded>
 
 Where:
 
-- "impf" stands for Intermagnet MQTT Payload Format and is included in the topic
+- "impf" stands for INTERMAGNET MQTT Payload Format and is included in the topic
   to allow alternative topic and payload formats to be used on the same MQTT
   brokers in the future.
 - "iaga-code" is the IAGA registered code of the observatory sending data.
@@ -42,14 +42,15 @@ Where:
 - "elements-recorded" lists the geomagnetic elements that will be in the message. All 4 elements must
   be specified, even if the payload includes fewer elements. "elements-recorded" must be one of:
 
-  - "XYZS" - XYZ vector orientation with an independent Scalar F
-  - "HDZS" - HDZ vector orientation with an independent Scalar F
-  - "DIFS" - DIF vector orientation with an independent Scalar F
+  - "xyzs" - XYZ vector orientation with an independent Scalar F
+  - "hdzs" - HDZ vector orientation with an independent Scalar F
+  - "difs" - DIF vector orientation with an independent Scalar F
 
 Note that topics are case-sensitive. All topic values for the Intermagnet MQTT service
 must be in lower case.
 
-### Examples ###
+Examples
+--------
 
 The topic for Eskdalemuir observatory's 1-minute "adjusted" HDZ data (straight from the observatory with no processing)
 would be::
@@ -64,10 +65,10 @@ The topic for Lerwick observatory's 1-second quasi-definitive XYZS data would be
 
 .. _app_imag_mqtt_payload:
 
-Intermagnet MQTT payload format
+INTERMAGNET MQTT payload format
 ```````````````````````````````
 
-Intermagnet MQTT messages are formatted in JSON. A [JSON schema](ImagMQTTSchema.json)
+INTERMAGNET MQTT messages are formatted in JSON. A |app_imag_mqtt_json_schema|
 describes the valid contents of an MQTT message. Messages must consist
 of JSON documents conforming to the schema and no other content.
 
@@ -109,18 +110,16 @@ to indicate a missing sample. Valid arrays are:
 
 Only arrays corresponding with the "elements-recorded" in the message topic may be used.
 
-The optional extra metadata may be completely missing, or any part of parts may be included.
-The purpose of this metadata is to allow the data provider to supply metadata values that the Intermagnet
-data portal will use when creating IMF, IAGA-2002 and ImagCDF data files for users. The data portal
+The optional extra metadata may be omitted or any part (or parts) may be included.
+This can be used to provide the metadata  that the INTERMAGNET
+data portal will use when creating IMF, IAGA-2002 and ImagCDF data files. The data portal
 stores a metadata file for each day and publication level of data. Thus it is only necessary
-for a data provider to send one message per day / publication level, containing the optional metadata that
-they require to be distributed with their data. Subsequent messages for the same day / publication level
-do not require any optional metadata. If data provider's follow this advice, it is best
-to provide the optional metadata along with the first data of the day, to ensure that data and
-metadata are always consistent.
-
+for a data provider to send one message per day per publication level, containing the optional metadata.
+Subsequent messages for the same day and publication level
+do not require any optional metadata. The recommendation is to provide the optional metadata along
+with the first data of the day, to ensure that data and metadata are always consistent.
 If the optional metadata is not supplied, default values will be used by the portal (from static
-metadata that the Edinburgh GIN holds)).
+metadata that the Edinburgh GIN holds).
 
 The following optional metadata fields are available - the names in brackets after each of the
 fields describes which data distribution format(s) the metadata field is used in:
@@ -151,7 +150,7 @@ For details of each of these fields, see the [JSON schema](ImagMQTTSchema.json).
 
 Data sets created for this schema can be checked at the JSON Schema verifier:
 |json_verifier|. Reference material for JSON Schema is here:|json_reference| .
-The Schema for Intermagnet MQTT JSON is [here](ImagMQTTSchema.json).
+The Schema for INTERMAGNET MQTT JSON is [here](ImagMQTTSchema.json).
 
 
 .. _app_imag_mqtt_example:
@@ -159,8 +158,8 @@ The Schema for Intermagnet MQTT JSON is [here](ImagMQTTSchema.json).
 Example IMPF data
 `````````````````
 
-The first example is a minimum viable data file for 1-minute data. Three  
-3-component samples are presented along with mandatory metadata::
+The first example shows 3 minutes of vector data with minimal viable metadata for 1-minute data. Three-component
+samples are presented along with mandatory metadata::
 
     {
         "startDate": "2023-01-01T00:00",
@@ -172,7 +171,7 @@ The first example is a minimum viable data file for 1-minute data. Three
 
 An expanded example shows how to add "comment" metadata, to set the "comments" 
 section that will be included with the data when it is distributed from the
-Intermagnet web site in IAGA-2002 format. This example also 
+INTERMAGNET web site in IAGA-2002 format. This example also
 shows how the startDate should be modified for 1-second data::
 
     {
@@ -187,6 +186,10 @@ shows how the startDate should be modified for 1-second data::
                       "at www.intermagnet.org" ],
         "geomagneticFieldS": [ 49000.00, 49000.21, 49000.34 ]
     }
+
+
+
+.. _app_imag_mqtt_json_schema:
 
 JSON Schema
 ```````````
