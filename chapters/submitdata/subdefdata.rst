@@ -85,12 +85,6 @@ The following files should be put on the Paris ftp server:
     +------------+--------------------------------------------------------------+--------------------------------------+
     | 1 [#a]_    | "Readme" file describing the institute/country               | ASCII/Unicode text file              |
     +------------+--------------------------------------------------------------+--------------------------------------+
-    | 1 [#a]_    | "About" image describing the institute/country               | PNG image file                       |
-    |            | (the country's "About" screen)                               |                                      |
-    +------------+--------------------------------------------------------------+--------------------------------------+
-    | 1 [#a]_    | Map image showing a map of the institute's/country's         | PNG image file                       |
-    |            | observatories.                                               |                                      |
-    +------------+--------------------------------------------------------------+--------------------------------------+
     | 12 [#b]_   | Definitive one second data (if one second data is            | INTERMAGNET CDF Format -             |
     |            | being contributed for the observatory), 1 per month          | see |app_cdf|                        |
     +------------+--------------------------------------------------------------+--------------------------------------+
@@ -275,8 +269,6 @@ data structure includes the following folders and files:
 #. ``DDD\magYYYY\SSS\yearmean.SSS`` (1 annual means file)
 #. ``DDD\magYYYY\SSS\readme.SSS`` (1 readme file for the observatory)
 #. ``DDD\magYYYY\ctry_inf\readme.CCC`` (1 readme-file for each country)
-#. ``DDD\magYYYY\ctry_inf\CCCsrn.png`` (1 about-screen image for each country)
-#. ``DDD\magYYYY\YYYYmaps\CCC.png`` (1 map image for each country)
 #. ``DDD\magYYYY\SSS\SSS_YYYYMM_pt1s_4.cdf`` (12 binary files in ImagCDF format,
    if one second data is being contributed for the observatory)
 
