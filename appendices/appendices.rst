@@ -20,8 +20,6 @@
 .. |app_imag_imfv_2| replace:: :ref:`APPENDIX G2  <app_imag_imfv_2>`
 .. |app_sat_cod| replace:: :ref:`APPENDIX G3 <app_sat_cod>`
 
-# only for internal use in appendices
-
 .. |app_imag_mqtt_topic| replace:: :ref:`MQTT Topic <app_imag_mqtt_topic>`
 .. |app_imag_mqtt_payload| replace:: :ref:`MQTT payload <app_imag_mqtt_payload>`
 .. |app_imag_mqtt_example| replace:: :ref:`MQTT example <app_imag_mqtt_example>`
