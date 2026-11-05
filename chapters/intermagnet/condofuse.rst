@@ -14,7 +14,7 @@ different licence arrangments.
 - If data are required for commercial use, sale or bulk 
   distribution you must obtain written permission directly  
   from the institute operating the observatory. Check the 
-  INTERMAGNET web site (|intermagnet_website|) for contact
+  INTERMAGNET website (|intermagnet_website|) for contact
   details and any specific institute licence conditions.
 - Any report or publication making use of INTERMAGNET data
   should acknowledge the relevant institutes as the source of 

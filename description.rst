@@ -49,7 +49,7 @@ comments provided by our colleagues.
 
    <div class="leftside">
 
-* | **INTERMAGNET web site**
+* | **INTERMAGNET website**
   |
   | |intermagnet_website|
   |

@@ -1,7 +1,10 @@
 .. _app_imag_mqtt:
 
+
+
 INTERMAGNET MQTT format
 -----------------------
+.. include:: ../appendices/appendices.rst
 
 This section describes how to format topics and payloads when
 sending data over MQTT.
@@ -16,7 +19,9 @@ Topics in MQTT are strings used to identify and route messages. Topics allow
 publishers to identify messages and subscribers to choose which types of message
 to receive. Topics for the INTERMAGNET MQTT service have been designed to allow
 the contents of the message to be easily identified. Observatories publishing data 
-through the INTERMAGNET MQTT service must use the topic::
+through the INTERMAGNET MQTT service must use the topic
+
+::
 
     impf/<iaga-code>/<cadence>/<publication-level>/<elements-recorded>
 
@@ -46,18 +51,23 @@ Where:
   - "hdzs" - HDZ vector orientation with an independent Scalar F
   - "difs" - DIF vector orientation with an independent Scalar F
 
-Note that topics are case-sensitive. All topic values for the Intermagnet MQTT service
+Note that topics are case-sensitive. All topic values for the INTERMAGNET MQTT service
 must be in lower case.
 
 Examples
 --------
 
 The topic for Eskdalemuir observatory's 1-minute "adjusted" HDZ data (straight from the observatory with no processing)
-would be::
+would be
+
+::
 
     impf/esk/pt1m/2/hdzs
 
-The topic for Lerwick observatory's 1-second quasi-definitive XYZS data would be either of the following::
+The topic for Lerwick observatory's 1-second quasi-definitive XYZS data would be either of the following
+
+
+::
 
     impf/ler/pt1s/3/xyzs
     impf/ler/1hz/3/xyzs
@@ -146,11 +156,10 @@ fields describes which data distribution format(s) the metadata field is used in
 - "referenceLinks": (ImagCDF)
 - "comments": (IAGA-2002)
 
-For details of each of these fields, see the [JSON schema](ImagMQTTSchema.json).
+For details of each of these fields, see the |app_imag_mqtt_json_schema|.
 
 Data sets created for this schema can be checked at the JSON Schema verifier:
 |json_verifier|. Reference material for JSON Schema is here:|json_reference| .
-The Schema for INTERMAGNET MQTT JSON is [here](ImagMQTTSchema.json).
 
 
 .. _app_imag_mqtt_example:
@@ -159,7 +168,11 @@ Example IMPF data
 `````````````````
 
 The first example shows 3 minutes of vector data with minimal viable metadata for 1-minute data. Three-component
-samples are presented along with mandatory metadata::
+samples are presented along with mandatory metadata
+
+.. highlight:: none
+
+::
 
     {
         "startDate": "2023-01-01T00:00",
@@ -171,8 +184,10 @@ samples are presented along with mandatory metadata::
 
 An expanded example shows how to add "comment" metadata, to set the "comments" 
 section that will be included with the data when it is distributed from the
-INTERMAGNET web site in IAGA-2002 format. This example also
-shows how the startDate should be modified for 1-second data::
+INTERMAGNET website in IAGA-2002 format. This example also
+shows how the startDate should be modified for 1-second data
+
+::
 
     {
         "startDate": "2023-01-01T00:00:00",
@@ -195,14 +210,16 @@ JSON Schema
 ```````````
 
 The following schema can be used to verify that a JSON document conforms to the
-IMPF specification::
+IMPF specification
+
+::
 
     {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         
         "$id": "https://intermagnet.org/mqtt_exchange.schema.json",
-        "title": "Intermagnet MQTT Exchange Format",
-        "description": "A format for exchanging geomagnetic data in Intermagnet using MQTT",
+        "title": "INTERMAGNET MQTT Exchange Format",
+        "description": "A format for exchanging geomagnetic data in INTERMAGNET using MQTT",
         "type": "object",
     
         "properties": {
@@ -286,7 +303,7 @@ IMPF specification::
             },
             "source": {
                 "type": "string",
-                "enum": [ "Institute", "Intermagnet", "WDC" ],
+                "enum": [ "Institute", "INTERMAGNET", "WDC" ],
                 "description": "Optional: Where the data came from" 
             },
             "termsOfUse": {

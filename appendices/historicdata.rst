@@ -3,7 +3,7 @@
 Historic Data Formats
 =====================
 
-Over time some data formats used in Intermagnet have fallen
+Over time some data formats used in INTERMAGNET have fallen
 out of use or become limited in their application. This
 appendix lists and documents formats that are no longer
 actively used, so that any historic data that is still
@@ -15,7 +15,7 @@ available in these formats can be decoded.
 Data Transmission via Satellite
 -------------------------------
 
-In the early years, Intermagnet used satellites for data transmission
+In the early years, INTERMAGNET used satellites for data transmission
 because computer networks were not available at observatories.
 Typically communication would take place using a data channel on
 a weather satellite which had very limited bandwidth (e.g. Meteosat
@@ -23,11 +23,11 @@ which allowed 649 bytes per transmission, 1 transmission per hour).
 This required the use of a compressed data format with low resolution. 
 Since that time Internet access at observatories has become common. 
 Satellite transmission, which was used by many observatories and was 
-received at all Intermagnet GINs, is (in 2026) only used internally at 
+received at all INTERMAGNET GINs, is (in 2026) only used internally at
 the Golden and Ottawa GINs for transport of USGS and NRCan data.
 
 What follows is the description from earlier versions of the
-Intermagnet Technical Manual of preparing data for transmission
+INTERMAGNET Technical Manual of preparing data for transmission
 via satellite.
 
 In preparation for transmitting data to one of several possible
@@ -67,7 +67,7 @@ satellite any data input to it during the previous 60 minutes.
 From the satellite, the data are relayed to the EUMETSAT
 operations center at Darmstadt, Germany, where they are checked
 and temporarily stored. The GIN automatically collects the data
-from the EUMETSAT web site. For more information please contact
+from the EUMETSAT website. For more information please contact
 the Paris GIN manager.
 
 GOES
@@ -78,7 +78,7 @@ satellites output their data every 12 minutes to the satellite;
 there is no secondary retransmission stage, as is the case with
 METEOSAT. In the GOES system, the data are transmitted directly
 to a receiving GIN where they are transferred to the
-INTERMAGNET web site. This form of communication is simpler,
+INTERMAGNET website. This form of communication is simpler,
 but the GOES link does require a much larger receiving antenna
 as signals transmitted directly from a geostationary satellite
 are at a very much lower power than those relayed using the

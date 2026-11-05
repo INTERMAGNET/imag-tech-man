@@ -36,7 +36,7 @@ INTERMAGNET recognized format (see :numref:`sub_dat_intro_df`) to one of the INT
 Geomagnetic Information Nodes (GIN) by electronic means within
 72 hours of recording. Data are typically transmitted over the
 Internet such that preliminary data can be made available on
-the INTERMAGNET web site.
+the INTERMAGNET website.
 
 Within 3-months, observatories may transmit quasi-definitive
 data to one of the INTERMAGNET GINs provided these data meet
@@ -52,7 +52,7 @@ one-second data archive, one-second data are to be prepared
 using final baselines and submitted as definitive data for
 inclusion in the INTERMAGNET archive. The deadline for
 submission will be communicated by INTERMAGNET. Definitive data
-archives are made available on the INTERMAGNET web site. For
+archives are made available on the INTERMAGNET website. For
 definitive data processing, it is recommended that the same
 variometer baselines computed for the one minute be used for
 the one second, if the same variometer is producing both data
@@ -68,7 +68,7 @@ Observatories Subcommittee chair.
 
 .. [#]  C. Turbitt, J. Matzka, J. Rasson, B. St-Louis, D. Stewart,
         2013. An Instrument Performance and Data Quality Standard for
-        Intermagnet One-Second Data Exchange, Proceedings of the XVth
+        INTERMAGNET One-Second Data Exchange, Proceedings of the XVth
         Iaga Workshop on Geomagnetic Observatory Instruments, Data
         Acquisition and Processing, Extended Abstract Volume. Real
         Instituto y Observatorio de la Armada en San Fernando, Boletín

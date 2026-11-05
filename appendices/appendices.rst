@@ -7,10 +7,7 @@
 .. |app_imag_addr_ginman| replace:: :ref:`APPENDIX D <app_imag_addr_ginman>`
 
 .. |app_imag_mqtt| replace:: :ref:`APPENDIX E1 <app_imag_mqtt>`
-.. |app_imag_mqtt_topic| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_topic>`
-.. |app_imag_mqtt_payload| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_payload>`
-.. |app_imag_mqtt_example| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_example>`
-.. |app_imag_mqtt_json_schema| replace:: :ref:`APPENDIX E1 <app_imag_mqtt_json_schema>`
+
 .. |app_iaga_2002| replace:: :ref:`APPENDIX E2 <app_iaga_2002>`
 .. |app_imag_ibf| replace:: :ref:`APPENDIX E3 <app_imag_ibf>`
 .. |app_cdf| replace:: :ref:`APPENDIX E4 <app_cdf>`
@@ -22,3 +19,10 @@
 .. |app_sat_trans| replace:: :ref:`APPENDIX G1 <app_sat_trans>`
 .. |app_imag_imfv_2| replace:: :ref:`APPENDIX G2  <app_imag_imfv_2>`
 .. |app_sat_cod| replace:: :ref:`APPENDIX G3 <app_sat_cod>`
+
+# only for internal use in appendices
+
+.. |app_imag_mqtt_topic| replace:: :ref:`MQTT Topic <app_imag_mqtt_topic>`
+.. |app_imag_mqtt_payload| replace:: :ref:`MQTT payload <app_imag_mqtt_payload>`
+.. |app_imag_mqtt_example| replace:: :ref:`MQTT example <app_imag_mqtt_example>`
+.. |app_imag_mqtt_json_schema| replace:: :ref:`JSON schema <app_imag_mqtt_json_schema>`

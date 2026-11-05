@@ -1,6 +1,6 @@
 .. _use_dat_physical_media:
 
-Intermagnet Physical Media
+INTERMAGNET Physical Media
 ==========================
 
 .. include:: ../../shared/variables.rst
@@ -42,7 +42,7 @@ but with some changes to how the data is published:
   online under a Digital Object Identifier (DOI).
 - The final publication on physical media was a USB stick
   for the year 2015.
-- The Intermagnet Reference Data Set (IRDS) was introduced
+- The INTERMAGNET Reference Data Set (IRDS) was introduced
   for data from 2015 onwards. Previous publications only
   included data from the year of publication plus any
   corrections to data from previous years. The IRDS includes

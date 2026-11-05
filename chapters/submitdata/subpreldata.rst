@@ -57,7 +57,7 @@ fragments at the GIN. In this way
 observatories can send multiple short data files that contain
 only the data from the end of the previous transmission up to
 what has been most recently recorded. This allows an
-observatory to update the INTERMAGNET web site in near
+observatory to update the INTERMAGNET website in near
 real-time for the current day as the day progresses.
 
 GINs will overwrite data if they receive data that has
@@ -437,7 +437,7 @@ are available here:
 
     |gin_edin_up_help|
 
-Note that this web site is password protected – for access
+Note that this website is password protected – for access
 apply to the GIN manager.
 
 For more detailed information see INTERMAGNET Technical Note 9: |tn_9|.
@@ -520,7 +520,7 @@ GIN Email Addresses
 Satellite Transmission
 ----------------------
 
-Satellite transmission is no longer widely used in Intermagnet.
+Satellite transmission is no longer widely used in INTERMAGNET.
 Details of satellite transmission have been retained for
 historic purposes and can be found in |app_sat_trans| along
 with the data format in |app_imag_imfv_2| and some coding examples 
@@ -529,21 +529,21 @@ in |app_sat_cod|.
 
 .. _sub_dat_prel_transfer:
 
-Transferring Data from GINs to WEB Site
----------------------------------------
+Transferring Data from GINs to Website
+--------------------------------------
 
 GINs receive preliminary data from observatories. They forward 
-this to the INTERMAGNET web site. Data is transmitted between the
+this to the INTERMAGNET website. Data is transmitted between the
 GINs using a variety of technologies (Seedlink, MQTT and Rsync), some
 of which may introduce a delay (e.g. Rsync transfers are typically
-made every 5 minutes). The GINs and the Intermagnet web site
+made every 5 minutes). The GINs and the INTERMAGNET website
 take care of any format conversions needed so that data is
-available to web site users in a number standard formats
+available to website users in a number standard formats
 such as IAGA-2002 as well as being served through web
 services.
 
 Different GINs have different practices over how far back in
-time to go when transferring data to the web site, since
+time to go when transferring data to the website, since
 transferring the entire data set would be a time consuming
 operation. There may be different rules for transferring the
 different data types. For example a GIN may transfer
@@ -551,7 +551,7 @@ Quasi-Definitive data less frequently than Adjusted
 data, but over a longer time span, since Quasi-Definitive data
 is not required to be delivered within 72 hours. If there are
 problems with the transfer of data from your observatory to the
-INTERMAGNET web site, contact your GIN manager.
+INTERMAGNET website, contact your GIN manager.
 
 
 .. _sub_dat_prel_check:
@@ -560,9 +560,9 @@ How to Check if Your Data Has Been Received
 -------------------------------------------
 
 One simple method to check whether your data has been received
-is to look for the data at the INTERMAGNET web site. The delay
+is to look for the data at the INTERMAGNET website. The delay
 time from receipt of data at the GIN to data becoming available
-at the web site can be as much as 10 minutes, so you need to
+at the website can be as much as 10 minutes, so you need to
 allow time for the data to arrive. If your data does not
 arrive, contact the manager of the GIN you have sent data to
 and they will investigate where the problem lies.
@@ -583,14 +583,14 @@ to which they refer (72 hours after the end of the month, all
 data should have been received). They contain summary
 information on the completeness of the previous month’s data.
 
-The INTERMAGNET web site keeps data that describes, on a
+The INTERMAGNET website keeps data that describes, on a
 minute by minute basis, the difference between the current time
 and the time stamp of the most recently received data from each
 observatory – the observatory’s data latency or "lag time". These files are
 useful for analysing an observatory’s near real-time
-performance. The INTERMAGNET web site also holds monthly
+performance. The INTERMAGNET website also holds monthly
 lists of data received from observatories. These files are 
-available from the "statistics" section of the web site.
+available from the "statistics" section of the website.
 
 .. _sub_dat_prel_probs:
 

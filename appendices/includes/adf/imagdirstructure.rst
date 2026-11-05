@@ -416,7 +416,7 @@ as described in the previous section, i.e. an empty <year>maps directory, an emp
 ctry_inf directory and a directory for each observatory that contributed data. 
 
 After unzipping the archive, data can be accessed using INTERMAGNETs imcdview software 
-available for downloaded from the web site : |imag_software|. Moving all the unzipped mag<year> 
+available for downloaded from the website : |imag_software|. Moving all the unzipped mag<year>
 directories into a single parent directory will allow imcdview to load them as a single
 database, making it quicker to configure access to the data.
 See :numref:`use_dat_data_view` for more info on the usage of this Data Viewer.

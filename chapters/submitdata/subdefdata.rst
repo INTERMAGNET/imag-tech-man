@@ -49,10 +49,10 @@ recorded). If an IMO misses the deadline:
   deadline (specified by the Operations committee) will be
   included in the annual data publication.
 - Definitive data delivered after this publication deadline
-  will be published on the INTERMAGNET web site and in subsequent
+  will be published on the INTERMAGNET website and in subsequent
   data publications.
 - Any corrections to definitive data will also be published on
-  the INTERMAGNET web site and in subsequent data publications.
+  the INTERMAGNET website and in subsequent data publications.
 
 
 How to submit data
@@ -83,15 +83,19 @@ The following files should be put on the Paris ftp server:
     +------------+--------------------------------------------------------------+--------------------------------------+
     | 1          | "Readme" file describing the observatory                     | ASCII/Unicode text file              |
     +------------+--------------------------------------------------------------+--------------------------------------+
-    | 1 [#a]_    | "Readme" file describing the institute/country               | ASCII/Unicode text file              |
+    | 1 [#]_     | "Readme" file describing the institute/country               | ASCII/Unicode text file              |
     +------------+--------------------------------------------------------------+--------------------------------------+
-    | 12 [#b]_   | Definitive one second data (if one second data is            | INTERMAGNET CDF Format -             |
+    | 12 [#]_    | Definitive one second data (if one second data is            | INTERMAGNET CDF Format -             |
     |            | being contributed for the observatory), 1 per month          | see |app_cdf|                        |
     +------------+--------------------------------------------------------------+--------------------------------------+
 
-.. [#a] For each of these items please state whether you want: To use the same file as the previous year, to make changes to the previous year's file (in which case please describe the changes), to use a new file(in which case please put the new file on the server).
+.. [#] For each of these items please state whether you want:
 
-.. [#b] One second data is encouraged, but not required.
+   - To use the same file as the previous year
+   - To make changes to the previous year's file (in which case please describe the changes)
+   - To use a new file(in which case please put the new file on the server).
+
+.. [#] One second data is encouraged, but not required.
 
 Observatories should provide 1-minute definitive data
 in the INTERMAGNET Archive Format (IAF) which is described in
@@ -150,7 +154,7 @@ Submit 1-second data to:
 Once the data have been put on the server, INTERMAGNET then:
 
 -  Reviews the data.
--  Ingests the minute data into the INTERMAGNET Web site.
+-  Ingests the minute data into the INTERMAGNET website.
 -  Copies the data to the World Data Centre Edinburgh
 -  Publishes the data under a DOI. The data is hosted at `GFZ data services`_.
    Entering "INTERMAGNET" in the search box on this page will show all
@@ -172,7 +176,7 @@ The method of inspection is left to each individual institute.
 However software tools are available which can help in the preparation 
 and checking of data. 
 The application check1min.exe, the imcdview software and MagPy contain methods 
-for data inspection and are available on the INTERMAGNET web site: |imag_software|.
+for data inspection and are available on the INTERMAGNET website: |imag_software|.
 
 Before putting INTERMAGNET files on the Paris GIN ftp server,
 institutes must perform the following as a minimum set of
@@ -203,7 +207,7 @@ tests:
 
    .. note::
 
-     Program Kasm.exe, available on the INTERMAGNET web site,
+     Program Kasm.exe, available on the INTERMAGNET website,
      allows users to insert K-index data into IAF binary files.
      The program uses the "Adaptive Smoothing" method to create
      the indices.
@@ -355,10 +359,6 @@ are performed at each step:
    evaluation using the K(FMI) method will be provided.
 
 See `MagPy checking instructions`_ for further details and instructions.
-
-# Other Tools
-
-Checking for discrepancies between elements XYZFIDH...
 
 
 .. _sub_dat_def_data_soft:

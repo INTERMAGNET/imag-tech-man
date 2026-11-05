@@ -552,7 +552,7 @@ the StandardsLevel attribute is set to Partial.
 
 .. [#f2]  INTERMAGNET Technical Note 6
 .. [#f3]  :numref:`1min_imo_descr`
-.. [#f4]  Quasi-definitive definition on the INTERMAGNET web site: |faq_qd|
+.. [#f4]  Quasi-definitive definition on the INTERMAGNET website: |faq_qd|
 
 If a standard is met in full or not met at all, PartialStandDesc can be
 omitted. Where a standard is partially met (e.g. the time stamp accuracy

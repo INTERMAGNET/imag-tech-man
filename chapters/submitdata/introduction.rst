@@ -49,8 +49,8 @@ part of their automatic data acquisition or processing systems.
 Multiple submissions of preliminary data are allowed, where an
 observatory is refining the quality of the data shortly after
 acquisition. The GIN is responsible for forwarding this data to
-the INTERMAGNET web site for onward distribution to users. The
-INTERMAGNET web site is the only place where users have access
+the INTERMAGNET website for onward distribution to users. The
+INTERMAGNET website is the only place where users have access
 to data from INTERMAGNET observatories. 
 
 Observatories are also required to send definitive data to
@@ -246,13 +246,13 @@ Geomagnetic Information Nodes
 INTERMAGNET has a two stage approach to collection and
 dissemination of preliminary data. Observatories send their
 data to one of 5 Geomagnetic Information Nodes (GINs). The GINs
-then forward data to the INTERMAGNET web site for distribution
+then forward data to the INTERMAGNET website for distribution
 to users, where it is made available via web services and a data
-visualisation and download application on the web site. GINs may make
+visualisation and download application on the website. GINs may make
 provision for observatories to access their own data once it
 has been sent to the GIN, but there is no public access to data
 at the GINs – all public access to data is via the INTERMAGNET
-web site. Both GINs and the web site keep a permanent copy of
+website. Both GINs and the website keep a permanent copy of
 all data sent to them – no data is deleted (though it may be
 overwritten if an observatory sends an update).
 
@@ -261,10 +261,10 @@ sent, though it may contact an observatory if problems are
 detected and may also remove spikes for the purposes of
 plotting the data. GINs will send monthly reports of the
 ‘completeness’ of the data received from observatories. The
-INTERMAGNET web site creates daily and monthly reports 
+INTERMAGNET website creates daily and monthly reports
 on the numbers of requests that users have made for data
 from each individual observatory. These reports are available
-for everyone to see in the ‘statistics’ section of the web site. 
+for everyone to see in the ‘statistics’ section of the website.
 The manager at each GIN acts as a point of contact for IMOs to 
 resolve any data transmission and formatting problems.
 

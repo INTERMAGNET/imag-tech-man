@@ -1,18 +1,18 @@
 .. _use_dat_imag_web:
 
-INTERMAGNET WEB Site
-====================
+INTERMAGNET Website
+===================
 .. include:: ../../shared/variables.rst
 .. include:: ../../shared/targets.rst
 .. include:: ../../appendices/appendices.rst
 
 
-The INTERMAGNET web site provides background information about
+The INTERMAGNET website provides background information about
 INTERMAGNET, its structure, and participating
 organizations, countries and IMOs (INTERMAGNET Magnetic
 Observatories).
 
-The web site offers access to various data products:
+The website offers access to various data products:
 
 * The annual definitive data published with a
   Digital Object Identifier (DOI).
@@ -22,11 +22,11 @@ The web site offers access to various data products:
 * The INTERMAGNET application form.
 
 INTERMAGNET moved away from in-house maintained servers towards
-free cloud-based services to deploy the web site.
-The following underlying technologies were selected for the web site :
+free cloud-based services to deploy the website.
+The following underlying technologies were selected for the website :
 
-* a GitHub repository for all software, web site development and discussion forums : |intermagnet_github|
-* The INTERMAGNET web site has been designed using GitHub Pages (|git_hub_pages|).
+* a GitHub repository for all software, website development and discussion forums : |intermagnet_github|
+* The INTERMAGNET website has been designed using GitHub Pages (|git_hub_pages|).
 * The Online Technical Reference Manual is produced using the  `sphinx framework`_ making it possible to generate both pdf and html versions of the manual
   The manual is automatically built and deployed using the services offered by `readthedocs.org`_.
 
@@ -36,10 +36,10 @@ deployed on the servers of the German Research Centre for Geosciences (GFZ).
 
 .. _use_dat_imag_web_addr:
 
-WEB Site Address
-----------------
+Website Address
+---------------
 
-The INTERMAGNET web site address is: |intermagnet_website|.
+The INTERMAGNET website address is: |intermagnet_website|.
 This gives access to the home page from where information about INTERMAGNET is available.
 The source code for the website is available on the INTERMAGNET GitHub.
 
@@ -77,7 +77,7 @@ Downloading Data
 Geomagnetic observatory data can be downloaded using a web browser:
 
 - Definitive data and metadata can be downloaded from the INTERMAGNET DOIs.
-- Definitive and provisional data can be viewed and downloade from the INTERMAGNET web site.
+- Definitive and provisional data can be viewed and downloaded from the INTERMAGNET website.
 
 Until 2015, the annual definitive data was released on a physical media (see :numref:`use_dat_physical_media`).
 From 2015 onward, the intermagnet definitive data is published yearly with a Digital Object Identifier (DOI) which includes
@@ -96,7 +96,7 @@ This DOI-referenced annual data set is known as the "INTERMAGNET Reference Data 
 The IRDS comprises all INTERMAGNET one-minute definitive data since 1991 and is annually updated
 with a new year and occasional corrections to previous releases.
 The DOIs and their associated data are hosted at `GFZ data services`_.
-Use the `GFZ DOI search`_ page and enter "Intermagnet" in the search box to show all INTERMAGNET 
+Use the `GFZ DOI search`_ page and enter "INTERMAGNET" in the search box to show all INTERMAGNET
 definitive data DOIs.
 
 A download section on the DOI landing page gives access to the data. 
@@ -122,7 +122,7 @@ the web interface.
 
 Data are available
 via web services. For further details and to download data, you can consult 
-the INTERMAGNET web site: |download_plot_data|
+the INTERMAGNET website: |download_plot_data|
 
 Plots of magnetic observatory data and information derived from
 the data are also available. These include:
@@ -137,9 +137,9 @@ the data are also available. These include:
 Geomagnetic Activity
 --------------------
 
-A tool for viewing Geomagnetic activity is available on the BGS web site.
+A tool for viewing Geomagnetic activity is available on the BGS website.
 As well as providing access to real-time data, it allows users to search 
-both Intermagnet and the World Data Centre (Edinburgh) archives to 
+both INTERMAGNET and the World Data Centre (Edinburgh) archives to
 facilitate comparison with historic data.
 
 `BGS Activity viewer`_

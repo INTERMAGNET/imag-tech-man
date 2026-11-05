@@ -50,8 +50,7 @@
 
 .. |download_plot_data| replace:: https://intermagnet.org/data_download.html
 
-.. |matzka_hansen| replace:: https://pub.igf.edu.pl/files/Pdf/Pubs/37.pdf?t=1702373167
-
+.. |matzka_hansen| replace:: https://pub.igf.edu.pl/files/Pdf/Pubs/37.pdf
 
 .. |mosquitto| replace:: https://mosquitto.org/
 .. |eclipse_paho| replace:: https://eclipse.dev/paho/

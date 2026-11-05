@@ -25,3 +25,19 @@ div.after {
   display: table;
   clear: both;
 }
+/* Target the very first paragraph/line inside any footnote element */
+[class*="footnote"] p:first-of-type {
+    text-align: left !important;
+    display: block !important;       /* Forces it out of inline layouts that center text */
+    grid-column: 1 / -1 !important;  /* Forces it to span the full width of any grid layout */
+    justify-self: start !important;  /* Snaps it to the left edge if it's a grid item */
+    width: 100% !important;          /* Prevents it from shrinking and centering */
+}
+
+/* Ensure the rest of the list elements align right underneath it */
+[class*="footnote"] ul {
+    text-align: left !important;
+    grid-column: 1 / -1 !important;
+    justify-self: start !important;
+    padding-left: 1.5rem !important; /* Indents the bullets slightly for readability */
+}

@@ -46,10 +46,10 @@ INTERMAGNET Terminology
         Geomagnetic Information Nodes are data centers, organized on
         a regional basis, which INTERMAGNET observatories send their
         provisional data to. GINs forward this data to the
-        INTERMAGNET web site. GIN managers will help INTERMAGNET
+        INTERMAGNET website. GIN managers will help INTERMAGNET
         observatories with the technical details of establishing
         reliable data flow. GINs do not distribute data to users –
-        this task is done by the INTERMAGNET web site.
+        this task is done by the INTERMAGNET website.
 
     IMO
         An INTERMAGNET Magnetic Observatory (IMO) is a magnetic
@@ -66,7 +66,7 @@ INTERMAGNET Terminology
 
     IRDS
         INTERMAGNET Reference Data Set contains all definitive
-        data and metadata from the first Intermagnet publication
+        data and metadata from the first INTERMAGNET publication
         in 1991 up to the current year, including any corrections
         that have been made. Published with a DOI, for example
         the INTERMAGNET Reference Data Set, 2015:
