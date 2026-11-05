@@ -236,6 +236,10 @@ environmental data gathering services.
 
     \newpage
 
+.. raw:: latex
+
+    \sphinxstepscope
+
 .. include:: ./includes/dataformats/imagimfv2.rst
 
 .. raw:: latex

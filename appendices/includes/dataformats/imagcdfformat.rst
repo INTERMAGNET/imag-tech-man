@@ -726,7 +726,9 @@ GeomagneticVectorTimes and GeomagneticScalarTimes.
 ImagCDF File Names (V1.2)
 """""""""""""""""""""""""
 
-ImagCDF files are named using the convention::
+ImagCDF files are named using the convention
+
+::
 
     [iaga-code]_[date-time]_[publication-level].cdf
 
