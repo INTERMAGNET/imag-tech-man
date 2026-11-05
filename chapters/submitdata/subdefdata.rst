@@ -91,8 +91,8 @@ The following files should be put on the Paris ftp server:
 
 .. [#] For each of these items please state whether you want:
 
-   - To use the same file as the previous year
-   - To make changes to the previous year's file (in which case please describe the changes)
+   - To use the same file as the previous year.
+   - To make changes to the previous year's file (in which case please describe the changes).
    - To use a new file(in which case please put the new file on the server).
 
 .. [#] One second data is encouraged, but not required.
