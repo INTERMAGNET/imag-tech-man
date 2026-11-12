@@ -102,7 +102,7 @@ in the INTERMAGNET Archive Format (IAF) which is described in
 |app_iaf|. Data can be converted to IAF using INTERMAGNET’s
 "imcdview" data visualisation software, "gm_convert" data
 conversion software or "MagPy" analysis and display software.
-Institutes chosing to contribute 1-second
+Institutes choosing to contribute 1-second
 data should provide the data in INTERMAGNET CDF Format (ImagCDF)
 which is described in |app_cdf|. Data can be converted to ImagCDF 
 using the "gm_convert" or MagPy software. These software products can be
