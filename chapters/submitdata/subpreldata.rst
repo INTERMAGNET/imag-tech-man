@@ -509,7 +509,6 @@ GIN Email Addresses
 ```````````````````
 
 -  Ottawa: N/A
--  Paris: N/A
 -  Golden: N/A
 -  Edinburgh: e_gin@mail.nmh.ac.uk
 -  Kyoto: {ID_for_each_observatory_or_institute}@wdcvmmagdata.kugi.kyoto-u.ac.jp

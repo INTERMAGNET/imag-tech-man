@@ -13,7 +13,6 @@
 .. |contact_golden_gin_manager| replace:: bgeels@usgs.gov
 .. |contact_kyoto_gin_manager| replace:: imajo@kugi.kyoto-u.ac.jp
 .. |contact_ottawa_gin_manager| replace:: charles.blais@canada.ca
-.. |contact_par_gin_manager| replace:: vmaury@ipgp.fr
 
 .. |imag_imo_list| replace:: https://intermagnet.org/metadata/#/imos
 .. |intermagnet_website| replace:: https://intermagnet.org/
@@ -32,7 +31,7 @@
 .. |git_hub_pages| replace:: https://pages.github.com/
 .. |rfc1867| replace:: http://www.ietf.org/rfc/rfc1867.txt
 .. |curl| replace:: http://curl.haxx.se/
-.. |gin_paris| replace:: par-gin.ipgp.fr
+.. |ipgp_def_data_ftp| replace:: par-gin.ipgp.fr
 .. |gin_edin_up| replace:: https://gin-upload.bgs.ac.uk/GINFileUpload/
 .. |gin_edin_up_help| replace:: https://gin-upload.bgs.ac.uk/GINFileUpload/HelpAutomate.html
 .. |tn_9| replace:: https://intermagnet.org/docs/technical/im_tn_9_WebDataDelivery.pdf

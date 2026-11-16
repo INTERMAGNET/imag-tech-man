@@ -40,10 +40,10 @@ out a "call for data" by email to each observatory. The distribution
 list |imag_imo_email| is used to send the email. The subject of this email
 traditionally starts with the words "Call for Data". The
 request includes a submission date for both 1-minute and 1-second
-data, by which time data must be
-received at the Paris GIN ftp server (usually this deadline is
-six months after the end of the year in which the data were
-recorded). If an IMO misses the deadline:
+data, by which time data must be received at the ftp site for definitive 
+data (which is managed by the IPGP magnetic observation service).
+Usually this deadline is six months after the end of the year in which 
+the data were recorded. If an IMO misses the deadline:
 
 - Only definitive data accepted before the publication
   deadline (specified by the Operations committee) will be
@@ -58,7 +58,7 @@ recorded). If an IMO misses the deadline:
 How to submit data
 ``````````````````
 
-The following files should be put on the Paris ftp server:
+The following files should be put on the IPGP definitive data ftp server:
 
 .. tabularcolumns:: |p{4cm}|p{6cm}|p{5cm}|
 
@@ -132,31 +132,31 @@ One of the main objectives of INTERMAGNET is to process
 definitive data as fast as possible and to make these data
 available to users. To facilitate this, institutes should send
 their definitive data in the INTERMAGNET binary data formats as
-well as accompanying files by ftp to the
-Paris GIN’s ftp server as soon as possible and before the data
+well as accompanying files by ftp to the ftp site managed by the 
+IPGP magnetic observation service as soon as possible and before the data
 submission deadline which is set by the INTERMAGNET operations
 committee.
 
 Submit 1-minute data to:
 
--  Host name: |gin_paris|
+-  Host name: |ipgp_def_data_ftp|
 -  User name: userint
--  Password can obtained from the Paris GIN manager (|contact_par_gin_manager|)
-   or the co-chair of the Definitive Data Subcommittee (|contact_subcom_defdat_1m|).
+-  Password can obtained from the co-chair of the Definitive Data 
+   Subcommittee (|contact_subcom_defdat_1m|).
 
 Submit 1-second data to:
 
--  Host name: |gin_paris|
+-  Host name: |ipgp_def_data_ftp|
 -  User name: user1sec
--  Password can obtained from the Paris GIN manager (|contact_par_gin_manager|)
-   or the co-chair of the Definitive Data Subcommittee (|contact_subcom_defdat_1s|).
+-  Password can obtained from the co-chair of the Definitive Data 
+   Subcommittee (|contact_subcom_defdat_1s|).
 
 Once the data have been put on the server, INTERMAGNET then:
 
 -  Reviews the data.
 -  Ingests the minute data into the INTERMAGNET website.
 -  Copies the data to the World Data Centre Edinburgh
--  Publishes the data under a DOI. The data is hosted at `GFZ data services`_.
+-  Publishes the data under a DOI. The published data is hosted at `GFZ data services`_.
    Entering "INTERMAGNET" in the search box on this page will show all
    INTERMAGNET definitive data DOIs.
 
@@ -178,7 +178,7 @@ and checking of data.
 The application check1min.exe, the imcdview software and MagPy contain methods 
 for data inspection and are available on the INTERMAGNET website: |imag_software|.
 
-Before putting INTERMAGNET files on the Paris GIN ftp server,
+Before putting INTERMAGNET files on IPGP's ftp server for definitive data,
 institutes must perform the following as a minimum set of
 tests:
 

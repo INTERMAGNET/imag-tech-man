@@ -56,8 +56,9 @@ to data from INTERMAGNET observatories.
 Observatories are also required to send definitive data to
 INTERMAGNET. A ‘call for data’ is issued annually, describing
 how data should be submitted and giving a deadline for
-submission. Observatories send their definitive data to the 
-Paris GIN's ftp site. This process is expected to be manual 
+submission. Observatories send their definitive data to an 
+ftp site managed by the IPGP magnetic observation service. 
+This process is expected to be manual 
 and only done once a year (unless there are problems with the 
 data that require resubmission).
 
@@ -245,7 +246,7 @@ Geomagnetic Information Nodes
 
 INTERMAGNET has a two stage approach to collection and
 dissemination of preliminary data. Observatories send their
-data to one of 5 Geomagnetic Information Nodes (GINs). The GINs
+data to one of 4 Geomagnetic Information Nodes (GINs). The GINs
 then forward data to the INTERMAGNET website for distribution
 to users, where it is made available via web services and a data
 visualisation and download application on the website. GINs may make
@@ -298,8 +299,8 @@ they offer.
     |                       |    collect data from  |                       |
     |                       |    observatories      |                       |
     +-----------------------+-----------------------+-----------------------+
-    | 2                     | -  Handles data from  | Edinburgh, Kyoto,     |
-    |                       |    many IMOs not      | Paris                 |
+    | 2                     | -  Handles data from  | Edinburgh, Kyoto      |
+    |                       |    many IMOs not      |                       |
     |                       |    associated with    |                       |
     |                       |    its own institute. |                       |
     |                       | -  Uses INTERMAGNET   |                       |

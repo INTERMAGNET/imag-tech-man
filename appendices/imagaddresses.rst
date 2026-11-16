@@ -448,16 +448,3 @@ Geomagnetic Information Node (GIN) Managers
 
        CANADA
      - |contact_ottawa_gin_manager|
-
-   * - **Paris (France)**
-     - **Virginie Maury**
-     - Institut de Physique du Globe de Paris
-
-       Observatoires magnétiques - bur 110
-
-       1, rue Jussieu
-
-       75238 Paris Cedex 05
-
-       FRANCE
-     - |contact_par_gin_manager|

@@ -67,8 +67,7 @@ satellite any data input to it during the previous 60 minutes.
 From the satellite, the data are relayed to the EUMETSAT
 operations center at Darmstadt, Germany, where they are checked
 and temporarily stored. The GIN automatically collects the data
-from the EUMETSAT website. For more information please contact
-the Paris GIN manager.
+from the EUMETSAT website.
 
 GOES
 ````
@@ -179,10 +178,6 @@ Satellite Operators
 | Fax: 49 61 51 80 75 55
 | Internet: ops@eumetsat.de
 | Web: www.eumetsat.de
-
-Those whose potential IMOs would be serviced by METEOSAT are
-advised to first contact the PARIS GIN operators for timely
-information on access to METEOSAT.
 
 | **GOES East and West**
 | Letecia Reeves

@@ -103,8 +103,8 @@ Description of the Header Block (64 characters including CrLf)
     +----------------+-------------------------------------------------+
     | GIN            | Three-letter code for GIN responsible for       |
     |                | processing the station (IMO) data eg:           |
-    |                | EDI(Edinburgh), GOL(Golden), OTT(Ottawa),       |
-    |                | PAR(Paris).                                     |
+    |                | EDI(Edinburgh), GOL(Golden), KYO(Kyoto),        |
+    |                | PAR(Paris), OTT(Ottawa).                        |
     +----------------+-------------------------------------------------+
     | COLALONG       | Colatitude and east longitude of the            |
     |                | observatory in tenths of degrees, to WGS-84     |
@@ -278,8 +278,8 @@ Description of the Header Block (64 characters including CrLf)
     +----------------+-------------------------------------------------+
     | GIN            | Three-letter code for GIN responsible for       |
     |                | processing the station (IMO) data eg:           |
-    |                | EDI(Edinburgh), GOL(Golden), OTT(Ottawa),       |
-    |                | PAR(Paris).                                     |
+    |                | EDI(Edinburgh), GOL(Golden), KYO(Kyoto),        |
+    |                | PAR(Paris), OTT(Ottawa).                        |
     +----------------+-------------------------------------------------+
     | COLALONG       | Colatitude and east longitude of the            |
     |                | observatory in tenths of degrees, to WGS-84     |
