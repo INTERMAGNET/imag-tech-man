@@ -67,7 +67,7 @@ Observatory Application to the INTERMAGNET Network
 Observatories intending to join the INTERMAGNET network are
 requested to submit an application and sample data to the IMO
 Applications and Standards Subcommittee chair using the
-`application form`_ on the INTERMAGNET web site. The application will then be
+`application form`_ on the INTERMAGNET website. The application will then be
 reviewed by the INTERMAGNET Operations Committee against the standards
 defined in the Technical Manual. If these standards are met,
 and once near real-time data are being transmitted to the

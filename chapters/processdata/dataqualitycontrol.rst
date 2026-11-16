@@ -45,7 +45,7 @@ performed automatically, leaving the observer to:
   flagging, filling or performing an interim baseline
   adjustment
 - Record observatory changes and events in the observatory diary
-- Transmit reported data within 72 hours of recording with
+- Transmit adjusted data within 72 hours of recording with
   approximate adopted baselines
 - Optionally transmit observatory indices
 
@@ -83,9 +83,9 @@ Observatories will have specific tasks associated with making
 and processing absolute observations and baseline modelling
 that are performed at least weekly. This is an opportune time
 to make a more accurate assessment of the applied baselines and
-to optionally transmit adjusted data with an improved level of
-data quality to the reported data. Weekly tasks typically
-include:
+to optionally transmit corrected data with an improved level of
+data quality. Multiple transmissions of adjusted data are accepted
+by INTERMAGNET GINs. Weekly tasks typically include:
 
 - Performing absolute observations
 - Making a scalar site difference measurement between the
@@ -95,10 +95,8 @@ include:
 - Plotting and inspecting observed baselines, identifying and
   evaluating steps and drifts
 - Approximately modelling the adopted baseline for application
-  to reported and adjusted data
-- Transmitting adjusted data with approximate adopted
-  baselines (plus spikes removed and gaps filled) within 7
-  days of recording
+  to adjusted data
+- Transmitting any data updates within 7 days of recording
 
 
 .. _proc_dat_dqc_month_tasks:
@@ -192,7 +190,7 @@ distance and/or direction they are with respect to the two
 magnetometers. Therefore, spikes and disturbances can best be recognized by looking at
 the difference between these two magnetometers, as this will eliminate 
 the natural geomagnetic field variations that are identical at both magnetometers, 
-but not the signal from moving moving magnetic objects. For two scalar magnetometers, 
+but not the signal from moving magnetic objects. For two scalar magnetometers,
 calculating the total field difference is simple.  For a vector and a scalar magnetometer,
 the total field difference between the two magnetometers can be calculated 
 (see :numref:`proc_dat_tot_f_dif` computation of total field differences)

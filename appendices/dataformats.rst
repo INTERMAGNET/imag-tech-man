@@ -4,19 +4,13 @@ Data Formats
 ============
 
 
-.. include:: ./includes/dataformats/imagimfv2.rst
+.. include:: ./includes/dataformats/imagmqtt.rst
 
 .. raw:: latex
 
     \newpage
 
-.. include:: ./includes/dataformats/satcoding.rst
-
-.. raw:: latex
-
-    \newpage
-
-.. include:: ./includes/dataformats/imagimfv1.rst
+.. include:: ./includes/dataformats/iaga2002.rst
 
 .. raw:: latex
 
@@ -28,11 +22,10 @@ Data Formats
 
     \newpage
 
-
-.. include:: ./includes/dataformats/iaga2002.rst
+.. include:: ./includes/dataformats/imagcdfformat.rst
 
 .. raw:: latex
 
     \newpage
 
-.. include:: ./includes/dataformats/imagcdfformat.rst
+.. include:: ./includes/dataformats/imagimfv1.rst

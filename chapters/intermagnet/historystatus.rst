@@ -31,6 +31,5 @@ Steering Committee has also endorsed INTERMAGNET.
 At present the observatories shown in |app_obs| are
 transmitting daily over the Internet, or through satellites to
 Geomagnetic Information Node (GINs). More stations are coming
-online rapidly. GINs are now operating in Edinburgh (BGS),
-Golden (USGS), Kyoto (Kyoto U.), Ottawa (GSC), and Paris
-(IPGP).
+online. GINs are now operating in Edinburgh (BGS),
+Golden (USGS), Kyoto (Kyoto U.) and Ottawa (GSC).

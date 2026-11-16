@@ -36,7 +36,7 @@ commercial users.
 
 #. The collected data will be made available to the scientific
    community and to participating observatories on the
-   INTERMAGNET web site or on media and in formats approved by
+   INTERMAGNET website or on media and in formats approved by
    the INTERMAGNET Executive Council.
 
 #. All data are supplied on the condition that they are not

@@ -1,4 +1,4 @@
-.. _sub_dat_mean_std:
+.. _proc_dat_mean_std:
 
 Standards for Calculating Hourly, Daily and Annual Means
 ========================================================
@@ -6,7 +6,7 @@ Standards for Calculating Hourly, Daily and Annual Means
 INTERMAGNET requires that all mean values be calculated using
 the rules described in the next sections.
 
-.. _sub_dat_mean_std_hour:
+.. _proc_dat_mean_std_hour:
 
 Hourly Mean Values
 ------------------
@@ -18,7 +18,7 @@ rules:
 - Centered on the center of the hour (HH:29:30, HH=hour) using
   1-minute data 00-59 of the hour
 
-.. _sub_dat_mean_std_day:
+.. _proc_dat_mean_std_day:
 
 Daily Mean Values
 -----------------
@@ -30,7 +30,7 @@ rules:
 - Centered on the center of the day (11:59:30) using 1-minute
   data 00:00-23:59 of the day
 
-.. _sub_dat_mean_std_year:
+.. _proc_dat_mean_std_year:
 
 Annual Mean Values
 ------------------
@@ -44,7 +44,7 @@ rules:
   1-minute data 01 January 00:00- 31 December 23:59 of the
   year
 
-.. _sub_dat_mean_std_missing:
+.. _proc_dat_mean_std_missing:
 
 Rule for Missing 1-minute Values
 --------------------------------

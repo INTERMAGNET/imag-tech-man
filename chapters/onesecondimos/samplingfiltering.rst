@@ -19,10 +19,6 @@ INTERMAGNET does not specify the use of a particular filter
 although the chosen filter must provide adequate attenuation to
 meet the required specifications in :numref:`1sec_imo_instspec`.
 
-Examples of acceptable sets of filter coefficients, for use
-with various sampling rates of properly anti-aliased signals
-are presented in |app_1sec_filter|.
-
 A scalar magnetometer must provide a sample centered on the
 same time as the output of the digital filter used with the
 vector magnetometer.

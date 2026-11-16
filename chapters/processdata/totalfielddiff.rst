@@ -4,9 +4,9 @@ The Computation of Total Field Differences
 ==========================================
 
 Whenever possible, observatories should measure the scalar
-field intensity S (:numref:`sub_dat_intro_gc`) in addition to the vector
+field intensity S (:numref:`proc_dat_gc`) in addition to the vector
 components of the magnetic field. The total field component F
-(:numref:`sub_dat_intro_gc`) can be calculated from the vector components of
+(:numref:`proc_dat_gc`) can be calculated from the vector components of
 the field using simple mathematical relationships. F and S thus
 provide two independent values of the total field intensity
 from two different instruments at different locations within

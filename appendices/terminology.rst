@@ -5,23 +5,20 @@ INTERMAGNET Terminology
 
 .. include:: ./appendices.rst
 
+.. include:: ../shared/targets.rst
+
 
 
 .. glossary::
 
     ADJUSTED Data
-        Each observatory or its parent institute is allowed to
-        modify REPORTED data files to produce ADJUSTED data, with a
-        goal of 7 days after transmission. These adjustments may be
-        to modify baselines, remove spikes, fill gaps etc. on any
-        day file. When data are missing from an ADJUSTED data file,
+        Data from an observatory that may have been adjusted for quality.
+        These adjustments may be to modify baselines, remove spikes, fill 
+        gaps etc. When data are missing from an ADJUSTED data file,
         these data may be input to a GIN in a later message. This
         new message file can be transmitted to a GIN with the data 
-        type set to ADJUSTED (See |app_imag_imfv_2| ). ADJUSTED
-        data are maintained online until the annual INTERMAGNET
-        Reference Data Set (IRDS) is available. They are then
-        archived by the GIN and only available thereafter by
-        special arrangement.
+        type set to ADJUSTED (See |app_imag_imfv_2| ). This type of
+        data is equivalent to the IAGA-2002 "provisional" data type.
 
     DEFINITIVE Data
         This describes the final publication stage of observatory
@@ -49,10 +46,10 @@ INTERMAGNET Terminology
         Geomagnetic Information Nodes are data centers, organized on
         a regional basis, which INTERMAGNET observatories send their
         provisional data to. GINs forward this data to the
-        INTERMAGNET web site. GIN managers will help INTERMAGNET
+        INTERMAGNET website. GIN managers will help INTERMAGNET
         observatories with the technical details of establishing
         reliable data flow. GINs do not distribute data to users –
-        this task is done by the INTERMAGNET web site.
+        this task is done by the INTERMAGNET website.
 
     IMO
         An INTERMAGNET Magnetic Observatory (IMO) is a magnetic
@@ -69,11 +66,11 @@ INTERMAGNET Terminology
 
     IRDS
         INTERMAGNET Reference Data Set contains all definitive
-        data and metadata from the first Intermagnet publication
+        data and metadata from the first INTERMAGNET publication
         in 1991 up to the current year, including any corrections
         that have been made. Published with a DOI, for example
         the INTERMAGNET Reference Data Set, 2015:
-        https://doi.org/10.5880/INTERMAGNET.1991.2015.
+        `INTERMAGNET 2015 DOI`_.
 
 
     Magnetic observatory
@@ -145,12 +142,12 @@ INTERMAGNET Terminology
         produce adjusted data and to supplement baseline control.
         
     REPORTED Data
-        Data as output by an observatory, transmitting through a
-        satellite or using email. REPORTED data have not had any
+        Data from an observatory that has not had any
         baseline corrections applied, may contain spikes and may
-        have missing values. When ADJUSTED data are available,
-        REPORTED data are removed from online access.
-
+        have missing values. Because all INTERMAGNET data is of
+        observatory quality and must include baselines, REPORTED
+        data should not be used by INTERMAGNET observatories.
+        
     Time stamp
         The precise date and time of acquisition of a data sample.
         Timestamp are recorded and transmitted alongside the data.

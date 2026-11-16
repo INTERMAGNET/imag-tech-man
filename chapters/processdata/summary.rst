@@ -3,7 +3,7 @@
 Summary
 =======
 
-Tools that might be used for quality control of reported,
+Tools that might be used for quality control of 
 adjusted and definitive data have briefly been described.
 INTERMAGNET is establishing standards of comparison such as the
 graphs of baselines and F-P values. Participating observatories

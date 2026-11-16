@@ -4,6 +4,11 @@
 Contacts
 ========
 
+.. include:: ../shared/variables.rst
+
+.. _app_imag_addr_excon:
+
+
 INTERMAGNET Executive Council
 -----------------------------
 
@@ -90,6 +95,7 @@ INTERMAGNET Executive Council
      - juergen.matzka@gfz.de
 
 
+.. _app_imag_addr_opscom:
 
 INTERMAGNET Operations Committee
 --------------------------------
@@ -372,3 +378,73 @@ INTERMAGNET Operations Committee
 
        UK
      - c.turbitt@bgs.ac.uk
+
+
+.. _app_imag_addr_ginman:
+
+Geomagnetic Information Node (GIN) Managers
+-------------------------------------------
+
+.. list-table::
+   :widths: 15 15 40 30
+   :header-rows: 1
+   :class: longtable
+
+   * - GIN
+     - Name
+     - Organization & Address
+     - Email
+
+   * - **Edinburgh (UK)**
+     - **Simon M. Flower**
+     - British Geological Survey
+
+       The Lyell Centre
+
+       Research Avenue South
+
+       Edinburgh EH14 4AP
+
+       UK
+     - |contact_edinburgh_gin_manager|
+
+   * - **Golden (USA)**
+     - **Brendan Geels**
+     - U.S. Geological Survey
+
+       Box 25046 MS 966
+
+       Denver Federal Center
+
+       Denver, Colorado 80225-0046
+
+       USA
+     - |contact_golden_gin_manager|
+
+   * - **Kyoto (Japan)**
+     - **Shun Imajo**
+     - Data Analysis Center for Geomagnetism and Space Magnetism
+
+       Graduate School of Science, Bldg #4
+
+       Kyoto University
+
+       Oiwake-cho, Kitashirakawa, Sakyo-ku
+
+       Kyoto 606-8502
+
+       JAPAN
+     - |contact_kyoto_gin_manager|
+
+   * - **Ottawa (Canada)**
+     - **Charles Blais**
+     - Natural Resources Canada
+
+       Canadian Hazards Information Service
+
+       7 Observatory Cr.
+
+       Ottawa, Ontario K1A OY3
+
+       CANADA
+     - |contact_ottawa_gin_manager|

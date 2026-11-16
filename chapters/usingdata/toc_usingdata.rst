@@ -8,5 +8,6 @@ Using INTERMAGNET Data
     :maxdepth: 4
 
     imagwebsite
+    physicalmedia
     dataviewer
     conditionofuse

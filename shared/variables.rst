@@ -1,33 +1,37 @@
 .. |contact| replace:: secretary_intermagnet@gfz-potsdam.de
 .. |contact_ipgp| replace:: intermagnet@ipgp.fr
 .. |imag_imo_email| replace:: imocontact@gfz-potsdam.de
-.. |contact_gin_ottawa| replace:: charles.blais@canada.ca
-.. |contact_gin_paris| replace:: vmaury@ipgp.fr
-.. |contact_gin_golden| replace:: bgeels@usgs.gov
-.. |contact_gin_edin| replace:: e_gin@mail.nmh.ac.uk
-.. |contact_gin_kyoto| replace:: wdc_service@kugi.kyoto-u.ac.jp
 .. |contact_gen_inq| replace:: andrew.lewis@ga.gov.au
 .. |contact_imag_memb| replace:: c.turbitt@bgs.ac.uk
 .. |imag_apply_form| replace:: https://intermagnet.org/membership.html
+.. |contact_subcom_defdat_1m| replace:: jreda@igf.edu.pl
+.. |contact_subcom_defdat_1s| replace:: roman.leonhardt@geosphere.at
+.. |name_subcom_defdat_1m| replace:: jreda@igf.edu.pl
+.. |name_subcom_defdat_1s| replace:: roman.leonhardt@geosphere.at
+
+.. |contact_edinburgh_gin_manager| replace:: e_ginman@bgs.ac.uk
+.. |contact_golden_gin_manager| replace:: bgeels@usgs.gov
+.. |contact_kyoto_gin_manager| replace:: imajo@kugi.kyoto-u.ac.jp
+.. |contact_ottawa_gin_manager| replace:: charles.blais@canada.ca
 
 .. |imag_imo_list| replace:: https://intermagnet.org/metadata/#/imos
-.. |intermagnet_website| replace:: https://www.intermagnet.org/
+.. |intermagnet_website| replace:: https://intermagnet.org/
 .. |techman_website| replace:: https://tech-man.intermagnet.org/
 .. |intermagnet_github| replace:: https://github.com/INTERMAGNET
 .. |website_github_src| replace:: https://github.com/INTERMAGNET/intermagnet.github.io
 .. |tech_man_github_src| replace:: https://github.com/INTERMAGNET/imag-tech-man
 
 
-.. |faq_qd| replace:: https://intermagnet.org/faq/04.what-is-quasi.html
-.. |faq_bgs_qd| replace:: https://intermagnet.org/faq/08.bgs-quasi.html
-.. |faq_ipgp_qd| replace:: https://intermagnet.org/faq/09.ipgp-quasi.html
+.. |faq_qd| replace:: https://intermagnet.org/faq/what-is-quasi.html
+.. |faq_bgs_qd| replace:: https://intermagnet.org/faq/bgs-quasi.html
+.. |faq_ipgp_qd| replace:: https://intermagnet.org/faq/ipgp-quasi.html
 .. |imag_software| replace:: https://intermagnet.org/software.html
 
 .. |iaga_guide| replace:: http://www.iaga-aiga.org/data/uploads/pdf/guides/iaga-guide-observatories.pdf
 .. |git_hub_pages| replace:: https://pages.github.com/
 .. |rfc1867| replace:: http://www.ietf.org/rfc/rfc1867.txt
 .. |curl| replace:: http://curl.haxx.se/
-.. |gin_paris| replace:: par-gin.ipgp.fr
+.. |ipgp_def_data_ftp| replace:: par-gin.ipgp.fr
 .. |gin_edin_up| replace:: https://gin-upload.bgs.ac.uk/GINFileUpload/
 .. |gin_edin_up_help| replace:: https://gin-upload.bgs.ac.uk/GINFileUpload/HelpAutomate.html
 .. |tn_9| replace:: https://intermagnet.org/docs/technical/im_tn_9_WebDataDelivery.pdf
@@ -45,7 +49,11 @@
 
 .. |download_plot_data| replace:: https://intermagnet.org/data_download.html
 
-.. |matzka_qd| replace:: https://publicaciones.defensa.gob.es/boletin-roa-n-3-2013-proceedings-of-the-xvth-iaga-workshop-on-geomagnetic-observatory-instruments-data-acquisition-and-processing.html
-.. |matzka_hansen| replace:: https://pub.igf.edu.pl/files/Pdf/Pubs/37.pdf?t=1702373167
+.. |matzka_hansen| replace:: https://pub.igf.edu.pl/files/Pdf/Pubs/37.pdf
 
+.. |mosquitto| replace:: https://mosquitto.org/
+.. |eclipse_paho| replace:: https://eclipse.dev/paho/
+
+.. |json_verifier| replace:: https://json-schema.hyperjump.io/
+.. |json_reference| replace:: https://json-schema.org/learn/getting-started-step-by-step
 
