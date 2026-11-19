@@ -23,3 +23,9 @@ Archive Data Formats
 
 .. include:: ./includes/adf/imagiyf.rst
 
+
+.. raw:: latex
+
+    \newpage
+
+.. include:: ./includes/adf/imagdka.rst
